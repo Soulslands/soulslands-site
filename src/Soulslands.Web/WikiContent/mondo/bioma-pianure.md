@@ -17,7 +17,7 @@ Le pianure sono distese erbose e collinari, ispirate alle campagne intorno a Bri
 |----------------|--------|
 | **Clima** | Mite, secco d'estate |
 | **Pericolo** | ⭐ |
-| **Strutture** | Fattorie abbandonate, mulini, strade, città NPC |
+| **Strutture** | Fattorie abbandonate, mulini, strade, feudi e villaggi |
 | **Verso il secco** | Dove il clima si fa più asciutto le pianure diventano [steppa](/wiki/bioma-steppa), senza alberi |
 
 ---
@@ -73,7 +73,7 @@ Le specie sono descritte in [Alberi](/wiki/alberi), i legni in [Legni](/wiki/leg
 | Uccelli | Giorno | No |
 | Lupi grigi | Notte | Sì |
 | Cougar (puma) | Alba e tramonto | Sì |
-| Banditi, ladri di strada | Lungo le strade lontane dalle città | Sì |
+| Banditi, ladri di strada | Lungo le strade | Sì |
 | Harpy | Colline rocciose | Sì |
 | Scheletri, zombie | Notte | Sì |
 
@@ -82,7 +82,7 @@ Le specie sono descritte in [Alberi](/wiki/alberi), i legni in [Legni](/wiki/leg
 ## ⚠️ Pericoli
 
 - Pochi ripari: di notte si è visibili da lontano.
-- Le praterie lontane dalle città attirano i [player killer](/wiki/player-killer-e-redenzione) in cerca di viaggiatori.
+- Le praterie aperte attirano i [player killer](/wiki/player-killer-e-redenzione) in cerca di viaggiatori.
 
 > 💡 Il bioma migliore per allevare animali da soma e cavalcature: vedi [Animali](/wiki/animali) e [Animal Taming](/wiki/skill-animal-taming).
 

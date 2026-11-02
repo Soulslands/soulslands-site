@@ -23,7 +23,7 @@ In Soulslands il furto tra giocatori è **parte del gioco**. Con [Snooping](/wik
 | **Come** | Avvicinati al bersaglio, **a 1 blocco di distanza**, e apri il suo zaino |
 | **Esito** | È una sfida tra giocatori: la tua [Snooping](/wiki/skill-snooping) contro il Detect Hidden della vittima. Vinci solo con un valore strettamente più alto (a parità vince la vittima; a 100.0 una skill conta come 120.0). Se vinci vedi il contenuto senza prenderlo e nessuno se ne accorge |
 | **Essere scoperti** | Se perdi la sfida lo zaino si apre lo stesso, ma l'avviso arriva solo a chi è entro 8 blocchi **e vede chi frugava**; un bersaglio che non lo vede riceve l'avviso anonimo, e tutti gli altri non ricevono niente. Chi vede lui e il bersaglio legge "Hai notato X che cerca di frugare nello zaino di Y", chi vede solo lui ne legge il nome senza quello del bersaglio, e un bersaglio che non lo vede sa soltanto che qualcuno ha provato ("qualcuno ha tentato"). Chi è nascosto, per chi non lo vede, non viene mai nominato |
-| **Conseguenza** | Snooping fallito su un blu: il bersaglio è avvisato e perdi karma, ma **non diventi criminale** per questo; se avviene in città le guardie non intervengono |
+| **Conseguenza** | Snooping fallito su un blu: il bersaglio è avvisato e perdi karma, ma **non diventi criminale** per questo; se avviene in un feudo le guardie non intervengono |
 
 > 💡 Snoopa sempre prima di rubare: non sprecare il tentativo su uno zaino vuoto.
 

@@ -135,8 +135,6 @@ La luna ha **8 fasi** e passa alla successiva ogni giorno a mezzogiorno, quando 
 
 > 💡 Da ricordare: **la luna piena sveglia le bestie, la luna nuova sveglia i morti.**
 
-La luna governa anche i **moongate antichi**, gli archi magici al centro di alcuni cerchi di pietre: si aprono solo di notte e portano a una destinazione diversa per ogni fase lunare, mentre nella notte di luna nuova portano sempre ai margini di un bioma corrotto (vedi [Strutture](/wiki/strutture#santuari-e-moongate)).
-
 ### 🔴 La luna rossa
 
 In circa una luna piena su otto la luna sorge **rossa**: in media succede una volta ogni 64 giorni di gioco, cioè ogni 5 giorni reali e poco più. Al tramonto tutti i giocatori ricevono un avviso, e fino all'alba il mondo cambia:
@@ -157,7 +155,7 @@ In circa una luna piena su otto la luna sorge **rossa**: in media succede una vo
 | **Non-morti e creature d'ombra** | Bruciano, si indeboliscono o si ritirano (vedi sotto) | Liberi di vagare |
 | **Vista** | Piena | Ridotta: serve una luce o una razza che vede al buio (vedi [Vedere al buio](#vedere-al-buio)) |
 | **Piante** | Crescono | Quasi tutte si fermano, a meno di luci artificiali vicine (vedi sotto) |
-| **Città NPC** | Botteghe e mercato aperti | Lampioni accesi, guardie con la torcia, botteghe chiuse dalle 22:00 alle 06:00 |
+| **Feudi** | Botteghe e mercato aperti | Lampioni accesi, guardie con la torcia, botteghe chiuse dalle 22:00 alle 06:00 |
 | **Nascondersi** | Difficile in pieno sole su una piana aperta | Più facile al buio, lontano dalle luci (vedi [Hiding](/wiki/skill-hiding)) |
 | **Clima** | Nel [deserto](/wiki/bioma-deserto) il caldo consuma la stamina | Nel deserto la temperatura crolla, nella [tundra](/wiki/bioma-tundra) il freddo morde di più |
 
@@ -194,9 +192,9 @@ Il concime (letame, farina d'ossa, guano di [mongbat](/wiki/mostro-mongbat)) acc
 
 La radice di mandragora (`mandrake_plant`) cresce a ogni ora, ma si riconosce solo di notte: chi la cerca gira per paludi e Terre dei Morti con il buio (vedi [Blocchi](/wiki/blocchi#reagenti-nel-mondo)).
 
-### 🏰 Le città di notte
+### 🏰 I feudi di notte
 
-- Al tramonto le città NPC accendono da sole lampioni e bracieri lungo le strade e nelle piazze, che restano illuminati fino all'alba.
+- Al tramonto i feudi accendono da soli lampioni e bracieri lungo le strade e nelle piazze, che restano illuminati fino all'alba.
 - Di notte le [guardie cittadine](/wiki/guardie-cittadine) girano con una **torcia** in mano: si vedono da lontano e rischiarano i vicoli. Proteggono come di giorno e arrivano quando qualcuno le chiama.
 - Le **botteghe** e i banchi del mercato chiudono dalle 22:00 alle 06:00, cioè per 40 minuti reali, quando i mercanti vanno a dormire. **Banca, guaritore, stalle, taverna e locanda** restano sempre aperti.
 - Nella **locanda** si affitta un letto per passare la notte e uscire dal gioco al sicuro (vedi [Dormire e riposare](#dormire-e-riposare)).

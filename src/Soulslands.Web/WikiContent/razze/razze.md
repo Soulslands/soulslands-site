@@ -187,7 +187,7 @@ Ricorda che in Soulslands ciò che il personaggio non vede viene mostrato in gri
 
 ## 🔄 Come cambiare razza
 
-Ogni personaggio **inizia come Umano**, in una città di partenza, e non c'è nessuna schermata per scegliere la razza (**deciso da Aruto, 26/10/2026**). Per cambiare razza, **sempre, anche la prima volta**, devi usare la **Pedana delle Razze** (il vecchio *Races Pad*), una struttura presente nel mondo:
+Ogni personaggio **inizia come Umano**, al centro del mondo, nelle terre selvagge (vedi [Il Mondo](/wiki/mondo)), e non c'è nessuna schermata per scegliere la razza (**deciso da Aruto, 26/10/2026**). Per cambiare razza, **sempre, anche la prima volta**, devi usare la **Pedana delle Razze** (il vecchio *Races Pad*), una struttura presente nel mondo:
 
 1. Il tuo personaggio deve essere un **fantasma** (morto, vedi [Morte e fantasmi](/wiki/morte-e-fantasmi))
 2. Cammina sopra la **Pedana delle Razze**

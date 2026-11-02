@@ -12,7 +12,7 @@ visibility: Pubblica
 
 ## 📜 Descrizione
 
-I briganti sono **esseri umani** che hanno scelto la vita del fuorilegge: assalgono carovane e viaggiatori sulle strade lontane dalle città, si nascondono in accampamenti nei boschi e tengono il bottino in forzieri chiusi a chiave. Combattono con armi e armature comuni, a volte con arco e frecce. Non sono mostri, ma per il gioco sono creature ostili: si possono uccidere senza commettere omicidio.
+I briganti sono **esseri umani** che hanno scelto la vita del fuorilegge: assalgono carovane e viaggiatori sulle strade fuori dai feudi, si nascondono in accampamenti nei boschi e tengono il bottino in forzieri chiusi a chiave. Combattono con armi e armature comuni, a volte con arco e frecce. Non sono mostri, ma per il gioco sono creature ostili: si possono uccidere senza commettere omicidio.
 
 ---
 
@@ -29,7 +29,7 @@ I briganti sono **esseri umani** che hanno scelto la vita del fuorilegge: assalg
 
 | Voce | Valore |
 |------|--------|
-| **Biomi** | Strade lontane dalle città, accampamenti in [foresta temperata](/wiki/bioma-foresta-temperata) e [pianure](/wiki/bioma-pianure) |
+| **Biomi** | Strade fuori dai feudi, accampamenti in [foresta temperata](/wiki/bioma-foresta-temperata) e [pianure](/wiki/bioma-pianure) |
 | **Quando** | Sempre; più attivi di notte, bande di 3–6 |
 | **Comportamento** | 🔴 Aggressivo con chi viaggia da solo |
 | **Pericolo** | ⭐ |
@@ -67,7 +67,7 @@ Il brigante è un essere umano, come i giocatori: **non si può scuoiare né sme
 ## 💡 Consigli
 
 - Uccidere briganti aumenta il [karma](/wiki/karma-e-fama) e non conta come omicidio.
-- Fuori dalle città le [guardie cittadine](/wiki/guardie-cittadine) non arrivano: viaggia in gruppo sulle strade lontane.
+- Fuori dai feudi le [guardie cittadine](/wiki/guardie-cittadine) non arrivano: viaggia in gruppo sulle strade lontane.
 
 ---
 

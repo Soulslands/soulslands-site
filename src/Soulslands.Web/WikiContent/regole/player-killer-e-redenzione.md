@@ -94,7 +94,7 @@ Un [Chierico](/wiki/classe-chierico) può celebrare il rito della **Purificazion
 |-----|-----------|
 | **Chierico** | Qualsiasi Chierico, con karma positivo. Ogni uccisione da togliere richiede tempo (come esempio, circa 10 s per uccisione); [Spirit Speak](/wiki/skill-spirit-speak) e [Chivalry](/wiki/skill-chivalry) alte rendono il rito solo più veloce |
 | **Rosso** | Vivo, non in combattimento, **nessuna uccisione a breve termine attiva**, non purificato negli ultimi 7 giorni reali |
-| **Luogo** | Un santuario consacrato (città NPC o città di gilda con santuario) |
+| **Luogo** | Un santuario consacrato (un feudo o una città di gilda con santuario) |
 | **Offerta** | Un tributo in oro e reagenti, proporzionale alle uccisioni |
 
 > **Deciso da Aruto (31/10/2026):** qualsiasi Chierico può redimere; togliere ogni uccisione richiede tempo (circa 10 s per uccisione, come esempio) e Spirit Speak e Chivalry più alte lo rendono solo più veloce.

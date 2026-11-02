@@ -12,7 +12,7 @@ visibility: Pubblica
 
 ## 📜 Descrizione
 
-I ratman sono uomini-ratto ingobbiti, sporchi e astuti. Scavano tane sotto le città e nel sottosuolo superficiale, rubano dai magazzini e assalgono i viandanti in gruppo. Da soli sono deboli, ma escono sempre in branco con arcieri e maghi, e i loro morsi possono trasmettere malattie.
+I ratman sono uomini-ratto ingobbiti, sporchi e astuti. Scavano tane fuori dalle mura dei feudi e nel sottosuolo superficiale, rubano dai magazzini e assalgono i viandanti in gruppo. Da soli sono deboli, ma escono sempre in branco con arcieri e maghi, e i loro morsi possono trasmettere malattie.
 
 ---
 
@@ -28,7 +28,7 @@ I ratman sono uomini-ratto ingobbiti, sporchi e astuti. Scavano tane sotto le ci
 
 | Voce | Valore |
 |------|--------|
-| **Biomi** | Fogne delle città, tane dei ratman, [grotte e sottosuolo](/wiki/grotte-e-sottosuolo) superficiale |
+| **Biomi** | Canali di scolo dei feudi, tane dei ratman, [grotte e sottosuolo](/wiki/grotte-e-sottosuolo) superficiale |
 | **Quando** | Sempre; gruppi di 4–8 |
 | **Comportamento** | 🔴 Aggressivo in branco, fugge quando resta solo |
 | **Pericolo** | ⭐ (ratman) – ⭐⭐ (arciere, mago) |

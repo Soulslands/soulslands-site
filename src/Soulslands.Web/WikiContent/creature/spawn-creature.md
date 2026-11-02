@@ -17,7 +17,7 @@ visibility: Pubblica
 - [Bioma e profondità](#bioma-e-profondita)
 - [Luce](#luce)
 - [Giorno e notte](#giorno-e-notte)
-- [Distanza dalle città](#distanza-dalle-citta)
+- [Gli stessi ovunque](#gli-stessi-ovunque)
 - [Limiti di densità](#limiti-di-densita)
 - [Spawn rari e boss](#spawn-rari-e-boss)
 - [Zone senza spawn](#zone-senza-spawn)
@@ -27,7 +27,7 @@ visibility: Pubblica
 
 ## 📜 Panoramica
 
-In Ultima Online i mostri comparivano da "spawner" piazzati a mano su una mappa fissa. In Soulslands il mondo è generato man mano che lo si esplora, quindi le creature seguono **regole di spawn** come in Minecraft: il server decide cosa far comparire in base a [bioma](/wiki/biomi), profondità, luce, ora del giorno e distanza dalle città, rispettando un limite di creature per chunk.
+In Ultima Online i mostri comparivano da "spawner" piazzati a mano su una mappa fissa. In Soulslands il mondo è generato man mano che lo si esplora, quindi le creature seguono **regole di spawn** come in Minecraft: il server decide cosa far comparire in base a [bioma](/wiki/biomi), profondità, luce, ora del giorno, luogo e notte, rispettando un limite di creature per chunk.
 
 > 📌 I numeri di spawn di questa pagina sono nostre stime e possono cambiare con il bilanciamento. Il caso decide solo quando e dove compare una creatura, mai cosa porta con sé: il bottino è fisso per creatura ([Regole deterministiche](/wiki/regole-deterministiche)).
 
@@ -91,17 +91,16 @@ Nelle foreste profonde e sotto le chiome fitte il suolo resta buio anche di gior
 
 ---
 
-## 🏰 Distanza dalle città
+## 🧭 Gli stessi ovunque
 
-Più ci si allontana dalle città NPC, più le creature diventano forti.
+Il pericolo e il bottino **non crescono** con la distanza dai feudi né dal centro del mondo (**deciso da Aruto, 02/11/2026**; vedi [ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md)). In ogni punto del mondo le creature dipendono da tre cose:
 
-| Distanza dalla città più vicina | Effetto |
-|--------------------------------|---------|
-| Dentro la zona di guardia | **Nessuno spawn ostile** |
-| Fino a ~500 blocchi | Solo creature ⭐ – ⭐⭐, densità ridotta |
-| 500 – 2000 blocchi | Tabella normale del bioma |
-| 2000 – 5000 blocchi | Creature fino a ⭐⭐⭐⭐, gruppi più numerosi |
-| Oltre 5000 blocchi | Tabella completa, biomi corrotti, spawn rari più frequenti |
+| Cosa conta | Effetto |
+|------------|---------|
+| **Bioma** | La tabella di creature del bioma (vedi [Creature per bioma](/wiki/creature-per-bioma)) |
+| **Luogo** | Dungeon, rovine e strutture hanno le loro creature e i loro boss; sottoterra conta la profondità (vedi [Bioma e profondità](#bioma-e-profondita)) |
+| **Notte** | Gli spawn ostili in superficie raddoppiano (vedi [Giorno e notte](#giorno-e-notte)) |
+| **Dentro la zona di guardia di un feudo** | **Nessuno spawn ostile** |
 
 Le [città di gilda](/wiki/citta-di-gilda) riducono gli spawn ostili dentro il loro territorio, ma non li azzerano a meno di avere guardie (vedi [Guardie cittadine](/wiki/guardie-cittadine)).
 
@@ -131,9 +130,9 @@ Per evitare che il mondo si riempia di mostri (o che un gruppo di giocatori li "
 | **Variante rara** | Alcuni spawn sono una versione più forte con un nome proprio, più rara da trovare; ha un bottino fisso migliore, che lascia sempre | "Grak lo Sfregiato", orc lord con armi magiche |
 | **Boss di dungeon** | Generato con il dungeon nella sua sala finale. Dopo l'uccisione torna dopo **2–6 ore reali** | Orc Lord, Lich Lord, Regina dei Solen, Balron |
 | **Spawn di luna nuova** | Nelle notti di luna nuova, nei biomi corrotti | Ancient Lich, Skeletal Dragon |
-| **Leggendari** | Molto lontano dalle città o nel Cuore del mondo, rarissimi; un solo esemplare per regione | Ancient Wyrm, Drago antico, Leviatano, Fenice |
+| **Leggendari** | Nel Cuore del mondo e nei luoghi più rari (nidi, fosse oceaniche), rarissimi; un solo esemplare per regione | Ancient Wyrm, Drago antico, Leviatano, Fenice |
 | **Elementali dei minerali** | Possono comparire quando si scava una vena del loro minerale | Elementale di Valorite |
-| **Invasioni** | Eventi in cui un'orda attacca una città o una città di gilda | Orde di orchi, non-morti, demoni |
+| **Invasioni** | Eventi in cui un'orda attacca un feudo o una città di gilda | Orde di orchi, non-morti, demoni |
 
 Un boss ucciso lascia il corpo con il bottino: i **diritti di loot** vanno prima a chi ha fatto più danno, poi il corpo diventa libero per tutti (vedi [Full loot](/wiki/full-loot)).
 
@@ -141,7 +140,7 @@ Un boss ucciso lascia il corpo con il bottino: i **diritti di loot** vanno prima
 
 ## 🚫 Zone senza spawn
 
-- Dentro le zone di guardia delle città NPC.
+- Dentro le zone di guardia dei feudi.
 - Dentro le case e le costruzioni chiuse e illuminate dei giocatori.
 - Sui blocchi non naturali illuminati (strade, pavimenti) per gli animali.
 - Nei santuari di resurrezione.

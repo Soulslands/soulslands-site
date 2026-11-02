@@ -84,7 +84,7 @@ Servono **1 + t²/18.000** usi per ogni 0.1, con t il tuo valore in decimi: 1 us
 La tabella dice quali azioni valgono ancora quando la tua skill è a quel livello; una ricetta o un blocco smettono di insegnare quando la tua skill supera il loro livello. Anche rompere un blocco che hai piazzato tu conta come allenamento.
 
 ### Lezioni dagli NPC
-Alcuni NPC delle città insegnano le basi di una skill: parla con l'insegnante giusto (ad esempio un mago per Magery), paga in oro e la skill sale subito fino a un livello di base.
+Alcuni NPC dei feudi insegnano le basi di una skill: parla con l'insegnante giusto (ad esempio un mago per Magery), paga in oro e la skill sale subito fino a un livello di base.
 
 ### Crescita delle statistiche
 Ogni uso utile di una skill aggiunge **75 punti di progresso** alla stat primaria e **25** alla secondaria; una stat sale di 1 quando raggiunge 2000 punti (la primaria ogni 27 usi), sempre entro i cap della tua razza. Tutti i dettagli in [Statistiche](/wiki/statistiche).

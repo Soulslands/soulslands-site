@@ -37,7 +37,7 @@ Gli oceani di Soulslands sono punteggiati di **isole** e arcipelaghi, ispirati a
 | **Arcipelago di isolotti** | ⭐⭐ | Decine di isolotti, lagune e secche |
 | **Faraglioni** | ⭐⭐⭐ | Colonne di roccia nel mare, nidi di harpy e wyvern |
 
-Un'isola è una massa di terra generata dentro un [bioma oceanico](/wiki/oceani#biomi-oceanici): il suo tipo dipende dalla temperatura del mare intorno e dalla distanza dalle città. Le isole più grandi possono avere al centro un vero bioma di terraferma, come un pezzo di [giungla](/wiki/bioma-giungla), di [tundra](/wiki/bioma-tundra) o di [terre vulcaniche](/wiki/bioma-terre-vulcaniche), con le sue creature e le sue risorse.
+Un'isola è una massa di terra generata dentro un [bioma oceanico](/wiki/oceani#biomi-oceanici): il suo tipo dipende dalla temperatura del mare intorno. Le isole più grandi possono avere al centro un vero bioma di terraferma, come un pezzo di [giungla](/wiki/bioma-giungla), di [tundra](/wiki/bioma-tundra) o di [terre vulcaniche](/wiki/bioma-terre-vulcaniche), con le sue creature e le sue risorse.
 
 ---
 
@@ -79,7 +79,7 @@ Un piccolo vulcano attivo che esce dal mare, con colate di lava che scendono fin
 
 | Voce | Valore |
 |------|--------|
-| **Dove** | Lontano dalle città, nei mari caldi e temperati; più frequenti davanti alle [terre vulcaniche](/wiki/bioma-terre-vulcaniche) |
+| **Dove** | Nei mari caldi e temperati; più frequenti davanti alle [terre vulcaniche](/wiki/bioma-terre-vulcaniche) |
 | **Blocchi** | Basalto (`basalt`), sabbia nera (`black_sand`) sulle spiagge, terra di cenere (`ash_soil`), pomice (`pumice`), ossidiana (`obsidian`) dove la lava incontra il mare, lava (`lava`) nel cratere |
 | **Alberi** | Alberi carbonizzati (`charred_tree`) sulle pendici, che danno carbone; sulle isole spente qualche palma (`palm`) lungo la costa |
 | **Di giorno** | [Lucertole di lava](/wiki/animale-lucertola-di-lava), coleotteri di fuoco (Fire Beetle), [elementali del fuoco](/wiki/mostro-elementale-del-fuoco) vicino alla lava, [drake](/wiki/mostro-drake) intorno al cratere |
@@ -121,7 +121,7 @@ Un'isola avvolta da una nebbia che non si alza mai, con alberi morti, relitti su
 
 | Voce | Valore |
 |------|--------|
-| **Dove** | Lontano dalle città, in qualsiasi mare |
+| **Dove** | In qualsiasi mare |
 | **Blocchi** | Terra morta (`dead_soil`), fango (`mud`), ghiaia (`gravel`), pietra (`stone`); ragnatele (`cobweb`) tra le rovine |
 | **Alberi** | Alberi morti (`dead_tree`), che danno legno morto |
 | **Di giorno** | La nebbia rende il giorno simile al crepuscolo: [scheletri](/wiki/mostro-scheletro) (gli scheletri pirati), pirati annegati intorno ai relitti, [corvi](/wiki/animale-corvo) |

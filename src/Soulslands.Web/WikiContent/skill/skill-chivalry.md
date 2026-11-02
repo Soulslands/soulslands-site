@@ -40,7 +40,7 @@ Preghiere tipiche:
 
 ## 🧱 Nel mondo a voxel
 
-In Soulslands i **santuari** sono luoghi del mondo (spesso nelle città o in cima ad antiche rovine) dove i chierici pregano, raccolgono decime e dove i fantasmi possono tornare in vita. I chierici con Chivalry alta possono **purificare l'anima dei red** e riportarli grigi o blu (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
+In Soulslands i **santuari** sono luoghi del mondo (spesso nei feudi o in cima ad antiche rovine) dove i chierici pregano, raccolgono decime e dove i fantasmi possono tornare in vita. I chierici con Chivalry alta possono **purificare l'anima dei red** e riportarli grigi o blu (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
 
 ## 📈 Come sale
 

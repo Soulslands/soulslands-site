@@ -58,9 +58,9 @@ Passato il minuto minimo, ci sono tre modi per tornare in vita.
 
 | Metodo | Dove | Requisiti | Note |
 |--------|------|-----------|------|
-| 🏥 **Guaritore NPC** | Città NPC, alcune città di gilda | Fantasma blu o grigio | Gratuito. I guaritori **rifiutano** i fantasmi rossi |
+| 🏥 **Guaritore NPC** | Feudi, alcune città di gilda | Fantasma blu o grigio | Gratuito. I guaritori **rifiutano** i fantasmi rossi |
 | ✝️ **Chierico (giocatore)** | Ovunque | Un giocatore con la spell Resurrection ([Magery](/wiki/skill-magery)) o la resurrezione sacra ([Chivalry](/wiki/skill-chivalry)), tipicamente un [Chierico](/wiki/classe-chierico) | Il modo più veloce sul campo. Il fantasma deve accettare |
-| ⛩️ **Santuario** | Città NPC, crocevia, alcuni dungeon, [città di gilda](/wiki/citta-di-gilda) che lo costruiscono | Raggiungere il santuario da fantasma | Sempre disponibile. I fantasmi rossi possono usare solo i **santuari del caos**, rari e lontani dalle città |
+| ⛩️ **Santuario** | Feudi, santuari lungo le strade, alcuni dungeon, [città di gilda](/wiki/citta-di-gilda) che lo costruiscono | Raggiungere il santuario da fantasma | Sempre disponibile. I fantasmi rossi possono usare solo i **santuari del caos**, rari e mai vicini ai feudi con guardie |
 
 Quando torni in vita:
 - Hai **pochi punti vita** (circa il 10%), stamina e mana bassi.

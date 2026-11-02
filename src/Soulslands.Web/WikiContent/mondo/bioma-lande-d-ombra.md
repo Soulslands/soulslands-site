@@ -11,7 +11,7 @@ visibility: Pubblica
 
 ## 📜 Panoramica
 
-Le Lande d'Ombra sono il bioma più pericoloso di Soulslands: terre spezzate, cielo violaceo, crepe che scendono fino al Cuore del mondo. Sono ispirate alle zone corrotte di Ilshenar e agli abissi demoniaci di UO. Compaiono solo **molto lontano dalle città**, ai confini del mondo esplorato. Qui la luce del giorno non basta a impedire gli spawn: conta solo la luce delle torce e degli incantesimi.
+Le Lande d'Ombra sono il bioma più pericoloso di Soulslands: terre spezzate, cielo violaceo, crepe che scendono fino al Cuore del mondo. Sono ispirate alle zone corrotte di Ilshenar e agli abissi demoniaci di UO. Compaiono con la stessa frequenza in tutto il mondo, senza dipendere dalla distanza da nessun insediamento. Qui la luce del giorno non basta a impedire gli spawn: conta solo la luce delle torce e degli incantesimi.
 
 | Caratteristica | Valore |
 |----------------|--------|

@@ -11,13 +11,12 @@ visibility: Pubblica
 
 ## 📜 Panoramica
 
-La foresta temperata è il bioma più comune intorno alle città, ispirato ai boschi che circondavano Britain e Trinsic. Querce e frassini, radure con fiori, ruscelli e qualche collina. È il luogo ideale per imparare [Lumberjacking](/wiki/skill-lumberjacking), cacciare i primi animali e allenare le skill di combattimento contro creature deboli.
+La foresta temperata è il bioma più comune delle terre temperate, dove nascono i feudi, ispirato ai boschi che circondavano Britain e Trinsic. Querce e frassini, radure con fiori, ruscelli e qualche collina. È il luogo ideale per imparare [Lumberjacking](/wiki/skill-lumberjacking), cacciare i primi animali e allenare le skill di combattimento contro creature deboli.
 
 | Caratteristica | Valore |
 |----------------|--------|
 | **Clima** | Mite, piogge frequenti |
 | **Pericolo** | ⭐ (⭐⭐ di notte) |
-| **Distanza tipica dalle città** | Vicina |
 | **Stagioni** | D'inverno si copre di neve, d'autunno le foglie diventano rosse e gialle |
 | **Variante** | Dove il clima ha una fascia propria, il bosco di aceri e faggi resta autunnale tutto l'anno: la [foresta autunnale](/wiki/bioma-foresta-autunnale) |
 
@@ -85,7 +84,7 @@ Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri).
 - I lupi cacciano in branco di notte: non attraversare la foresta al buio da solo nei primi giorni.
 - Il fuoco si propaga sulle foglie e sull'erba secca d'estate.
 
-> 💡 La foresta temperata è il posto migliore per la prima casa: legno abbondante, animali da scuoiare per il [cuoio](/wiki/cuoio) comune e una città vicina.
+> 💡 La foresta temperata è il posto migliore per la prima casa: legno abbondante, animali da scuoiare per il [cuoio](/wiki/cuoio) comune.
 
 ---
 

@@ -136,6 +136,7 @@ Il sottosuolo si divide in due fasce: la **fascia alta**, dalle prime grotte sot
 | [Montagne](/wiki/bioma-montagne) | 🪨 Grotte di stalattiti; 🧊 grotte di ghiaccio dentro le vette innevate | 🪨 Grotte di stalattiti |
 | [Deserto](/wiki/bioma-deserto), [savana](/wiki/bioma-savana), [canyon rossi](/wiki/bioma-canyon-rossi) | 🪨 Grotte di stalattiti | Comuni |
 | [Pianure](/wiki/bioma-pianure), [brughiera](/wiki/bioma-brughiera) | Comuni | Comuni |
+| [Steppa](/wiki/bioma-steppa), [prati alpini](/wiki/bioma-prati-alpini), [fiordi e gole](/wiki/bioma-fiordi-e-gole), [foresta autunnale](/wiki/bioma-foresta-autunnale) | Tabella standard: comuni (il tipo di grotta di questi quattro biomi nuovi non è ancora definito) | Comuni |
 | [Terre dei Morti](/wiki/bioma-terre-dei-morti) | Comuni, con più non-morti | Comuni, con più non-morti |
 | [Lande d'Ombra](/wiki/bioma-lande-d-ombra) | Comuni, con vene di pietra d'ombra (`shadow_stone`) che accorciano la luce delle torce | Come la fascia alta |
 | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | 🌋 Caverne di lava | 🌋 Caverne di lava |
@@ -250,7 +251,7 @@ I dungeon sono strutture costruite, generate insieme al terreno: corridoi in pie
 
 | Dungeon | Profondità | Bioma | Abitanti | Boss |
 |---------|-----------|-------|----------|------|
-| **Tana dei ratman** | Superficiale | Ovunque, vicino alle città | Ratti giganti, ratman | Re dei ratman |
+| **Tana dei ratman** | Superficiale | Ovunque | Ratti giganti, ratman | Re dei ratman |
 | **Covo orchesco** | Superficiale – medio | Foresta profonda, montagne | Orchi, orc captain | Orc Lord |
 | **Miniera infestata** | Medio | Montagne | Elementali dei minerali, gargoyle selvaggi | Elementale di Valorite |
 | **Cripta** | Medio – profondo | Terre dei Morti, deserto | Scheletri, mummie, lich | Lich Lord |

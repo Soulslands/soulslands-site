@@ -59,7 +59,7 @@ Gli alberi prendono il meglio da due giochi. Come in **Valheim**, un albero abba
 - Un albero che cade spezza le chiome che incontra e abbatte gli alberi piccoli di legno comune (effetto domino). Non distrugge mai i blocchi costruiti dai giocatori: se cade su un tetto, si spezza lì sopra.
 - Tronchi e foglie piazzati da un giocatore sono normali blocchi da costruzione: non crollano e non appassiscono.
 
-> ⚠️ Un albero che ti cade addosso fa male: da 5 punti vita per un alberello fino a 80 per un gigante, e il Germoglio dell'Albero del Mondo uccide chiunque. Dentro le città NPC gli alberi non si tagliano.
+> ⚠️ Un albero che ti cade addosso fa male: da 5 punti vita per un alberello fino a 80 per un gigante, e il Germoglio dell'Albero del Mondo uccide chiunque. Dentro i feudi gli alberi non si tagliano.
 
 ### Taglie e alberi giganti
 
@@ -345,10 +345,10 @@ R: Non rimbalza: nessun albero richiede una skill. Se non cade, probabilmente st
 R: Lo ferisce come se l'avessi colpito tu. Se è un innocente diventi criminale, e se muore il suo fantasma può denunciarti come per qualsiasi uccisione (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
 
 **D: Posso tagliare gli alberi in città o nel territorio di un'altra gilda?**
-R: No. I blocchi delle città NPC non si modificano, e in un territorio di gilda gli alberi appartengono alla gilda che lo possiede.
+R: No. I blocchi dei feudi non si modificano, e in un territorio di gilda gli alberi appartengono alla gilda che lo possiede.
 
 **D: Dove trovo il Germoglio dell'Albero del Mondo?**
-R: Nelle foreste incantate più lontane dalle città. La sua chioma dorata si vede da molto lontano anche di notte, quindi qualcun altro potrebbe averlo già trovato.
+R: Nelle foreste incantate. La sua chioma dorata si vede da molto lontano anche di notte, quindi qualcun altro potrebbe averlo già trovato.
 
 ---
 

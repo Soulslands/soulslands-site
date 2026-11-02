@@ -38,9 +38,9 @@ Lumberjacking sale **usandola**, fino a un massimo di **100.0**. Ogni **uso util
 
 | Livello | Come allenarla |
 |---------|----------------|
-| **0-40** | Alberi comuni vicino alle città. |
+| **0-40** | Alberi comuni. |
 | **40-70** | Querce e frassini. |
-| **70-100** | Tassi e legni rari nei biomi lontani. |
+| **70-100** | Tassi e legni rari, che crescono solo in certi biomi. |
 
 > ⚠️ È una **skill di classe**: oltre 60.0 e 80.0 sale solo se anche le altre due skill della classe hanno raggiunto la stessa soglia (sistema a tier, vedi [Skill](/wiki/skill)).
 
