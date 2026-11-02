@@ -34,7 +34,7 @@ A 100.0 prepari una pozione in metà del tempo base.
 
 I reagenti si raccolgono nel mondo: radici di mandragora e ginseng nei boschi, aglio nei prati, muschio sanguigno e funghi nelle [grotte](/wiki/grotte-e-sottosuolo), seta di ragno nelle tane, cenere e zolfo nelle zone vulcaniche. Ogni pianta è un blocco o un oggetto che si raccoglie con le mani o con un coltello, e **ricresce** col tempo.
 
-Le pozioni esplosive lanciate possono incrinare i blocchi più fragili (terra, sabbia, vetro) fuori dalle aree protette di città e territori di gilda. Un alchimista può allestire un **laboratorio** in casa: il mortaio va usato dall'inventario, ma scaffali e alambicchi piazzati come blocchi decorativi aiutano a tenere in ordine le scorte.
+Le pozioni esplosive lanciate possono incrinare i blocchi più fragili (terra, sabbia, vetro) fuori dalle aree protette di feudi e territori di gilda. Un alchimista può allestire un **laboratorio** in casa: il mortaio va usato dall'inventario, ma scaffali e alambicchi piazzati come blocchi decorativi aiutano a tenere in ordine le scorte.
 
 ## 📈 Come sale
 

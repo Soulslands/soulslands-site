@@ -73,9 +73,9 @@ Le vene si piazzano per quota, non per bioma, come spiega la pagina delle [monta
 | [Arpia](/wiki/mostro-arpia) | Sulle pareti sopra il prato | Sì |
 | [Ettin](/wiki/mostro-ettin), [ogre](/wiki/mostro-ogre), [ciclope](/wiki/mostro-ciclope) | Dove il prato confina con le pendici e le vallate alte | Sì |
 | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | Notte, nei laghetti più profondi | Sì |
-| **Marmotta** (proposta, da confermare) | Giorno, vicino alle tane tra i massi | No |
+| [Marmotta](/wiki/animale-marmotta) | Giorno, vicino alle tane tra i massi | No |
 
-> 🆕 **Proposta (da confermare).** Ogni bioma nuovo ha una creatura tutta sua; per i prati alpini si propone la **marmotta**: ⭐, pacifica, si rizza sulle zampe vicino alla tana e fischia quando arriva un predatore, e le altre creature del prato fuggono. Bottino: pelle grezza, carne di marmotta e grasso di marmotta (balsamo per le pozioni di cura). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+> 🐿️ **La creatura del bioma.** Ogni bioma nuovo ha una creatura tutta sua; per i prati alpini è la [marmotta](/wiki/animale-marmotta): ⭐, pacifica, si rizza sulle zampe vicino alla tana e fischia quando arriva un predatore, e le altre creature del prato fuggono. Bottino: pelle grezza, carne di marmotta e grasso di marmotta (balsamo per le pozioni di cura). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

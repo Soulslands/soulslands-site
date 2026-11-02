@@ -71,7 +71,7 @@ Le vene si piazzano per quota, non per bioma: dove una parete a picco taglia una
 | [Delfini](/wiki/animale-delfino) | In acqua, vicino alla riva | No |
 | [Serpente marino](/wiki/mostro-serpente-marino) | Acque al largo, a volte sulla riva | Sì |
 | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | Notte, raro | Sì |
-| **Lontra** (proposta, da confermare) | Giorno, sulle rive | No |
+| [Lontra](/wiki/animale-lontra) | Giorno, sulle rive | No |
 
 **Nella gola**
 
@@ -81,9 +81,9 @@ Le vene si piazzano per quota, non per bioma: dove una parete a picco taglia una
 | [Orso bruno](/wiki/animale-orso-bruno) | Giorno, vicino all'acqua | Se provocato |
 | [Arpia](/wiki/mostro-arpia) | Sulle pareti | Sì |
 | [Puma](/wiki/animale-puma) | Alba e tramonto | Sì |
-| **Lontra** (proposta, da confermare) | Giorno, sulle rive del fiume | No |
+| [Lontra](/wiki/animale-lontra) | Giorno, sulle rive del fiume | No |
 
-> 🆕 **Proposta (da confermare).** Per fiordi e gole si propone la **lontra**, una sola creatura per tutte e due: ⭐, giocherellona, nuota veloce e porta a riva i pesci che prende. Bottino: pelle grezza, pelliccia di lontra (cuoio leggero, calda) e carne di pesce. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+> 🦦 **La creatura del bioma.** Per fiordi e gole è la [lontra](/wiki/animale-lontra), una sola creatura per tutte e due: ⭐, giocherellona, nuota veloce e porta a riva i pesci che prende. Bottino: pelle grezza, pelliccia di lontra (cuoio leggero, calda) e carne di pesce. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 In tutti e due, di notte compaiono [scheletri](/wiki/mostro-scheletro) e [zombie](/wiki/mostro-zombie) come altrove in superficie. Dettagli in [Animali](/wiki/animali), [Mostri](/wiki/mostri) e [Creature marine](/wiki/mostri-marini); il riepilogo è in [Creature per bioma](/wiki/creature-per-bioma).
 

@@ -109,6 +109,7 @@ Gli strumenti sono descritti in [Attrezzi](/wiki/attrezzi#attrezzi-per-le-creatu
 | **Pelle spinosa** | `hides_spined` | [Ragno gigante](/wiki/mostro-ragno-gigante), [Scorpione gigante](/wiki/mostro-scorpione-gigante) | Coltello da scuoiare | Diventa cuoio Spined: armature leggere con un bonus di rigenerazione stamina (Tailoring) |
 | **Pelliccia bianca intera** | `bear_pelt_white` | [Orso polare](/wiki/animale-orso-polare) | Coltello da scuoiare | Tailoring: mantello mimetico per la neve |
 | **Pelliccia d'orso intera** | `bear_pelt_brown` | [Orso bruno](/wiki/animale-orso-bruno) | Coltello da scuoiare | Tailoring: mantello da berserker, tappeto |
+| **Pelliccia di lontra** | `otter_pelt` | [Lontra](/wiki/animale-lontra) | Coltello da scuoiare | Tailoring: cuoio leggero e caldo, cappucci e fodere |
 | **Pelliccia di lupo bianco** | `wolf_pelt_white` | [Lupo bianco](/wiki/animale-lupo-bianco) | Coltello da scuoiare | Tailoring: mantello invernale mimetico |
 | **Pelliccia di lupo grigio** | `wolf_pelt_grey` | [Lupo grigio](/wiki/animale-lupo-grigio) | Coltello da scuoiare | Tailoring: mantelli e cappucci di pelliccia |
 | **Pelliccia di troll del gelo** | `frost_troll_fur` | [Troll del gelo](/wiki/mostro-troll-del-gelo) | Coltello da scuoiare | Tailoring: Mantelli, cappucci e stivali da neve: proteggono dal gelo della tundra |
@@ -153,7 +154,7 @@ Gli strumenti sono descritti in [Attrezzi](/wiki/attrezzi#attrezzi-per-le-creatu
 | **Carne di capra** | `goat_meat_raw` | [Capra](/wiki/animale-capra) | Coltello da scuoiare | Cucina |
 | **Carne di capra di montagna** | `mountain_goat_meat_raw` | [Capra di montagna](/wiki/animale-capra-di-montagna) | Coltello da scuoiare | Cooking: carne essiccata, stufati |
 | **Carne di cavallo** | `horse_meat_raw` | [Cavallo](/wiki/animale-cavallo) | Coltello da scuoiare o mannaia | Cooking: Cucinata: carne arrosto, stufato |
-| **Carne di cervo cruda** | `venison_raw` | [Cervo](/wiki/animale-cervo) | Coltello da scuoiare | Cooking: arrosto, stufato, carne essiccata |
+| **Carne di cervo cruda** | `venison_raw` | [Cervo](/wiki/animale-cervo), [Cervo rosso](/wiki/animale-cervo-rosso) | Coltello da scuoiare | Cooking: arrosto, stufato, carne essiccata |
 | **Carne di cinghiale cruda** | `boar_meat_raw` | [Cinghiale](/wiki/animale-cinghiale) | Coltello da scuoiare | Cooking: arrosto, salsicce, ragù |
 | **Carne di coniglio cruda** | `rabbit_meat_raw` | [Coniglio](/wiki/animale-coniglio) | Coltello da scuoiare | Cooking: coniglio arrosto, stufato |
 | **Carne di delfino cruda** | `dolphin_meat_raw` | [Delfino](/wiki/animale-delfino) | Coltello da scuoiare | Cooking: arrosto (perdita di karma) |
@@ -172,6 +173,9 @@ Gli strumenti sono descritti in [Attrezzi](/wiki/attrezzi#attrezzi-per-le-creatu
 | **Carne di scorpione** | `scorpion_meat_raw` | [Scorpione gigante](/wiki/mostro-scorpione-gigante) | Coltello da scuoiare | Fritta o arrostita: cibo del deserto (Cooking) |
 | **Carne di serpente cruda** | `snake_meat_raw` | [Serpente](/wiki/animale-serpente), [Serpente gigante](/wiki/animale-serpente-gigante), [Serpente del ghiaccio](/wiki/animale-serpente-del-ghiaccio), [Serpente gigante del ghiaccio](/wiki/animale-serpente-gigante-del-ghiaccio) | Coltello da scuoiare | Cooking: spiedini arrosto |
 | **Carne di tentacolo** | `swamp_tentacle_meat_raw` | [Tentacolo di palude](/wiki/mostro-tentacolo-di-palude) | Coltello da scuoiare | Bollita a lungo diventa commestibile, come il polpo; cruda fa ammalare (Cooking) |
+| **Carne di lontra cruda** | `otter_meat_raw` | [Lontra](/wiki/animale-lontra) | Coltello da scuoiare | Cooking: arrosto e zuppa; sa di pesce |
+| **Carne di marmotta cruda** | `marmot_meat_raw` | [Marmotta](/wiki/animale-marmotta) | Coltello da scuoiare | Cooking: arrosto e stufato di montagna |
+| **Carne di saiga cruda** | `saiga_meat_raw` | [Saiga](/wiki/animale-saiga) | Coltello da scuoiare | Cooking: arrosto e carne essiccata |
 | **Carne di tricheco cruda** | `walrus_meat_raw` | [Tricheco](/wiki/animale-tricheco) | Coltello da scuoiare | Cooking: carne grassa contro il gelo |
 | **Carne di uccello cruda** | `bird_meat_raw` | [Uccello](/wiki/animale-uccello) | Coltello da scuoiare | Cooking: spiedino, pasticcio |
 | **Carne di wyvern** | `wyvern_meat_raw` | [Wyvern](/wiki/mostro-wyvern) | Coltello da scuoiare o mannaia | Cooking: Va cotta bene: cruda avvelena. Cotta dà un piccolo bonus contro il veleno |
@@ -184,6 +188,7 @@ Gli strumenti sono descritti in [Attrezzi](/wiki/attrezzi#attrezzi-per-le-creatu
 | **Grasso d'orso polare** | `polar_bear_blubber` | [Orso polare](/wiki/animale-orso-polare) | Coltello da scuoiare | Tinkering/Alchemy: olio che non gela, unguento contro il freddo |
 | **Grasso di cinghiale (lardo)** | `boar_lard` | [Cinghiale](/wiki/animale-cinghiale) | Coltello da scuoiare | Cooking/Tailoring: lardo, unguento per cuoio |
 | **Grasso di delfino** | `dolphin_blubber` | [Delfino](/wiki/animale-delfino) | Coltello da scuoiare | Carpentry/Tinkering: olio per lanterne, impermeabilizzare |
+| **Grasso di marmotta** | `marmot_fat` | [Marmotta](/wiki/animale-marmotta) | Coltello da scuoiare | Alchemy: balsamo per le pozioni di cura |
 | **Grasso di ogre** | `ogre_fat` | [Ogre](/wiki/mostro-ogre) | Coltello da scuoiare | Tailoring, Tinkering: Candele e lanterne a lunga durata, grasso per ingrassare cuoio e cardini |
 | **Grasso di tricheco** | `walrus_blubber` | [Tricheco](/wiki/animale-tricheco) | Coltello da scuoiare | Tinkering/Alchemy: olio da lampada, candele, unguento contro il freddo |
 | **Lingua di rana** | `frog_tongue` | [Rana toro](/wiki/animale-rana-toro) | Coltello da scuoiare | Fletching/Carpentry: colla forte |
@@ -234,13 +239,14 @@ Gli strumenti sono descritti in [Attrezzi](/wiki/attrezzi#attrezzi-per-le-creatu
 | **Corna di Balron** | `balron_horn` | [Balron](/wiki/mostro-balron) | Mannaia | Blacksmithy, Tinkering: Elmi e trofei; polverizzate danno una tintura nero-brace per armature |
 | **Corna di bovino** | `cow_horn` | [Mucca](/wiki/animale-mucca) | Mannaia | Tinkering: Boccali e corni potori, corni da caccia, manici |
 | **Corna di capra** | `goat_horn` | [Capra](/wiki/animale-capra) | Mannaia | Tinkering: corni, manici; Alchimia: polvere di corno |
-| **Corna di cervo (palchi)** | `deer_antler` | [Cervo](/wiki/animale-cervo) | Mannaia | Tinkering/Carpentry: manici, impugnature, trofei |
+| **Corna di cervo (palchi)** | `deer_antler` | [Cervo](/wiki/animale-cervo), [Cervo rosso](/wiki/animale-cervo-rosso) | Mannaia | Tinkering/Carpentry: manici, impugnature, trofei |
 | **Corna di gargoyle** | `gargoyle_horn` | [Gargoyle selvaggio](/wiki/mostro-gargoyle), [Gargoyle di pietra](/wiki/mostro-gargoyle-di-pietra) | Mannaia | Blacksmithy, Alchemy: Elmi cornuti, impugnature, polvere di corno per pozioni |
 | **Corna di toro** | `bull_horn` | [Toro](/wiki/animale-toro) | Mannaia | Tinkering, Bowcraft/Fletching: Corni da guerra, decorazioni per elmi, arco composito in corno |
 | **Corna in velluto** | `deer_antler_velvet` | [Cervo](/wiki/animale-cervo) | Mannaia | Alchemy: pozioni di cura maggiore |
 | **Corna ricurve** | `mountain_goat_horn` | [Capra di montagna](/wiki/animale-capra-di-montagna) | Mannaia | Bowcraft/Fletching, Musicianship: archi compositi, corni |
 | **Corno brinato** | `ice_fiend_horn` | [Demone del ghiaccio](/wiki/mostro-demone-del-ghiaccio) | Mannaia | Blacksmithy, Tinkering: Elmi e corni che resistono al fuoco; polvere per tinture azzurre |
 | **Corno di demone** | `demon_horn` | [Demone](/wiki/mostro-demone) | Mannaia | Blacksmithy, Tinkering: Impugnature di armi maledette, corni da guerra che spaventano i nemici, polvere di corno |
+| **Corno di saiga** | `saiga_horn` | [Saiga](/wiki/animale-saiga) | Mannaia | Alchemy: reagente per le pozioni |
 | **Corno di wyrm** | `wyrm_horn` | [Wyrm antico](/wiki/mostro-wyrm-antico) | Mannaia | Blacksmithy, Tinkering: Elmi da trofeo, corni da guerra che incutono terrore |
 | **Dente di delfino** | `dolphin_tooth` | [Delfino](/wiki/animale-delfino) | Mannaia | Tinkering: amuleto del marinaio (bonus Fishing) |
 | **Dente di mongbat** | `mongbat_fang` | [Mongbat](/wiki/mostro-mongbat) | Mannaia | Ami da pesca piccoli e affilati (Tinkering, Fishing) |

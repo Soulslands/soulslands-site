@@ -78,9 +78,9 @@ Le creature sono quelle della foresta temperata.
 | [Cinghiale](/wiki/animale-cinghiale) | Notte e crepuscolo | No |
 | [Mongbat](/wiki/mostro-mongbat) | Notte | Sì |
 | [Scheletro](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | Notte | Sì |
-| **Volpe rossa** (proposta, da confermare) | Alba e tramonto | No |
+| [Cervo rosso](/wiki/animale-cervo-rosso) | Giorno; in autunno i maschi caricano chi si avvicina | Solo i maschi nella stagione degli amori |
 
-> 🆕 **Proposta (da confermare).** Per la foresta autunnale si propone la **volpe rossa**: ⭐, furba e diffidente, con il pelo dello stesso rosso delle foglie: si vede solo quando si muove, e fugge se ci si avvicina. Bottino: pelle grezza, pelliccia di volpe e carne di volpe. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+> 🦌 **La creatura del bioma.** Per la foresta autunnale è il [cervo rosso](/wiki/animale-cervo-rosso): un grande cervo, ⭐⭐, che in autunno, nella stagione degli amori, carica i giocatori che si avvicinano troppo. Bottino: pelle grezza, carne di cervo, corna e ossa. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

@@ -38,7 +38,7 @@ Fencing sale **usandola**, fino a un massimo di **100.0**. Ogni **uso utile** co
 
 | Livello | Come allenarla |
 |---------|----------------|
-| **0-30** | Fantocci d'allenamento in città. |
+| **0-30** | Fantocci d'allenamento nei feudi. |
 | **30-60** | Creature deboli: lupi, orchi, scheletri. |
 | **60-90** | Creature medie nelle grotte e nelle rovine. |
 | **90-100** | Creature forti e avversari; meglio con un'arma veloce. |

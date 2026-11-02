@@ -40,7 +40,7 @@ Fama e karma insieme danno il tuo **titolo**. Il **colore del nome** invece dipe
 |------------------|---------------|
 | Uccidere mostri pericolosi (più è forte il mostro, più fama) | Morire (perdi un decimo della fama) |
 | Sconfiggere boss | Lento decadimento se non si combatte |
-| Completare imprese e difese di città | — |
+| Completare imprese e difese di feudi | — |
 
 La fama conta anche per la **redenzione** dei personaggi rossi: più fama hai, più la purificazione di un [Chierico](/wiki/classe-chierico) può riportarti al blu (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
 
