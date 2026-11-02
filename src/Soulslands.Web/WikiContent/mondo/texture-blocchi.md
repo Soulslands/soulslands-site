@@ -75,7 +75,7 @@ Come in Minecraft, alcune texture sono in **toni di grigio-verde** e il gioco le
 | Tinta | Cosa colora | Da dove prende il colore |
 |-------|-------------|--------------------------|
 | **erba** | La faccia sopra dell'erba e la frangia sul lato, erba alta, felci, felci giganti | Dalla mappa dei colori dell'erba di ogni bioma, che cambia con le stagioni |
-| **foglie** | Foglie delle latifoglie comuni (quercia, betulla, faggio, acero, frassino, melo, quercia antica, salice, mangrovia, albero della giungla, acacia, baobab), cespugli, liane | Dalla mappa dei colori delle foglie di ogni bioma e stagione |
+| **foglie** | Foglie delle latifoglie comuni (quercia, betulla, faggio, acero, frassino, melo, quercia antica, salice, mangrovia, albero della giungla, acacia, baobab; non `maple_leaves_autumn` e `beech_leaves_autumn`), cespugli, liane | Dalla mappa dei colori delle foglie di ogni bioma e stagione |
 | **acqua** | Acqua ferma e in movimento | Dal colore dell'acqua del bioma: turchese nei mari caldi, blu notte in quelli profondi, bruna nelle torbiere (vedi [Oceani](/wiki/oceani#biomi-oceanici) e [Laghi e fiumi](/wiki/laghi-e-fiumi#acqua-per-bioma)) |
 | — | Tutto il resto | I colori sono quelli della texture |
 
@@ -312,14 +312,16 @@ Ogni specie di [albero](/wiki/alberi) ha tronco, foglie e germoglio. Il **tronco
 
 ### 🍃 Foglie
 
-Le foglie delle latifoglie comuni prendono la **tinta di bioma** delle foglie (colonna Tinta) e cambiano con le stagioni come l'erba. Quercia, betulla, faggio, acero, frassino, melo, quercia antica e salice hanno anche una texture **autunnale** (`_autumn`) con i suoi colori veri e senza tinta: in autunno il gioco passa da una all'altra. Conifere e alberi magici, morti o bruciati hanno colori fissi. D'inverno la neve sui rami è uno strato dello shader, non una texture in più.
+Le foglie delle latifoglie comuni prendono la **tinta di bioma** delle foglie (colonna Tinta) e cambiano con le stagioni come l'erba. Quercia, betulla, faggio, acero, frassino, melo, quercia antica e salice hanno anche una texture **autunnale** (`_autumn`) con i suoi colori veri e senza tinta: in autunno il gioco passa da una all'altra. **Eccezione, finché i blocchi non hanno stati stagionali** (regola degli stati, sopra): le foglie autunnali di acero e faggio sono **blocchi a sé**, `maple_leaves_autumn` e `beech_leaves_autumn`, senza la tinta delle foglie, e formano la [foresta autunnale](/wiki/bioma-foresta-autunnale), dove l'autunno dura tutto l'anno. Conifere e alberi magici, morti o bruciati hanno colori fissi. D'inverno la neve sui rami è uno strato dello shader, non una texture in più.
 
 | Id | File | Tinta | Animata | Luce | Palette | Aspetto |
 |----|------|-------|---------|------|---------|-----------------|
 | `oak_leaves` | `oak_leaves.png`, `oak_leaves_autumn.png` | foglie | — | — | `#4e7a2e` `#6a9a3a` `#355a20` `#b86a20` | Foglie lobate a ciuffi larghi (tinta di bioma) |
 | `birch_leaves` | `birch_leaves.png`, `birch_leaves_autumn.png` | foglie | — | — | `#7aa848` `#9ac860` `#5a8834` `#e0b830` | Foglioline chiare e leggere (tinta di bioma) |
-| `beech_leaves` | `beech_leaves.png`, `beech_leaves_autumn.png` | foglie | — | — | `#4a7a30` `#5e9640` `#365a22` `#a8582a` | Chioma densa e tonda (tinta di bioma) |
-| `maple_leaves` | `maple_leaves.png`, `maple_leaves_autumn.png` | foglie | — | — | `#5a8a34` `#74a844` `#3e6a24` `#c02a1a` | Foglie a cinque punte (tinta di bioma) |
+| `beech_leaves` | `beech_leaves.png` | foglie | — | — | `#4a7a30` `#5e9640` `#365a22` `#a8582a` | Chioma densa e tonda (tinta di bioma) |
+| `beech_leaves_autumn` | `beech_leaves_autumn.png` | — | — | — | `#4a7a30` `#5e9640` `#365a22` `#a8582a` | Chioma densa e tonda color rame, senza tinta di bioma: la stessa palette del faggio, con il rame come colore principale |
+| `maple_leaves` | `maple_leaves.png` | foglie | — | — | `#5a8a34` `#74a844` `#3e6a24` `#c02a1a` | Foglie a cinque punte (tinta di bioma) |
+| `maple_leaves_autumn` | `maple_leaves_autumn.png` | — | — | — | `#5a8a34` `#74a844` `#3e6a24` `#c02a1a` | Foglie a cinque punte rosso fuoco, senza tinta di bioma: la stessa palette dell'acero, con il rosso come colore principale |
 | `ash_leaves` | `ash_leaves.png`, `ash_leaves_autumn.png` | foglie | — | — | `#5a8a3a` `#78a84e` `#3e6a28` `#d0b040` | Foglie lanceolate leggere (tinta di bioma) |
 | `apple_leaves` | `apple_leaves.png`, `apple_leaves_autumn.png`, `apple_leaves_blossom.png`, `apple_leaves_fruit.png` | foglie | — | — | `#5a8a3a` `#74a44a` `#3e6a28` `#c8902a` | Foglie ovali (tinta di bioma) |
 | `yew_leaves` | `yew_leaves.png` | — | — | — | `#24442a` `#34583a` `#16301c` `#c02a2a` | Aghi piatti verde scurissimo con bacche rosse |

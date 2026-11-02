@@ -19,6 +19,7 @@ La foresta temperata è il bioma più comune intorno alle città, ispirato ai bo
 | **Pericolo** | ⭐ (⭐⭐ di notte) |
 | **Distanza tipica dalle città** | Vicina |
 | **Stagioni** | D'inverno si copre di neve, d'autunno le foglie diventano rosse e gialle |
+| **Variante** | Dove il clima ha una fascia propria, il bosco di aceri e faggi resta autunnale tutto l'anno: la [foresta autunnale](/wiki/bioma-foresta-autunnale) |
 
 ---
 
@@ -88,4 +89,4 @@ Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri).
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Foresta profonda](/wiki/bioma-foresta-profonda) | [Pianure](/wiki/bioma-pianure)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Foresta autunnale](/wiki/bioma-foresta-autunnale) | [Foresta profonda](/wiki/bioma-foresta-profonda) | [Pianure](/wiki/bioma-pianure)*

@@ -254,13 +254,16 @@ Non tutti gli alberi sono vivi. Nelle terre maledette, aride o bruciate restano 
 
 | Bioma | Alberi principali | Non comuni e rari | Note |
 |-------|-------------------|-------------------|------|
+| [Steppa](/wiki/bioma-steppa) (`steppe`) | — | — | Nessun albero: il legno si porta dalle pianure |
 | [Pianure e praterie](/wiki/bioma-pianure) (`plains`) | Faggio e frassino, in boschetti sparsi | Melo | Terre aperte: il legno si trova nei boschetti e lungo i fiumi, tra i salici |
 | [Foresta temperata](/wiki/bioma-foresta-temperata) (`forest`) | Quercia, betulla, faggio, acero, frassino | Melo | Salici lungo i ruscelli; in autunno il bosco si accende di rosso e giallo |
+| [Foresta autunnale](/wiki/bioma-foresta-autunnale) (`autumn_forest`) | Acero e faggio con le foglie autunnali (blocchi `maple_leaves_autumn` e `beech_leaves_autumn`) | Le specie della foresta temperata, ai margini | Rosso e rame tutto l'anno: le foglie autunnali sono blocchi a sé, senza tinta di bioma |
 | [Foresta profonda](/wiki/bioma-foresta-profonda) (`deep_forest`) | Quercia, anche grande; tasso | Quercia antica e albero cuoredilegno, nel cuore del bioma | Chiome così fitte che il suolo resta in penombra; attento ai [Reaper](/wiki/mostro-reaper) |
 | [Foresta incantata](/wiki/bioma-foresta-incantata) (`enchanted_forest`) | Argentofoglia, frassino | Albero cuoredilegno (più che altrove); Germoglio dell'Albero del Mondo (rarissimo) | Di notte le argentofoglie illuminano il bosco; salici lungo i ruscelli |
 | [Taiga](/wiki/bioma-taiga) (`taiga`) | Abete rosso, abete bianco, pino | Abete rosso grande nelle taighe antiche; betulla verso la foresta temperata; i primi pini di brina verso la tundra | Il bosco più fitto del nord, d'inverno sepolto nella neve |
 | [Tundra e nevi](/wiki/bioma-tundra) (`tundra`) | Quasi nessuno: qualche abete rosso basso verso la taiga | Pino di brina | Pianure gelate e spoglie: il legno si porta dalla taiga |
 | [Montagne](/wiki/bioma-montagne) (`mountains`) | Quercia sulle pendici basse; abete rosso, abete bianco e pino sui versanti | — | Più si sale, più gli alberi sono bassi e radi |
+| [Prati alpini](/wiki/bioma-prati-alpini) (`alpine_meadow`) | Abete rosso, abete bianco e pino, bassi e radi | — | Alberi sempre meno numerosi verso la roccia nuda; oltre Y 220 non cresce nulla |
 | [Vette innevate](/wiki/bioma-montagne) (`snowy_peaks`) | Abete rosso basso e rado | Pino di brina | Oltre Y 220 non cresce nessun albero |
 | [Brughiera](/wiki/bioma-brughiera) (`moorland`) | Ginepro, a cespugli bassi sui pendii | Pino e abete bianco, in gruppi piegati dal vento o nelle valli riparate; quercia, rara, isolata e contorta | Il legno scarseggia: nella brughiera la casa si scalda con la torba |
 | [Palude](/wiki/bioma-palude) (`swamp`) | Salice | Tasso; cipresso di palude (gigante, non comune) | I cipressi si alzano dalle pozze più profonde |
@@ -269,6 +272,7 @@ Non tutti gli alberi sono vivi. Nelle terre maledette, aride o bruciate restano 
 | [Savana](/wiki/bioma-savana) (`savanna`) | Acacia | Baobab; ginepro ai margini | Alberi radi: ogni acacia è un riparo dal sole |
 | [Canyon rossi](/wiki/bioma-canyon-rossi) (`badlands`) | Albero morto, nelle gole | Ginepro, sulle cime delle mesa | Il legno è scarso: chi costruisce lo porta da fuori |
 | [Deserto](/wiki/bioma-deserto) (`desert`) | Palma, solo nelle oasi | Albero morto, sparso tra le dune | Il legno vale oro |
+| [Fiordi e gole](/wiki/bioma-fiordi-e-gole) (`fjord`, `gorge`) | Abete rosso, abete bianco e pino sul bordo delle pareti; salice sulle rive di una gola | — | Come sulle coste, gli alberi del bioma vicino; sulle pareti a picco non cresce nulla |
 | [Coste](/wiki/bioma-coste) (`beach`) | Palma, sulle coste calde | — | Sulle coste temperate e fredde crescono gli alberi dell'entroterra vicino |
 | [Isole](/wiki/bioma-isole) | Palma (tropicali, del tesoro, isolotti dei mari caldi); albero della giungla e mangrovia (tropicali grandi); pino (rocciose, faraglioni, isolotti temperati); abete rosso (ghiacciate); albero carbonizzato (vulcaniche); albero morto (maledette) | Albero sanguigno (tropicali remote); pino di brina (ghiacciate) | Le isole dei funghi non hanno alberi: i funghi giganti si abbattono come alberi ma non danno legno |
 | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) (`volcanic_lands`) | Albero carbonizzato | — | Nessun albero vivo |
