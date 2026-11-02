@@ -72,9 +72,9 @@ Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e ari
 | [Serpente](/wiki/animale-serpente) | Giorno, nelle ore calde | Sì |
 | [Brigante](/wiki/mostro-brigante) | Lungo le piste lontane | Sì |
 | [Scheletro](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | Notte | Sì |
-| **Saiga** (proposta, da confermare) | Giorno, in branchi | No |
+| [Saiga](/wiki/animale-saiga) | Giorno, in branchi | No |
 
-> 🆕 **Proposta (da confermare).** Per la steppa si propone la **saiga**: ⭐, un'antilope dal muso rigonfio che vive in branchi numerosi e al primo pericolo scappa tutta insieme, sollevando polvere. Bottino: pelle grezza, carne di saiga e corno di saiga (reagente per l'[Alchemy](/wiki/skill-alchemy)). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+> 🦌 **La creatura del bioma.** Per la steppa è la [saiga](/wiki/animale-saiga): ⭐, un'antilope dal muso rigonfio che vive in branchi numerosi e al primo pericolo scappa tutta insieme, sollevando polvere. Bottino: pelle grezza, carne di saiga e corno di saiga (reagente per l'[Alchemy](/wiki/skill-alchemy)). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

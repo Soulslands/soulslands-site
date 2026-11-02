@@ -65,7 +65,7 @@ Anatomy serve anche fuori dal combattimento: prima di [scuoiare e smembrare](/wi
 
 | Livello | Creature consigliate | Dove |
 |---------|---------------------|------|
-| 0-30 | Cani, gatti, pecore | Città e fattorie |
+| 0-30 | Cani, gatti, pecore | Feudi e fattorie |
 | 30-60 | Orchi, scheletri, lizardmen | Foreste, cimiteri, grotte poco profonde |
 | 60-80 | Troll, ogre, ettin | Grotte medie e rovine |
 | 80-100 | Draghi, demoni, balron | Sottosuolo profondo e luoghi maledetti |

@@ -46,7 +46,7 @@ Archery sale **usandola**, fino a un massimo di **100.0**. Ogni **uso utile** co
 
 | Livello | Come allenarla |
 |---------|----------------|
-| **0-30** | Tira ai bersagli da allenamento e ai fantocci d'arco nelle città. |
+| **0-30** | Tira ai bersagli da allenamento e ai fantocci d'arco nei feudi. |
 | **30-60** | Caccia animali e creature deboli nei biomi aperti (pianure, foreste). |
 | **60-90** | Combatti creature medie da posizioni sopraelevate o protette. |
 | **90-100** | Affronta creature forti e boss in gruppo, tenendo le distanze. |
