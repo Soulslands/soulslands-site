@@ -1,11 +1,11 @@
 ---
 name: wiki-writing
-description: How Soulslands wiki pages are written - front matter, slugs, visibility, structure, the "Vedi anche" footer and the Italian style. Use whenever creating or editing Markdown in soulslands-website/src/Soulslands.Web/WikiContent/ (public pages) or soulslands-hq/wiki/ (staff pages).
+description: How Soulslands wiki pages are written - front matter, slugs, visibility, structure, the "Vedi anche" footer and the Italian style. Use whenever creating or editing Markdown in soulslands-site/src/Soulslands.Web/WikiContent/ (public pages) or soulslands-hq/wiki/ (staff pages).
 ---
 
 # Writing the Soulslands wiki
 
-The wiki lives as Markdown files in two roots (ADR-0035). Public pages (`visibility: Pubblica`) are in `~/GitRepositories/soulslands-website/src/Soulslands.Web/WikiContent/<category>/` (folders: classi, creature, equipaggiamento, generale, gilde, meccaniche, mondo, razze, regole, risorse, skill). Staff pages (`visibility: Staff`: the `sviluppo/` folder and `decisioni`) are in SoulslandsHQ, `~/GitRepositories/soulslands-hq/wiki/<category>/`, at the same relative paths as before; the public repository holds no staff page. A page lives in one root only, a public page never links a staff slug, and a `/wiki/<slug>` link resolves in either root. At startup the site imports new pages and updates changed ones, but never overwrites a page edited from the site.
+The wiki lives as Markdown files in two roots (ADR-0035). Public pages (`visibility: Pubblica`) are in `~/GitRepositories/soulslands-site/src/Soulslands.Web/WikiContent/<category>/` (folders: classi, creature, equipaggiamento, generale, gilde, meccaniche, mondo, razze, regole, risorse, skill). Staff pages (`visibility: Staff`: the `sviluppo/` folder and `decisioni`) are in SoulslandsHQ, `~/GitRepositories/soulslands-hq/wiki/<category>/`, at the same relative paths as before; the public repository holds no staff page. A page lives in one root only, a public page never links a staff slug, and a `/wiki/<slug>` link resolves in either root. At startup the site imports new pages and updates changed ones, but never overwrites a page edited from the site.
 
 ## Front matter (required)
 

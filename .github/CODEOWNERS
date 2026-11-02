@@ -1,5 +1,5 @@
-# Paths that need Aruto's review (SoulslandsGame ADR-0024 section 10). Documentation only on a
-# free private repository: the PM asks for Aruto's review by hand.
+# Paths that need Aruto's review (ADR-0024 section 10, in the studio repository). GitHub requests
+# his review automatically on a pull request that touches them.
 /.github/CODEOWNERS                          @Arutosio
 /src/Soulslands.Web/Services/Auth/           @Arutosio   # OIDC client of the studio, role claims, sign-in cookie
 /src/Soulslands.Web/Services/WikiAccess.cs   @Arutosio   # who reads the staff wiki

@@ -1,6 +1,6 @@
-# CLAUDE.md: Soulslands website
+# CLAUDE.md: soulslands-site (the Soulslands website)
 
-Context for Claude Code sessions working in this repository. Part 1 is shared by all three Soulslands repos; part 2 is about this repo.
+Context for Claude Code sessions working in this repository. Part 1 describes Soulslands and its repositories; part 2 ("This repository") is about this repo. This repository is public: never add secrets, keys, `.env` values or staff material here.
 
 ## Soulslands in one paragraph
 
@@ -17,15 +17,17 @@ Soulslands is a medieval fantasy sandbox MMO written in Rust: the systems of Ult
 
 ## Repositories (GitHub org `Soulslands`)
 
-| Repo | What | State |
+| Repo | What | Visibility |
 |---|---|---|
-| `website` | ASP.NET Core (.NET 10) site: accounts, Stripe purchase, gift keys, downloads, launcher/session API, community servers list, public wiki + staff dev wiki | Live feature set, current priority |
-| `SoulslandsGame` | The game: Cargo workspace with crates `ss-core`, `ss-protocol`, `ss-net`, `ss-content`, `ss-simulation`, `ss-server`, `ss-dist`, `ss-voxel-mesh`, `ss-voxel-cull`, `ss-client-logic`, `ss-render`, apps `client`, `dedicated-server`, `bot-swarm`, tools `asset-lint`, `asset-cook`, `dist-tool`; also the world data pack `content/soulslands/` and ADRs | M0 closing, M1-M2 in progress |
-| `SLWorldLib` | World library: generation, cubic chunks, portable world folder, players/items/entities saved by shape | Working, used by git tag (v0.2.2 today) |
-| `SLAssets` | Art pipeline: style source and the `texgen` generator for block textures and item icons, license register | Active (M2) |
-| `SLLauncher`, `SLModSDK`, `SLServer` | The launcher (M3), the mod SDK (M6, planned public) and the distributed server (M7). **Aruto creates repos**, agents cannot | Launcher started; the other two hold only an initial commit |
-| `Arutosio/mahoroba-website` | The Mahoroba studio site (outside the org): accounts, store and launcher API; the game sites sign in through it (ADR-0024) | Studio lane, phase F1b |
-| `SoulslandsHQ` | The team headquarters: every agent skill (edited only there), agent definitions, work board, roadmap, decisions and knowledge. No game code | Team setup |
+| `soulslands-site` | This repository: the Soulslands game site (ASP.NET Core, .NET 10): game pages, devlog, benchmark pages, public wiki, sign-in through the studio | Public (since 2026-11-02, ADR-0035) |
+| `soulslands-website` (old name on purpose) | The site's previous repository, kept as a read-only archive with the full history; links to its old pull requests stay on that name | Private, archived |
+| `soulslands-game` | The game: one Cargo workspace with `game/` (the `ss-*` crates, apps, the data pack), `world/` (the world library), `launcher/` (the Soulslands Launcher); ADRs in `docs/adr/` | Private |
+| `soulslands-assets` | Art pipeline: style source, the `texgen` generator, textures and icons, license register | Private |
+| `soulslands-modsdk` | The mod SDK (from milestone M6) | Private, public later |
+| `soulslands-hq` | The team headquarters: every agent skill (edited only there), agent definitions, staff wiki (`wiki/`), work board, roadmap, decisions and knowledge. No game code | Private |
+| `Arutosio/mahoroba-website` | The Mahoroba studio site (outside the org): accounts, store, gift keys, downloads, launcher and session API; the game sites sign in through it (ADR-0024) | Private |
+
+Only Aruto creates repositories; agents cannot.
 
 ## Where the source of truth lives
 
@@ -34,14 +36,14 @@ Soulslands is a medieval fantasy sandbox MMO written in Rust: the systems of Ult
 - **Gameplay**: wiki folders `regole/`, `meccaniche/`, `skill/`, `razze/`, `classi/`, `gilde/`, `equipaggiamento/`, `risorse/`.
 - **World content**: `WikiContent/mondo/` (blocks, trees, biomes, caves, oceans, lakes and rivers, structures, day and night).
 - **Creatures**: `WikiContent/creature/` (103 pages, materials page `materiali-creature`).
-- **Agent skills**: edited only in `.claude/skills/` of `Soulslands/SoulslandsHQ` (the team headquarters), which holds every skill. Each repo keeps a copy of the ones its sessions need (SoulslandsGame 9, SLWorldLib 3, website 3, SLLauncher 4), refreshed with `scripts/sync-skills.sh` in SoulslandsHQ; never edit a copy here. Each skill links its architecture page.
+- **Agent skills**: edited only in `.claude/skills/` of `Soulslands/soulslands-hq` (the team headquarters), which holds every skill. This repository keeps copies of the three its sessions need (`aspnet-core`, `website-dotnet`, `wiki-writing`), refreshed with `scripts/sync-skills.sh soulslands-site=<path>` in soulslands-hq; never edit a copy here. Each skill links its architecture page.
 
 ## How to work here
 
 - Aruto granted full autonomy on the Soulslands repos: branch, commit, open a PR and merge it when CI is green. Ask only real questions. Talk to Aruto in Italian.
 - Planning, chat history and project notes live in a Claude project that a local session cannot read; this file, the wiki and the skills are the handoff. If a decision is missing here, ask Aruto rather than guessing.
 - Agreed order: finish the website first (the game's showcase), then game milestone M0. In parallel the world content goes into the data pack: natural blocks with texture specs first, then built blocks/furniture/placeable containers, then the structures redone with real blocks.
-- **Phases and CI**: the roadmap is ordered by product phases (`SoulslandsHQ/docs/roadmap/phases.md`: F0 workshop, F1b studio site, F2 world data and assets, F3 client sees the world are active). CI runs locally, not on GitHub: `cargo xtask ci` is exactly what the merge queue runs (`SoulslandsHQ/docs/local-ci.md`).
+- **Phases and CI**: the roadmap is ordered by product phases (`soulslands-hq/docs/roadmap/phases.md`). This repository is public, so its GitHub Actions run on free hosted runners: `.github/workflows/ci.yml` on every push to `main` and every pull request; run `dotnet build` and `dotnet test` from the repo root before opening a PR.
 
 ## This repository
 

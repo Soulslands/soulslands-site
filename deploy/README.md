@@ -56,11 +56,11 @@ Aspetta che il nome risponda (`ping soulslands.arutosio.com` mostra l'IP del ser
 
 ## 3. La configurazione
 
-Il repository è privato: `git clone` chiede il tuo utente GitHub e, come password, un token personale (GitHub → Settings → Developer settings → Personal access tokens, con accesso in lettura a `Soulslands/website`).
+Il repository è pubblico: `git clone` non chiede né utente né token.
 
 ```bash
-git clone https://github.com/Soulslands/website.git
-cd website
+git clone https://github.com/Soulslands/soulslands-site.git
+cd soulslands-site
 cp .env.example .env
 nano .env
 ```
