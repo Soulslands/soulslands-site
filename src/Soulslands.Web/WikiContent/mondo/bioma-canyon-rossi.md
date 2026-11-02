@@ -17,7 +17,6 @@ I canyon rossi sono altipiani caldi e aridi scavati dal vento e dall'acqua: mesa
 |----------------|--------|
 | **Clima** | Caldo e secchissimo di giorno, freddo di notte |
 | **Pericolo** | ⭐⭐⭐ |
-| **Distanza tipica dalle città** | Lontana |
 | **Stagioni** | Quasi immutabili; d'inverno può nevicare sulle cime delle mesa |
 | **Strutture** | Miniere d'oro abbandonate, abitazioni nella roccia, rovine sepolte, covi dei briganti nelle gole, nidi di wyvern sulle mesa (vedi [Strutture](/wiki/strutture)) |
 | **Effetto** | Di giorno, senza acqua, la stamina cala più in fretta, come nel deserto |

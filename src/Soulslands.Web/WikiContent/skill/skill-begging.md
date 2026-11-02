@@ -27,7 +27,7 @@ visibility: Pubblica
 
 ## 🧱 Nel mondo a voxel
 
-Funziona con gli NPC delle città e dei villaggi; ogni NPC ha una pazienza limitata e non ti darà nulla per un po' se lo importuni troppo. Elemosinare troppo può farti perdere un po' di [Fama](/wiki/karma-e-fama).
+Funziona con gli NPC dei feudi e dei villaggi; ogni NPC ha una pazienza limitata e non ti darà nulla per un po' se lo importuni troppo. Elemosinare troppo può farti perdere un po' di [Fama](/wiki/karma-e-fama).
 
 ## 📈 Come sale
 

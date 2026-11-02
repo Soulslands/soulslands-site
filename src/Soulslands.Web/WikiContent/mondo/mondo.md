@@ -16,7 +16,7 @@ visibility: Pubblica
 - [Chunk e altezze](#chunk-e-altezze)
 - [Giorno e notte](#giorno-e-notte)
 - [Meteo e stagioni](#meteo-e-stagioni)
-- [Città e guardie](#citta-e-guardie)
+- [Feudi e guardie](#feudi-e-guardie)
 - [Dungeon](#dungeon)
 - [Persistenza](#persistenza)
 - [FAQ](#faq)
@@ -51,10 +51,10 @@ La generazione avviene a livelli:
 2. **Clima** — temperatura e umidità decidono il [bioma](/wiki/biomi): dal gelo della [tundra](/wiki/bioma-tundra) al caldo del [deserto](/wiki/bioma-deserto).
 3. **Rilievo** — catene montuose con speroni e valli laterali, altipiani, pianure e colline, e valli dove scorrono i fiumi, fino alle coste. Il terreno è quello della versione 2 del generatore, pensato per sembrare naturale ([ADR-0032](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0032-generator-versions-terrain-v2.md), [#336](https://github.com/Soulslands/soulslands-game/pull/336)): le montagne sono massicci e non una rete di creste, e a Y 128 o più sta circa il 18-22% della terraferma (misurato da noi sui seed 7, 42 e 1997).
 4. **Sottosuolo** — strati di roccia, vene di [minerali](/wiki/minerali), [grotte e caverne](/wiki/grotte-e-sottosuolo), fiumi di lava nelle profondità.
-5. **[Strutture](/wiki/strutture)** — città NPC, santuari, moongate, rovine, accampamenti di orchi, cripte, torri dei lich, ingressi di dungeon, relitti sulle coste.
+5. **[Strutture](/wiki/strutture)** — feudi, villaggi, santuari, rovine, accampamenti di orchi, cripte, torri dei lich, ingressi di dungeon, relitti sulle coste.
 6. **Popolazione** — le creature compaiono secondo le [regole di spawn](/wiki/spawn-creature).
 
-> ⚠️ Più ti allontani dalle città iniziali, più il mondo diventa pericoloso: i biomi estremi e le creature più forti si trovano lontano dai centri abitati e in profondità.
+> ⚠️ Il pericolo **non cresce con la distanza**: dipende dal bioma, dal luogo (dungeon, rovine, profondità sotto terra) e dalla notte, ed è lo stesso in tutto il mondo (**deciso da Aruto, 02/11/2026**; vedi [Spawn delle creature](/wiki/spawn-creature#gli-stessi-ovunque)).
 
 ---
 
@@ -104,14 +104,15 @@ Il mondo ha **quattro stagioni** di 7 giorni reali ciascuna: d'inverno la neve s
 
 ---
 
-## 🏰 Città e guardie
+## 🏰 Feudi e guardie
 
-Il generatore crea a intervalli regolari delle **città NPC**: insediamenti con banca, guaritore, fabbro, sarto, stalle, taverna e mercanti. Le città sono il punto di partenza dei nuovi giocatori e l'unico luogo davvero sicuro del mondo.
+Il generatore crea i **feudi**: grandi città murate in stile medievale, con castello, mercato, banca, guaritori, botteghe, taverna e locanda, governate da un signore NPC (vedi [Strutture](/wiki/strutture#feudi-villaggi-e-strade)). Sono i luoghi più sicuri del mondo, ma non il punto di partenza.
 
-- Ogni città ha una **zona di guardia** segnalata da colonne e stendardi: al suo interno le [guardie cittadine](/wiki/guardie-cittadine) proteggono gli innocenti.
-- I blocchi delle città NPC **non sono modificabili**: non si può scavare né demolire dentro una città.
-- Le città si diradano allontanandosi dal centro del mondo: le terre di frontiera sono lasciate alle [città di gilda](/wiki/citta-di-gilda).
-- Ogni città ha un **santuario** dove i fantasmi possono tornare in vita (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)).
+- I **nuovi personaggi** nascono al centro del mondo, nelle terre selvagge, come in Minecraft: nessun feudo viene forzato lì (**deciso da Aruto, 02/11/2026**).
+- Ogni feudo ha una **zona di guardia**, che comprende la città murata e una fascia intorno alle mura: al suo interno le [guardie cittadine](/wiki/guardie-cittadine) proteggono gli innocenti.
+- I blocchi dei feudi **non sono modificabili**: non si può scavare né demolire dentro un feudo. I villaggi invece sono terra libera.
+- I feudi nascono su tutto il mondo con la stessa rarità, circa uno ogni 20 × 20 km: non c'è un limite oltre il quale non ne compaiono. Le città dei giocatori sono le [città di gilda](/wiki/citta-di-gilda).
+- Ogni feudo ha un **santuario** dove i fantasmi possono tornare in vita (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)).
 
 ---
 
@@ -142,10 +143,10 @@ Ogni blocco scavato o piazzato, ogni oggetto lasciato a terra, ogni casa e ogni 
 ## ❓ FAQ
 
 **D: Il mondo finisce da qualche parte?**
-R: In orizzontale no: il server genera nuove terre finché i giocatori esplorano. Più ci si allontana, più i biomi sono estremi e le creature pericolose.
+R: In orizzontale no: il server genera nuove terre finché i giocatori esplorano. Il pericolo non cresce con la distanza dal centro: dipende dal bioma, dal luogo e dalla notte.
 
-**D: Posso distruggere una città NPC?**
-R: No. Le città NPC, i santuari e le strade principali sono protetti. Le [città di gilda](/wiki/citta-di-gilda) invece possono essere assediate secondo le regole delle guerre tra gilde.
+**D: Posso distruggere un feudo?**
+R: No. I feudi e i santuari sono protetti. I villaggi invece sono terra libera: si scava e si costruisce. Le [città di gilda](/wiki/citta-di-gilda) invece possono essere assediate secondo le regole delle guerre tra gilde.
 
 **D: Se un'altra persona scava una montagna, la vedo anch'io scavata?**
 R: Sì. Il mondo è uno solo e ogni modifica è visibile a tutti.

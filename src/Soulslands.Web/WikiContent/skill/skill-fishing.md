@@ -41,7 +41,7 @@ Fishing sale **usandola**, fino a un massimo di **100.0**. Ogni **uso utile** co
 
 | Livello | Come allenarla |
 |---------|----------------|
-| **0-40** | Fiumi e laghi vicino alla città. |
+| **0-40** | Fiumi e laghi. |
 | **40-70** | Coste e baie. |
 | **70-100** | Mare aperto e acque profonde, in barca. |
 

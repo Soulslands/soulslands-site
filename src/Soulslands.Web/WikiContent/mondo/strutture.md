@@ -5,7 +5,7 @@ category: Mondo
 visibility: Pubblica
 ---
 # 🏰 Strutture del mondo
-*Città, santuari, rovine e tesori: ciò che il mondo costruisce da solo*
+*Feudi, santuari, rovine e tesori: ciò che il mondo costruisce da solo*
 
 ---
 
@@ -14,31 +14,31 @@ visibility: Pubblica
 - [Panoramica](#panoramica)
 - [Come leggere le schede](#come-leggere-le-schede)
 - [Blocchi protetti e rinforzati](#blocchi-protetti-e-rinforzati)
-- [Città, villaggi e strade](#citta-villaggi-e-strade)
-- [Santuari e moongate](#santuari-e-moongate)
+- [Feudi, villaggi e strade](#feudi-villaggi-e-strade)
+- [Santuari](#santuari)
 - [Strutture di superficie per bioma](#strutture-di-superficie-per-bioma)
 - [Strutture sotterranee e dungeon](#strutture-sotterranee-e-dungeon)
 - [Strutture oceaniche e delle isole](#strutture-oceaniche-e-delle-isole)
 - [Mappe del tesoro e tesori sepolti](#mappe-del-tesoro-e-tesori-sepolti)
-- [Frequenza e distanza dalle città](#frequenza-e-distanza-dalle-citta)
+- [Frequenza e luoghi](#frequenza-e-luoghi)
 - [Strutture per bioma](#strutture-per-bioma)
 
 ---
 
 ## 📜 Panoramica
 
-Oltre al terreno, il generatore del [mondo](/wiki/mondo) costruisce da solo le **strutture**: città e villaggi NPC, santuari, moongate, accampamenti, torri, templi, dungeon, relitti e tesori sepolti. Ogni struttura nasce insieme ai chunk che la contengono, sempre identica per lo stesso seme, e da quel momento fa parte del mondo come una montagna: ciò che i giocatori scavano, saccheggiano o bonificano resta così per tutti (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)). Una struttura che attraversa più chunk viene decisa dal seme della zona in cui comincia, così i suoi pezzi combaciano sempre.
+Oltre al terreno, il generatore del [mondo](/wiki/mondo) costruisce da solo le **strutture**: feudi (le città murate) e villaggi, santuari, accampamenti, torri, templi, dungeon, relitti e tesori sepolti. Ogni struttura nasce insieme ai chunk che la contengono, sempre identica per lo stesso seme, e da quel momento fa parte del mondo come una montagna: ciò che i giocatori scavano, saccheggiano o bonificano resta così per tutti (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)). Una struttura che attraversa più chunk viene decisa dal seme della zona in cui comincia, così i suoi pezzi combaciano sempre.
 
-L'idea viene da Minecraft, l'anima da Ultima Online: città presidiate dalle guardie, santuari delle otto virtù, moongate, dungeon classici e mappe del tesoro. Le strutture sono fatte degli stessi blocchi che usano i giocatori: muri, tetti, porte, mobili, luci e forzieri sono nel catalogo dei [Blocchi da costruzione](/wiki/blocchi-costruzione).
+L'idea viene da Minecraft, l'anima da Ultima Online: feudi presidiati dalle guardie, santuari delle otto virtù, dungeon classici e mappe del tesoro. Le strutture sono fatte degli stessi blocchi che usano i giocatori: muri, tetti, porte, mobili, luci e forzieri sono nel catalogo dei [Blocchi da costruzione](/wiki/blocchi-costruzione).
 
 | In Minecraft | In Soulslands | In Minecraft | In Soulslands |
 |--------------|---------------|--------------|---------------|
-| Villaggio | Villaggio e città NPC | Villaggio zombie | Villaggio abbandonato |
+| Villaggio | Villaggio e feudo | Villaggio zombie | Villaggio abbandonato |
 | Avamposto dei predoni | Accampamento di briganti | Magione nel bosco | Fortezza orchesca |
 | Tempio del deserto | Piramide e tomba del deserto | Tempio della giungla | Tempietto della giungla |
 | Capanna della strega | Capanna della strega | Igloo | Rifugio di neve |
-| Miniera abbandonata | Miniera abbandonata | Roccaforte | Roccaforte antica e moongate nero |
-| Portale in rovina | Moongate in rovina | Città antica | Città perduta dell'Abisso |
+| Miniera abbandonata | Miniera abbandonata | Roccaforte | Roccaforte antica |
+| Portale in rovina | Portale demoniaco | Città antica | Città perduta dell'Abisso |
 | Rovine dei sentieri | Rovine sepolte | Relitto e rovine oceaniche | Relitti e rovine sommerse |
 | Monumento oceanico | Tempio sommerso | Tesoro sepolto | Tesori dei pirati e mappe del tesoro |
 
@@ -55,7 +55,7 @@ L'idea viene da Minecraft, l'anima da Ultima Online: città presidiate dalle gua
 | **Dimensione** | **Piccola** fino a 16 × 16 blocchi (un chunk), **media** fino a 48 × 48, **grande** fino a 128 × 128, **enorme** oltre |
 | **Abitanti** | Creature generate con la struttura: non scompaiono mai e, se uccise, tornano poco alla volta quando nessun giocatore è vicino (vedi [Spawn delle creature](/wiki/spawn-creature)) |
 | **Boss** | Il capo della struttura, nella sala più protetta: dopo l'uccisione torna in 2–6 ore reali |
-| **Bottino** | Il contenuto tipico dei forzieri, che migliora con la distanza dalle città e con la profondità |
+| **Bottino** | Il contenuto tipico dei forzieri, che dipende dal tipo di struttura e dalla profondità, mai dalla distanza dai feudi (vedi [Frequenza e luoghi](#frequenza-e-luoghi)) |
 | **Blocchi** | 🔒 protetti, 🧱 rinforzati, ⛏️ normali (vedi sotto) |
 
 > 💡 Rarità e dimensioni sono indicative: possono cambiare con il bilanciamento e con i pacchetti dati del server.
@@ -66,47 +66,82 @@ L'idea viene da Minecraft, l'anima da Ultima Online: città presidiate dalle gua
 
 | Tipo | Cosa si può fare | Esempi |
 |------|------------------|--------|
-| 🔒 **Protetti** | Nessuno può scavarli, piazzarvi blocchi o danneggiarli, nemmeno con esplosioni o magie | Città e villaggi NPC, strade del regno e i loro ponti, santuari, moongate, carovaniere, porto dei bucanieri |
+| 🔒 **Protetti** | Nessuno può scavarli, piazzarvi blocchi o danneggiarli, nemmeno con esplosioni o magie | Feudi, santuari, carovaniere, porto dei bucanieri |
 | 🧱 **Rinforzati** | Si scavano, ma da 5 a 10 volte più piano della roccia dello stesso strato e solo con un piccone adatto; rotti lasciano soltanto pietrisco | Muri, pavimenti e soffitti di dungeon, fortezze, templi, torri, piramidi, città sommerse |
-| ⛏️ **Normali** | Si scavano e si raccolgono come qualsiasi blocco del mondo | Accampamenti, capanne, fattorie, rovine, relitti, cerchi di pietre |
+| ⛏️ **Normali** | Si scavano e si raccolgono come qualsiasi blocco del mondo | Villaggi (terra libera), accampamenti, capanne, fattorie, rovine, relitti, cerchi di pietre |
 
 - I muri rinforzati seguono la regola di [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo#dungeon-generati): molto più resistenti della roccia, ma un minatore paziente può aprirsi un ingresso laterale ed evitare le trappole dell'entrata.
 - Porte e forzieri chiusi si aprono con [Lockpicking](/wiki/skill-lockpicking) o con la chiave che porta il boss; le trappole si trovano con [Detect Hidden](/wiki/skill-detect-hidden) e si disinnescano con [Remove Trap](/wiki/skill-remove-trap).
 - I forzieri delle strutture abitate si riempiono di nuovo qualche ora dopo essere stati svuotati, quando nessun giocatore è vicino. Quelli di relitti, tombe e tesori si svuotano una volta sola.
 - Gli accampamenti all'aperto (briganti, predoni nomadi, orchi, selvaggi, lizardman, ciclopi, pirati) hanno un **cuore**: lo stendardo, il totem o il falò del capo. Se il capo è morto e il cuore viene distrutto, l'accampamento è **bonificato** e gli abitanti non tornano più. Dungeon, torri e templi non si bonificano mai.
-- Una [Pietra del Territorio](/wiki/pietra-territorio-gilda) va piazzata ad almeno 2 chunk da città, zone di guardia e ingressi dei dungeon.
+- Una [Pietra del Territorio](/wiki/pietra-territorio-gilda) va piazzata ad almeno 2 chunk da feudi, zone di guardia e ingressi dei dungeon.
 
 > 💡 Bonificare gli accampamenti di una zona è il primo passo per fondarvi una [città di gilda](/wiki/citta-di-gilda): quelli lasciati attivi vicino ai confini possono far partire le [invasioni](/wiki/spawn-creature#spawn-rari-e-boss).
 
 ---
 
-## 🏰 Città, villaggi e strade
+## 🏰 Feudi, villaggi e strade
+
+Le città che genera il mondo si chiamano **feudi**: grandi città murate in stile medievale, governate da un signore NPC. Intorno a loro nascono i **villaggi**, senza mura, e dalle porte dei feudi partono le **strade**. Le città dei giocatori sono un'altra cosa: le [città di gilda](/wiki/citta-di-gilda). Le regole di questa sezione sono le decisioni di Aruto del 02/11/2026 su feudi, dove nascono, villaggi, strade, eccezioni dal seme e fine dei moongate, portate nel generatore da [ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md).
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e servizi | Blocchi |
 |----------------|------|--------------------|--------------------|---------|
-| **Città NPC** `soulslands:npc_city` | Tutti i biomi tranne quelli corrotti (Terre dei Morti, Lande d'Ombra, terre vulcaniche); più spesso pianure, foreste e coste | Una ogni 1.500–2.500 blocchi vicino al centro del mondo (vedi [sotto](#frequenza-e-distanza-dalle-citta)); enorme, 150–250 blocchi | Guardie, banchiere, guaritore, fabbro, sarto, stalliere, taverna, locanda e mercanti; santuario delle virtù e moongate; sulle coste porto e cantiere navale | 🔒 |
-| **Villaggio** `soulslands:village` | Pianure, foresta temperata, taiga, savana, oasi del deserto, brughiera | Comune entro 2.000 blocchi da una città, poi raro; grande, 60–100 blocchi | Contadini, mercante, locandiere, stalliere e poche guardie; nei più grandi un guaritore e un fabbro; campi e recinti con animali | 🔒 |
-| **Villaggio di pescatori** `soulslands:fishing_village` | [Coste](/wiki/bioma-coste), foci dei fiumi | Comune; media | Pescatori, mercante di canne e reti, costruttore di barche, locanda e molo | 🔒 |
-| **Strada del regno** `soulslands:kings_road` | Tra ogni città e le città e i villaggi più vicini | Collega sempre le città vicine | Pietre miliari con direzione e distanza della città più vicina, ponti di pietra sui [fiumi](/wiki/laghi-e-fiumi), santuari ai crocevia; briganti in agguato nei tratti lontani | 🔒 |
+| **Feudo** `soulslands:fief` | Terre temperate; deserti, savane, taiga e tundra; coste e grandi isole (con porto e cantiere navale); foreste profonde, giungle e paludi; vette innevate | Circa uno ogni 20 × 20 km, mai a meno di 16 km da un altro; enorme: mura di circa 300 × 300 blocchi con almeno 40 strutture dentro | 30–60 NPC: il signore, guardie, guaritori, banchiere, fabbro, sarto, falegname, alchimista, costruttore di archi, istruttori di skill, taverna e locanda | 🔒 |
+| **Feudo in rovina** `soulslands:ruined_fief` | Gli stessi biomi dei feudi | Molto raro: circa uno ogni cinque feudi vivi | Mura crollate, mostri e tesori | — |
+| **Villaggio** `soulslands:village` | Nel territorio di un feudo; circa uno su quattro è isolato, lontano da ogni feudo | Molto raro: 3–6 nel territorio di un feudo; 8–15 strutture | Case e campi, un pozzo con una piccola piazza, una bottega, una piccola locanda o cappella con un guaritore; nessuna guardia | ⛏️ |
+| **Villaggio di pescatori** `soulslands:fishing_village` | [Coste](/wiki/bioma-coste), foci dei fiumi | Raro (insediamento speciale); media | Pescatori, mercante di canne e reti, costruttore di barche, locanda e molo | 🔒 |
+| **Strada dei feudi** `soulslands:fief_road` | Parte solo dalle porte dei feudi | Al massimo 2.000 blocchi dalla porta | Cartelli con i nomi, ponti sui [fiumi](/wiki/laghi-e-fiumi), locande di posta e santuari lungo la strada | da confermare |
 
-- Le città si generano all'apertura del server, prima che arrivi qualsiasi giocatore, e ognuna ha una **zona di guardia** segnata da colonne e stendardi (vedi [Guardie cittadine](/wiki/guardie-cittadine)). La zona dei villaggi è piccola: in un villaggio isolato le guardie arrivano solo se qualcuno le chiama.
-- Città e villaggi usano i materiali del bioma: legno e paglia nelle pianure, `spruce_log` nella taiga, `acacia_log` e `red_clay` nella savana, `sandstone` nel deserto, pietra e neve nella tundra, `granite` e tetti di `slate` in montagna e nella brughiera, `limestone` sulle coste.
-- Nelle **locande** il logout è immediato e sicuro come in casa (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)): un villaggio è il posto migliore dove fermarsi lontano dalle città.
+### 🏯 Il feudo
+
+- **Mura.** Pietra alta circa 10–12 blocchi, con camminamento, merli e torri agli angoli e lungo il perimetro; il materiale dipende dal bioma e la forma segue il terreno. Il castello del signore sorge sul punto più alto.
+- **Porte.** Da 2 a 4, con portone, saracinesca e guardie NPC: una per ogni direzione in cui può partire una strada, nessuna verso una scogliera o verso il mare.
+- **Dentro le mura.** Il castello, una chiesa o cattedrale (i guaritori resuscitano lì), la piazza del mercato con la fontana, la taverna e la locanda (logout sicuro), le case degli NPC con piccoli giardini e qualche villa, le botteghe (fabbro, sarto, falegname, alchimista, costruttore di archi), la banca, la caserma, l'armeria e le scuderie, le sale delle gilde e delle scuole con gli istruttori di skill. C'è il santuario delle virtù (con virtù, colore e mantra) e le guardie con la zona protetta: vedi [Guardie cittadine](/wiki/guardie-cittadine). Niente moongate e niente colonne di confine.
+- **Stile.** Cambia con il bioma. Sulle coste e sulle isole grandi c'è il porto con il cantiere navale; sulle vette innevate il feudo è una fortezza su un altopiano, con mura lungo le creste e strade a tornanti, oppure una città in parte scavata nella roccia.
+- **Fuori dalle mura.** Ogni feudo pesca a caso tra campi e fattorie, mulini, un piccolo borgo e un fossato; alcuni non hanno nulla.
+- **Nome.** Ogni feudo ha un nome medievale generato: compare quando ci entri, sui cartelli delle strade e sulle mappe disegnate con [Cartography](/wiki/skill-cartography). Il gioco non ha una mappa automatica del mondo.
+- **Rovine.** I feudi in rovina hanno le mura cadute, mostri e tesori. Intorno ci sono villaggi abbandonati e tratti di strada spezzati e invasi dalla vegetazione.
+- **Il signore.** Il feudo è governato da un signore NPC. Che una gilda possa conquistarlo è un'idea per più avanti, non ancora progettata (vedi [Città di gilda](/wiki/citta-di-gilda)).
+- **Dove nascono.** Il generatore li distribuisce su tutto il mondo con la stessa rarità, senza forzarne uno dove nascono i nuovi giocatori (vedi [Il Mondo](/wiki/mondo)).
+
+### 🏘️ I villaggi
+
+- Un villaggio non ha mura né guardie: è **terra libera**, i suoi blocchi si scavano e ci si può costruire. Per questo le guardie non arrivano (vedi [Guardie cittadine](/wiki/guardie-cittadine)).
+- Ogni villaggio ha un nome generato, che compare quando ci entri, sui cartelli e sulle mappe di Cartography.
+- Il villaggio di pescatori, la carovaniera e il porto dei bucanieri restano insediamenti speciali rari.
+
+### 🛤️ Le strade
+
+- Le strade escono **solo dalle porte dei feudi**, lunghe al massimo 2.000 blocchi, e portano ai villaggi, agli insediamenti speciali e ai santuari che trovano a portata; finiscono se non raggiungono nulla. Non esistono strade da un feudo a un altro né da un villaggio a un altro.
+- Una porta con nulla a portata ha comunque una strada che sfuma (pietra, terra, sentiero) e finisce prima di 2.000 blocchi.
+- Vicino al feudo la strada è lastricata, poi diventa di terra e più stretta, e finisce come sentiero.
+- Seguono il terreno: passano per valli e passi, evitano pendii ripidi e acqua, salgono a tornanti dove la pendenza lo chiede e hanno ponti dove devono attraversare un fiume. Non vanno in linea retta sopra le montagne.
+- Lungo la strada si incontrano cartelli con i nomi, ponti, locande di posta e santuari.
+- Se i blocchi delle strade siano protetti come quelli dei feudi non è ancora deciso.
+
+### 🎲 Eccezioni dal seme
+
+Tutto nasce dal seme, e le regole fisse lasciano una piccola probabilità di eccezione, perché ogni mondo resti unico: per esempio un villaggio in un bioma diverso dal solito o una rovina accanto a un feudo vivo. Con lo stesso seme le eccezioni si ripetono identiche. I feudi stanno sempre ad almeno 16 km l'uno dall'altro, tranne in 1 caso su 100.000 per feudo: lì ne nasce un secondo proprio accanto al primo, i **feudi gemelli**.
+
+### 🧱 Materiali e locande
+
+- Feudi e villaggi usano i materiali del bioma: legno e paglia nelle pianure, `spruce_log` nella taiga, `acacia_log` e `red_clay` nella savana, `sandstone` nel deserto, pietra e neve nella tundra, `granite` e tetti di `slate` in montagna e nella brughiera, `limestone` sulle coste.
+- Nelle **locande** il logout è immediato e sicuro come in casa (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)): un villaggio con la sua locanda è un buon posto dove fermarsi lontano dai feudi.
 
 ---
 
-## ⛩️ Santuari e moongate
+## ⛩️ Santuari
 
 I santuari sono i punti di resurrezione del mondo: un fantasma che raggiunge l'ankh di un santuario torna in vita (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)). Dentro il loro cerchio non compare nessuna creatura ostile.
 
 | Struttura e id | Dove | Rarità, dimensione | Cosa offre | Blocchi |
 |----------------|------|--------------------|------------|---------|
-| **Santuario delle virtù** `soulslands:virtue_shrine` | Accanto a ogni città NPC, dentro la zona di guardia | Uno per città; media | Resurrezione, altare delle decime per [Chivalry](/wiki/skill-chivalry), rito della Purificazione dell'Anima ([Player killer e redenzione](/wiki/player-killer-e-redenzione)), **Pedana delle Razze** per i fantasmi (vedi [Razze](/wiki/razze)) | 🔒 |
-| **Santuario del crocevia** `soulslands:wayside_shrine` | Incroci delle strade del regno, ingresso di alcuni dungeon grandi | Non comune; piccola | Resurrezione | 🔒 |
-| **Santuario antico** `soulslands:ancient_shrine` | In cima a rovine lontane, su vette e isole remote; mai nelle Lande d'Ombra | Rara; media | Resurrezione lontano dalle città; fuori dal cerchio gli spawn sono normali | 🔒 il cerchio, ⛏️ le rovine |
-| **Santuario del caos** `soulslands:chaos_shrine` | Margini delle [Terre dei Morti](/wiki/bioma-terre-dei-morti), isole maledette; mai entro 3.000 blocchi da una città con guardie | Molto rara; media | Resurrezione per tutti, anche per i fantasmi **rossi** | 🔒 |
+| **Santuario delle virtù** `soulslands:virtue_shrine` | Dentro la zona di guardia di ogni feudo | Uno per feudo; media | Resurrezione, altare delle decime per [Chivalry](/wiki/skill-chivalry), rito della Purificazione dell'Anima ([Player killer e redenzione](/wiki/player-killer-e-redenzione)), **Pedana delle Razze** per i fantasmi (vedi [Razze](/wiki/razze)) | 🔒 |
+| **Santuario del crocevia** `soulslands:wayside_shrine` | Lungo le strade dei feudi, ingresso di alcuni dungeon grandi | Non comune; piccola | Resurrezione | 🔒 |
+| **Santuario antico** `soulslands:ancient_shrine` | In cima a rovine lontane, su vette e isole remote; mai nelle Lande d'Ombra | Rara; media | Resurrezione nelle terre selvagge; fuori dal cerchio gli spawn sono normali | 🔒 il cerchio, ⛏️ le rovine |
+| **Santuario del caos** `soulslands:chaos_shrine` | Margini delle [Terre dei Morti](/wiki/bioma-terre-dei-morti), isole maledette; mai vicino a un feudo con guardie | Molto rara; media | Resurrezione per tutti, anche per i fantasmi **rossi** | 🔒 |
 
-Ogni santuario delle virtù è dedicato a una delle otto virtù di Ultima Online, con il suo colore e il mantra inciso sull'altare. Le prime otto città intorno al centro del mondo ne hanno una ciascuna; più lontano le virtù si ripetono, scelte dal seme in base al bioma.
+Ogni santuario delle virtù è dedicato a una delle otto virtù di Ultima Online, con il suo colore e il mantra inciso sull'altare. Ogni feudo ne ha uno; la virtù è scelta dal seme in base al bioma, e nel mondo le virtù si ripetono.
 
 | Virtù | Mantra | Colore | Bioma preferito | Città di UO |
 |-------|--------|--------|-----------------|-------------|
@@ -119,20 +154,9 @@ Ogni santuario delle virtù è dedicato a una delle otto virtù di Ultima Online
 | Spiritualità (Spirituality) | OM | Bianco | [Brughiera](/wiki/bioma-brughiera) | Skara Brae |
 | Umiltà (Humility) | LUM | Nero | [Taiga](/wiki/bioma-taiga) | Magincia |
 
-I **moongate** sono le porte magiche di Ultima Online: archi di luce azzurra che collegano luoghi lontani.
+### 🌙 Niente moongate
 
-| Struttura e id | Dove | Rarità | Come funziona | Blocchi |
-|----------------|------|--------|---------------|---------|
-| **Moongate** `soulslands:moongate` | Dentro la zona di guardia di ogni città, vicino alla porta principale | Uno per città | Porta all'istante a qualsiasi altra città di cui hai già visitato il moongate | 🔒 |
-| **Moongate antico** `soulslands:ancient_moongate` | Al centro di alcuni cerchi di pietre, soprattutto nella [brughiera](/wiki/bioma-brughiera) | Rara | Si apre solo di notte e porta a un altro moongate antico, diverso per ogni fase lunare | 🔒 |
-| **Moongate in rovina** `soulslands:ruined_moongate` | Qualsiasi bioma, a volte sul fondale | Rara; piccola | Spento per sempre: archi spezzati di `obsidian` e `mana_crystal` con un forziere di reagenti, rune e pergamene | ⛏️ |
-| **Moongate nero** `soulslands:black_moongate` | Nel cuore di ogni roccaforte antica | Uno per roccaforte | Acceso con dodici occhi di gazer anziano, porta alla tana di un Wyrm antico (vedi [sotto](#strutture-sotterranee-e-dungeon)) | 🧱 |
-
-- I moongate sono gratuiti e gli animali che ti seguono passano con te. Anche i fantasmi li attraversano: è la via più rapida verso il santuario di un'altra città.
-- Non si possono usare durante un combattimento né da criminali (grigi). I rossi possono entrarci, ma arrivano dentro una zona di guardia.
-- La luna ha otto fasi, una per giorno di gioco (vedi [Giorno e notte](/wiki/giorno-e-notte)): ogni moongate antico ha quindi otto destinazioni, scelte dal seme tra i moongate antichi della regione. Nella notte di **luna nuova** porta sempre ai margini di un bioma corrotto.
-
-> ⚠️ Chi conosce le fasi lunari usa i moongate antichi come una rete di viaggio segreta, ma all'arrivo non c'è nessuna guardia ad aspettarlo.
+I **moongate**, le porte magiche di Ultima Online, sono stati **tolti dal gioco**: quelli delle città, quelli antichi, quelli in rovina e il moongate nero delle roccaforti (**deciso da Aruto, 02/11/2026**; vedi [ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md) sezione 6). Il viaggio magico resta come in Ultima Online: **Recall** e **Gate Travel** con le rune segnate (vedi [Magery](/wiki/skill-magery)). I fantasmi tornano in vita ai santuari, dai guaritori o per mano di un Chierico (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)).
 
 ---
 
@@ -144,17 +168,17 @@ Prima le strutture che compaiono in molti biomi, poi quelle tipiche di ciascun b
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e boss | Bottino | Blocchi |
 |----------------|------|--------------------|-----------------|---------|---------|
-| **Accampamento di briganti** `soulslands:brigand_camp` | Lungo le strade lontane di pianure, foreste, taiga e brughiera; nei canyon rossi è un covo nascosto in una gola. Nella savana e nel deserto al suo posto c'è l'[accampamento nomade](#savana) | Non comune; media | 4–8 [briganti](/wiki/mostro-brigante) (Brigand) e una torre di vedetta in legno; capo: un brigante con nome | Forziere chiuso: oro, armi, mappe del tesoro di livello 1–2; a volte un prigioniero da liberare, che dà [karma](/wiki/karma-e-fama) | ⛏️ |
+| **Accampamento di briganti** `soulslands:brigand_camp` | Lungo le strade di pianure, foreste, taiga e brughiera; nei canyon rossi è un covo nascosto in una gola. Nella savana e nel deserto al suo posto c'è l'[accampamento nomade](#savana) | Non comune; media | 4–8 [briganti](/wiki/mostro-brigante) (Brigand) e una torre di vedetta in legno; capo: un brigante con nome | Forziere chiuso: oro, armi, mappe del tesoro di livello 1–2; a volte un prigioniero da liberare, che dà [karma](/wiki/karma-e-fama) | ⛏️ |
 | **Villaggio abbandonato** `soulslands:abandoned_village` | Pianure, tundra, brughiera | Non comune; grande | Di notte scheletri, zombie e ghoul; ratti giganti nelle cantine | Attrezzi, semi, piccoli forzieri | ⛏️ |
 | **Torre del mago** `soulslands:wizard_tower` | Colline di pianure, foresta temperata e brughiera; più spesso nella foresta incantata | Rara; media, alta 30–40 blocchi | Maghi rinnegati (Evil Mage) con un elementale dell'aria o di terra al loro servizio, mongbat; boss: un mago rinnegato con nome | Reagenti, pergamene, libri degli incantesimi, rune, `mana_crystal` | 🧱 |
-| **Cimitero** `soulslands:graveyard` | Fuori dalle mura di città e villaggi; grande e maledetto nelle Terre dei Morti | Comune; media | Di notte scheletri, zombie, ghoul e spettri | Corredi nelle tombe (profanarle abbassa il karma); a volte un mausoleo con le scale per una cripta | ⛏️ |
+| **Cimitero** `soulslands:graveyard` | Ai margini di feudi e villaggi; grande e maledetto nelle Terre dei Morti | Comune; media | Di notte scheletri, zombie, ghoul e spettri | Corredi nelle tombe (profanarle abbassa il karma); a volte un mausoleo con le scale per una cripta | ⛏️ |
 | **Rovine sepolte** `soulslands:buried_ruins` | Pianure, savana, deserto, canyon rossi | Non comune; media o grande | Scheletri; nel deserto e nei canyon rossi, dove sono i resti di intere città antiche, [gargoyle selvaggi](/wiki/mostro-gargoyle) e scorpioni | Scavando la terra e la ghiaia tra i muri: monete antiche, statuette, frammenti di mappe del tesoro | ⛏️ |
 
 ### 🌾 Pianure
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e boss | Bottino | Blocchi |
 |----------------|------|--------------------|-----------------|---------|---------|
-| **Fattoria abbandonata** `soulslands:abandoned_farm` | Campagne lontane dai villaggi | Comune; media | Ratti giganti nel granaio; di notte scheletri e zombie | Semi di `wheat`, `cotton_plant` e `flax_plant`, attrezzi agricoli, un piccolo forziere | ⛏️ |
+| **Fattoria abbandonata** `soulslands:abandoned_farm` | Campagne aperte | Comune; media | Ratti giganti nel granaio; di notte scheletri e zombie | Semi di `wheat`, `cotton_plant` e `flax_plant`, attrezzi agricoli, un piccolo forziere | ⛏️ |
 | **Mulino a vento** `soulslands:windmill` | Colline vicino ai fiumi | Non comune; piccola | Nessuno | Sacchi di farina, la macina, ingranaggi per [Tinkering](/wiki/skill-tinkering) | ⛏️ |
 
 ### 🌳 Foresta temperata
@@ -250,7 +274,7 @@ Prima le strutture che compaiono in molti biomi, poi quelle tipiche di ciascun b
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e boss | Bottino | Blocchi |
 |----------------|------|--------------------|-----------------|---------|---------|
-| **Cerchio di pietre** `soulslands:stone_circle` | Colline nebbiose; più raro nella foresta profonda | Comune; media | Wisp di notte e nella nebbia | Un altare con reagenti; uno su dieci ha al centro un moongate antico | ⛏️, 🔒 il moongate |
+| **Cerchio di pietre** `soulslands:stone_circle` | Colline nebbiose; più raro nella foresta profonda | Comune; media | Wisp di notte e nella nebbia | Un altare con reagenti | ⛏️ |
 | **Tumulo funerario** `soulslands:barrow` | Colline di brughiera, anche taiga e foresta profonda | Non comune; piccola fuori, media sotto terra | [Wraith](/wiki/mostro-wraith), scheletri, ghoul; cavalieri d'ossa a guardia dei più grandi; boss: il Re del tumulo, un cavaliere d'ossa con nome | Armi antiche, gioielli, gemme | 🧱 |
 | **Ometto di pietra** `soulslands:cairn` | Lungo i vecchi sentieri, nella nebbia | Comune; piccola | Nessuno | Indica la direzione del cerchio di pietre o del villaggio più vicino; a volte nasconde qualche moneta | ⛏️ |
 
@@ -283,7 +307,7 @@ Prima le strutture che compaiono in molti biomi, poi quelle tipiche di ciascun b
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e boss | Bottino | Blocchi |
 |----------------|------|--------------------|-----------------|---------|---------|
-| **Faro** `soulslands:lighthouse` | Promontori vicino alle città (acceso); scogliere lontane, isole e faraglioni (spento) | Non comune; media, alto 25–35 blocchi | Nei fari spenti pirati e, di notte, pirati annegati | Olio, cannocchiale, carte nautiche | 🔒 se cittadino, ⛏️ se abbandonato |
+| **Faro** `soulslands:lighthouse` | Promontori, scogliere, isole e faraglioni; acceso se serve un porto, spento se abbandonato | Non comune; media, alto 25–35 blocchi | Nei fari spenti pirati e, di notte, pirati annegati | Olio, cannocchiale, carte nautiche | 🔒 se cittadino, ⛏️ se abbandonato |
 | **Relitto spiaggiato** `soulslands:beached_wreck` | Spiagge e scogli | Comune; media | Granchi giganti; di notte pirati annegati | Forziere della nave: provviste, oro, a volte una mappa del tesoro | ⛏️ |
 | **Grotta dei contrabbandieri** `soulslands:smugglers_cave` | Scogliere e isole rocciose; l'ingresso emerge con la bassa marea | Non comune; media | Pirati, briganti | Merci di contrabbando, oro, chiavi | ⛏️ |
 
@@ -295,7 +319,7 @@ I primi dieci dungeon sono quelli di [Grotte e sottosuolo](/wiki/grotte-e-sottos
 
 | Dungeon e id | Profondità | Bioma | Abitanti | Boss | Ingresso, rarità, dimensione | Bottino tipico |
 |--------------|-----------|-------|----------|------|------------------------------|----------------|
-| **Tana dei ratman** `soulslands:ratman_warren` | Superficiale | Ovunque, vicino alle città | Ratti giganti, ratman | Re dei ratman | Canali di scolo fuori dalle mura, burroni; comune, media | Oro, armi |
+| **Tana dei ratman** `soulslands:ratman_warren` | Superficiale | Ovunque | Ratti giganti, ratman | Re dei ratman | Canali di scolo fuori dalle mura, burroni; comune, media | Oro, armi |
 | **Covo orchesco** `soulslands:orc_lair` | Superficiale – medio | Foresta profonda, montagne | Orchi, orc captain | Orc Lord | Sotto le fortezze orchesche o in una grotta di collina, anche nella taiga; non comune, grande | Oro, gemme, oggetti magici |
 | **Miniera infestata** `soulslands:haunted_mine` | Medio | Montagne | Elementali dei minerali, gargoyle selvaggi | Elementale di Valorite | In fondo alle miniere abbandonate più profonde; rara, grande | Minerale grezzo raro, gemme |
 | **Cripta** `soulslands:crypt` | Medio – profondo | Terre dei Morti, deserto | Scheletri, mummie, lich | Lich Lord | Mausolei, piramidi, cimiteri, isole maledette; non comune, grande | Gioielli antichi, polvere di lich, pergamene |
@@ -307,12 +331,12 @@ I primi dieci dungeon sono quelli di [Grotte e sottosuolo](/wiki/grotte-e-sottos
 | **Rovine sommerse** `soulslands:sunken_ruins` | Fondale oceanico | [Oceani](/wiki/oceani) | Serpenti, elementali d'acqua | Kraken | Dal fondale (vedi sotto); non comune, media | Perle nere, forzieri di relitti |
 | **Miniera abbandonata** `soulslands:abandoned_mine` | Superficiale – medio | Sotto colline e montagne, affiorante nei canyon rossi | Ragni giganti, ratti giganti, elementali di terra | Nessuno | Gallerie con puntelli di legno, carrelli rovesciati e `cobweb`; comune, enorme | Picconi, lanterne, minerale grezzo |
 | **Tempio ofidiano** `soulslands:ophidian_temple` | Medio | Giungla | Guerrieri, maghi e cavalieri ofidiani | Matriarca ofidiana | Sotto i tempietti della giungla più grandi; rara, grande | Veleni rari, armi magiche, tesoro |
-| **Roccaforte antica** `soulslands:stronghold` | Profondo | Ovunque, ad anelli intorno al centro del mondo | Cavalieri scheletrici, scheletri maghi, gargoyle di pietra | Nessuno: custodisce il moongate nero | Si trova con un occhio di gazer anziano; molto rara, grande | Biblioteca di pergamene e libri degli incantesimi, armeria |
+| **Roccaforte antica** `soulslands:stronghold` | Profondo | Ovunque, ad anelli intorno al centro del mondo | Cavalieri scheletrici, scheletri maghi, gargoyle di pietra | Nessuno | Si trova con un occhio di gazer anziano; molto rara, grande | Biblioteca di pergamene e libri degli incantesimi, armeria |
 | **Città perduta** `soulslands:lost_city` | Abisso | Ovunque, più spesso sotto le montagne | Gazer anziani, ombre, ragni del terrore, gargoyle di pietra | Demone d'ossa (Bone Demon) | Enorme caverna di `black_basalt`; molto rara, enorme | Oggetti magici rari, lingotti di [Mytheril](/wiki/minerale-mytheril) |
-| **Tana del wyrm antico** `soulslands:ancient_wyrm_lair` | Cuore del mondo | Ovunque | Elementali del fuoco, demoni arcani | [Wyrm antico](/wiki/mostro-wyrm-antico) | Moongate nero, oppure scavando fino alla `hellstone`; leggendaria, grande | Tesoro leggendario |
+| **Tana del wyrm antico** `soulslands:ancient_wyrm_lair` | Cuore del mondo | Ovunque | Elementali del fuoco, demoni arcani | [Wyrm antico](/wiki/mostro-wyrm-antico) | Solo scavando fino alla `hellstone`; leggendaria, grande | Tesoro leggendario |
 
 - Alcuni dungeon grandi (cripte, covi orcheschi, templi) hanno un santuario del crocevia all'ingresso: è lì che tornano in vita i fantasmi del gruppo.
-- **Roccaforte antica.** Come in Minecraft, le roccaforti stanno ad anelli intorno al centro del mondo: tre nel primo anello, tra 1.500 e 3.000 blocchi, e sempre di più negli anelli esterni. Un occhio di gazer anziano lanciato in aria vola verso la più vicina. Nella sala più profonda il **moongate nero** ha dodici incavi: riempiti con dodici occhi, porta alla tana di un Wyrm antico, e si torna indietro dal moongate che si apre quando il wyrm muore.
+- **Roccaforte antica.** Come in Minecraft, le roccaforti stanno ad anelli intorno al centro del mondo: tre nel primo anello, tra 1.500 e 3.000 blocchi, e sempre di più negli anelli esterni. Un occhio di gazer anziano lanciato in aria vola verso la più vicina. Il moongate nero che un tempo stava nella sala più profonda è stato tolto: la sala resta senza porta, e la tana di un Wyrm antico si raggiunge solo scavando ([ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md) sezione 6).
 - **Città perduta.** Una città sepolta nel basalto nero, buia e silenziosa. Le campane d'ossa appese nelle sue vie suonano quando qualcuno corre, scava o combatte vicino: al terzo rintocco si sveglia il Demone d'ossa che la custodisce. Chi si muove piano e senza scavare può saccheggiarla senza svegliarlo.
 
 ---
@@ -331,7 +355,7 @@ Le strutture marine seguono le profondità di [Oceani](/wiki/oceani): per esplor
 | **Porto dei bucanieri** `soulslands:buccaneer_den` | Isole remote, come Buccaneer's Den in Ultima Online | Molto rara; grande | Mercanti NPC e nessuna guardia | Mercanti che servono anche i rossi, cantiere navale, un santuario del caos poco lontano | 🔒 |
 
 - Finché i tre Guardiani del tempio sommerso sono vivi, chi è dentro subisce la **maledizione del minatore** e scava dieci volte più piano: aprirsi una via d'aria nei muri è quasi impossibile.
-- Le isole più grandi possono avere una città NPC con il suo porto, come Jhelom, Moonglow o Magincia in Ultima Online.
+- Le isole più grandi possono avere un feudo con il suo porto e il cantiere navale, come Jhelom, Moonglow o Magincia in Ultima Online.
 
 | Tipo di isola ([Isole](/wiki/bioma-isole)) | Strutture tipiche |
 |--------------------------------------------|-------------------|
@@ -375,22 +399,20 @@ Ci sono poi due tesori che non chiedono di decifrare nulla:
 
 ---
 
-## 📏 Frequenza e distanza dalle città
+## 📏 Frequenza e luoghi
 
-Le strutture seguono le stesse fasce di [Spawn delle creature](/wiki/spawn-creature#distanza-dalle-citta): vicino alle città il mondo è tranquillo, lontano diventa pericoloso e ricco.
+Il pericolo e il bottino **non crescono con la distanza** dai feudi né dal centro del mondo: valgono le stesse regole dappertutto, e dipendono dal **bioma**, dal **luogo** (dungeon, rovine, profondità) e dalla **notte** (**deciso da Aruto, 02/11/2026**; vedi [Spawn delle creature](/wiki/spawn-creature#gli-stessi-ovunque)). Il livello del bottino è fisso per ogni tipo di struttura. I livelli qui sotto sono i valori di prima, riordinati per tipo di struttura invece che per distanza: sono stime nostre da rivedere.
 
-| Distanza dalla città NPC più vicina | Strutture che compaiono | Livello del bottino |
-|-------------------------------------|-------------------------|---------------------|
-| Dentro la zona di guardia | Città, santuario delle virtù, moongate | Nessun forziere |
-| Fino a ~500 blocchi | Villaggi, fattorie, mulini, capanne, cimiteri, santuari del crocevia, tane dei ratman | 1 |
-| 500 – 2.000 blocchi | In più briganti e predoni nomadi, accampamenti orcheschi, rovine sepolte, miniere abbandonate, tumuli, relitti, formicai | 1 – 2 |
-| 2.000 – 5.000 blocchi | In più fortezze orchesche, piramidi, templi della giungla, torri del mago e del lich, fortezze di ghiaccio, nidi di wyvern, covi dei pirati, tempio sommerso, roccaforti | 2 – 4 |
-| Oltre 5.000 blocchi | Tutte, compresi templi demoniaci, portali, nidi di draghi, città perduta e sommersa, santuari del caos, porto dei bucanieri e tane leggendarie | 4 – 6 |
+| Tipo di struttura | Strutture | Livello del bottino |
+|-------------------|-----------|---------------------|
+| Dentro la zona di guardia | Feudi, santuario delle virtù | Nessun forziere |
+| Semplici, di superficie | Villaggi, fattorie, mulini, capanne, cimiteri, santuari del crocevia, tane dei ratman | 1 |
+| Accampamenti e rovine | Briganti e predoni nomadi, accampamenti orcheschi, rovine sepolte, miniere abbandonate, tumuli, relitti, formicai | 1 – 2 |
+| Fortezze, templi e torri | Fortezze orchesche, piramidi, templi della giungla, torri del mago e del lich, fortezze di ghiaccio, nidi di wyvern, covi dei pirati, tempio sommerso, roccaforti | 2 – 4 |
+| Rare e profonde | Templi demoniaci, portali, nidi di draghi, città perduta e sommersa, santuari del caos, porto dei bucanieri e tane leggendarie | 4 – 6 |
 
-- **Città NPC**: entro circa 4.000 blocchi dal centro del mondo ne nasce una ogni 1.500–2.500 blocchi, fino a 12.000 blocchi una ogni 4.000–6.000. Più lontano non ne nasce nessuna, perché la frontiera è delle [città di gilda](/wiki/citta-di-gilda). Le prime otto, intorno al centro, sono le città delle otto virtù.
-- Nessun accampamento, dungeon o torre nasce a meno di 300 blocchi da una città o di 100 da un villaggio; fanno eccezione i cimiteri e le tane dei ratman, che stanno appena fuori dalle mura. Due strutture non si sovrappongono mai.
-- Oltre i 5.000 blocchi le strutture ostili sono circa il doppio più fitte, come le creature.
-- Il bioma decide comunque che cosa può nascere: i biomi corrotti compaiono solo lontano dalle città, e con loro le loro strutture. Sottoterra conta anche la profondità: lo stesso dungeon è più ricco negli strati più bassi.
+- Nessun accampamento, dungeon o torre nasce a meno di 300 blocchi da un feudo o di 100 da un villaggio; fanno eccezione i cimiteri e le tane dei ratman, che stanno appena fuori dalle mura. Due strutture non si sovrappongono mai.
+- Il bioma decide che cosa può nascere. I biomi corrotti (Terre dei Morti, Lande d'Ombra, terre vulcaniche) sono frequenti allo stesso modo in tutto il mondo, e con loro le loro strutture. Sottoterra conta anche la profondità: lo stesso dungeon è più ricco negli strati più bassi.
 
 ---
 
@@ -398,8 +420,10 @@ Le strutture seguono le stesse fasce di [Spawn delle creature](/wiki/spawn-creat
 
 | Bioma | In superficie | Sottoterra e dungeon |
 |-------|---------------|----------------------|
-| 🌾 [Pianure](/wiki/bioma-pianure) | Città, villaggi, strade, santuario della Compassione, fattorie abbandonate, mulini, villaggi abbandonati, briganti, rovine sepolte, cimiteri, torri del mago | Formicaio, tana dei ratman, miniera abbandonata |
-| 🌳 [Foresta temperata](/wiki/bioma-foresta-temperata) | Città, villaggi, capanne del boscaiolo, accampamenti orcheschi, briganti, cimiteri, torri del mago | Tana dei ratman, miniera abbandonata |
+| 🌾 [Pianure](/wiki/bioma-pianure) | Feudi, villaggi, strade, santuario della Compassione, fattorie abbandonate, mulini, villaggi abbandonati, briganti, rovine sepolte, cimiteri, torri del mago | Formicaio, tana dei ratman, miniera abbandonata |
+| 🌿 [Steppa](/wiki/bioma-steppa) | Nessuna struttura tipica ancora definita | Nessun dungeon tipico |
+| 🌳 [Foresta temperata](/wiki/bioma-foresta-temperata) | Feudi, villaggi, capanne del boscaiolo, accampamenti orcheschi, briganti, cimiteri, torri del mago | Tana dei ratman, miniera abbandonata |
+| 🍁 [Foresta autunnale](/wiki/bioma-foresta-autunnale) | Come la foresta temperata, di cui è una variante; nessuna struttura propria ancora definita | Come la foresta temperata |
 | 🌲 [Foresta profonda](/wiki/bioma-foresta-profonda) | Fortezze orchesche, abbazie in rovina, santuario della Giustizia, cerchi di pietre, tumuli, briganti | Covo orchesco, covo dei ragni |
 | ✨ [Foresta incantata](/wiki/bioma-foresta-incantata) | Cerchi delle fate, fonti della luna, torri del mago, santuario dell'Onestà | Miniera abbandonata |
 | 🌴 [Giungla](/wiki/bioma-giungla) | Tempietti della giungla, villaggi dei selvaggi | Tempio ofidiano, covo dei ragni |
@@ -409,14 +433,16 @@ Le strutture seguono le stesse fasce di [Spawn delle creature](/wiki/spawn-creat
 | 🌅 [Savana](/wiki/bioma-savana) | Villaggi, accampamenti nomadi, formicai dei Solen, rovine sepolte | Formicaio |
 | 🏞️ [Canyon rossi](/wiki/bioma-canyon-rossi) | Abitazioni nella roccia, covi dei briganti nelle gole, rovine sepolte, nidi di wyvern sulle mesa | Miniere d'oro abbandonate, che affiorano |
 | ⛰️ [Montagne](/wiki/bioma-montagne) | Rocche dei nani, accampamenti dei ciclopi, nidi di wyvern e di draghi, santuario del Sacrificio, santuari antichi | Miniera abbandonata e infestata, covo orchesco, nido di draghi |
+| 🌼 [Prati alpini](/wiki/bioma-prati-alpini) | Nessuna struttura tipica ancora definita | Nessun dungeon tipico |
 | 🌨️ [Taiga](/wiki/bioma-taiga) | Villaggi di abete, capanne del cacciatore abbandonate, campi dei taglialegna, accampamenti orcheschi, briganti, tumuli, santuario dell'Umiltà | Covo orchesco, miniera abbandonata |
 | ❄️ [Tundra](/wiki/bioma-tundra) | Rifugi di neve, fortezze di ghiaccio, villaggi abbandonati | Caverne di ghiaccio |
-| 🌫️ [Brughiera](/wiki/bioma-brughiera) | Cerchi di pietre, moongate antichi, tumuli, ometti di pietra, torri del mago, villaggi e villaggi abbandonati, briganti, santuario della Spiritualità | Miniera abbandonata |
+| 🌫️ [Brughiera](/wiki/bioma-brughiera) | Cerchi di pietre, tumuli, ometti di pietra, torri del mago, villaggi e villaggi abbandonati, briganti, santuario della Spiritualità | Miniera abbandonata |
 | 🌋 [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | Forge abbandonate, templi demoniaci, nidi di draghi, nido della fenice | Tempio demoniaco, nido di draghi |
 | 💀 [Terre dei Morti](/wiki/bioma-terre-dei-morti) | Cimiteri maledetti, mausolei, torri del lich, campi di battaglia, santuari del caos ai margini | Cripta |
 | 🌑 [Lande d'Ombra](/wiki/bioma-lande-d-ombra) | Portali demoniaci, fortezze in rovina | Tana del wyrm d'ombra, tempio demoniaco |
-| 🌊 [Coste](/wiki/bioma-coste) | Città portuali, villaggi di pescatori, fari, relitti spiaggiati, grotte dei contrabbandieri, santuario dell'Onore | Grotte marine naturali |
-| 🏝️ [Isole](/wiki/bioma-isole) | Covi dei pirati, relitti e navi fantasma, fari, nidi di wyvern, santuari antichi, tesori dei pirati, porto dei bucanieri; sulle più grandi una città portuale, spesso con il santuario del Valore | Caverne di ghiaccio e cripte, secondo il tipo di isola |
+| 🌊 [Coste](/wiki/bioma-coste) | Feudi con porto, villaggi di pescatori, fari, relitti spiaggiati, grotte dei contrabbandieri, santuario dell'Onore | Grotte marine naturali |
+| 🏔️ [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Nessuna struttura tipica ancora definita | Nessun dungeon tipico |
+| 🏝️ [Isole](/wiki/bioma-isole) | Covi dei pirati, relitti e navi fantasma, fari, nidi di wyvern, santuari antichi, tesori dei pirati, porto dei bucanieri; sulle più grandi un feudo con porto, spesso con il santuario del Valore | Caverne di ghiaccio e cripte, secondo il tipo di isola |
 | ⚓ [Oceani](/wiki/oceani) e barriere coralline | Relitti, rovine sommerse piccole | Nessuno |
 | ⚓ Oceani profondi | Relitti più ricchi, rovine sommerse con il kraken, tempio sommerso | Nessuno |
 | ⚓ Fosse oceaniche | Città sommersa | Nessuno |

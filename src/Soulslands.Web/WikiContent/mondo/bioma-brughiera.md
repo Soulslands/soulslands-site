@@ -17,9 +17,8 @@ La brughiera è una distesa di colline basse e spoglie, coperte di erica e di er
 |----------------|--------|
 | **Clima** | Fresco e ventoso, piogge e nebbia frequenti |
 | **Pericolo** | ⭐⭐ (⭐⭐⭐ di notte e con la nebbia) |
-| **Distanza tipica dalle città** | Vicina o media |
 | **Stagioni** | A fine estate l'erica fiorisce e colora le colline di viola; d'inverno gelate e neve leggera |
-| **Strutture** | Cerchi di pietre, alcuni con un moongate antico che si apre solo di notte; tumuli funerari, cioè piccole cripte sotto le colline; ometti di pietra lungo i sentieri, villaggi, accampamenti di briganti, il santuario della Spiritualità (vedi [Strutture](/wiki/strutture)) |
+| **Strutture** | Cerchi di pietre; tumuli funerari, cioè piccole cripte sotto le colline; ometti di pietra lungo i sentieri, villaggi, accampamenti di briganti, il santuario della Spiritualità (vedi [Strutture](/wiki/strutture)) |
 | **Effetto** | Con la nebbia il campo visivo si riduce e gli spawn ostili sono quelli del crepuscolo anche di giorno |
 
 ---

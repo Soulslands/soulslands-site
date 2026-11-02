@@ -31,7 +31,7 @@ Soulslands è un mondo duro: PvP aperto, [full loot](/wiki/full-loot), [furto](/
 - **Mod**: Soulslands è moddabile e ogni server decide quali mod ammettere. Le mod che danno un vantaggio sleale restano vietate: vedere attraverso i blocchi (x-ray), radar di giocatori o minerali, rimuovere il grigio del campo visivo, auto-loot o auto-combattimento. Ogni server fissa le proprie regole.
 - **Vietato** sfruttare bug ed exploit (duplicazione di oggetti, attraversare i muri, uscire dai limiti delle zone protette, abusi della generazione del mondo). I bug vanno segnalati tramite il modulo di contatto: le segnalazioni utili vengono premiate.
 - **Multiboxing**: massimo **2 account** collegati contemporaneamente per persona. Vietato usare il secondo account per avvantaggiarsi in PvP (per esempio per curarsi in combattimento con un personaggio controllato da sé o fare da esca).
-- **PvP**: è consentito ovunque **fuori dalle zone di guardia** delle città NPC, secondo le regole di [karma e notorietà](/wiki/karma-e-fama). Dentro le zone di guardia valgono le [guardie cittadine](/wiki/guardie-cittadine) e le guerre di gilda.
+- **PvP**: è consentito ovunque **fuori dalle zone di guardia** dei feudi, secondo le regole di [karma e notorietà](/wiki/karma-e-fama). Dentro le zone di guardia valgono le [guardie cittadine](/wiki/guardie-cittadine) e le guerre di gilda.
 - **Logout per fuggire**: disconnettersi durante un combattimento non salva il personaggio, che resta nel mondo (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)). Staccare volutamente la connessione per evitare la morte è considerato abuso.
 
 ---
@@ -39,7 +39,7 @@ Soulslands è un mondo duro: PvP aperto, [full loot](/wiki/full-loot), [furto](/
 ## 3. 🧱 Costruzioni e mondo
 
 - Costruire e distruggere fa parte del gioco, nei limiti delle protezioni del [sistema costruzioni](/wiki/sistema-costruzioni) e dei [territori di gilda](/wiki/pietra-territorio-gilda).
-- **Vietato** costruire per bloccare in modo permanente ingressi di città NPC, santuari, porti e strade principali.
+- **Vietato** costruire per bloccare in modo permanente ingressi di feudi, santuari, porti e strade.
 - **Vietato** costruire strutture offensive (insulti, simboli d'odio, contenuti espliciti) visibili agli altri giocatori.
 - **Vietato** creare strutture pensate per sovraccaricare il server (macchine di lag, migliaia di entità, generazione forzata di chunk con programmi esterni).
 

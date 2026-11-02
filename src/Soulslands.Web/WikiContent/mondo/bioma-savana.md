@@ -17,7 +17,6 @@ La savana è una prateria calda e asciutta che fa da ponte tra le [pianure](/wik
 |----------------|--------|
 | **Clima** | Caldo e secco, temporali violenti nella stagione delle piogge |
 | **Pericolo** | ⭐⭐ (⭐⭐⭐ di notte) |
-| **Distanza tipica dalle città** | Media |
 | **Stagioni** | D'estate l'erba secca prende fuoco facilmente; in autunno e in inverno tornano le piogge e la savana rinverdisce |
 | **Strutture** | Villaggi, accampamenti nomadi, formicai dei Solen, rovine sepolte (vedi [Strutture](/wiki/strutture)) |
 

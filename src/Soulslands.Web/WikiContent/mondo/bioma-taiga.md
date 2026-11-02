@@ -17,7 +17,6 @@ La taiga, o foresta boreale, è la grande fascia di conifere che separa la [fore
 |----------------|--------|
 | **Clima** | Freddo, inverni lunghi e nevosi, estati brevi e fresche |
 | **Pericolo** | ⭐⭐ (⭐⭐⭐ di notte e d'inverno) |
-| **Distanza tipica dalle città** | Media |
 | **Stagioni** | D'inverno la neve copre tutto e i laghi gelano; d'estate il sottobosco si riempie di bacche e funghi |
 | **Strutture** | Villaggi di abete, capanne del cacciatore abbandonate, campi dei taglialegna, accampamenti orcheschi e di briganti, tumuli, il santuario dell'Umiltà; sottoterra covi orcheschi (vedi [Strutture](/wiki/strutture)) |
 

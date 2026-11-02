@@ -11,9 +11,9 @@ visibility: Pubblica
 
 ## 📜 Panoramica
 
-Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima, blocchi, vegetazione, risorse e creature proprie. I biomi sono ispirati alle terre di Ultima Online: le foreste di Yew, le paludi di Fens, i deserti di Britannia, i ghiacci di Dagger Isle, le terre vulcaniche di Fire Island, le Lande d'Ombra di Ilshenar. In Soulslands però non hanno una posizione fissa: vengono generati in base a **temperatura**, **umidità** e **distanza dalle città**.
+Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima, blocchi, vegetazione, risorse e creature proprie. I biomi sono ispirati alle terre di Ultima Online: le foreste di Yew, le paludi di Fens, i deserti di Britannia, i ghiacci di Dagger Isle, le terre vulcaniche di Fire Island, le Lande d'Ombra di Ilshenar. In Soulslands però non hanno una posizione fissa: vengono generati in base a **temperatura**, **umidità**, quota e forma del terreno.
 
-> 💡 Regola d'oro: **più un bioma è lontano dalle città e più è estremo, più le sue risorse sono rare e le sue creature pericolose.**
+> 💡 Regola d'oro: **un bioma è pericoloso per quello che è, non per dove si trova**: bioma, luogo e notte decidono, in ogni punto del mondo (**deciso da Aruto, 02/11/2026**).
 
 ---
 
@@ -60,7 +60,7 @@ I legni sono descritti nella pagina [Legni](/wiki/legni); i minerali in [Mineral
 | **Altitudine** | Intorno a Y 180 il terreno diventa montano e innevato, e il limite oscilla di circa 20 blocchi (anche le fasce di roccia e di sabbia rossa non seguono una quota fissa), ma non sulle pareti a picco, che restano roccia nuda ([ADR-0032](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0032-generator-versions-terrain-v2.md), [#340](https://github.com/Soulslands/soulslands-game/pull/340)). I confini tra i biomi del clima sono sfrangiati, non curve lisce ([#345](https://github.com/Soulslands/soulslands-game/pull/345)); gli altipiani caldi e aridi diventano canyon rossi, le colline fresche e piovose brughiera |
 | **Pendenza** | Sui pendii dolci in quota il terreno diventa **prato alpino**; dove è ripido resta roccia nuda (la stessa regola che tiene neve ed erba lontane dalle pareti a picco delle montagne) |
 | **Forma del terreno** | Due biomi sono forme delle valli del terreno v2: il **fiordo**, dove la valle di un fiume arriva a una costa fredda e il mare la allaga, e la **gola**, dove un fiume taglia un terreno alto e la valle si stringe tra pareti a picco |
-| **Distanza dalle città** | Oltre una certa distanza compaiono i biomi "corrotti": Terre dei Morti, Lande d'Ombra, terre vulcaniche |
+| **Biomi corrotti** | Terre dei Morti, Lande d'Ombra e terre vulcaniche compaiono con la stessa frequenza in ogni parte del mondo |
 | **Vicinanza al mare** | Coste e isole; sulle coste calde, dove la giungla arriva fino al mare, crescono le mangrovie |
 
 Alcuni biomi stanno a metà strada tra altri due: andando verso il freddo la foresta temperata lascia il posto alla **taiga** e poi alla tundra; andando verso il caldo e il secco le pianure diventano **steppa**, poi **savana** e deserto. La **foresta autunnale** è una variante della foresta temperata che prende una fascia di clima tutta sua.

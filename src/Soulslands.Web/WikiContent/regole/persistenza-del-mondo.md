@@ -71,7 +71,7 @@ Quando esci dal gioco il personaggio **non sparisce subito**.
 | Dove fai logout | Cosa succede |
 |-----------------|-------------|
 | Dentro la tua **casa** o una **locanda** | Il personaggio scompare dal mondo immediatamente, al sicuro |
-| Dentro una **città** con guardie | Il personaggio resta visibile per **30 secondi** |
+| Dentro un **feudo** con guardie | Il personaggio resta visibile per **30 secondi** |
 | **Ovunque** altrove | Il personaggio resta nel mondo per **5 minuti**, attaccabile da mostri e giocatori |
 | In combattimento o subito dopo un'aggressione | Il timer riparte: chi scollega per sfuggire a un combattimento lascia il personaggio indifeso |
 

@@ -190,7 +190,7 @@ Il mare nasconde molte strutture, generate insieme ai fondali e alle coste. Sono
 | **Relitti** | Fondali di tutti gli oceani, a volte spiaggiati su coste e isole | Navi affondate con il loro carico: più sono profonde, più sono ricche |
 | **Rovine sommerse** | Acque profonde | Piccoli dungeon allagati, con il kraken come custode (vedi [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo#dungeon-generati)) |
 | **Tempio sommerso** | Fondali profondi | Un dungeon sommerso più grande e più pericoloso delle rovine |
-| **Città sommersa** | Rarissima, molto lontano dalle città | La più grande e la più ricca delle strutture marine |
+| **Città sommersa** | Rarissima | La più grande e la più ricca delle strutture marine |
 | **Covi dei pirati** | Coste, isole, grotte marine | Pirati, forzieri e mappe del tesoro |
 | **Fari** | Coste, scogliere, faraglioni | Punti di riferimento per chi naviga |
 

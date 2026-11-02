@@ -97,7 +97,7 @@ La pietra grezza e il suo pietrisco sono nei [blocchi naturali](/wiki/blocchi#ro
 | Arenaria rossa | `red_sandstone` | — | `polished_red_sandstone` | `red_sandstone_bricks` | `red_sandstone_pillar` | `chiseled_red_sandstone` | Abitazioni nella roccia dei canyon |
 | Ardesia | `slate` | — | `polished_slate` | `slate_bricks` | `slate_pillar` | — | Case della brughiera e della montagna |
 | Basalto | `basalt` | — | `polished_basalt` | `basalt_bricks` | `basalt_pillar` | — | Forge abbandonate, isole vulcaniche |
-| Ossidiana | `obsidian` | — | `polished_obsidian` | `obsidian_bricks` | `obsidian_pillar` | — | Moongate, portali demoniaci |
+| Ossidiana | `obsidian` | — | `polished_obsidian` | `obsidian_bricks` | `obsidian_pillar` | — | Portali demoniaci |
 | Pietra d'ombra | `shadow_stone` | — | `polished_shadow_stone` | `shadow_stone_bricks` | `shadow_stone_pillar` | — | Portali e fortezze delle Lande d'Ombra |
 | Pietra corallina | `coral_stone` | — | — | `coral_stone_bricks` | `coral_stone_pillar` | — | Rovine e tempio sommersi |
 
@@ -326,14 +326,13 @@ I mobili si fanno con [Carpentry](/wiki/skill-carpentry), come in Ultima Online,
 | `cauldron` | Calderone | Blacksmithy | Sopra un fuoco cucina zuppe; nelle capanne delle streghe bolle sempre |
 | `ankh` | Ankh | Non craftabile | Il simbolo dei santuari: un fantasma che lo tocca torna in vita (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)) |
 | `altar` | Altare | Mining e Architecture | Santuari delle virtù (con il mantra), cerchi di pietre, templi |
-| `moongate_portal` | Portale del moongate | Non craftabile | L'arco di luce azzurra dei [moongate](/wiki/strutture#santuari-e-moongate) |
 | `tombstone` | Lapide | Mining | Si può incidere un nome |
 | `grave_cross` | Croce di legno | Carpentry | Tombe povere, campi di battaglia |
 | `skull` | Teschio | Non craftabile | Cripte, tane, covi dei mostri |
 | `bone_pile` | Mucchio d'ossa | Non craftabile | Resti di avventurieri nelle tane |
 | `bone_bell` | Campana d'ossa | Non craftabile | Città perduta: suona se qualcuno corre, scava o combatte vicino |
 | `tribal_totem` | Totem | Carpentry | Villaggi dei selvaggi, accampamenti orcheschi; spesso è il **cuore** dell'accampamento |
-| `milestone` | Pietra miliare | Mining | Strade del regno: direzione e distanza della città più vicina |
+| `milestone` | Pietra miliare | Mining | Segna una strada; ai bivi e alle porte dei feudi i nomi stanno sui cartelli (`signpost`) |
 | `signpost` | Cartello | Carpentry | Su un palo; ci si scrive sopra |
 | `wall_sign` | Insegna | Carpentry | Appesa sopra la porta di una bottega |
 | `wall_shelf` | Mensola | Carpentry | Ci si posano oggetti in vista |
@@ -473,8 +472,8 @@ Il generatore delle [strutture](/wiki/strutture) usa questi blocchi, scegliendo 
 
 | Strutture | Famiglie di blocchi |
 |-----------|---------------------|
-| **Città NPC** e **villaggi** | Pietra lavorata o mattoni per le mura, travi e intonaco o assi per le case, tetti di paglia, coppi, ardesia o scandole secondo il bioma; vetri, porte, lampioni, lastricato; dentro letti, tavoli, sedie, banconi, forzieri, botti, librerie e le stazioni delle botteghe (forgia e incudine dal fabbro, telaio dal sarto, forno dal fornaio), il forziere della banca |
-| **Santuari e moongate** | Marmo levigato e colonne, ankh, altare, stendardi del colore della virtù, `moongate_portal` tra archi di ossidiana |
+| **Feudi** e **villaggi** | Pietra lavorata o mattoni per le mura, travi e intonaco o assi per le case, tetti di paglia, coppi, ardesia o scandole secondo il bioma; vetri, porte, lampioni, lastricato; dentro letti, tavoli, sedie, banconi, forzieri, botti, librerie e le stazioni delle botteghe (forgia e incudine dal fabbro, telaio dal sarto, forno dal fornaio), il forziere della banca |
+| **Santuari** | Marmo levigato e colonne, ankh, altare, stendardi del colore della virtù |
 | **Fattorie, mulini, fienili** | Assi, paglia, staccionate, terra arata, balle di fieno, abbeveratoi, macina e pale del mulino, pozzo |
 | **Accampamenti** (briganti, nomadi, orchi, selvaggi) | Tela e pelle tesa per le tende, fuoco da campo, totem o stendardo come cuore, giacigli, casse, pali per legare |
 | **Capanne e torri** (boscaiolo, cacciatore, strega, mago) | Tronchi, scandole, letti, tavoli, calderone, librerie, lanterne |

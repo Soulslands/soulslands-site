@@ -17,7 +17,6 @@ Le mangrovie sono paludi costiere tropicali: crescono sulle coste calde, dove la
 |----------------|--------|
 | **Clima** | Caldo e umidissimo, piogge tropicali |
 | **Pericolo** | ⭐⭐ (⭐⭐⭐ di notte) |
-| **Distanza tipica dalle città** | Media, solo sulle coste calde |
 | **Stagioni** | Nessun inverno; d'estate, come nelle paludi, l'acqua si abbassa e affiorano i banchi di fango |
 | **Movimento** | Fango, radici e acqua bassa rallentano; nei canali si passa meglio con una barca a remi |
 | **Strutture** | Villaggi lizardman su palafitte, covi dei pirati, relitti spiaggiati tra le radici (vedi [Strutture](/wiki/strutture)) |
