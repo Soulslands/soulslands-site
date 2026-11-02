@@ -90,7 +90,7 @@ Le città che genera il mondo si chiamano **feudi**: grandi città murate in sti
 | **Feudo in rovina** `soulslands:ruined_fief` | Gli stessi biomi dei feudi | Molto raro: circa uno ogni cinque feudi vivi | Mura crollate, mostri e tesori | — |
 | **Villaggio** `soulslands:village` | Nel territorio di un feudo; circa uno su quattro è isolato, lontano da ogni feudo | Molto raro: 3–6 nel territorio di un feudo; 8–15 strutture | Case e campi, un pozzo con una piccola piazza, una bottega, una piccola locanda o cappella con un guaritore; nessuna guardia | ⛏️ |
 | **Villaggio di pescatori** `soulslands:fishing_village` | [Coste](/wiki/bioma-coste), foci dei fiumi | Raro (insediamento speciale); media | Pescatori, mercante di canne e reti, costruttore di barche, locanda e molo | 🔒 |
-| **Strada dei feudi** `soulslands:fief_road` | Parte solo dalle porte dei feudi | Al massimo 2.000 blocchi dalla porta | Cartelli con i nomi, ponti sui [fiumi](/wiki/laghi-e-fiumi), locande di posta e santuari lungo la strada | da confermare |
+| **Strada dei feudi** `soulslands:fief_road` | Parte solo dalle porte dei feudi | Al massimo 2.000 blocchi dalla porta | Cartelli con i nomi, ponti sui [fiumi](/wiki/laghi-e-fiumi), locande di posta e santuari lungo la strada | ⛏️ |
 
 ### 🏯 Il feudo
 
@@ -117,7 +117,7 @@ Le città che genera il mondo si chiamano **feudi**: grandi città murate in sti
 - Vicino al feudo la strada è lastricata, poi diventa di terra e più stretta, e finisce come sentiero.
 - Seguono il terreno: passano per valli e passi, evitano pendii ripidi e acqua, salgono a tornanti dove la pendenza lo chiede e hanno ponti dove devono attraversare un fiume. Non vanno in linea retta sopra le montagne.
 - Lungo la strada si incontrano cartelli con i nomi, ponti, locande di posta e santuari.
-- Se i blocchi delle strade siano protetti come quelli dei feudi non è ancora deciso.
+- **Deciso da Aruto (02/11/2026):** i blocchi delle strade non sono protetti: fuori dalle mura i giocatori possono scavarli e costruirci sopra. Solo i blocchi dentro le mura dei feudi restano protetti.
 
 ### 🎲 Eccezioni dal seme
 
@@ -331,12 +331,12 @@ I primi dieci dungeon sono quelli di [Grotte e sottosuolo](/wiki/grotte-e-sottos
 | **Rovine sommerse** `soulslands:sunken_ruins` | Fondale oceanico | [Oceani](/wiki/oceani) | Serpenti, elementali d'acqua | Kraken | Dal fondale (vedi sotto); non comune, media | Perle nere, forzieri di relitti |
 | **Miniera abbandonata** `soulslands:abandoned_mine` | Superficiale – medio | Sotto colline e montagne, affiorante nei canyon rossi | Ragni giganti, ratti giganti, elementali di terra | Nessuno | Gallerie con puntelli di legno, carrelli rovesciati e `cobweb`; comune, enorme | Picconi, lanterne, minerale grezzo |
 | **Tempio ofidiano** `soulslands:ophidian_temple` | Medio | Giungla | Guerrieri, maghi e cavalieri ofidiani | Matriarca ofidiana | Sotto i tempietti della giungla più grandi; rara, grande | Veleni rari, armi magiche, tesoro |
-| **Roccaforte antica** `soulslands:stronghold` | Profondo | Ovunque, ad anelli intorno al centro del mondo | Cavalieri scheletrici, scheletri maghi, gargoyle di pietra | Nessuno | Si trova con un occhio di gazer anziano; molto rara, grande | Biblioteca di pergamene e libri degli incantesimi, armeria |
+| **Roccaforte antica** `soulslands:stronghold` | Profondo | Ovunque, ad anelli intorno al centro del mondo | Cavalieri scheletrici, scheletri maghi, gargoyle di pietra | Nessuno | Si trova esplorando; molto rara, grande | Biblioteca di pergamene e libri degli incantesimi, armeria |
 | **Città perduta** `soulslands:lost_city` | Abisso | Ovunque, più spesso sotto le montagne | Gazer anziani, ombre, ragni del terrore, gargoyle di pietra | Demone d'ossa (Bone Demon) | Enorme caverna di `black_basalt`; molto rara, enorme | Oggetti magici rari, lingotti di [Mytheril](/wiki/minerale-mytheril) |
 | **Tana del wyrm antico** `soulslands:ancient_wyrm_lair` | Cuore del mondo | Ovunque | Elementali del fuoco, demoni arcani | [Wyrm antico](/wiki/mostro-wyrm-antico) | Solo scavando fino alla `hellstone`; leggendaria, grande | Tesoro leggendario |
 
 - Alcuni dungeon grandi (cripte, covi orcheschi, templi) hanno un santuario del crocevia all'ingresso: è lì che tornano in vita i fantasmi del gruppo.
-- **Roccaforte antica.** Come in Minecraft, le roccaforti stanno ad anelli intorno al centro del mondo: tre nel primo anello, tra 1.500 e 3.000 blocchi, e sempre di più negli anelli esterni. Un occhio di gazer anziano lanciato in aria vola verso la più vicina. Il moongate nero che un tempo stava nella sala più profonda è stato tolto: la sala resta senza porta, e la tana di un Wyrm antico si raggiunge solo scavando ([ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md) sezione 6).
+- **Roccaforte antica.** Come in Minecraft, le roccaforti stanno ad anelli intorno al centro del mondo: tre nel primo anello, tra 1.500 e 3.000 blocchi, e sempre di più negli anelli esterni. Non c'è nessun oggetto che le indichi: si trovano esplorando il sottosuolo (**deciso da Aruto, 02/11/2026**). Il moongate nero che un tempo stava nella sala più profonda è stato tolto: la sala resta senza porta, e la tana di un Wyrm antico si raggiunge solo scavando ([ADR-0033](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0033-walled-settlements-gate-roads.md) sezione 6).
 - **Città perduta.** Una città sepolta nel basalto nero, buia e silenziosa. Le campane d'ossa appese nelle sue vie suonano quando qualcuno corre, scava o combatte vicino: al terzo rintocco si sveglia il Demone d'ossa che la custodisce. Chi si muove piano e senza scavare può saccheggiarla senza svegliarlo.
 
 ---

@@ -41,7 +41,7 @@ Come tutto in Soulslands, anche la gilda **vive nel mondo**: i suoi territori, l
 
 ## 🏛️ Fondare una gilda
 
-1. Procurati una **Pietra di Gilda** (acquistabile dai mercanti delle città principali o craftabile da un artigiano esperto)
+1. Procurati una **Pietra di Gilda** (acquistabile dai mercanti dei feudi o craftabile da un artigiano esperto)
 2. Piazzala a terra e attivala: diventi il **Leader** della nuova gilda
 3. Scegli **nome** e **sigla** (l'abbreviazione mostrata accanto al nome dei membri)
 4. Invita i primi membri: il leader (o chi ne ha il permesso) usa la pietra e indica il giocatore da reclutare

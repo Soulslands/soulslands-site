@@ -156,7 +156,7 @@ Le specie sono raggruppate per famiglia, nello stesso ordine delle sezioni che s
 | **Abete rosso** | `spruce` | [Comune](/wiki/legno-regular) | Taiga, montagne | 10–18; grande 22–32 (2×2) | — | — |
 | **Abete bianco** | `fir` | [Comune](/wiki/legno-regular) | Taiga, montagne, brughiera | 14–22 | — | — |
 | **Pino** | `pine` | [Comune](/wiki/legno-regular) | Taiga, montagne, brughiera | 12–20 | — | Resina |
-| **Ginepro** | `juniper` | [Comune](/wiki/legno-regular) | Brughiera, canyon rossi, margini della savana | 3–6 | — | Bacche di ginepro |
+| **Ginepro** | `juniper` | [Comune](/wiki/legno-regular) | Brughiera, canyon rossi, margini della savana; rarissimo e isolato nella steppa | 3–6 | — | Bacche di ginepro |
 | **Pino di brina** | `frost_pine` | [Legno di brina](/wiki/legno-frostwood) | Tundra, vette innevate | 8–14 | — | Gela l'acqua intorno alle radici |
 | **Salice** | `willow` | [Comune](/wiki/legno-regular) | Palude, rive di fiumi e laghi | 7–11 | — | — |
 | **Cipresso di palude** | `bog_cypress` | [Tasso](/wiki/legno-yew) | Palude | 24–32 (3×3, radici nell'acqua) | — | — |
@@ -254,10 +254,10 @@ Non tutti gli alberi sono vivi. Nelle terre maledette, aride o bruciate restano 
 
 | Bioma | Alberi principali | Non comuni e rari | Note |
 |-------|-------------------|-------------------|------|
-| [Steppa](/wiki/bioma-steppa) (`steppe`) | — | — | Nessun albero: il legno si porta dalle pianure |
+| [Steppa](/wiki/bioma-steppa) (`steppe`) | — | — | Ginepro, rarissimo e isolato | Quasi nessun albero: il legno si porta dalle pianure |
 | [Pianure e praterie](/wiki/bioma-pianure) (`plains`) | Faggio e frassino, in boschetti sparsi | Melo | Terre aperte: il legno si trova nei boschetti e lungo i fiumi, tra i salici |
 | [Foresta temperata](/wiki/bioma-foresta-temperata) (`forest`) | Quercia, betulla, faggio, acero, frassino | Melo | Salici lungo i ruscelli; in autunno il bosco si accende di rosso e giallo |
-| [Foresta autunnale](/wiki/bioma-foresta-autunnale) (`autumn_forest`) | Acero e faggio con le foglie autunnali (blocchi `maple_leaves_autumn` e `beech_leaves_autumn`) | Le specie della foresta temperata, ai margini | Rosso e rame tutto l'anno: le foglie autunnali sono blocchi a sé, senza tinta di bioma |
+| [Foresta autunnale](/wiki/bioma-foresta-autunnale) (`autumn_forest`) | Acero e faggio con le foglie autunnali (blocchi `maple_leaves_autumn` e `beech_leaves_autumn`) | Qualche quercia e qualche frassino; ai margini le altre specie della foresta temperata | Rosso e rame tutto l'anno: le foglie autunnali sono blocchi a sé, senza tinta di bioma |
 | [Foresta profonda](/wiki/bioma-foresta-profonda) (`deep_forest`) | Quercia, anche grande; tasso | Quercia antica e albero cuoredilegno, nel cuore del bioma | Chiome così fitte che il suolo resta in penombra; attento ai [Reaper](/wiki/mostro-reaper) |
 | [Foresta incantata](/wiki/bioma-foresta-incantata) (`enchanted_forest`) | Argentofoglia, frassino | Albero cuoredilegno (più che altrove); Germoglio dell'Albero del Mondo (rarissimo) | Di notte le argentofoglie illuminano il bosco; salici lungo i ruscelli |
 | [Taiga](/wiki/bioma-taiga) (`taiga`) | Abete rosso, abete bianco, pino | Abete rosso grande nelle taighe antiche; betulla verso la foresta temperata; i primi pini di brina verso la tundra | Il bosco più fitto del nord, d'inverno sepolto nella neve |

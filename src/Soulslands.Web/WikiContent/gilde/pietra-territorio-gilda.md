@@ -85,7 +85,7 @@ La pietra analizza i dintorni quando la usi e ti dice se il luogo è adatto.
 | Requisito | Dettaglio |
 |-----------|----------|
 | **Mondo di gioco valido** | Non in zone speciali o istanze |
-| **Lontano dalle zone protette** | Almeno **2 chunk** di distanza da città, aree sorvegliate dalle guardie e ingressi dei dungeon |
+| **Lontano dalle zone protette** | Almeno **2 chunk** di distanza da feudi, villaggi, aree sorvegliate dalle guardie e ingressi dei dungeon |
 | **Lontano da altri territori** | Tra i confini di due territori deve restare almeno **1 chunk libero**, calcolato sul raggio massimo raggiungibile da entrambi |
 | **Su un blocco solido** | Non in acqua, lava o a mezz'aria; non dentro un contenitore |
 | **Chunk libero** | Nessun altro territorio o lotto già presente nei 3 × 3 chunk iniziali |
@@ -95,7 +95,7 @@ La pietra analizza i dintorni quando la usi e ti dice se il luogo è adatto.
 Usando la pietra, il tuo personaggio esamina la zona e commenta:
 
 - *"Questo è un buon posto..."* — il luogo è valido
-- *"Ci sono terre protette troppo vicine..."* — troppo vicino a una città o a una zona protetta
+- *"Ci sono terre protette troppo vicine..."* — troppo vicino a un feudo o a una zona protetta
 - *"Vedo il segno di un'altra gilda..."* — troppo vicino a un altro territorio
 - *"Questo luogo non va bene..."* — sei dentro una zona protetta
 

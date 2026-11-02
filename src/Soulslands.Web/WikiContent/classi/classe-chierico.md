@@ -98,7 +98,7 @@ Come funziona per il Chierico:
 - è il red a chiedere la redenzione al Chierico: è un rito di purificazione, non un'arma da usare contro i nemici;
 - celebri la purificazione dell'anima con i tuoi poteri sacri (Chivalry e Spirit Speak sono le skill della classe legate a questo ruolo);
 - in base a fama e kill del penitente, il suo nome torna **grigio** (ancora attaccabile, ma non più Murderer) oppure **blu** (innocente);
-- un ex red tornato blu non è più considerato un assassino dalle [guardie](/wiki/guardie-cittadine) delle città.
+- un ex red tornato blu non è più considerato un assassino dalle [guardie](/wiki/guardie-cittadine) dei feudi.
 
 > ⚠️ Un [Demone](/wiki/razza-demone) redento perde la sua passiva Infernal Presence finché non torna rosso: assicurati che sappia cosa sta chiedendo.
 

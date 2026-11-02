@@ -18,9 +18,11 @@ Fiordi e gole sono due **forme del terreno** che diventano biomi: in tutti e due
 | **Id** | `soulslands:fjord` | `soulslands:gorge` |
 | **Che cos'è** | Una valle stretta e profonda di una costa fredda, allagata dal mare: acqua salata tra due pareti | Una valle stretta e profonda di fiume nell'entroterra, con le pareti a picco e il fiume sul fondo |
 | **Dove si forma** | Dove la valle di un fiume arriva a una [costa](/wiki/bioma-coste) **fredda** | Dove un [fiume](/wiki/laghi-e-fiumi#fiumi) attraversa un terreno alto |
-| **Pericolo** | ⭐⭐ (stima nostra) | ⭐⭐ (stima nostra) |
+| **Pericolo** | ⭐⭐ (deciso da Aruto, 02/11/2026) | ⭐⭐ (deciso da Aruto, 02/11/2026) |
+| **Fondo** | Acqua di mare, bioma `fjord` | Il fondo della gola resta bioma `river` (deciso da Aruto, 02/11/2026) |
+| **Inverno** | L'acqua gela in superficie (deciso da Aruto, 02/11/2026) | Nessuna regola propria |
 
-> 📝 La soglia di freddo che decide un fiordo, la quota che decide una gola e la larghezza e la profondità delle due valli sono valori dei dati del mondo: qui non diamo numeri che il generatore non conosce ancora.
+> 📝 La soglia di freddo che decide un fiordo, la quota che decide una gola e la larghezza e la profondità delle due valli non hanno ancora numeri: i limiti esatti si propongono insieme ai compiti di generazione.
 
 ---
 
@@ -69,6 +71,7 @@ Le vene si piazzano per quota, non per bioma: dove una parete a picco taglia una
 | [Delfini](/wiki/animale-delfino) | In acqua, vicino alla riva | No |
 | [Serpente marino](/wiki/mostro-serpente-marino) | Acque al largo, a volte sulla riva | Sì |
 | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | Notte, raro | Sì |
+| **Lontra** (proposta, da confermare) | Giorno, sulle rive | No |
 
 **Nella gola**
 
@@ -78,6 +81,9 @@ Le vene si piazzano per quota, non per bioma: dove una parete a picco taglia una
 | [Orso bruno](/wiki/animale-orso-bruno) | Giorno, vicino all'acqua | Se provocato |
 | [Arpia](/wiki/mostro-arpia) | Sulle pareti | Sì |
 | [Puma](/wiki/animale-puma) | Alba e tramonto | Sì |
+| **Lontra** (proposta, da confermare) | Giorno, sulle rive del fiume | No |
+
+> 🆕 **Proposta (da confermare).** Per fiordi e gole si propone la **lontra**, una sola creatura per tutte e due: ⭐, giocherellona, nuota veloce e porta a riva i pesci che prende. Bottino: pelle grezza, pelliccia di lontra (cuoio leggero, calda) e carne di pesce. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 In tutti e due, di notte compaiono [scheletri](/wiki/mostro-scheletro) e [zombie](/wiki/mostro-zombie) come altrove in superficie. Dettagli in [Animali](/wiki/animali), [Mostri](/wiki/mostri) e [Creature marine](/wiki/mostri-marini); il riepilogo è in [Creature per bioma](/wiki/creature-per-bioma).
 

@@ -196,7 +196,7 @@ R: No, puoi comprare minerali e lingotti da altri giocatori o dai mercanti. Ma s
 R: No: i chunk di un territorio di gilda appartengono alla gilda dalla roccia madre al cielo (vedi [Pietra di Territorio](/wiki/pietra-territorio-gilda)). Reclamare una zona ricca di vene rare è uno dei motivi per cui le gilde si fanno la guerra.
 
 **D: Le vene si esauriscono?**
-R: Sì, ogni blocco scavato è tolto dal mondo. Le zone vicine alle città si impoveriscono in fretta; per i minerali rari bisogna esplorare terre nuove e scendere più a fondo.
+R: Sì, ogni blocco scavato è tolto dal mondo. Le zone vicine ai feudi si impoveriscono in fretta; per i minerali rari bisogna esplorare terre nuove e scendere più a fondo.
 
 **D: Qual è il minerale migliore?**
 R: Per pura difesa il **Cobalto**; per l'attacco il **Demonic**; per l'equilibrio **Agapite** o **Black Rock**. Dipende da chi devi affrontare.

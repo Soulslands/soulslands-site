@@ -30,7 +30,7 @@ Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima,
 | 🐊 [Palude](/wiki/bioma-palude) | Caldo, molto umido | ⭐⭐ | [Yew](/wiki/legno-yew), [Regular](/wiki/legno-regular) | Old Copper, Copper | Lizardman, troll, alligatori |
 | 🦀 [Mangrovie](/wiki/bioma-mangrovie) | Caldo, umidissimo, salmastro | ⭐⭐ | [Regular](/wiki/legno-regular) (mangrovie) | Old Copper, Copper | Alligatori, lizardman, pirati |
 | 🌾 [Pianure e praterie](/wiki/bioma-pianure) | Mite, secco | ⭐ | [Regular](/wiki/legno-regular), [Ash](/wiki/legno-ash) | Iron, Rusty, Steel | Cavalli, mucche, ostard |
-| 🌿 [Steppa](/wiki/bioma-steppa) | Secco, estati asciutte | ⭐ | Nessuno (senza alberi) | Iron, Rusty, Steel | Cavalli selvatici, ostard, puma |
+| 🌿 [Steppa](/wiki/bioma-steppa) | Secco, estati asciutte | ⭐ | Quasi nessuno (rarissimi ginepri isolati) | Iron, Rusty, Steel | Cavalli selvatici, ostard, puma |
 | 🌫️ [Brughiera](/wiki/bioma-brughiera) | Fresco, piovoso, nebbioso | ⭐⭐ | [Regular](/wiki/legno-regular) (ginepri, pini), poca [Oak](/wiki/legno-oak) | Old Copper, Copper | Pecore, wisp, wraith dei tumuli |
 | 🌅 [Savana](/wiki/bioma-savana) | Caldo, secco | ⭐⭐ | [Regular](/wiki/legno-regular) (acacie, baobab) | Iron, Steel, Gold | Cavalli selvatici, puma, formiche Solen |
 | 🏜️ [Deserto](/wiki/bioma-deserto) | Caldissimo, arido | ⭐⭐⭐ | Nessuno (palme: [Regular](/wiki/legno-regular)) | Gold, Bronze, Dull Copper | Scorpioni, mummie, serpenti |
@@ -45,7 +45,7 @@ Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima,
 | 🏝️ [Isole](/wiki/bioma-isole) | Variabile | ⭐⭐ – ⭐⭐⭐⭐ | [Regular](/wiki/legno-regular), [Bloodwood](/wiki/legno-bloodwood) | Orialco, Valorite | Uccelli, serpenti, kraken al largo |
 | 🌊 [Coste](/wiki/bioma-coste) | Mite, ventoso | ⭐ | [Regular](/wiki/legno-regular) | Iron, Steel | Granchi, gabbiani, serpenti marini |
 
-Il pericolo dei quattro biomi nuovi (steppa, foresta autunnale, prati alpini, fiordi e gole) è una stima nostra, in attesa dei dati del mondo.
+Il pericolo dei quattro biomi nuovi (steppa, foresta autunnale, prati alpini, fiordi e gole) è stato deciso da Aruto (02/11/2026).
 
 I legni sono descritti nella pagina [Legni](/wiki/legni); i minerali in [Minerali](/wiki/minerali). Le zone d'acqua aperta sono trattate in [Oceani](/wiki/oceani), il mondo sotterraneo in [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo). L'elenco completo, con i biomi marini e sotterranei e i loro id, è più sotto in [Id dei biomi](#id-dei-biomi).
 

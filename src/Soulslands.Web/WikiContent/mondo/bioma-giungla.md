@@ -21,21 +21,6 @@ La giungla è un bioma caldo e umidissimo, ispirato alle terre selvagge di UO do
 
 ---
 
-## 🗺️ Le zone della giungla
-
-> 📝 **Proposta, da confermare.** La giungla di oggi è un bioma uniforme. Questa tabella dice come potrebbe variare da una zona all'altra usando solo alberi, piante e blocchi che il gioco ha già; se Aruto la approva, le zone diventano dati del mondo.
-
-| Zona | Dove | Alberi | Piante e blocchi | Creature |
-|------|------|--------|------------------|----------|
-| **Nucleo fitto** | Lontano dai bordi e dai fiumi | Alberi della giungla giganti che formano un secondo tetto verde a 30–40 blocchi; [tasso](/wiki/legno-yew); l'albero sanguigno solo qui | Sottobosco fittissimo: `large_fern_bottom` e `large_fern_top`, `moss_carpet`, `vines`; `rooted_dirt` e `mossy_stone` sotto; `pitcher_plant` e `ginseng_plant`. Sotto le chiome la luce è poca | Ragni giganti nei covi, pantera di notte |
-| **Radure** | Chiazze aperte dentro il nucleo | Alberi giovani, radi | Erba `grass`, `tall_grass`, `bush`, orchidea `orchid`, `bamboo`, `melon` | Gorilla, uccelli tropicali di giorno |
-| **Rive dei fiumi** | Lungo i fiumi lenti e larghi | Palme, comuni; alberi della giungla giovani | Fango `mud`, argilla `clay`, canne `reed`, ninfee `lily_pad`, felci `fern` | Serpenti giganti e silver serpent, rane e giant toad di notte |
-| **Margine verso la savana** | Dove la giungla confina con la [savana](/wiki/bioma-savana) | Alberi della giungla giovani e palme, sempre più radi | Erba `grass`, `tall_grass`, `bush`, e verso la savana erba secca `dry_grass`; il sottobosco di felci si dirada | Gorilla e serpenti; qui le creature della savana si mescolano a quelle della giungla |
-
-Le zone sono sfumate come ogni confine tra biomi: tra l'una e l'altra c'è una fascia di transizione in cui blocchi e alberi si mescolano (vedi [Biomi](/wiki/biomi#come-si-decide-un-bioma)). Il tasso e l'albero sanguigno restano rari come nella tabella degli alberi qui sotto.
-
----
-
 ## 🧱 Blocchi tipici
 
 | Blocco | Note |
