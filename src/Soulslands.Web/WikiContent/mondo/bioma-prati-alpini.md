@@ -16,11 +16,11 @@ I prati alpini sono le praterie d'alta quota: pendii erbosi e dolci che si stend
 | Caratteristica | Valore |
 |----------------|--------|
 | **Clima** | Fresco, con l'aria sottile dell'alta quota |
-| **Pericolo** | ⭐⭐ (stima nostra) |
+| **Pericolo** | ⭐⭐ (deciso da Aruto, 02/11/2026) |
 | **Dove si forma** | In quota, dove il clima è fresco, e **solo sui pendii dolci**: dove il terreno è ripido resta roccia nuda (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)) |
-| **Stagioni** | In estate fiorisce; d'inverno la neve copre l'erba e i laghetti gelano |
+| **Stagioni** | In estate fiorisce; d'inverno la neve copre i prati (deciso da Aruto, 02/11/2026) e i laghetti gelano |
 
-> 📝 La pendenza che separa un prato dalla roccia nuda e la quota a cui il prato comincia sono valori dei dati del mondo: qui non diamo numeri che il generatore non conosce ancora.
+> 📝 La pendenza che separa un prato dalla roccia nuda e la quota a cui il prato comincia non hanno ancora numeri: i limiti esatti si propongono insieme ai compiti di generazione.
 
 ---
 
@@ -73,6 +73,9 @@ Le vene si piazzano per quota, non per bioma, come spiega la pagina delle [monta
 | [Arpia](/wiki/mostro-arpia) | Sulle pareti sopra il prato | Sì |
 | [Ettin](/wiki/mostro-ettin), [ogre](/wiki/mostro-ogre), [ciclope](/wiki/mostro-ciclope) | Dove il prato confina con le pendici e le vallate alte | Sì |
 | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | Notte, nei laghetti più profondi | Sì |
+| **Marmotta** (proposta, da confermare) | Giorno, vicino alle tane tra i massi | No |
+
+> 🆕 **Proposta (da confermare).** Ogni bioma nuovo ha una creatura tutta sua; per i prati alpini si propone la **marmotta**: ⭐, pacifica, si rizza sulle zampe vicino alla tana e fischia quando arriva un predatore, e le altre creature del prato fuggono. Bottino: pelle grezza, carne di marmotta e grasso di marmotta (balsamo per le pozioni di cura). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

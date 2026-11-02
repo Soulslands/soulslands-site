@@ -85,7 +85,7 @@ Si scavano con la **pala** (circa 0,3 secondi) o a mani nude (tre volte più pia
 | `moss_block` | Muschio | Foresta profonda, [grotte di muschio](/wiki/grotte-e-sottosuolo) | Muschio | Si stende sulla pietra umida |
 | `mycelium` | Micelio | Isole dei funghi, [caverne dei funghi giganti](/wiki/grotte-e-sottosuolo) | Terra | Ci crescono i funghi giganti |
 | `farmland` | Terra arata | Creata con la zappa | Terra | Per grano, cotone, lino e ortaggi; secca senza acqua vicina |
-| `dirt_path` | Sentiero | Strade dei feudi e dei villaggi | Terra | I blocchi dei feudi sono protetti |
+| `dirt_path` | Sentiero | Strade dei feudi e dei villaggi | Terra | I blocchi dentro le mura dei feudi sono protetti, quelli delle strade no |
 | `ash_soil` | Terra di cenere | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | Terra di cenere | Setacciata dà **cenere sulfurea** (reagente). Non cade, a differenza della cenere vulcanica e di quella di tomba |
 | `dead_soil` | Terra morta | [Terre dei Morti](/wiki/bioma-terre-dei-morti) | Terra morta | Grigia e sterile: non ci cresce nulla di vivo |
 | `shadow_soil` | Terra d'ombra | [Lande d'Ombra](/wiki/bioma-lande-d-ombra) | Terra d'ombra | Assorbe la luce: le torce illuminano meno |

@@ -5,21 +5,21 @@ category: Mondo / Biomi
 visibility: Pubblica
 ---
 # 🌾 Steppa
-*Erba secca fino all'orizzonte, senza un albero*
+*Erba secca fino all'orizzonte, con qualche ginepro solitario*
 
 ---
 
 ## 📜 Panoramica
 
-La steppa è una prateria asciutta e senza alberi che si stende tra le [pianure](/wiki/bioma-pianure) e il [deserto](/wiki/bioma-deserto) o la [savana](/wiki/bioma-savana). L'erba è bassa e rada, il terreno poco fertile, e il paesaggio è vuoto: a perdita d'occhio non c'è un tronco dietro cui ripararsi. È il bioma dei grandi spostamenti a cavallo, delle mandrie e dei viaggiatori che portano con sé tutto il legno che serve.
+La steppa è una prateria asciutta, quasi senza alberi, che si stende tra le [pianure](/wiki/bioma-pianure) e il [deserto](/wiki/bioma-deserto) o la [savana](/wiki/bioma-savana). L'erba è bassa e rada, il terreno poco fertile, e il paesaggio è vuoto: a perdita d'occhio c'è appena qualche ginepro isolato dietro cui ripararsi. È il bioma dei grandi spostamenti a cavallo, delle mandrie e dei viaggiatori che portano con sé tutto il legno che serve.
 
-Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e arido per diventare savana o deserto (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)); i limiti esatti sono valori dei dati del mondo.
+Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e arido per diventare savana o deserto (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)); i limiti esatti si propongono insieme ai compiti di generazione (qui non ci sono numeri).
 
 | Caratteristica | Valore |
 |----------------|--------|
 | **Clima** | Secco, con estati asciutte |
-| **Pericolo** | ⭐ (⭐⭐ di notte; stima nostra) |
-| **Alberi** | Nessuno |
+| **Pericolo** | ⭐ (⭐⭐ di notte; deciso da Aruto, 02/11/2026) |
+| **Alberi** | Rarissimi ginepri isolati |
 | **Stagioni** | D'estate l'erba secca prende fuoco facilmente |
 
 > 📝 **L'aspetto secco viene dalle piante e dal suolo, non dal colore dell'erba.** Finché non arrivano le tinte per bioma (vedi [Texture dei blocchi](/wiki/texture-blocchi#tinta-di-bioma)) erba, foglie e acqua hanno una sola tinta di base: l'erba `grass` della steppa ha lo stesso verde di quella delle pianure. Il tono giallo viene da `dry_grass`, da `coarse_dirt` e dalle chiazze di terreno nudo.
@@ -41,7 +41,11 @@ Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e ari
 
 ## 🌲 Alberi e legni
 
-Nessuno: la steppa è priva di alberi. Il legno si porta dalle pianure o da un altro bioma vicino. Vedi [Alberi](/wiki/alberi).
+| Albero | Legno | Frequenza |
+|--------|-------|-----------|
+| Ginepro (`juniper`) | [Regular](/wiki/legno-regular) | Rarissimo, sempre isolato |
+
+**Deciso da Aruto (02/11/2026):** la steppa ha pochissimi ginepri isolati e nessun altro albero. Il legno si porta dalle pianure o da un altro bioma vicino. Vedi [Alberi](/wiki/alberi).
 
 ---
 
@@ -68,6 +72,9 @@ Nessuno: la steppa è priva di alberi. Il legno si porta dalle pianure o da un a
 | [Serpente](/wiki/animale-serpente) | Giorno, nelle ore calde | Sì |
 | [Brigante](/wiki/mostro-brigante) | Lungo le piste lontane | Sì |
 | [Scheletro](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | Notte | Sì |
+| **Saiga** (proposta, da confermare) | Giorno, in branchi | No |
+
+> 🆕 **Proposta (da confermare).** Per la steppa si propone la **saiga**: ⭐, un'antilope dal muso rigonfio che vive in branchi numerosi e al primo pericolo scappa tutta insieme, sollevando polvere. Bottino: pelle grezza, carne di saiga e corno di saiga (reagente per l'[Alchemy](/wiki/skill-alchemy)). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

@@ -71,7 +71,7 @@ La debolezza dell'Assassino è la fragilità. HP bassi e nessuna armatura pesant
 
 - **Campo visivo**: ciò che il personaggio non vede è in grigio. Avvicinati sfruttando blocchi, alberi, dislivelli e gallerie per restare fuori dalla vista del bersaglio.
 - **Shadow Jump e terreno a blocchi**: il teletrasporto d'ombra ti permette di superare dislivelli e ostacoli che un inseguitore dovrebbe scalare o abbattere.
-- **Reputazione**: uccidere giocatori ti rende **red** (Murderer). Ricorda che le città sono protette dalle [guardie](/wiki/guardie-cittadine) e che solo un [Chierico](/wiki/classe-chierico) può purificarti (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
+- **Reputazione**: uccidere giocatori ti rende **red** (Murderer). Ricorda che i feudi sono protetti dalle [guardie](/wiki/guardie-cittadine) e che solo un [Chierico](/wiki/classe-chierico) può purificarti (vedi [Player killer e redenzione](/wiki/player-killer-e-redenzione)).
 - **Full loot**: chi cade sotto i tuoi colpi lascia tutto sul corpo (vedi [Full loot](/wiki/full-loot)); prendi solo ciò che puoi portare via in fretta.
 
 ## 🛡️ Equipaggiamento consigliato
