@@ -257,7 +257,7 @@ Oltre ai metalli ci sono due minerali non metallici, nuovi rispetto a Cursed Sou
 
 ## 🌳 Legno
 
-Ogni specie di albero ha tre blocchi: **tronco** (`<specie>_log`), **foglie** (`<specie>_leaves`) e **germoglio** (`<specie>_sapling`), per esempio `oak_log`, `oak_leaves`, `oak_sapling`. Le specie e dove crescono sono in [Alberi](/wiki/alberi).
+Ogni specie di albero ha tre blocchi: **tronco** (`<specie>_log`), **foglie** (`<specie>_leaves`) e **germoglio** (`<specie>_sapling`), per esempio `oak_log`, `oak_leaves`, `oak_sapling`. Le specie e dove crescono sono in [Alberi](/wiki/alberi). Le foglie autunnali di acero e faggio (`maple_leaves_autumn`, `beech_leaves_autumn`) sono per ora blocchi a sé, perché i blocchi non hanno ancora stati stagionali (vedi [Texture dei blocchi](/wiki/texture-blocchi#nomi-dei-file)).
 
 I tronchi si tagliano in **assi** al banco da carpentiere. Le assi dipendono dal tipo di [legno](/wiki/legni), non dalla specie: una betulla e un faggio danno entrambi legno comune. Come i tronchi, le assi si raccolgono anche a mani nude e rendono il loro oggetto; con l'ascia si fa solo più in fretta.
 
@@ -277,6 +277,8 @@ Oltre a tronchi, foglie e germogli, intorno agli alberi si trovano questi blocch
 |----|------|------|-------------|
 | `mangrove_roots` | Radici di mangrovia | Base delle mangrovie, sopra il fango e l'acqua delle [mangrovie](/wiki/bioma-mangrovie) | Legna da ardere e bastoncini; restano in piedi dopo l'abbattimento e si tagliano a parte |
 | `driftwood` | Legno di deriva | Spiagge delle [coste](/wiki/bioma-coste) e delle isole, portato dal mare | Legno comune (si sega in `plain_planks`); nessuna skill richiesta |
+| `maple_leaves_autumn` | Foglie di acero autunnali | Chiome degli aceri della [foresta autunnale](/wiki/bioma-foresta-autunnale) | Come le foglie estive: da sole non lasciano nulla, con le forbici si raccolgono intere; rosso fuoco, senza tinta di bioma |
+| `beech_leaves_autumn` | Foglie di faggio autunnali | Chiome dei faggi della [foresta autunnale](/wiki/bioma-foresta-autunnale) | Come sopra; color rame, senza tinta di bioma |
 | `bee_nest` | Alveare selvatico | Appeso ai rami di querce, betulle e faggi di pianure, foreste e brughiera | Favo: miele (cibo) e cera (candele) |
 | `bird_nest` | Nido | Rami degli alberi di foreste e pianure, sporgenze delle scogliere | Uova di uccello (`bird_egg`) in primavera ed estate, bastoncini (vedi [Uccello](/wiki/animale-uccello)) |
 

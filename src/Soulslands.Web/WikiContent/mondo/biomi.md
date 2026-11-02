@@ -22,6 +22,7 @@ Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima,
 | Bioma | Clima | Pericolo | Legni principali | Minerali tipici | Creature simbolo |
 |-------|-------|----------|------------------|-----------------|------------------|
 | 🌳 [Foresta temperata](/wiki/bioma-foresta-temperata) | Mite | ⭐ | [Regular](/wiki/legno-regular), [Oak](/wiki/legno-oak), [Ash](/wiki/legno-ash) | Iron, Rusty | Cervi, lupi, orsi |
+| 🍁 [Foresta autunnale](/wiki/bioma-foresta-autunnale) | Mite, foglie rosse tutto l'anno | ⭐ | [Regular](/wiki/legno-regular) (aceri e faggi autunnali) | Iron, Rusty | Cervi, lupi, orsi |
 | 🌲 [Foresta profonda](/wiki/bioma-foresta-profonda) | Mite, umido | ⭐⭐⭐ | [Yew](/wiki/legno-yew), [Oak](/wiki/legno-oak), [Heartwood](/wiki/legno-heartwood) | Old Copper, Copper | Orchi, ettin, reaper |
 | ✨ [Foresta incantata](/wiki/bioma-foresta-incantata) | Mite, magico | ⭐⭐⭐ | [Heartwood](/wiki/legno-heartwood), [Ash](/wiki/legno-ash) | Rose, Silver | Unicorni, wisp, pixie |
 | 🌨️ [Taiga](/wiki/bioma-taiga) | Freddo, nevoso d'inverno | ⭐⭐ | [Regular](/wiki/legno-regular) (abeti, pini, betulle) | Iron, Old Copper, Silver | Lupi, orsi grizzly, cervi |
@@ -29,17 +30,22 @@ Il [mondo](/wiki/mondo) di Soulslands è diviso in **biomi**, regioni con clima,
 | 🐊 [Palude](/wiki/bioma-palude) | Caldo, molto umido | ⭐⭐ | [Yew](/wiki/legno-yew), [Regular](/wiki/legno-regular) | Old Copper, Copper | Lizardman, troll, alligatori |
 | 🦀 [Mangrovie](/wiki/bioma-mangrovie) | Caldo, umidissimo, salmastro | ⭐⭐ | [Regular](/wiki/legno-regular) (mangrovie) | Old Copper, Copper | Alligatori, lizardman, pirati |
 | 🌾 [Pianure e praterie](/wiki/bioma-pianure) | Mite, secco | ⭐ | [Regular](/wiki/legno-regular), [Ash](/wiki/legno-ash) | Iron, Rusty, Steel | Cavalli, mucche, ostard |
+| 🌿 [Steppa](/wiki/bioma-steppa) | Secco, estati asciutte | ⭐ | Nessuno (senza alberi) | Iron, Rusty, Steel | Cavalli selvatici, ostard, puma |
 | 🌫️ [Brughiera](/wiki/bioma-brughiera) | Fresco, piovoso, nebbioso | ⭐⭐ | [Regular](/wiki/legno-regular) (ginepri, pini), poca [Oak](/wiki/legno-oak) | Old Copper, Copper | Pecore, wisp, wraith dei tumuli |
 | 🌅 [Savana](/wiki/bioma-savana) | Caldo, secco | ⭐⭐ | [Regular](/wiki/legno-regular) (acacie, baobab) | Iron, Steel, Gold | Cavalli selvatici, puma, formiche Solen |
 | 🏜️ [Deserto](/wiki/bioma-deserto) | Caldissimo, arido | ⭐⭐⭐ | Nessuno (palme: [Regular](/wiki/legno-regular)) | Gold, Bronze, Dull Copper | Scorpioni, mummie, serpenti |
 | 🏞️ [Canyon rossi](/wiki/bioma-canyon-rossi) | Caldo, aridissimo, in quota | ⭐⭐⭐ | Quasi nessuno (ginepri, alberi morti: [Regular](/wiki/legno-regular)) | Gold vicino alla superficie, Dull Copper | Scorpioni, gargoyle selvaggi, harpy |
 | ⛰️ [Montagne](/wiki/bioma-montagne) | Freddo in quota | ⭐⭐⭐ | [Oak](/wiki/legno-oak), [Frostwood](/wiki/legno-frostwood) in vetta | Silver, Shadow Iron, Titanio | Ciclopi, harpy, drake |
+| 🌼 [Prati alpini](/wiki/bioma-prati-alpini) | Fresco, in quota | ⭐⭐ | [Regular](/wiki/legno-regular) (pochi abeti e pini) | Come le montagne, per quota | Capre di montagna, aquile, harpy |
+| 🏔️ [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Freddo (fiordi); dipende dal bioma vicino (gole) | ⭐⭐ | [Regular](/wiki/legno-regular) (abeti e pini sul bordo) | Iron, Rusty, Steel | Trichechi e serpenti marini (fiordi), capre di montagna e harpy (gole) |
 | ❄️ [Tundra e nevi](/wiki/bioma-tundra) | Gelido | ⭐⭐⭐ | [Frostwood](/wiki/legno-frostwood) | Bronze, Titanio | Orsi polari, frost troll, ice fiend |
 | 🌋 [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | Rovente | ⭐⭐⭐⭐⭐ | Nessuno | Blood Rock, Black Rock, Demonic | Lava lizard, draghi, demoni |
 | 💀 [Terre dei Morti](/wiki/bioma-terre-dei-morti) | Freddo, nebbioso | ⭐⭐⭐⭐ | Legno morto ([Regular](/wiki/legno-regular)) | Shadow Iron, Mytheril | Non-morti, lich, nightmare |
 | 🌑 [Lande d'Ombra](/wiki/bioma-lande-d-ombra) | Innaturale | ⭐⭐⭐⭐⭐ | [Bloodwood](/wiki/legno-bloodwood) | Demonic, Black Rock, Cobalto | Balron, shadow wyrm, shade |
 | 🏝️ [Isole](/wiki/bioma-isole) | Variabile | ⭐⭐ – ⭐⭐⭐⭐ | [Regular](/wiki/legno-regular), [Bloodwood](/wiki/legno-bloodwood) | Orialco, Valorite | Uccelli, serpenti, kraken al largo |
 | 🌊 [Coste](/wiki/bioma-coste) | Mite, ventoso | ⭐ | [Regular](/wiki/legno-regular) | Iron, Steel | Granchi, gabbiani, serpenti marini |
+
+Il pericolo dei quattro biomi nuovi (steppa, foresta autunnale, prati alpini, fiordi e gole) è una stima nostra, in attesa dei dati del mondo.
 
 I legni sono descritti nella pagina [Legni](/wiki/legni); i minerali in [Minerali](/wiki/minerali). Le zone d'acqua aperta sono trattate in [Oceani](/wiki/oceani), il mondo sotterraneo in [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo). L'elenco completo, con i biomi marini e sotterranei e i loro id, è più sotto in [Id dei biomi](#id-dei-biomi).
 
@@ -49,13 +55,15 @@ I legni sono descritti nella pagina [Legni](/wiki/legni); i minerali in [Mineral
 
 | Fattore | Effetto |
 |---------|---------|
-| **Temperatura** | Fredda → tundra e montagne innevate; fresca → taiga e brughiera; mite → foreste temperate e pianure; calda → savana, deserto, canyon rossi, giungla, terre vulcaniche |
-| **Umidità** | Secca → pianure, savana, deserto e canyon rossi; umida → foreste, taiga, brughiera, paludi, giungla e mangrovie |
+| **Temperatura** | Fredda → tundra, montagne innevate e coste dei fiordi; fresca → taiga, brughiera e prati alpini; mite → foreste temperate, foreste autunnali, pianure e steppa; calda → savana, deserto, canyon rossi, giungla, terre vulcaniche |
+| **Umidità** | Secca → pianure, steppa, savana, deserto e canyon rossi; umida → foreste (anche quelle autunnali), taiga, brughiera, paludi, giungla e mangrovie |
 | **Altitudine** | Intorno a Y 180 il terreno diventa montano e innevato, e il limite oscilla di circa 20 blocchi (anche le fasce di roccia e di sabbia rossa non seguono una quota fissa), ma non sulle pareti a picco, che restano roccia nuda ([ADR-0032](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0032-generator-versions-terrain-v2.md), [#340](https://github.com/Soulslands/soulslands-game/pull/340)). I confini tra i biomi del clima sono sfrangiati, non curve lisce ([#345](https://github.com/Soulslands/soulslands-game/pull/345)); gli altipiani caldi e aridi diventano canyon rossi, le colline fresche e piovose brughiera |
+| **Pendenza** | Sui pendii dolci in quota il terreno diventa **prato alpino**; dove è ripido resta roccia nuda (la stessa regola che tiene neve ed erba lontane dalle pareti a picco delle montagne) |
+| **Forma del terreno** | Due biomi sono forme delle valli del terreno v2: il **fiordo**, dove la valle di un fiume arriva a una costa fredda e il mare la allaga, e la **gola**, dove un fiume taglia un terreno alto e la valle si stringe tra pareti a picco |
 | **Distanza dalle città** | Oltre una certa distanza compaiono i biomi "corrotti": Terre dei Morti, Lande d'Ombra, terre vulcaniche |
 | **Vicinanza al mare** | Coste e isole; sulle coste calde, dove la giungla arriva fino al mare, crescono le mangrovie |
 
-Alcuni biomi stanno a metà strada tra altri due: andando verso il freddo la foresta temperata lascia il posto alla **taiga** e poi alla tundra; andando verso il caldo e il secco le pianure diventano **savana** e poi deserto.
+Alcuni biomi stanno a metà strada tra altri due: andando verso il freddo la foresta temperata lascia il posto alla **taiga** e poi alla tundra; andando verso il caldo e il secco le pianure diventano **steppa**, poi **savana** e deserto. La **foresta autunnale** è una variante della foresta temperata che prende una fascia di clima tutta sua.
 
 Tra un bioma e l'altro c'è sempre una **fascia di transizione** in cui blocchi, alberi e creature si mescolano.
 
@@ -70,7 +78,9 @@ Ogni bioma ha un **id** nel formato `soulslands:nome`, lo stesso usato per i [bl
 | Bioma | Id |
 |-------|----|
 | 🌾 [Pianure e praterie](/wiki/bioma-pianure) | `soulslands:plains` |
+| 🌿 [Steppa](/wiki/bioma-steppa) | `soulslands:steppe` |
 | 🌳 [Foresta temperata](/wiki/bioma-foresta-temperata) | `soulslands:forest` |
+| 🍁 [Foresta autunnale](/wiki/bioma-foresta-autunnale) | `soulslands:autumn_forest` |
 | 🌲 [Foresta profonda](/wiki/bioma-foresta-profonda) | `soulslands:deep_forest` |
 | ✨ [Foresta incantata](/wiki/bioma-foresta-incantata) | `soulslands:enchanted_forest` |
 | 🌨️ [Taiga](/wiki/bioma-taiga) | `soulslands:taiga` |
@@ -82,6 +92,9 @@ Ogni bioma ha un **id** nel formato `soulslands:nome`, lo stesso usato per i [bl
 | 🏜️ [Deserto](/wiki/bioma-deserto) | `soulslands:desert` |
 | 🏞️ [Canyon rossi](/wiki/bioma-canyon-rossi) | `soulslands:badlands` |
 | ⛰️ [Montagne](/wiki/bioma-montagne) | `soulslands:mountains`; le vette innevate sono `soulslands:snowy_peaks` |
+| 🌼 [Prati alpini](/wiki/bioma-prati-alpini) | `soulslands:alpine_meadow` |
+| 🏔️ [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | `soulslands:fjord`: valli strette e profonde di costa fredda, allagate dal mare |
+| 🏔️ [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | `soulslands:gorge`: gole di fiume nell'entroterra, con il fiume sul fondo |
 | ❄️ [Tundra e nevi](/wiki/bioma-tundra) | `soulslands:tundra` |
 | 🌋 [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | `soulslands:volcanic_lands` |
 | 💀 [Terre dei Morti](/wiki/bioma-terre-dei-morti) | `soulslands:dead_lands` |

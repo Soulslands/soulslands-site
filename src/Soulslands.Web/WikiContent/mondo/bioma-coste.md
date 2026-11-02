@@ -18,6 +18,7 @@ Le coste sono la fascia di transizione tra terra e [oceano](/wiki/oceani): spiag
 | **Clima** | Mite, ventoso |
 | **Pericolo** | ⭐ (⭐⭐ di notte, per gli assalti dal mare) |
 | **Strutture** | Porti, fari, villaggi di pescatori, relitti spiaggiati, grotte dei contrabbandieri |
+| **Coste fredde** | Dove la valle di un fiume arriva a una costa fredda il mare la allaga: un [fiordo](/wiki/bioma-fiordi-e-gole) |
 
 ---
 
@@ -74,4 +75,4 @@ Pochi alberi: sulle coste calde crescono le **palme** (legno [Regular](/wiki/leg
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Oceani](/wiki/oceani) | [Creature marine](/wiki/mostri-marini)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | [Oceani](/wiki/oceani) | [Creature marine](/wiki/mostri-marini)*

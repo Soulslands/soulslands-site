@@ -19,6 +19,7 @@ Le catene montuose si alzano fino al limite del cielo, ispirate alle montagne di
 | **Pericolo** | ⭐⭐ alla base, ⭐⭐⭐⭐ in vetta |
 | **Strutture** | Miniere abbandonate, nani in rovina, nidi di wyvern e draghi, accampamenti di ciclopi |
 | **Effetto** | Cadute pericolose; frane quando si scava sotto blocchi di ghiaia |
+| **Varianti** | Sui pendii dolci tra il bosco dei versanti e la roccia nuda si stendono i [prati alpini](/wiki/bioma-prati-alpini); dove un fiume taglia l'alta quota, la valle si stringe in una [gola](/wiki/bioma-fiordi-e-gole) |
 
 ---
 
@@ -29,7 +30,7 @@ Le catene montuose si alzano fino al limite del cielo, ispirate alle montagne di
 | Pietra `stone`, granito `granite`, diorite `diorite`, andesite `andesite`, basalto `basalt` | Tutto il bioma |
 | Ghiaia `gravel` | Crolla se scavata da sotto |
 | Erba `grass`, erba alta `tall_grass` | Pascoli sui versanti |
-| Stella alpina `edelweiss`, genziana `gentian`, lichene `lichen` | Pendii rocciosi e prati alti |
+| Stella alpina `edelweiss`, genziana `gentian`, lichene `lichen` | Pendii rocciosi e prati alti (vedi [Prati alpini](/wiki/bioma-prati-alpini)) |
 | Neve `snow`, neve farinosa `powder_snow`, ghiaccio `ice`, ghiaccio compatto `packed_ice`, ghiaccio di ghiacciaio `glacier_ice` | Intorno a Y 180 (il limite varia di circa 20 blocchi, mai sulle pareti a picco; [#340](https://github.com/Soulslands/soulslands-game/pull/340)) |
 | Cristalli | Nelle fenditure profonde |
 
@@ -84,4 +85,4 @@ Più si sale, più gli alberi sono bassi e radi; oltre Y 220 non cresce nulla. V
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Minerali](/wiki/minerali) | [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Prati alpini](/wiki/bioma-prati-alpini) | [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | [Minerali](/wiki/minerali) | [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo)*

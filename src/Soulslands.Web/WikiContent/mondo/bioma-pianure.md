@@ -18,6 +18,7 @@ Le pianure sono distese erbose e collinari, ispirate alle campagne intorno a Bri
 | **Clima** | Mite, secco d'estate |
 | **Pericolo** | ⭐ |
 | **Strutture** | Fattorie abbandonate, mulini, strade, città NPC |
+| **Verso il secco** | Dove il clima si fa più asciutto le pianure diventano [steppa](/wiki/bioma-steppa), senza alberi |
 
 ---
 
@@ -87,4 +88,4 @@ Le specie sono descritte in [Alberi](/wiki/alberi), i legni in [Legni](/wiki/leg
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Foresta temperata](/wiki/bioma-foresta-temperata) | [Città di gilda](/wiki/citta-di-gilda)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Foresta temperata](/wiki/bioma-foresta-temperata) | [Steppa](/wiki/bioma-steppa) | [Città di gilda](/wiki/citta-di-gilda)*

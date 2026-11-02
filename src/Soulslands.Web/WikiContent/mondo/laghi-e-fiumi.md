@@ -259,15 +259,19 @@ Fiumi e laghi attirano animali che vengono a bere e predatori che li aspettano. 
 |-------|------------------|---------------|-------------------|----------|
 | [Pianure e praterie](/wiki/bioma-pianure) | Fiumi larghi e lenti con anse, rive di sabbia e ghiaia | Stagni tra le colline | Azzurra | No |
 | [Foresta temperata](/wiki/bioma-foresta-temperata) | Ruscelli e fiumi con argilla e ghiaia | Stagni di foresta | Azzurra | No |
+| [Foresta autunnale](/wiki/bioma-foresta-autunnale) | Come la foresta temperata: ruscelli e fiumi con argilla e ghiaia | Stagni di foresta | Azzurra | No |
 | [Foresta profonda](/wiki/bioma-foresta-profonda) | Ruscelli scuri sotto le chiome | Stagni in penombra, dove i mostri compaiono anche di giorno | Verde scura | No |
 | [Foresta incantata](/wiki/bioma-foresta-incantata) | Ruscelli limpidi | Laghetti con funghi luminosi sulle rive | Turchese, con riflessi argentei di notte | No |
 | [Taiga](/wiki/bioma-taiga) | Fiumi limpidi e freddi | Molti laghi tra gli abeti | Blu scura | D'inverno |
 | [Brughiera](/wiki/bioma-brughiera) | Ruscelli tra le colline | Pozze scure di torba nella nebbia | Bruna, quasi nera | D'inverno |
 | [Montagne](/wiki/bioma-montagne) | Torrenti, rapide, cascate, sorgenti | Laghi di montagna, laghi di cratere | Limpida, azzurro chiaro | D'inverno; sempre intorno a Y 180 e oltre |
+| [Prati alpini](/wiki/bioma-prati-alpini) | Ruscelli e sorgenti dei versanti | Laghetti glaciali | Limpida, azzurro chiaro | D'inverno |
+| [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Gola: il fiume sul fondo, con rapide e cascate; fiordo: la foce allagata dal mare | Nessuno proprio | Gola: limpida; fiordo: quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
 | [Tundra e nevi](/wiki/bioma-tundra) | Fiumi ghiacciati (`frozen_river`) | Laghi ghiacciati | Blu ghiaccio | Sempre |
 | [Palude](/wiki/bioma-palude) | Canali lenti tra gli isolotti | Pozze stagnanti, raramente oltre 2 blocchi | Verde bruna, torbida | No |
 | [Mangrovie](/wiki/bioma-mangrovie) | Canali di marea dove i fiumi incontrano il mare | Lagune tra le radici | Verde, salmastra e non potabile | No |
 | [Giungla](/wiki/bioma-giungla) | Fiumi lenti e larghi, rive di fango e palme | Pozze tra le radici giganti | Verde | No |
+| [Steppa](/wiki/bioma-steppa) | Pochi ruscelli lenti | Pozze che d'estate si restringono | Azzurra | No |
 | [Savana](/wiki/bioma-savana) | Pochi fiumi lenti | Pozze che d'estate si restringono; acqua nel tronco cavo dei baobab | Torbida, color sabbia | No |
 | [Deserto](/wiki/bioma-deserto) | Rari e corti, spesso finiscono in un'oasi | Oasi | Turchese | No |
 | [Canyon rossi](/wiki/bioma-canyon-rossi) | Un fiume sul fondo dei canyon, con rapide e cascate | Rare oasi | Rossastra, per l'argilla rossa (`red_clay`) | No |

@@ -96,4 +96,4 @@ Dettagli in [Animali](/wiki/animali), [Insetti e aracnidi](/wiki/mostri-insetti-
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Pianure e praterie](/wiki/bioma-pianure) | [Deserto](/wiki/bioma-deserto) | [Alberi](/wiki/alberi)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Pianure e praterie](/wiki/bioma-pianure) | [Steppa](/wiki/bioma-steppa) | [Deserto](/wiki/bioma-deserto) | [Alberi](/wiki/alberi)*
