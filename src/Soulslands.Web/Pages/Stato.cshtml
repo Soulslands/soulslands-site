@@ -1,0 +1,82 @@
+@page
+@model StatoModel
+@inject IOptions<StudioOptions> StudioOptions
+@{
+    ViewData["Title"] = "Stato";
+}
+
+<h1>Stato</h1>
+
+<div class="row g-3 mt-1">
+    <div class="col-12 col-md-4">
+        <div class="panel h-100 text-center">
+            <h2 class="h6 text-muted-ss">Server</h2>
+            @if (Model.AnyOnline)
+            {
+                <p class="status-dot status-online mb-1">● @Model.Servers.Count(s => s.Online) server online</p>
+            }
+            else
+            {
+                <p class="status-dot status-offline mb-1">● Nessun server online</p>
+            }
+            <small class="text-muted-ss">Server ospitati dalla community</small>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="panel h-100 text-center">
+            <h2 class="h6 text-muted-ss">Popolazione</h2>
+            <p class="display-6 text-gold mb-0">@Model.PlayersOnline</p>
+            <small class="text-muted-ss">giocatori online</small>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="panel h-100">
+            <h2 class="h6 text-muted-ss text-center">Avanzamento</h2>
+            @foreach (var (name, percent) in StatoModel.Progress)
+            {
+                <div class="d-flex justify-content-between small"><span>@name</span><span class="text-cyan">@percent%</span></div>
+                <div class="progress mb-2" role="progressbar" aria-label="@name" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: @percent%"></div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@if (Model.Servers.Count > 0)
+{
+    <h2 class="mt-5">Server della community</h2>
+    <p class="text-muted-ss">Soulslands non ha un server ufficiale: questi mondi sono ospitati dai giocatori. Vuoi aprirne uno? Il server dedicato è gratuito nella pagina <a href="@StudioOptions.Value.Account("/download")">Download</a>.</p>
+    <div class="row g-3 mt-1">
+        @foreach (var server in Model.Servers)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="panel h-100">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="h5 mb-1">@server.Name</h3>
+                        <span class="status-dot @(server.Online ? "status-online" : "status-offline")">● @(server.Online ? "Online" : "Offline")</span>
+                    </div>
+                    <small class="text-cyan">@server.Address</small>
+                    @if (server.Online)
+                    {
+                        <p class="mb-0 mt-2">@server.PlayersOnline / @server.MaxPlayers giocatori</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<h2 class="mt-5">Roadmap</h2>
+<ol class="roadmap mt-3">
+    @foreach (var item in StatoModel.Roadmap)
+    {
+        <li class="roadmap-item roadmap-@item.Status.ToString().ToLowerInvariant()">
+            <div class="panel">
+                <span class="roadmap-badge">@StatoModel.Label(item.Status)</span>
+                <h3 class="h5 mt-2">@item.Title</h3>
+                <p class="text-muted-ss mb-0">@item.Description</p>
+            </div>
+        </li>
+    }
+</ol>

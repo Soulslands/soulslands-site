@@ -1,0 +1,85 @@
+@page "/benchmark/storia/{metric}"
+@model Soulslands.Web.Pages.Benchmark.HistoryModel
+@using Soulslands.Web.Services.Benchmarks
+@{
+    var label = BenchmarkFormat.MetricLabel(Model.Metric);
+    ViewData["Title"] = $"Storia: {label}";
+}
+
+<p class="bench-back mb-1"><a asp-page="/Benchmark/Index">&larr; Tutti i benchmark</a></p>
+<h1>@label</h1>
+<p class="text-muted-ss">
+    Storia di <code class="bench-id">@Model.Metric</code> in ogni milestone che l'ha misurata, dalla più vecchia alla più
+    recente: valori, soglie e il confronto con Minecraft. Le righe in cui Minecraft fa meglio sono segnate con
+    <span class="bench-mc-badge">Minecraft vince</span>.
+</p>
+
+@foreach (var series in Model.Series)
+{
+    var latest = series.Latest.Metric;
+    var stats = HistoryModel.StatColumns(series);
+    var mixedUnits = series.Points.Select(p => p.Metric.Unit).Distinct().Count() > 1;
+    // compare and better belong to each row: if a milestone changed them, every row says its own.
+    var mixedComparison = series.Points.Select(p => (p.Metric.Compare, p.Metric.Better)).Distinct().Count() > 1;
+
+    <section class="panel bench-result mb-4" data-scenario="@series.Scenario" data-machine="@series.Machine">
+        <header class="mb-3">
+            <h2 class="h3 mb-1">@series.Scenario <small class="text-muted-ss">&middot; @series.Machine</small></h2>
+            <small class="text-muted-ss">
+                Unità: @BenchmarkFormat.Unit(latest.Unit!) &middot;
+                @(mixedComparison ? "il criterio di confronto cambia tra le milestone, è indicato in ogni riga" : HistoryModel.Comparison(latest))
+            </small>
+        </header>
+
+        <div class="bench-table-wrap">
+            <table class="bench-table bench-history">
+                <thead>
+                    <tr>
+                        <th scope="col">Milestone</th>
+                        <th scope="col">Data e commit</th>
+                        @foreach (var stat in stats)
+                        {
+                            <th scope="col">@BenchmarkFormat.Stat(stat)</th>
+                        }
+                        <th scope="col">Soglia</th>
+                        <th scope="col">Minecraft</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var point in series.Points)
+                    {
+                        var m = point.Metric;
+                        var r = point.File.Result;
+                        <tr class="@(BenchmarkRules.MinecraftWins(m) ? "bench-mc-wins" : null)" data-milestone="@point.File.Milestone">
+                            <th scope="row">
+                                <a href="@Url.Page("/Benchmark/Milestone", new { milestone = point.File.Milestone })#@MilestoneModel.Anchor(r)">@point.File.Milestone.ToUpperInvariant()</a>
+                                @if (mixedUnits)
+                                {
+                                    <span class="bench-unit">(@BenchmarkFormat.Unit(m.Unit!))</span>
+                                }
+                                @if (mixedComparison)
+                                {
+                                    <br /><small class="bench-comparison">@HistoryModel.Comparison(m)</small>
+                                }
+                            </th>
+                            <td>
+                                <time datetime="@r.Date">@BenchmarkFormat.Date(r.StartedAt)</time>
+                                <br /><code class="bench-commit" title="@r.Commit">@IndexModel.ShortCommit(r.Commit!)</code>
+                                @if (r.Dirty == true)
+                                {
+                                    <br /><small class="bench-warning-inline">modifiche non committate</small>
+                                }
+                            </td>
+                            @foreach (var stat in stats)
+                            {
+                                <td>@BenchmarkFormat.Number(BenchmarkRules.Stat(m, stat))</td>
+                            }
+                            <td><partial name="_Thresholds" model="m" /></td>
+                            <td><partial name="_MinecraftValue" model="m" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+}

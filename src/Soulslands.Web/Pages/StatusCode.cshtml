@@ -1,0 +1,18 @@
+@page "/StatusCode/{code:int}"
+@model StatusCodeModel
+@{
+    ViewData["Title"] = Model.Code == 404 ? "Pagina non trovata" : "Errore";
+}
+
+<div class="panel text-center mt-4">
+    <h1>@Model.Code</h1>
+    @if (Model.Code == 404)
+    {
+        <p>Questa pagina non esiste.</p>
+    }
+    else
+    {
+        <p>Qualcosa è andato storto.</p>
+    }
+    <a class="btn btn-primary" asp-page="/Index">Torna alla home</a>
+</div>

@@ -1,0 +1,29 @@
+@page "/wiki"
+@model Soulslands.Web.Pages.Wiki.IndexModel
+@{
+    ViewData["Title"] = "Wiki";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <h1 class="mb-0">Wiki</h1>
+    @if (Model.CanEdit)
+    {
+        <a class="btn btn-primary" asp-page="/Wiki/Edit">Nuova pagina</a>
+    }
+</div>
+
+<form method="get" class="my-4" role="search">
+    <div class="input-group">
+        <input type="search" name="q" value="@Model.Query" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" />
+        <button class="btn btn-outline-primary" type="submit">Cerca</button>
+    </div>
+</form>
+
+@if (Model.Pages.Count == 0)
+{
+    <p class="text-muted-ss">Nessuna pagina trovata.</p>
+}
+
+<div class="wiki-index">
+    <partial name="_WikiTree" model="Model.Sections" />
+</div>

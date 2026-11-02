@@ -1,0 +1,77 @@
+@page "/benchmark"
+@model Soulslands.Web.Pages.Benchmark.IndexModel
+@using Soulslands.Web.Services.Benchmarks
+@{
+    ViewData["Title"] = "Benchmark";
+}
+
+<h1>Benchmark</h1>
+<p class="text-muted-ss">
+    Ogni milestone si chiude con un benchmark pubblico: Soulslands e Minecraft misurati sullo stesso hardware, con commit,
+    versioni e scenari che chiunque può rifare. Qui trovi tutte le milestone pubblicate, dalla più recente, e la storia di
+    ogni metrica nel tempo.
+</p>
+
+@if (Model.Milestones.Count == 0)
+{
+    <p class="text-muted-ss">Nessun benchmark pubblicato per ora: i primi risultati arrivano con la milestone M0.</p>
+}
+else
+{
+    <h2 class="h3 mt-4">Milestone</h2>
+    <div class="bench-index">
+        @foreach (var milestone in Model.Milestones)
+        {
+            var label = milestone.Milestone.ToUpperInvariant();
+            <section class="panel bench-index-item mb-3" data-milestone="@milestone.Milestone">
+                <h3 class="h4 mb-1"><a asp-page="/Benchmark/Milestone" asp-route-milestone="@milestone.Milestone">Benchmark @label</a></h3>
+                <small class="text-muted-ss">
+                    Ultima misura: <time datetime="@milestone.LatestRun.ToString("O")">@BenchmarkFormat.Date(milestone.LatestRun)</time>
+                    &middot; @(milestone.Files.Count == 1 ? "1 risultato" : $"{milestone.Files.Count} risultati")
+                </small>
+                <ul class="bench-index-files mt-2 mb-0">
+                    @foreach (var file in milestone.Files)
+                    {
+                        var r = file.Result;
+                        <li>
+                            <a href="@Url.Page("/Benchmark/Milestone", new { milestone = milestone.Milestone })#@MilestoneModel.Anchor(r)">@r.Scenario!.Id &middot; @r.Hardware!.Machine</a>
+                            <span class="bench-kind">@BenchmarkFormat.Kind(r.Kind!)</span>
+                            <br />
+                            <small class="text-muted-ss">
+                                <time datetime="@r.Date">@BenchmarkFormat.Date(r.StartedAt)</time>
+                                &middot; @r.RepoOrDefault <code class="bench-commit" title="@r.Commit">@IndexModel.ShortCommit(r.Commit!)</code>
+                            </small>
+                        </li>
+                    }
+                </ul>
+            </section>
+        }
+    </div>
+
+    <h2 class="h3 mt-4">Storia delle metriche</h2>
+    <p class="text-muted-ss">Ogni metrica misurata, per scenario e macchina, con le milestone in cui compare.</p>
+    <div class="bench-table-wrap">
+        <table class="bench-table bench-series">
+            <thead>
+                <tr>
+                    <th scope="col">Metrica</th>
+                    <th scope="col">Scenario e macchina</th>
+                    <th scope="col">Milestone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var series in Model.Series)
+                {
+                    <tr data-series="@series.Metric|@series.Scenario|@series.Machine">
+                        <th scope="row">
+                            <a asp-page="/Benchmark/History" asp-route-metric="@series.Metric">@BenchmarkFormat.MetricLabel(series.Metric)</a>
+                            <br /><code class="bench-id">@series.Metric</code>
+                        </th>
+                        <td>@series.Scenario &middot; @series.Machine</td>
+                        <td>@string.Join(", ", series.Milestones.Select(m => m.ToUpperInvariant()))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

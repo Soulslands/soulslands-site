@@ -1,0 +1,33 @@
+@page
+@model Soulslands.Web.Pages.Admin.ServerModel
+@{
+    ViewData["Title"] = "Server della community";
+}
+
+<h1>Server della community</h1>
+<p class="text-muted-ss">Tutti i server registrati dai giocatori. Elimina quelli che violano il regolamento.</p>
+
+@if (Model.Servers.Count == 0)
+{
+    <p class="text-muted-ss">Nessun server registrato.</p>
+}
+
+@foreach (var (server, owner) in Model.Servers)
+{
+    <div class="panel mt-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div>
+            <strong>@server.Name</strong> <small class="text-muted-ss">@server.Address</small>
+            <div class="small">
+                <span class="status-dot @(server.Online ? "status-online" : "status-offline")">● @(server.Online ? "Online" : "Offline")</span>
+                @if (server.Online)
+                {
+                    <span class="ms-2">@server.PlayersOnline / @server.MaxPlayers giocatori</span>
+                }
+                <span class="ms-2 text-muted-ss">account <code>@owner</code></span>
+            </div>
+        </div>
+        <form method="post" asp-page-handler="Delete" asp-route-id="@server.Id">
+            <button class="btn btn-sm btn-outline-secondary">Elimina</button>
+        </form>
+    </div>
+}

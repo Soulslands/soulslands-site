@@ -1,0 +1,75 @@
+@inject IOptions<StudioOptions> StudioOptions
+@{
+    var studio = StudioOptions.Value;
+}
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark" class="@(PreferenzeModel.WantsBrowserFonts(Context.Request) ? "ss-browser-fonts" : null)">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Soulslands</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="alternate" type="application/atom+xml" title="Devlog di Soulslands" href="~/devlog/feed.xml" />
+</head>
+<body>
+    <canvas id="embers" aria-hidden="true"></canvas>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md site-nav">
+            <div class="container">
+                <a class="navbar-brand brand" asp-area="" asp-page="/Index">Soulslands</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Apri menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-md-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Wiki/Index">Wiki</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Devlog/Index">Devlog</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Benchmark/Index">Benchmark</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Regole">Regole</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Media">Media</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@studio.Account("/download")">Download</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/Stato">Stato</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@studio.Studio("/contact")">Contatti</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@studio.Account("/redeem")">Riscatta</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-buy" href="@studio.Account("/store")">Acquista</a></li>
+                        @if (User.IsInRole(Roles.Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Server">Server della community</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Bacheca">Bacheca</a></li>
+                                    <li><a class="dropdown-item" href="@studio.Account("/admin/users")">Account e ordini (studio)</a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="py-4">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Soulslands &middot; <a asp-area="" asp-page="/Regole">Regole</a> &middot; <a href="@studio.Studio("/terms")">Termini di vendita</a> &middot; <a href="@studio.Studio("/privacy")">Privacy</a> &middot; <a asp-area="" asp-page="/Preferenze">Preferenze</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

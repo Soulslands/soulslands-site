@@ -1,0 +1,32 @@
+@model List<WikiNavigation.Section>
+@{
+    var current = ViewData["CurrentSlug"] as string;
+    var compact = ViewData["Compact"] as bool? == true;
+}
+
+@foreach (var wikiSection in Model)
+{
+    var open = !compact || wikiSection.Pages.Any(p => p.Slug == current) || wikiSection.Children.Any(c => c.Pages.Any(p => p.Slug == current));
+    <details class="wiki-section" open="@open">
+        <summary>@wikiSection.Name <span class="wiki-count">@WikiNavigation.Count(wikiSection)</span></summary>
+        <ul class="list-unstyled wiki-list">
+            @foreach (var wikiPage in wikiSection.Pages)
+            {
+                <partial name="_WikiLink" model="wikiPage" />
+            }
+        </ul>
+        @foreach (var child in wikiSection.Children)
+        {
+            var childOpen = !compact || child.Pages.Any(p => p.Slug == current);
+            <details class="wiki-subsection" open="@childOpen">
+                <summary>@child.Name <span class="wiki-count">@child.Pages.Count</span></summary>
+                <ul class="list-unstyled wiki-list">
+                    @foreach (var wikiPage in child.Pages)
+                    {
+                        <partial name="_WikiLink" model="wikiPage" />
+                    }
+                </ul>
+            </details>
+        }
+    </details>
+}

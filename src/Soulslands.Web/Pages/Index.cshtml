@@ -1,0 +1,67 @@
+@page
+@model IndexModel
+@using Soulslands.Web.Services.Devlog
+@inject IOptions<StudioOptions> StudioOptions
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero mb-5">
+    <h1>Soulslands</h1>
+    <p class="lead">
+        Un MMO sandbox fantasy medievale in un mondo a blocchi che puoi scavare, costruire e conquistare,
+        con l'anima di <span class="text-gold">Ultima Online</span>.
+    </p>
+    <div class="d-flex flex-wrap gap-2 justify-content-center">
+        <a class="btn btn-primary btn-lg" href="@StudioOptions.Value.Account("/store")">Acquista il gioco</a>
+        <a class="btn btn-outline-primary btn-lg" href="@StudioOptions.Value.Account("/identity/account/register")">Registrati</a>
+        <a class="btn btn-outline-secondary btn-lg" asp-page="/Wiki/Index">Leggi la wiki</a>
+    </div>
+</section>
+
+@if (Model.Announcements.Count > 0)
+{
+    <section class="panel board mb-4" aria-label="Bacheca">
+        <h2 class="h5 text-gold mb-3">📜 Bacheca</h2>
+        <ul class="list-unstyled mb-0">
+            @foreach (var item in Model.Announcements)
+            {
+                <li class="py-1"><span class="text-cyan small me-2">@item.CreatedAt.ToString("dd/MM")</span>@item.Text</li>
+            }
+        </ul>
+    </section>
+}
+
+@if (Model.LatestPosts.Count > 0)
+{
+    <section class="mb-4" aria-labelledby="home-devlog-title">
+        <div class="d-flex flex-wrap align-items-baseline justify-content-between gap-2 mb-3">
+            <h2 id="home-devlog-title" class="h4 text-gold mb-0">Dal devlog</h2>
+            <a class="small" asp-page="/Devlog/Index">Tutti i post</a>
+        </div>
+        <div class="row g-3">
+            @foreach (var post in Model.LatestPosts)
+            {
+                <div class="col-12 col-md-4">
+                    <article class="panel feature devlog-item h-100">
+                        <h3 class="h5 mb-1"><a asp-page="/Devlog/Post" asp-route-slug="@post.Slug">@post.Title</a></h3>
+                        <small class="text-muted-ss"><time datetime="@post.Date.ToString("yyyy-MM-dd")">@DevlogLoader.FormatDate(post.Date)</time></small>
+                        <p class="mb-0 mt-2">@post.Summary</p>
+                    </article>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<section class="row g-3">
+    @foreach (var (title, text) in IndexModel.Features)
+    {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="panel feature h-100">
+                <h3>@title</h3>
+                <p>@text</p>
+            </div>
+        </div>
+    }
+</section>

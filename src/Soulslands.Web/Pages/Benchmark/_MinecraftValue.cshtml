@@ -1,0 +1,23 @@
+@* Minecraft cell of a metric row, shared by the milestone page and the history page. *@
+@model Soulslands.Web.Services.Benchmarks.BenchmarkMetric
+@using Soulslands.Web.Services.Benchmarks
+@if (Model.Minecraft is { } mv)
+{
+    var stat = BenchmarkRules.Stat(mv, Model.Compare) is not null
+        ? Model.Compare!
+        : BenchmarkRules.Stats.First(s => BenchmarkRules.Stat(mv, s) is not null);
+    <span>@BenchmarkFormat.Stat(stat) @BenchmarkFormat.Number(BenchmarkRules.Stat(mv, stat))</span>
+    @if (mv.IsEstimate)
+    {
+        <span class="bench-estimate">stima</span>
+        <a href="@mv.Source" rel="noopener noreferrer nofollow">fonte</a>
+    }
+    @if (BenchmarkRules.MinecraftWins(Model))
+    {
+        <span class="bench-mc-badge">Minecraft vince</span>
+    }
+}
+else
+{
+    <span>—</span>
+}

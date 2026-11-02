@@ -1,0 +1,30 @@
+@page
+@{
+    ViewData["Title"] = "Media";
+    var items = new (string Title, string Text, string Css)[]
+    {
+        ("Le Terre delle Anime", "Uno sguardo al mondo oscuro e misterioso che attende gli avventurieri.", "media-souls"),
+        ("Gameplay", "L'esperienza classica di Ultima Online in un mondo a blocchi da scavare e costruire.", "media-gameplay"),
+        ("Un mondo generato", "Biomi, oceani e dungeon che nascono man mano che li esplori.", "media-world"),
+    };
+}
+
+<h1>Media</h1>
+<p class="text-muted-ss">Immagini e video dal mondo di Soulslands.</p>
+
+<div class="row g-3">
+    @foreach (var (title, text, css) in items)
+    {
+        <div class="col-12 col-md-4">
+            <div class="panel media-card h-100 p-0 overflow-hidden">
+                <div class="media-thumb @css" aria-hidden="true"></div>
+                <div class="p-3">
+                    <h2 class="h5">@title</h2>
+                    <p class="text-muted-ss mb-0">@text</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<p class="text-muted-ss mt-4">Altri contenuti arriveranno con l'avanzare dello sviluppo.</p>

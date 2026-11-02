@@ -1,0 +1,33 @@
+@page "/wiki/{slug}/cronologia"
+@model Soulslands.Web.Pages.Wiki.HistoryModel
+@{
+    ViewData["Title"] = $"Cronologia: {Model.WikiPage.Title}";
+}
+
+<nav class="mb-3"><a asp-page="/Wiki/View" asp-route-slug="@Model.WikiPage.Slug">&larr; @Model.WikiPage.Title</a></nav>
+
+<h1>Cronologia</h1>
+
+<div class="panel mt-3">
+    <table class="table table-sm mb-0">
+        <thead>
+            <tr>
+                <th>Data (UTC)</th>
+                <th>Autore</th>
+                <th>Titolo</th>
+                <th>Visibilità</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var revision in Model.Revisions)
+            {
+                <tr>
+                    <td>@revision.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@(revision.AuthorName ?? revision.Author)</td>
+                    <td>@revision.Title</td>
+                    <td>@revision.Visibility</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

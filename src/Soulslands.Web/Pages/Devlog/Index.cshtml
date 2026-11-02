@@ -1,0 +1,27 @@
+@page "/devlog"
+@model Soulslands.Web.Pages.Devlog.IndexModel
+@using Soulslands.Web.Services.Devlog
+@{
+    ViewData["Title"] = "Devlog";
+}
+
+<h1>Devlog</h1>
+<p class="text-muted-ss">Notizie dallo sviluppo di Soulslands.</p>
+
+@if (Model.Posts.Count == 0)
+{
+    <p class="text-muted-ss">Nessun post per ora.</p>
+}
+
+<div class="devlog-list">
+    @foreach (var post in Model.Posts)
+    {
+        <article class="panel feature devlog-item">
+            <h2 class="h4 mb-1"><a asp-page="/Devlog/Post" asp-route-slug="@post.Slug">@post.Title</a></h2>
+            <small class="text-muted-ss">
+                <time datetime="@post.Date.ToString("yyyy-MM-dd")">@DevlogLoader.FormatDate(post.Date)</time> &middot; @post.Author
+            </small>
+            <p class="mb-0 mt-2">@post.Summary</p>
+        </article>
+    }
+</div>

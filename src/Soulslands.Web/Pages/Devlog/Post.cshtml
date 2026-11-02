@@ -1,0 +1,30 @@
+@page "/devlog/{slug}"
+@model Soulslands.Web.Pages.Devlog.PostModel
+@using Soulslands.Web.Services.Devlog
+@{
+    ViewData["Title"] = Model.Post.Title;
+}
+
+<article class="panel devlog-post">
+    <a asp-page="/Devlog/Index" class="d-block mb-3">&larr; Tutti i post</a>
+    <header class="mb-3">
+        @if (!Model.HasOwnTitle)
+        {
+            <h1 class="mb-1">@Model.Post.Title</h1>
+        }
+        <small class="text-muted-ss">
+            <time datetime="@Model.Post.Date.ToString("yyyy-MM-dd")">@DevlogLoader.FormatDate(Model.Post.Date)</time> &middot; @Model.Post.Author
+        </small>
+    </header>
+    <div class="wiki-content">
+        @Html.Raw(Model.Post.Html)
+    </div>
+</article>
+
+@section Scripts {
+    @if (Model.Post.HasDiagrams)
+    {
+        <script src="~/lib/mermaid/mermaid.min.js" asp-append-version="true"></script>
+        <script src="~/js/wiki-diagrams.js" asp-append-version="true"></script>
+    }
+}

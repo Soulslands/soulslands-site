@@ -1,0 +1,101 @@
+{
+  "format_version": 1,
+  "kind": "bot-swarm",
+  "milestone": "m2",
+  "commit": "0123456789abcdef0123456789abcdef01234567",
+  "date": "2026-10-18T21:04:00Z",
+  "producer": { "name": "bot-swarm", "version": "0.1.0" },
+  "hardware": {
+    "machine": "aruto-linux-pc",
+    "model": "Custom desktop",
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "cores": 4,
+    "host_cores": 32,
+    "ram_mib": 8192,
+    "arch": "x86_64",
+    "virtualization": "container",
+    "os": { "family": "linux", "name": "CachyOS", "version": "rolling", "kernel": "7.2.9-2-cachyos" }
+  },
+  "soulslands": {
+    "game_version": "0.2.0",
+    "slworld_tag": "v0.9.0",
+    "rustc": "rustc 1.99.1 (illustrative)",
+    "profile": "dist",
+    "features": [],
+    "settings": { "tick_hz": 20, "view_distance_blocks": 256 }
+  },
+  "minecraft": {
+    "version": "26.4",
+    "server": { "software": "paper", "version": "build 120" },
+    "java": {
+      "vendor": "Eclipse Temurin",
+      "version": "25.0.1",
+      "gc": "g1",
+      "flags": ["-Xms6G", "-Xmx6G", "-XX:+UseG1GC", "-XX:+ParallelRefProcEnabled", "-XX:MaxGCPauseMillis=200"]
+    },
+    "bots": { "tool": "azalea", "version": "0.14.0" },
+    "settings": { "view_distance_chunks": 16, "simulation_distance_chunks": 10, "pregenerated": true }
+  },
+  "scenario": {
+    "id": "wander-build",
+    "seed": 1997,
+    "duration_s": 300,
+    "warmup_s": 60,
+    "script": "apps/bot-swarm/scenarios/wander-build.toml",
+    "bots": 100,
+    "parameters": { "place_rate_per_bot_s": 0.2, "area_blocks": 512 }
+  },
+  "metrics": [
+    {
+      "name": "tick.ms",
+      "unit": "ms",
+      "better": "lower",
+      "compare": "p99",
+      "samples": 6000,
+      "p50": 6.1,
+      "p99": 14.8,
+      "max": 31.2,
+      "thresholds": [
+        { "stat": "p99", "value": 25, "source": "architettura-piano.md, M2 Soglie (100 bot su 4 core)" },
+        { "stat": "max", "value": 50, "source": "architettura-prestazioni.md, Obiettivi / Server (tick a 20 Hz)" }
+      ],
+      "minecraft": { "origin": "measured", "samples": 6000, "p50": 38.0, "p99": 145.0, "max": 312.0 }
+    },
+    {
+      "name": "mem.per_player_mib",
+      "unit": "mib",
+      "better": "lower",
+      "compare": "value",
+      "value": 4.2,
+      "thresholds": [ { "stat": "value", "value": 10, "source": "architettura-prestazioni.md, Obiettivi / Server" } ],
+      "minecraft": { "origin": "measured", "value": 160 }
+    },
+    {
+      "name": "net.up_bytes_per_player_s",
+      "unit": "bytes_per_s",
+      "better": "lower",
+      "compare": "p99",
+      "samples": 30000,
+      "p50": 2300,
+      "p99": 2450,
+      "max": 2610,
+      "thresholds": [ { "stat": "p99", "value": 2500, "source": "architettura-prestazioni.md, Obiettivi / Rete" } ],
+      "minecraft": { "origin": "measured", "samples": 30000, "p50": 1500, "p99": 1900, "max": 2200 }
+    },
+    {
+      "name": "net.down_bytes_per_player_s",
+      "unit": "bytes_per_s",
+      "better": "lower",
+      "compare": "p99",
+      "samples": 30000,
+      "p50": 6200,
+      "p99": 9100,
+      "max": 14800
+    }
+  ],
+  "raw": [
+    { "path": "raw/wander-build--aruto-linux-pc.ticks.csv.gz", "description": "Duration of every measured tick, Soulslands", "sha256": "0000000000000000000000000000000000000000000000000000000000000000" },
+    { "path": "raw/wander-build--aruto-linux-pc.minecraft-ticks.csv.gz", "description": "Duration of every measured tick, Paper (from spark)" }
+  ],
+  "notes": "Illustrative example for ADR-0002, not a measurement. The net.up row is one where Minecraft wins."
+}

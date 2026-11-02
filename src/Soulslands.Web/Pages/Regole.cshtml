@@ -1,0 +1,19 @@
+@page
+@model RegoleModel
+@{
+    ViewData["Title"] = "Regole";
+}
+
+@if (Model.Html is null)
+{
+    <h1>Regole del regno</h1>
+    <div class="panel mt-3">
+        <p class="mb-0">Il regolamento sarà pubblicato a breve.</p>
+    </div>
+}
+else
+{
+    <article class="panel wiki-content">
+        @Html.Raw(Model.Html)
+    </article>
+}

@@ -1,0 +1,53 @@
+@page "/wiki/{slug}"
+@model Soulslands.Web.Pages.Wiki.ViewModel
+@{
+    ViewData["Title"] = Model.WikiPage.Title;
+}
+
+<div class="row g-3">
+<aside class="col-12 col-lg-3 order-2 order-lg-1">
+    <nav class="panel wiki-sidebar" aria-label="Indice della wiki">
+        <a asp-page="/Wiki/Index" class="d-block mb-2">&larr; Tutta la wiki</a>
+        <partial name="_WikiTree" model="Model.Sections" view-data="@(new ViewDataDictionary(ViewData) { ["CurrentSlug"] = Model.WikiPage.Slug, ["Compact"] = true })" />
+    </nav>
+</aside>
+<article class="panel col-12 col-lg-9 order-1 order-lg-2">
+    <header class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+        <div>
+            @if (!Model.HasOwnTitle)
+            {
+                <h1 class="mb-1">@Model.WikiPage.Title</h1>
+            }
+            <small class="text-muted-ss">
+                Aggiornata il @Model.WikiPage.UpdatedAt.ToString("dd/MM/yyyy HH:mm") UTC
+                @if ((Model.WikiPage.UpdatedByName ?? Model.WikiPage.UpdatedBy) is { } by)
+                {
+                    <text>da @by</text>
+                }
+            </small>
+            @if (Model.WikiPage.Visibility == WikiVisibility.Staff)
+            {
+                <span class="badge badge-staff ms-1">Staff</span>
+            }
+        </div>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary btn-sm" asp-page="/Wiki/History" asp-route-slug="@Model.WikiPage.Slug">Cronologia</a>
+            @if (Model.CanEdit)
+            {
+                <a class="btn btn-primary btn-sm" asp-page="/Wiki/Edit" asp-route-slug="@Model.WikiPage.Slug">Modifica</a>
+            }
+        </div>
+    </header>
+    <div class="wiki-content">
+        @Html.Raw(Model.Html)
+    </div>
+</article>
+</div>
+
+@section Scripts {
+    @if (Model.HasDiagrams)
+    {
+        <script src="~/lib/mermaid/mermaid.min.js" asp-append-version="true"></script>
+        <script src="~/js/wiki-diagrams.js" asp-append-version="true"></script>
+    }
+}

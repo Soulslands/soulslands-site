@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Soulslands.Web/Soulslands.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Soulslands.Web.Tests/Soulslands.Web.Tests.csproj" />
+  </Folder>
+</Solution>

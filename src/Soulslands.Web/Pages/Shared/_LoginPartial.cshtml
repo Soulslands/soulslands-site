@@ -1,0 +1,30 @@
+@inject IOptions<StudioOptions> StudioOptions
+@{
+    var studio = StudioOptions.Value;
+}
+
+<ul class="navbar-nav">
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-page="/Server/Index">I miei server</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@studio.Account("/identity/account/manage")" title="Il mio account Mahoroba">@(User.Identity.Name ?? "Il mio account")</a>
+    </li>
+    <li class="nav-item">
+        <form class="form-inline" method="post" asp-area="" asp-page="/Account/Esci">
+            <button type="submit" class="nav-link btn btn-link">Esci</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@studio.Account("/identity/account/register")">Registrati</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-primary btn-sm ms-md-2" asp-area="" asp-page="/Account/Accedi" asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)">Accedi</a>
+    </li>
+}
+</ul>

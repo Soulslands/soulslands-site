@@ -1,0 +1,15 @@
+@page
+@model PreferenzeModel
+@{
+    ViewData["Title"] = "Preferenze";
+}
+
+<h1>Preferenze</h1>
+<form method="post" class="panel mt-3">
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" asp-for="UseBrowserFonts" />
+        <label class="form-check-label" asp-for="UseBrowserFonts">Usa i caratteri predefiniti del browser</label>
+    </div>
+    <p class="small text-muted-ss">La scelta vale per questo browser e resta salvata per un anno.</p>
+    <button type="submit" class="btn btn-primary">Salva</button>
+</form>

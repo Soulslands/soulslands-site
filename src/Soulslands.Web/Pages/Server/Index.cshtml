@@ -1,0 +1,65 @@
+@page
+@model Soulslands.Web.Pages.Server.IndexModel
+@{
+    ViewData["Title"] = "I miei server";
+}
+
+<h1>I miei server</h1>
+<p class="text-muted-ss">Ospiti un mondo con il server dedicato? Registralo qui e comparirà nella pagina Stato e nel launcher. Metti la chiave API nella configurazione del server: il server la usa per segnalare che è acceso e quanti giocatori ha.</p>
+
+@if (Model.Error is not null)
+{
+    <div class="alert alert-warning mt-3">@Model.Error</div>
+}
+
+@if (Model.NewKey is not null)
+{
+    <div class="alert alert-warning mt-3">
+        Chiave API di <strong>@Model.NewKeyServer</strong>, copiala ora: non verrà più mostrata.
+        <div class="mt-2"><code class="gift-key">@Model.NewKey</code></div>
+    </div>
+}
+
+<form method="post" class="panel mt-3 row g-2">
+    <div class="col-12 col-md-4">
+        <label asp-for="Name" class="form-label">Nome</label>
+        <input asp-for="Name" class="form-control" maxlength="60" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="col-12 col-md-5">
+        <label asp-for="Address" class="form-label">Indirizzo (host:porta)</label>
+        <input asp-for="Address" class="form-control" maxlength="255" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="col-12 col-md-3 d-flex align-items-end">
+        <button class="btn btn-primary w-100" type="submit">Aggiungi server</button>
+    </div>
+</form>
+
+@foreach (var server in Model.Servers)
+{
+    <div class="panel mt-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div>
+            <strong>@server.Name</strong> <small class="text-muted-ss">@server.Address</small>
+            <div class="small">
+                <span class="status-dot @(server.Online ? "status-online" : "status-offline")">● @(server.Online ? "Online" : "Offline")</span>
+                @if (server.Online)
+                {
+                    <span class="ms-2">@server.PlayersOnline / @server.MaxPlayers giocatori</span>
+                }
+                @if (server.Version is not null)
+                {
+                    <span class="ms-2 text-muted-ss">versione @server.Version</span>
+                }
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <form method="post" asp-page-handler="NewKey" asp-route-id="@server.Id">
+                <button class="btn btn-sm btn-outline-primary">Nuova chiave</button>
+            </form>
+            <form method="post" asp-page-handler="Delete" asp-route-id="@server.Id">
+                <button class="btn btn-sm btn-outline-secondary">Elimina</button>
+            </form>
+        </div>
+    </div>
+}

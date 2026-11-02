@@ -1,0 +1,263 @@
+@page "/benchmark/{milestone}"
+@model Soulslands.Web.Pages.Benchmark.MilestoneModel
+@using Soulslands.Web.Services.Benchmarks
+@{
+    var title = $"Benchmark {Model.Milestone.ToUpperInvariant()}";
+    ViewData["Title"] = title;
+}
+
+<p class="bench-back mb-1"><a asp-page="/Benchmark/Index">&larr; Tutti i benchmark</a></p>
+<h1>@title</h1>
+<p class="text-muted-ss">
+    I risultati misurati alla fine della milestone @Model.Milestone.ToUpperInvariant(): commit, hardware, versioni e
+    impostazioni di entrambi i lati, scenario e, per ogni metrica, p50, p99 e massimo.
+</p>
+<p class="text-muted-ss bench-legend">
+    I valori di Soulslands sono misure. Quelli di Minecraft segnati come <span class="bench-estimate">stima</span> vengono da
+    fonti pubbliche e non sono fatti; gli altri sono misurati dal nostro swarm sullo stesso hardware. Le righe in cui
+    Minecraft fa meglio sono segnate con <span class="bench-mc-badge">Minecraft vince</span> e restano sempre visibili.
+</p>
+
+@if (Model.Files.Count > 1)
+{
+    <nav class="bench-toc mb-4" aria-label="Risultati della milestone">
+        <ul>
+            @foreach (var file in Model.Files)
+            {
+                <li><a href="#@MilestoneModel.Anchor(file.Result)">@file.Result.Scenario!.Id &middot; @file.Result.Hardware!.Machine</a></li>
+            }
+        </ul>
+    </nav>
+}
+
+@foreach (var file in Model.Files)
+{
+    var r = file.Result;
+    var hw = r.Hardware!;
+    var sc = r.Scenario!;
+    var ss = r.Soulslands;
+    var mc = r.Minecraft;
+    var isServer = r.Kind == "bot-swarm";
+    var showValue = r.Metrics!.Any(m => m.Value is not null || m.Minecraft?.Value is not null);
+
+    <section class="panel bench-result mb-4" id="@MilestoneModel.Anchor(r)">
+        <header class="mb-3">
+            <h2 class="h3 mb-1">@sc.Id <small class="text-muted-ss">&middot; @hw.Machine</small></h2>
+            <span class="bench-kind">@BenchmarkFormat.Kind(r.Kind!)</span>
+        </header>
+
+        @if (r.Dirty == true)
+        {
+            <p class="bench-warning">Misurato con modifiche non committate: il risultato non corrisponde esattamente al commit.</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(r.Notes))
+        {
+            <p class="bench-notes">@r.Notes</p>
+        }
+
+        <div class="bench-facts">
+            <div>
+                <h3 class="h5">Esecuzione</h3>
+                <dl>
+                    <dt>Commit</dt>
+                    <dd>@r.RepoOrDefault <code class="bench-commit">@r.Commit</code></dd>
+                    <dt>Data</dt>
+                    <dd><time datetime="@r.Date">@BenchmarkFormat.Date(r.StartedAt)</time></dd>
+                    <dt>Scenario</dt>
+                    <dd>@sc.Id, script <code>@sc.Script</code></dd>
+                    <dt>Seed</dt>
+                    <dd>@sc.Seed</dd>
+                    <dt>Durata misurata</dt>
+                    <dd>@BenchmarkFormat.Seconds(sc.DurationS) (riscaldamento escluso: @BenchmarkFormat.Seconds(sc.WarmupS))</dd>
+                    @if (sc.Bots is { } bots)
+                    {
+                        <dt>Bot</dt>
+                        <dd>@bots</dd>
+                    }
+                    @foreach (var p in BenchmarkFormat.Settings(sc.Parameters))
+                    {
+                        <dt><code>@p.Key</code></dt>
+                        <dd>@p.Value</dd>
+                    }
+                    @if (r.Producer is { } producer)
+                    {
+                        <dt>Scritto da</dt>
+                        <dd>@producer.Name @producer.Version</dd>
+                    }
+                </dl>
+            </div>
+
+            <div>
+                <h3 class="h5">Hardware</h3>
+                <dl>
+                    <dt>Macchina</dt>
+                    <dd>@hw.Model (<code>@hw.Machine</code>)</dd>
+                    <dt>CPU</dt>
+                    <dd>@hw.Cpu</dd>
+                    <dt>Core</dt>
+                    <dd>@(hw.Cores)@(hw.HostCores is { } host ? $" su {host} della macchina" : "")</dd>
+                    <dt>RAM</dt>
+                    <dd>@BenchmarkFormat.Number(hw.RamMib) MiB</dd>
+                    <dt>Architettura</dt>
+                    <dd>@(hw.Arch)@(hw.Virtualization is { } v ? $", {v}" : "")</dd>
+                    @if (hw.Gpu is { } gpu)
+                    {
+                        <dt>GPU</dt>
+                        <dd>@gpu</dd>
+                    }
+                    <dt>Sistema operativo</dt>
+                    <dd>@hw.Os!.Name @hw.Os.Version (@(hw.Os.Family))@(hw.Os.Kernel is { } kernel ? $", kernel {kernel}" : "")</dd>
+                </dl>
+            </div>
+
+            @if (ss is not null)
+            {
+                <div>
+                    <h3 class="h5">Soulslands</h3>
+                    <dl>
+                        <dt>@(r.RepoOrDefault == "SLWorldLib" ? "Versione slworld" : "Versione del gioco")</dt>
+                        <dd>@ss.GameVersion</dd>
+                        <dt>Tag SLWorldLib</dt>
+                        <dd>@ss.SlworldTag</dd>
+                        <dt>Compilatore</dt>
+                        <dd>@ss.Rustc</dd>
+                        @if (ss.Profile is { } profile)
+                        {
+                            <dt>Profilo</dt>
+                            <dd>@profile</dd>
+                        }
+                        @if (ss.Features is { Count: > 0 } features)
+                        {
+                            <dt>Feature</dt>
+                            <dd>@string.Join(", ", features)</dd>
+                        }
+                        @foreach (var p in BenchmarkFormat.Settings(ss.Settings))
+                        {
+                            <dt><code>@p.Key</code></dt>
+                            <dd>@p.Value</dd>
+                        }
+                    </dl>
+                </div>
+            }
+
+            @if (mc is not null || (isServer && BenchmarkRules.HasMinecraftSide(r)))
+            {
+                <div>
+                    <h3 class="h5">Minecraft</h3>
+                    <dl>
+                        <dt>Versione</dt>
+                        <dd>@BenchmarkFormat.OrNotStated(mc?.Version)</dd>
+                        @if (isServer || mc?.Server is not null)
+                        {
+                            <dt>Server</dt>
+                            <dd>@(mc?.Server is { } server ? $"{server.Software} {BenchmarkFormat.OrNotStated(server.Version)}" : BenchmarkFormat.NotStated)</dd>
+                        }
+                        @if (isServer || mc?.Java is not null)
+                        {
+                            <dt>Java</dt>
+                            <dd>@(mc?.Java is { Version: { } jv } java && !string.IsNullOrWhiteSpace(jv)
+                                    ? string.Join(" ", new[] { java.Vendor, jv, java.Gc is { } gc ? $"(GC {gc})" : null }.Where(s => s is not null))
+                                    : BenchmarkFormat.NotStated)</dd>
+                            @if (mc?.Java?.Flags is { Count: > 0 } flags)
+                            {
+                                <dt>Flag JVM</dt>
+                                <dd><code>@string.Join(" ", flags)</code></dd>
+                            }
+                        }
+                        @if (mc?.Client is { } client)
+                        {
+                            <dt>Client</dt>
+                            <dd>@(client.Renderer)@(client.Mods is { Count: > 0 } mods ? ", mod: " + string.Join(", ", mods.OfType<BenchmarkClientMod>().Select(m => $"{m.Id} {m.Version}")) : ", nessuna mod")</dd>
+                        }
+                        @if (mc?.Bots is { } mcBots)
+                        {
+                            <dt>Bot</dt>
+                            <dd>@mcBots.Tool @mcBots.Version</dd>
+                        }
+                        @foreach (var p in BenchmarkFormat.Settings(mc?.Settings))
+                        {
+                            <dt><code>@p.Key</code></dt>
+                            <dd>@p.Value</dd>
+                        }
+                    </dl>
+                </div>
+            }
+        </div>
+
+        <h3 class="h5 mt-3">Metriche</h3>
+        <div class="bench-table-wrap">
+            <table class="bench-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Metrica</th>
+                        <th scope="col">p50</th>
+                        <th scope="col">p99</th>
+                        <th scope="col">max</th>
+                        @if (showValue)
+                        {
+                            <th scope="col">valore</th>
+                        }
+                        <th scope="col">Soglia</th>
+                        <th scope="col">Minecraft</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in r.Metrics!)
+                    {
+                        var wins = BenchmarkRules.MinecraftWins(m);
+                        <tr class="@(wins ? "bench-mc-wins" : null)" data-metric="@m.Name">
+                            <th scope="row">
+                                @BenchmarkFormat.MetricLabel(m.Name!)
+                                <span class="bench-unit">(@BenchmarkFormat.Unit(m.Unit!))</span>
+                                <br /><a class="bench-history-link" asp-page="/Benchmark/History" asp-route-metric="@m.Name" title="Storia della metrica in tutte le milestone"><code class="bench-id">@m.Name</code></a>
+                                <small class="text-muted-ss">&middot; confronto su @BenchmarkFormat.Stat(m.Compare!), @(m.Better == BenchmarkRules.BetterHigher ? "più alto è meglio" : "più basso è meglio")</small>
+                            </th>
+                            <td>@BenchmarkFormat.Number(m.P50)</td>
+                            <td>@BenchmarkFormat.Number(m.P99)</td>
+                            <td>@BenchmarkFormat.Number(m.Max)</td>
+                            @if (showValue)
+                            {
+                                <td>@BenchmarkFormat.Number(m.Value)</td>
+                            }
+                            <td><partial name="_Thresholds" model="m" /></td>
+                            <td><partial name="_MinecraftValue" model="m" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (r.Raw is { Count: > 0 } raws)
+        {
+            <h3 class="h5 mt-3">File grezzi</h3>
+            <ul class="bench-raw">
+                @foreach (var raw in raws)
+                {
+                    var link = Model.RawLink(raw);
+                    <li>
+                        @if (link is not null)
+                        {
+                            <a href="@link" rel="nofollow">@raw.Path</a>
+                        }
+                        else
+                        {
+                            <code>@raw.Path</code>
+                            @if (Model.IsRawMissing(raw))
+                            {
+                                <span class="bench-raw-missing">(non disponibile)</span>
+                            }
+                        }
+                        @if (!string.IsNullOrWhiteSpace(raw.Description))
+                        {
+                            <span>: @raw.Description</span>
+                        }
+                        @if (raw.Sha256 is { } sha)
+                        {
+                            <br /><small class="text-muted-ss">SHA-256 <code>@sha</code></small>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+    </section>
+}

@@ -1,0 +1,29 @@
+name: Docker image
+
+# CI is local since 2026-10-18 (SoulslandsHQ docs/local-ci.md): nothing here runs on push, pull request or a
+# schedule. Kept for later: "Run workflow" starts it by hand on a GitHub-hosted Linux runner.
+
+# Checks that the production image builds.
+# arm64 (the Raspberry Pi image, cross-compiled) is on demand: "Run workflow" with arm64 ticked.
+on:
+  workflow_dispatch:
+    inputs:
+      arm64:
+        description: Also build linux/arm64 (slow, cross-compiled)
+        type: boolean
+        default: false
+
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docker-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - run: docker buildx build --platform "$PLATFORMS" -t soulslands-web .
+        env:
+          PLATFORMS: ${{ inputs.arm64 && 'linux/amd64,linux/arm64' || 'linux/amd64' }}

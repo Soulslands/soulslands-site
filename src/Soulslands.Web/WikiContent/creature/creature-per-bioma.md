@@ -1,0 +1,184 @@
+---
+title: Creature per bioma
+slug: creature-per-bioma
+category: Creature
+visibility: Pubblica
+---
+# 🧭 Creature per bioma
+*Chi incontri, dove e a che ora*
+
+---
+
+## 📋 Indice
+
+- [Panoramica](#panoramica)
+- [Come leggere le tabelle](#come-leggere-le-tabelle)
+- [Foreste](#foreste)
+- [Terre calde e umide](#terre-calde-e-umide)
+- [Praterie e deserti](#praterie-e-deserti)
+- [Montagne e terre fredde](#montagne-e-terre-fredde)
+- [Terre corrotte](#terre-corrotte)
+- [Coste e isole](#coste-e-isole)
+- [Oceani e fiumi](#oceani-e-fiumi)
+- [Sottosuolo](#sottosuolo)
+
+---
+
+## 📜 Panoramica
+
+Questa pagina riunisce in un solo posto le creature di ogni [bioma](/wiki/biomi), di superficie, marino e sotterraneo, divise tra giorno e notte. Le regole che decidono cosa compare (luce, distanza dalle città, limiti per chunk, spawn rari) sono in [Spawn delle creature](/wiki/spawn-creature); la durata del giorno e della notte, le fasi della luna e le ore di ogni creatura sono in [Giorno e notte](/wiki/giorno-e-notte). Ogni bioma ha la sua pagina con tutti i dettagli: qui c'è il colpo d'occhio.
+
+> 💡 Di notte, in quasi tutti i biomi di superficie, possono comparire anche [scheletri](/wiki/mostro-scheletro) e [zombie](/wiki/mostro-zombie), anche dove la tabella non li cita: sono gli spawn notturni di base.
+
+---
+
+## 🔖 Come leggere le tabelle
+
+| Colonna | Significato |
+|---------|-------------|
+| **Di giorno** | Creature attive dall'alba al tramonto, cioè circa 80 minuti reali su 120. Chi esce soprattutto all'alba e al tramonto, come cervi, conigli e puma, è in questa colonna con la nota «all'alba e al tramonto» |
+| **Di notte** | Creature dei 40 minuti di buio. In superficie gli spawn ostili raddoppiano e i mostri compaiono ovunque la luce sia 7 o meno, cioè dove non arriva una torcia |
+| **Sempre** | Creature che compaiono a ogni ora; tra parentesi quando sono più frequenti o in quale parte del bioma vivono. Dentro cripte, tombe e dungeon è sempre buio, quindi lì anche le creature notturne sono attive a ogni ora |
+| **Rare / boss** | Creature rare, boss dei dungeon e delle strutture del bioma (vedi [Strutture](/wiki/strutture)), spawn delle notti di luna nuova (una ogni 8 giorni di gioco) e creature leggendarie |
+
+- Le ore sono quelle della scheda di ogni creatura, riassunte in [Giorno e notte](/wiki/giorno-e-notte#creature-del-giorno-e-della-notte). Dove il bioma le cambia, come sotto le chiome della foresta profonda, nelle Terre dei Morti o nelle Lande d'Ombra, vale il bioma.
+- Con la nebbia fitta o con il temporale gli spawn ostili sono quelli del crepuscolo anche di giorno: le creature notturne possono comparire prima del tramonto.
+- Un trattino (—) vuol dire che il bioma non ha creature solo diurne, solo notturne o rare.
+- I nomi inglesi sono quelli di Ultima Online. Le creature con il link hanno una scheda propria o sono descritte nella pagina della loro famiglia; le altre sono in [Animali](/wiki/animali) e nelle famiglie dei [Mostri](/wiki/mostri).
+- Accanto a ogni bioma c'è il suo id (vedi [Biomi](/wiki/biomi#id-dei-biomi)), lo stesso usato dalle regole di spawn del server.
+
+> 🌙 Anche la luna cambia le notti: con la luna piena i branchi di lupi sono più numerosi e le melme delle paludi compaiono più spesso, con la luna nuova lich e ombre escono in superficie, con la rara luna rossa crescono gli elementali di sangue e le varianti con nome (vedi [Le fasi della luna](/wiki/giorno-e-notte#le-fasi-della-luna)).
+
+---
+
+## 🌳 Foreste
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🌳 [Foresta temperata](/wiki/bioma-foresta-temperata) `soulslands:forest` | [Cervi](/wiki/animale-cervo) (Hind, Great Hart) e [conigli](/wiki/animale-coniglio), soprattutto all'alba e al tramonto; scoiattoli, [uccelli](/wiki/animale-uccello), [maiali](/wiki/animale-maiale) selvatici; [orsi neri](/wiki/animale-orso-nero) e [orsi bruni](/wiki/animale-orso-bruno) | [Lupi grigi e lupi dei boschi](/wiki/animale-lupo-grigio); [cinghiali](/wiki/animale-cinghiale), anche al crepuscolo; [mongbat](/wiki/mostro-mongbat), [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | [Orchi](/wiki/mostro-orco) in piccoli gruppi ai margini con la foresta profonda | [Corpser](/wiki/mostro-corpser) nelle radure ombrose; Orc Captain negli accampamenti orcheschi |
+| 🌲 [Foresta profonda](/wiki/bioma-foresta-profonda) `soulslands:deep_forest` | Nessuna creatura solo diurna: sotto le chiome il suolo resta in penombra e i mostri compaiono anche a mezzogiorno | [Ragni giganti](/wiki/mostro-ragno-gigante); di giorno solo nelle zone più buie | [Orchi](/wiki/mostro-orco) con arcieri e sciamani; [albero mietitore](/wiki/mostro-reaper) (Reaper) e [Corpser](/wiki/mostro-corpser); [lupi dei boschi](/wiki/animale-lupo-grigio) e dire wolf; [orso grizzly](/wiki/animale-orso-grizzly); [banditi](/wiki/mostro-brigante) negli accampamenti | [Ettin](/wiki/mostro-ettin); [wisp](/wiki/mostro-wisp), di notte; Orc Lord, boss del covo orchesco sotto le fortezze orchesche; Matriarca dei terathan, boss del covo dei ragni |
+| ✨ [Foresta incantata](/wiki/bioma-foresta-incantata) `soulslands:enchanted_forest` | [Cervi](/wiki/animale-cervo), anche il grande cervo, e [conigli](/wiki/animale-coniglio), soprattutto all'alba e al tramonto; [uccelli](/wiki/animale-uccello) | Pochi spawn ostili: foglie e fiori luminosi tengono il suolo in penombra | Pixie, [wisp](/wiki/mostro-wisp), centauri | [Unicorno](/wiki/mostri-bestie-magiche) di giorno e [Ki-Rin](/wiki/mostri-bestie-magiche) di notte, che nelle notti di luna piena vengono a bere alle fonti della luna; Treant e [albero mietitore](/wiki/mostro-reaper) (Reaper) |
+| 🌨️ [Taiga](/wiki/bioma-taiga) `soulslands:taiga` | [Cervi](/wiki/animale-cervo) e [conigli](/wiki/animale-coniglio) all'alba e al tramonto; [uccelli](/wiki/animale-uccello), [corvi](/wiki/animale-corvo); [orsi bruni](/wiki/animale-orso-bruno) vicino a laghi e torrenti | [Lupi grigi e lupi dei boschi](/wiki/animale-lupo-grigio), più numerosi con la luna piena; [cinghiali](/wiki/animale-cinghiale), anche al crepuscolo; [mongbat](/wiki/mostro-mongbat), [senza testa](/wiki/mostro-headless-one), [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | [Lupi bianchi](/wiki/animale-lupo-bianco) d'inverno o verso la tundra; [orso grizzly](/wiki/animale-orso-grizzly), [orchi](/wiki/mostro-orco); [briganti](/wiki/mostro-brigante) negli accampamenti (più di notte); [troll del gelo](/wiki/mostro-troll-del-gelo) solo d'inverno; [elementale della neve](/wiki/mostro-elementale-della-neve) durante le bufere; [wraith](/wiki/mostro-wraith) e [ghoul](/wiki/mostro-ghoul) dentro i tumuli | [Ettin](/wiki/mostro-ettin); Orc Captain negli accampamenti orcheschi e Orc Lord nei covi orcheschi; il Re del tumulo nei tumuli |
+
+---
+
+## 🌴 Terre calde e umide
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🌴 [Giungla](/wiki/bioma-giungla) `soulslands:jungle` | [Gorilla](/wiki/animale-gorilla), [serpenti](/wiki/animale-serpente), uccelli tropicali | [Pantere](/wiki/animale-pantera), [rospi giganti](/wiki/animale-rospo-gigante) | [Ragni giganti](/wiki/mostro-ragno-gigante) (più di notte), giant black widow e dread spider, soprattutto nei covi; selvaggi, sciamani e cavalieri selvaggi nei villaggi; [serpenti giganti](/wiki/animale-serpente-gigante) e silver serpent lungo fiumi e paludi interne; rane | Matriarca dei terathan, boss del covo dei ragni; [ofidiani](/wiki/mostro-ophidian) e Matriarca ofidiana nel tempio ofidiano, sotto i tempietti della giungla più grandi |
+| 🐊 [Palude](/wiki/bioma-palude) `soulslands:swamp` | Uccelli palustri | Bog Thing (cosa della palude) e bogling; [rane toro](/wiki/animale-rana-toro) e [rospi giganti](/wiki/animale-rospo-gigante); [wisp](/wiki/mostro-wisp) nella nebbia; [zombie](/wiki/mostro-zombie), [ghoul](/wiki/mostro-ghoul) | [Lizardman](/wiki/mostro-lizardman) in gruppi e [troll](/wiki/mostro-troll), più numerosi di notte; [alligatori](/wiki/animale-alligatore) in acqua bassa, [serpenti giganti](/wiki/animale-serpente-gigante); [tentacoli di palude](/wiki/mostro-tentacolo-di-palude) nelle pozze (più al crepuscolo); [melme](/wiki/mostro-slime), più numerose con la luna piena; rane | Swamp Dragon (drago di palude); [elementale del veleno](/wiki/mostro-elementale-del-veleno) nel cuore della palude |
+| 🦀 [Mangrovie](/wiki/bioma-mangrovie) `soulslands:mangrove_swamp` | Granchi, uccelli palustri, pappagalli tropicali; [serpenti](/wiki/animale-serpente) nelle ore calde | [Rane toro](/wiki/animale-rana-toro), [rospi giganti](/wiki/animale-rospo-gigante), [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie); i [pirati](/wiki/mostri-umanoidi) escono dai covi nei canali | [Alligatori](/wiki/animale-alligatore), [serpenti giganti](/wiki/animale-serpente-gigante), [lizardman](/wiki/mostro-lizardman) (più di notte), [tentacoli di palude](/wiki/mostro-tentacolo-di-palude) (più al crepuscolo); [granchi giganti](/wiki/mostri-marini) sui banchi di fango e intorno ai relitti; [pirati](/wiki/mostri-umanoidi) nei covi | Swamp Dragon (drago di palude); [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua), più di notte e durante le tempeste; il capitano dei pirati, boss del covo |
+
+---
+
+## 🌾 Praterie e deserti
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🌾 [Pianure e praterie](/wiki/bioma-pianure) `soulslands:plains` | [Cavalli](/wiki/animale-cavallo), [mucche](/wiki/animale-mucca), [tori](/wiki/animale-toro), [pecore](/wiki/animale-pecora), [capre](/wiki/animale-capra), [maiali](/wiki/animale-maiale), [galline](/wiki/animale-gallina); [lama](/wiki/animale-lama) sulle colline; [ostard della foresta](/wiki/animale-ostard-della-foresta), [uccelli](/wiki/animale-uccello); [ostard del deserto](/wiki/animale-ostard-del-deserto), [conigli](/wiki/animale-coniglio) e cougar ([puma](/wiki/animale-puma)) all'alba e al tramonto; harpy ([arpie](/wiki/mostro-arpia)) sulle colline rocciose | [Lupi grigi](/wiki/animale-lupo-grigio); jack rabbit ([lepri](/wiki/animale-lepre)), anche al crepuscolo; [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | [Banditi](/wiki/mostro-brigante) e ladri di strada lungo le strade lontane dalle città (più di notte) | [Regina dei Solen](/wiki/mostri-insetti-e-aracnidi), boss del formicaio |
+| 🌫️ [Brughiera](/wiki/bioma-brughiera) `soulslands:moorland` | [Pecore](/wiki/animale-pecora) e [capre](/wiki/animale-capra) inselvatichite, pony selvatici ([cavalli](/wiki/animale-cavallo)), [uccelli](/wiki/animale-uccello), [corvi](/wiki/animale-corvo); [conigli](/wiki/animale-coniglio) all'alba e al tramonto; [arpie](/wiki/mostro-arpia) sugli spuntoni rocciosi | [Lupi grigi](/wiki/animale-lupo-grigio); [wisp](/wiki/mostro-wisp) e [spettri](/wiki/mostro-spettro), anche di giorno con la nebbia; [senza testa](/wiki/mostro-headless-one), [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie); [wraith](/wiki/mostro-wraith) e [ghoul](/wiki/mostro-ghoul) intorno ai tumuli | [Briganti](/wiki/mostro-brigante) (più di notte); [elementale dell'aria](/wiki/mostro-elementale-dell-aria) durante i temporali; [wraith](/wiki/mostro-wraith) e [ghoul](/wiki/mostro-ghoul) dentro i tumuli | [Ogre](/wiki/mostro-ogre) sulle colline più alte; [cavalieri d'ossa](/wiki/mostro-cavaliere-d-ossa) a guardia dei tumuli più grandi, con il Re del tumulo come boss |
+| 🌅 [Savana](/wiki/bioma-savana) `soulslands:savanna` | [Cavalli](/wiki/animale-cavallo) selvatici, [tori](/wiki/animale-toro), [lama](/wiki/animale-lama) sugli altipiani, ridgeback, [uccelli](/wiki/animale-uccello), [serpenti](/wiki/animale-serpente); [ostard del deserto](/wiki/animale-ostard-del-deserto) e cougar ([puma](/wiki/animale-puma)) all'alba e al tramonto | Jack rabbit ([lepri](/wiki/animale-lepre)), anche al crepuscolo; [lupi grigi](/wiki/animale-lupo-grigio) verso le pianure; [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | [Scorpioni](/wiki/mostro-scorpione-gigante) (più di notte); [formiche giganti](/wiki/mostri-insetti-e-aracnidi) (Solen) intorno ai formicai; predoni nomadi ([briganti](/wiki/mostro-brigante)) negli accampamenti e lungo le piste (più di notte); [elementale dell'aria](/wiki/mostro-elementale-dell-aria) durante i temporali | [Regina dei Solen](/wiki/mostri-insetti-e-aracnidi), boss del formicaio |
+| 🏜️ [Deserto](/wiki/bioma-deserto) `soulslands:desert` | [Serpenti](/wiki/animale-serpente) e cobra; [ostard del deserto](/wiki/animale-ostard-del-deserto) nelle oasi, all'alba e al tramonto | [Mummie](/wiki/mostro-mummia) fuori dalle tombe | [Scorpioni](/wiki/mostro-scorpione-gigante), soprattutto di notte; [scheletri](/wiki/mostro-scheletro), [lich](/wiki/mostro-lich) e [mummie](/wiki/mostro-mummia) nelle tombe e nelle piramidi; [formiche giganti](/wiki/mostri-insetti-e-aracnidi) (Solen) nei formicai; [gargoyle selvaggi](/wiki/mostro-gargoyle) nelle rovine sepolte; elementale della sabbia durante le tempeste di sabbia | [Lich Lord](/wiki/mostro-signore-dei-lich), boss della cripta sotto le piramidi; [Regina dei Solen](/wiki/mostri-insetti-e-aracnidi), boss del formicaio |
+| 🏞️ [Canyon rossi](/wiki/bioma-canyon-rossi) `soulslands:badlands` | [Capre di montagna](/wiki/animale-capra-di-montagna) sulle pareti, [aquile](/wiki/animale-aquila), [serpenti](/wiki/animale-serpente), harpy ([arpie](/wiki/mostro-arpia)); cougar ([puma](/wiki/animale-puma)) all'alba e al tramonto | Jack rabbit ([lepri](/wiki/animale-lepre)), anche al crepuscolo; [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie) | [Scorpioni](/wiki/mostro-scorpione-gigante) (più di notte); stone harpy ([arpie di pietra](/wiki/mostro-arpia-di-pietra)) sulle mesa più alte; [gargoyle selvaggi](/wiki/mostro-gargoyle) nelle rovine sepolte; [briganti](/wiki/mostro-brigante) nelle gole (più di notte); [elementali della terra](/wiki/mostro-elementale-della-terra) e [ragni giganti](/wiki/mostro-ragno-gigante) nelle miniere abbandonate | Elementale d'oro (Golden Elemental), quando si scava una vena d'oro; [wyvern](/wiki/mostro-wyvern), di giorno, nei nidi sulle mesa più alte |
+
+---
+
+## ❄️ Montagne e terre fredde
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| ⛰️ [Montagne](/wiki/bioma-montagne) `soulslands:mountains`, `soulslands:snowy_peaks` | [Capre di montagna](/wiki/animale-capra-di-montagna) e [lama](/wiki/animale-lama) sulle pendici; [aquile](/wiki/animale-aquila); harpy ([arpie](/wiki/mostro-arpia)) sulle pareti; [wyvern](/wiki/mostro-wyvern) sulle vette | — | [Ciclopi](/wiki/mostro-ciclope) e [titani](/wiki/mostro-titano) nelle vallate alte; [ettin](/wiki/mostro-ettin), [ogre e ogre lord](/wiki/mostro-ogre) in grotte e pendici; stone harpy ([arpie di pietra](/wiki/mostro-arpia-di-pietra)) sulle pareti; [drake](/wiki/mostro-drake) sulle vette, più attivi di giorno; [elementali della terra](/wiki/mostro-elementale-della-terra) e dei minerali nelle miniere | [Drago](/wiki/mostro-drago) nei nidi in vetta, del ghiaccio sulle vette innevate; Elementale di Valorite, boss della miniera infestata; Orc Lord, boss del covo orchesco; Ogre Lord nelle rocche dei nani in rovina |
+| ❄️ [Tundra e nevi](/wiki/bioma-tundra) `soulslands:tundra` | [Trichechi](/wiki/animale-tricheco) sulle coste ghiacciate (di notte restano in acqua); [leopardi delle nevi](/wiki/animale-leopardo-delle-nevi) all'alba e al tramonto | — | [Orsi polari](/wiki/animale-orso-polare), [lupi bianchi](/wiki/animale-lupo-bianco) (più attivi durante le bufere); Frost Troll ([troll del gelo](/wiki/mostro-troll-del-gelo)); [elementali del ghiaccio](/wiki/mostro-elementale-del-ghiaccio) e [della neve](/wiki/mostro-elementale-della-neve) durante le bufere; nelle caverne [ragni del gelo](/wiki/mostro-ragno-del-gelo), [serpenti del ghiaccio](/wiki/animale-serpente-del-ghiaccio) e [serpenti giganti del ghiaccio](/wiki/animale-serpente-gigante-del-ghiaccio) | [Ettin](/wiki/mostro-ettin); Ice Fiend ([demone del ghiaccio](/wiki/mostro-demone-del-ghiaccio)), boss delle caverne di ghiaccio; [White Wyrm](/wiki/mostri-draghi-e-rettili) (Wyrm bianco) nelle fortezze di ghiaccio più grandi, rarissimo |
+
+---
+
+## 🌋 Terre corrotte
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🌋 [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) `soulslands:volcanic_lands` | — | — | Lava Lizard ([lucertole di lava](/wiki/animale-lucertola-di-lava)) e lava snake; [elementali del fuoco](/wiki/mostro-elementale-del-fuoco); fire beetle ([coleotteri di fuoco](/wiki/mostri-insetti-e-aracnidi)); Hellhound ([segugi infernali](/wiki/mostro-segugio-infernale)) e Hell Cat ([gatti infernali](/wiki/mostro-gatto-infernale)), questi più di notte; [imp](/wiki/mostro-imp); fire gargoyle ([gargoyle di fuoco](/wiki/mostro-gargoyle)) nei templi; [drake](/wiki/mostro-drake) | [Drago](/wiki/mostro-drago) di fuoco nei crateri, boss del nido di draghi; Daemon ([demoni](/wiki/mostro-demone)) e [Balron](/wiki/mostro-balron) nei templi demoniaci profondi, con il Balron come boss; Fenice (Phoenix) nel suo nido sulla vetta dei vulcani più alti, leggendaria |
+| 💀 [Terre dei Morti](/wiki/bioma-terre-dei-morti) `soulslands:dead_lands` | [Corvi](/wiki/animale-corvo), anche al crepuscolo. Il sole è sempre velato: i non-morti della colonna Sempre escono anche di giorno, solo meno numerosi | [Wraith](/wiki/mostro-wraith), spectre ([spettri](/wiki/mostro-spettro)) e shade ([ombre](/wiki/mostro-ombra)), anche con la nebbia; [Nightmare](/wiki/mostro-nightmare) | [Scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie), [ghoul](/wiki/mostro-ghoul); [mummie](/wiki/mostro-mummia), bone knight ([cavalieri d'ossa](/wiki/mostro-cavaliere-d-ossa)) e bone magus ([scheletri maghi](/wiki/mostro-scheletro-mago)) nelle cripte; [lich](/wiki/mostro-lich) nelle torri e nelle cripte; pipistrelli vampiro | [Lich Lord](/wiki/mostro-signore-dei-lich), boss della cripta e delle torri del lich; Rotting Corpse e Bone Demon nelle cripte profonde; nelle notti di luna nuova il [Lich antico](/wiki/mostri-non-morti) (Ancient Lich) nelle torri e il [Drago scheletrico](/wiki/mostri-non-morti) (Skeletal Dragon) sui campi di battaglia antichi |
+| 🌑 [Lande d'Ombra](/wiki/bioma-lande-d-ombra) `soulslands:shadow_lands` | Nessuna creatura solo diurna: è un crepuscolo perenne e la luce del sole non ferma gli spawn | — | Shade ([ombre](/wiki/mostro-ombra)), spectre ([spettri](/wiki/mostro-spettro)), [wraith](/wiki/mostro-wraith); [imp](/wiki/mostro-imp), succubus e chaos daemon; Daemon ([demoni](/wiki/mostro-demone)) e Arcane Daemon; Elder Gazer ([gazer](/wiki/mostro-gazer)) e Headless One ([senza testa](/wiki/mostro-headless-one)); [Nightmare](/wiki/mostro-nightmare) e Hellhound ([segugi infernali](/wiki/mostro-segugio-infernale)) | [Balron](/wiki/mostro-balron), boss dei portali e dei templi demoniaci; Arcane Daemon, boss delle fortezze in rovina; [Shadow Wyrm](/wiki/mostri-draghi-e-rettili) (Wyrm d'ombra) nella sua tana in fondo alle voragini; [elementali di sangue](/wiki/mostro-elementale-di-sangue), più numerosi con la luna rossa; spawn rari nelle notti di luna nuova |
+
+---
+
+## 🌊 Coste e isole
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🌊 [Coste](/wiki/bioma-coste) `soulslands:beach` | Granchi, gabbiani, foche; [trichechi](/wiki/animale-tricheco) sulle coste fredde | [Pirati](/wiki/mostri-umanoidi) che sbarcano dalle navi; scheletri e [pirati annegati](/wiki/mostri-marini) intorno ai relitti; [serpenti marini](/wiki/mostro-serpente-marino) che si avvicinano alla riva | [Delfini](/wiki/animale-delfino) in mare vicino alla riva; [serpenti marini](/wiki/mostro-serpente-marino) al largo; [granchi giganti](/wiki/mostri-marini) intorno ai relitti spiaggiati; [pirati](/wiki/mostri-umanoidi) e [briganti](/wiki/mostro-brigante) nelle grotte dei contrabbandieri | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua), di notte |
+| 🏝️ [Isole](/wiki/bioma-isole) (nessun id proprio) | Uccelli marini, gabbiani, granchi e tartarughe sulle spiagge; harpy ([arpie](/wiki/mostro-arpia)) e [wyvern](/wiki/mostro-wyvern) sulle isole rocciose e sui faraglioni; foche e [trichechi](/wiki/animale-tricheco); cavallucci marini e [delfini](/wiki/animale-delfino) negli arcipelaghi | [Granchi giganti](/wiki/mostri-marini); [wraith](/wiki/mostro-wraith) e [spettri](/wiki/mostro-spettro) sulle isole maledette; qualche [wisp](/wiki/mostro-wisp) sulle isole dei funghi | [Pirati](/wiki/mostri-umanoidi) nei covi, [serpenti giganti](/wiki/animale-serpente-gigante) sulle isole tropicali, [pirati annegati](/wiki/mostri-marini) intorno ai relitti, [serpenti marini](/wiki/mostro-serpente-marino) nelle acque intorno; sulle isole vulcaniche e ghiacciate le creature delle [terre vulcaniche](/wiki/bioma-terre-vulcaniche) e della [tundra](/wiki/bioma-tundra) | [Kraken](/wiki/mostro-kraken) nelle acque intorno; Hiryu sulle isole rocciose; il capitano della nave fantasma sulle isole maledette |
+
+Le isole cambiano molto da un tipo all'altro (vedi [Tipi di isola](/wiki/bioma-isole#tipi-di-isola)):
+
+| Tipo di isola | Di giorno | Di notte | Sempre | Rare / boss |
+|---------------|-----------|----------|--------|-------------|
+| 🌴 Tropicale | Uccelli, pappagalli tropicali, gabbiani, granchi e tartarughe; [gorilla](/wiki/animale-gorilla) sulle isole grandi | [Granchi giganti](/wiki/mostri-marini), [pirati](/wiki/mostri-umanoidi) che sbarcano dalle navi; [pantere](/wiki/animale-pantera) sulle isole grandi | [Serpente gigante](/wiki/animale-serpente-gigante) | — |
+| ⛰️ Rocciosa | Harpy ([arpie](/wiki/mostro-arpia)) in stormi, gabbiani, [aquile](/wiki/animale-aquila), foche sugli scogli bassi; [wyvern](/wiki/mostro-wyvern) sulle pareti più alte | [Granchi giganti](/wiki/mostri-marini) sugli scogli; [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nelle notti di tempesta | — | Hiryu |
+| 🌋 Vulcanica | Fire beetle ([coleotteri di fuoco](/wiki/mostri-insetti-e-aracnidi)), [drake](/wiki/mostro-drake) intorno al cratere | [Segugi infernali](/wiki/mostro-segugio-infernale), [gatti infernali](/wiki/mostro-gatto-infernale) | [Lucertole di lava](/wiki/animale-lucertola-di-lava), [elementali del fuoco](/wiki/mostro-elementale-del-fuoco) vicino alla lava | [Drago](/wiki/mostro-drago) nel nido del cratere |
+| ❄️ Ghiacciata | [Orsi polari](/wiki/animale-orso-polare), [trichechi](/wiki/animale-tricheco) e foche sulla riva; [leopardi delle nevi](/wiki/animale-leopardo-delle-nevi) all'alba e al tramonto | [Troll del gelo](/wiki/mostro-troll-del-gelo); [elementali della neve](/wiki/mostro-elementale-della-neve) durante le bufere | [Lupi bianchi](/wiki/animale-lupo-bianco) | Ice Fiend ([demone del ghiaccio](/wiki/mostro-demone-del-ghiaccio)), boss delle caverne di ghiaccio |
+| 🍄 Dei funghi | Granchi, tartarughe, uccelli marini | Qualche [wisp](/wiki/mostro-wisp); sul micelio gli spawn ostili sono molto più rari che altrove | — | — |
+| 💀 Maledetta | [Corvi](/wiki/animale-corvo) | [Wraith](/wiki/mostro-wraith), [spettri](/wiki/mostro-spettro), [zombie](/wiki/mostro-zombie) | Scheletri pirati ([scheletri](/wiki/mostro-scheletro)) e [pirati annegati](/wiki/mostri-marini) intorno ai relitti: la nebbia rende il giorno simile al crepuscolo, e di notte salgono sulla spiaggia | Il capitano della nave fantasma, un pirata annegato con nome; [Lich Lord](/wiki/mostro-signore-dei-lich), quando l'isola nasconde una cripta |
+| 💰 Del tesoro | Granchi, gabbiani | [Granchi giganti](/wiki/mostri-marini), [scheletri](/wiki/mostro-scheletro) | [Pirati](/wiki/mostri-umanoidi) nei covi e di ronda; [serpente gigante](/wiki/animale-serpente-gigante) | Il capitano dei pirati, boss del covo |
+| 🏖️ Arcipelago di isolotti | Tartarughe, granchi, gabbiani; [cavallucci marini](/wiki/mostri-marini) nelle lagune dei mari caldi; [delfini](/wiki/animale-delfino) nei canali | [Granchi giganti](/wiki/mostri-marini); [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nelle notti di tempesta | — | — |
+| 🪨 Faraglioni | Harpy ([arpie](/wiki/mostro-arpia)), [aquile](/wiki/animale-aquila), gabbiani; [wyvern](/wiki/mostro-wyvern) nei nidi sulla cima | Foche e [trichechi](/wiki/animale-tricheco) sugli scogli alla base; [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nelle notti di tempesta | — | — |
+
+---
+
+## 🐙 Oceani e fiumi
+
+In mare la luce cala man mano che si scende. La superficie e le acque basse seguono il giorno e la notte come la terraferma, mentre i fondali del mare aperto e delle acque profonde restano al buio anche a mezzogiorno: laggiù le creature ostili compaiono a ogni ora, come nelle grotte. I biomi marini sono descritti in [Oceani](/wiki/oceani#biomi-oceanici), le creature senza una scheda propria in [Creature marine](/wiki/mostri-marini).
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| Barriera corallina `soulslands:coral_reef` | Pesci tropicali, [cavallucci marini](/wiki/mostri-marini) (Sea Horse), tartarughe, granchi | [Granchi giganti](/wiki/mostri-marini); [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nelle notti di tempesta | — | — |
+| Oceano caldo `soulslands:warm_ocean` | [Delfini](/wiki/animale-delfino), banchi di pesci, tartarughe sulle secche | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | [Serpente marino](/wiki/mostro-serpente-marino), al largo | — |
+| Oceano temperato `soulslands:ocean` | [Delfini](/wiki/animale-delfino), banchi di pesci | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua); [pirati annegati](/wiki/mostri-marini) intorno ai relitti | [Serpente marino](/wiki/mostro-serpente-marino) | — |
+| Oceano freddo `soulslands:cold_ocean` | Foche e [trichechi](/wiki/animale-tricheco) sugli scogli, [delfini](/wiki/animale-delfino), banchi di pesci | Trichechi in acqua, [serpente marino](/wiki/mostro-serpente-marino), [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) | — | — |
+| Oceano ghiacciato `soulslands:frozen_ocean` | Foche e [trichechi](/wiki/animale-tricheco) sulle lastre di ghiaccio | [Lupi bianchi](/wiki/animale-lupo-bianco) sul ghiaccio vicino alla costa; [elementale della neve](/wiki/mostro-elementale-della-neve) durante le bufere | [Orsi polari](/wiki/animale-orso-polare) | — |
+| Oceano caldo profondo `soulslands:deep_warm_ocean` | [Delfini](/wiki/animale-delfino) e [serpenti marini](/wiki/mostro-serpente-marino) in superficie | [Serpente degli abissi](/wiki/mostro-serpente-degli-abissi) che sale in superficie, [elementale delle profondità](/wiki/mostri-marini) | [Pirati annegati](/wiki/mostri-marini) intorno ai relitti, sul fondale buio | [Kraken](/wiki/mostro-kraken), di notte, e come custode delle rovine sommerse; i tre Guardiani del tempio sommerso |
+| Oceano profondo `soulslands:deep_ocean` | [Serpenti marini](/wiki/mostro-serpente-marino) in superficie | [Serpente degli abissi](/wiki/mostro-serpente-degli-abissi), [elementale delle profondità](/wiki/mostri-marini) | [Pirati annegati](/wiki/mostri-marini) intorno ai relitti, sul fondale buio | [Kraken](/wiki/mostro-kraken): raro di giorno sul fondale, più frequente di notte, custode delle rovine sommerse; i tre Guardiani del tempio sommerso |
+| Oceano freddo profondo `soulslands:deep_cold_ocean` | [Serpenti marini](/wiki/mostro-serpente-marino) in superficie | [Serpente degli abissi](/wiki/mostro-serpente-degli-abissi), [elementale delle profondità](/wiki/mostri-marini) | [Pirati annegati](/wiki/mostri-marini) intorno ai relitti, sul fondale buio | [Kraken](/wiki/mostro-kraken): raro di giorno sul fondale, più frequente di notte; i tre Guardiani del tempio sommerso |
+| Oceano ghiacciato profondo `soulslands:deep_frozen_ocean` | [Orsi polari](/wiki/animale-orso-polare) e foche sugli iceberg | [Serpente degli abissi](/wiki/mostro-serpente-degli-abissi) ed [elementale delle profondità](/wiki/mostri-marini) sotto la banchisa | — | [Kraken](/wiki/mostro-kraken), di notte |
+| Fosse oceaniche `soulslands:ocean_trench` | — | — | [Serpente degli abissi](/wiki/mostro-serpente-degli-abissi), [elementale delle profondità](/wiki/mostri-marini), [kraken](/wiki/mostro-kraken): laggiù l'ora non conta | [Leviatano](/wiki/mostri-marini) (Leviathan), boss della città sommersa: rarissimo, un solo esemplare per regione |
+| Fiume `soulslands:river` | Gru (Crane) e [uccelli](/wiki/animale-uccello); [cervi](/wiki/animale-cervo) che vengono a bere all'alba e al tramonto; [orsi bruni](/wiki/animale-orso-bruno) che pescano nei torrenti | [Rane toro](/wiki/animale-rana-toro) sulle rive; [rospi giganti](/wiki/animale-rospo-gigante) lungo i fiumi caldi | Trote e pesci d'acqua dolce; [lizardman](/wiki/mostro-lizardman) lungo i fiumi vicino alle paludi (più di notte); [alligatori](/wiki/animale-alligatore) sulle rive dei fiumi lenti dei biomi caldi; nella giungla [serpenti giganti](/wiki/animale-serpente-gigante) e silver serpent | — |
+| Fiume ghiacciato `soulslands:frozen_river` | [Leopardi delle nevi](/wiki/animale-leopardo-delle-nevi) all'alba e al tramonto | — | Pesci d'acqua fredda sotto il ghiaccio; [orsi polari](/wiki/animale-orso-polare), [lupi bianchi](/wiki/animale-lupo-bianco) e [troll del gelo](/wiki/mostro-troll-del-gelo) sulle rive; [elementali del ghiaccio](/wiki/mostro-elementale-del-ghiaccio), più forti di notte e d'inverno; [elementali della neve](/wiki/mostro-elementale-della-neve) durante le bufere | — |
+
+Sulle rive dei fiumi compaiono anche le creature del bioma che attraversano. Fiumi, laghi e acque sotterranee sono descritti in [Laghi e fiumi](/wiki/laghi-e-fiumi#creature-delle-acque-dolci).
+
+---
+
+## ⛏️ Sottosuolo
+
+Sotto terra la luce naturale è zero: non c'è giorno né notte, e le creature ostili compaiono in ogni blocco buio a qualsiasi ora, finché le torce non illuminano il passaggio. Per questo, nel sottosuolo, le colonne Di giorno e Di notte restano vuote. Fanno eccezione i burroni aperti verso il cielo, dove il sole arriva fino in fondo, e le grotte di ghiaccio vicine alla superficie, dove di giorno filtra un po' di luce. Le creature dipendono prima di tutto dallo **strato**; il **bioma sotterraneo** aggiunge le sue (vedi [Biomi sotterranei](/wiki/grotte-e-sottosuolo#biomi-sotterranei)).
+
+**Per strato**
+
+| Strato | Quota (Y) | Sempre | Rare / boss |
+|--------|-----------|--------|-------------|
+| Sottosuolo superficiale | 0 – 40 | [Ratti giganti](/wiki/animale-ratto-gigante), pipistrelli, [scheletri](/wiki/mostro-scheletro), [zombie](/wiki/mostro-zombie), [melme](/wiki/mostro-slime) | Re dei ratman (tana dei ratman), Orc Lord (covo orchesco), [Regina dei Solen](/wiki/mostri-insetti-e-aracnidi) (formicaio) |
+| Strato medio | -16 – 0 | [Ragni giganti](/wiki/mostro-ragno-gigante), [ratman](/wiki/mostro-ratman), [gazer](/wiki/mostro-gazer), [elementali della terra](/wiki/mostro-elementale-della-terra) e dei minerali, [troll](/wiki/mostro-troll) | Matriarca dei terathan (covo dei ragni), Matriarca ofidiana (tempio ofidiano), Elementale di Valorite (miniera infestata); elementali dei minerali quando si scava una vena del loro tipo |
+| Sottosuolo profondo | -32 – -16 | Ogre lord ([ogre](/wiki/mostro-ogre)), [ettin](/wiki/mostro-ettin), [lich](/wiki/mostro-lich), [gargoyle selvaggi](/wiki/mostro-gargoyle), lava lizard ([lucertole di lava](/wiki/animale-lucertola-di-lava)), [elementali del fuoco](/wiki/mostro-elementale-del-fuoco) | [Lich Lord](/wiki/mostro-signore-dei-lich) (cripta), Ice Fiend ([demone del ghiaccio](/wiki/mostro-demone-del-ghiaccio)) (caverne di ghiaccio), [drago](/wiki/mostro-drago) (nido di draghi) |
+| Abisso | -48 – -32 | Daemon ([demoni](/wiki/mostro-demone)), elder gazer ([gazer](/wiki/mostro-gazer)), [Lich Lord](/wiki/mostro-signore-dei-lich), [drake](/wiki/mostro-drake), dread spider | [Balron](/wiki/mostro-balron) (tempio demoniaco); Bone Demon (demone d'ossa), custode delle città perdute |
+| Cuore del mondo | -64 – -48 | [Balron](/wiki/mostro-balron), demoni arcani | [Wyrm antico](/wiki/mostro-wyrm-antico) (Ancient Wyrm) nella sua tana; [Shadow Wyrm](/wiki/mostri-draghi-e-rettili); Drago antico, leggendario |
+
+**Per bioma sotterraneo**
+
+| Bioma | Di giorno | Di notte | Sempre | Rare / boss |
+|-------|-----------|----------|--------|-------------|
+| 🪨 Grotte di stalattiti `soulslands:dripstone_caves` | — | — | Le creature dello strato: [ratti giganti](/wiki/animale-ratto-gigante), [scheletri](/wiki/mostro-scheletro) e [melme](/wiki/mostro-slime) in alto; [ragni giganti](/wiki/mostro-ragno-gigante), [gazer](/wiki/mostro-gazer) ed [elementali della terra](/wiki/mostro-elementale-della-terra) più in basso; [mongbat](/wiki/mostro-mongbat) appesi ai soffitti; sotto il deserto anche [scorpioni giganti](/wiki/mostro-scorpione-gigante) | Elementali dei minerali, quando si scava una vena del loro tipo; sotto le montagne l'Elementale di Valorite, boss della miniera infestata; sotto il deserto la [Regina dei Solen](/wiki/mostri-insetti-e-aracnidi), boss del formicaio |
+| 🌿 Grotte di muschio `soulslands:moss_caves` | — | — | [Melme](/wiki/mostro-slime), [mongbat](/wiki/mostro-mongbat), [senza testa](/wiki/mostro-headless-one), [tentacoli di palude](/wiki/mostro-tentacolo-di-palude) nelle pozze e [corpser](/wiki/mostro-corpser) tra le radici; sotto la giungla anche [ragni giganti](/wiki/mostro-ragno-gigante), [terathan](/wiki/mostro-terathan) e [scorpioni giganti](/wiki/mostro-scorpione-gigante) | Matriarca dei terathan, boss dei covi dei ragni sotto la giungla |
+| 💎 Grotte di cristallo `soulslands:crystal_caves` | — | — | [Elementali di cristallo](/wiki/mostri-elementali), [gazer](/wiki/mostro-gazer) e [wisp](/wiki/mostro-wisp) attirati dalla luce; sotto la tundra anche [ragni del gelo](/wiki/mostro-ragno-del-gelo) e [serpenti del ghiaccio](/wiki/animale-serpente-del-ghiaccio) | Nessun boss: il tesoro sono i geodi |
+| 🍄 Caverne dei funghi giganti `soulslands:mushroom_caverns` | — | — | [Melme](/wiki/mostro-slime) e, più in basso, melme acide; [troll](/wiki/mostro-troll), [ragni giganti](/wiki/mostro-ragno-gigante) e mongbat maggiori; sotto la palude [tentacoli di palude](/wiki/mostro-tentacolo-di-palude) e [lizardman](/wiki/mostro-lizardman) | [Elementale del veleno](/wiki/mostro-elementale-del-veleno); sotto la foresta profonda l'Orc Lord (covo orchesco) e la Matriarca dei terathan (covo dei ragni) |
+| 🧊 Grotte di ghiaccio `soulslands:ice_caves` | — | — | [Ragni del gelo](/wiki/mostro-ragno-del-gelo), [serpenti del ghiaccio](/wiki/animale-serpente-del-ghiaccio) e [serpenti giganti del ghiaccio](/wiki/animale-serpente-gigante-del-ghiaccio), [troll del gelo](/wiki/mostro-troll-del-gelo), [elementali del ghiaccio](/wiki/mostro-elementale-del-ghiaccio) e [della neve](/wiki/mostro-elementale-della-neve) | Ice Fiend ([demone del ghiaccio](/wiki/mostro-demone-del-ghiaccio)), boss delle caverne di ghiaccio; [White Wyrm](/wiki/mostri-draghi-e-rettili) (Wyrm bianco), rarissimo |
+| 🌋 Caverne di lava `soulslands:lava_caverns` | — | — | [Lucertole di lava](/wiki/animale-lucertola-di-lava), [elementali del fuoco](/wiki/mostro-elementale-del-fuoco), [imp](/wiki/mostro-imp), [segugi infernali](/wiki/mostro-segugio-infernale), coleotteri di fuoco ([Fire Beetle](/wiki/mostri-insetti-e-aracnidi)), [drake](/wiki/mostro-drake); nell'Abisso Daemon ([demoni](/wiki/mostro-demone)) | [Draghi](/wiki/mostro-drago) nei nidi di draghi, [Balron](/wiki/mostro-balron) nei templi demoniaci, [Wyrm antico](/wiki/mostro-wyrm-antico) nel Cuore del mondo |
+| 💧 Grotte allagate `soulslands:flooded_caves` | — | — | Pesci ciechi, [tentacoli di palude](/wiki/mostro-tentacolo-di-palude), [melme](/wiki/mostro-slime), [lizardman](/wiki/mostro-lizardman) e [troll](/wiki/mostro-troll) nelle grotte umide; sotto le paludi [alligatori](/wiki/animale-alligatore) | [Elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nei laghi sotterranei più profondi |
+
+> ⚠️ Le torce non fermano tutto: nelle caverne di lava le creature di fuoco compaiono anche alla luce della lava, e nelle grotte di muschio e nelle caverne dei funghi giganti la luce dei funghi luminosi (7) non basta a fermare gli spawn.
+
+> 💡 Per cacciare una creatura precisa scegli il bioma, lo strato, l'ora e la luna giusti, poi spegni le torce: i consigli sono in [Spawn delle creature](/wiki/spawn-creature).
+
+---
+
+*Vedi anche: [Spawn delle creature](/wiki/spawn-creature) | [Giorno e notte](/wiki/giorno-e-notte) | [Biomi](/wiki/biomi) | [Animali](/wiki/animali) | [Mostri](/wiki/mostri)*

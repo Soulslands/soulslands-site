@@ -1,0 +1,101 @@
+# Production stack: Caddy (HTTPS) in front of the site, PostgreSQL, and a
+# nightly database backup. Secrets come from a .env file next to this one
+# (see .env.example), never from the repository. Guide: deploy/README.md
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: soulslands
+      POSTGRES_USER: soulslands
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U soulslands -d soulslands"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    # Not published: only Caddy reaches it, so X-Forwarded-* headers can be trusted.
+    expose:
+      - "8080"
+    # With a real domain the app builds absolute links (devlog feed) from it and accepts
+    # only that Host (plus localhost, used by the image's HEALTHCHECK). Home mode
+    # (SITE_DOMAIN=:80, or any value starting with ':') keeps request-based links and
+    # AllowedHosts=*. A leading http:// or https://, a trailing / and a trailing :port
+    # are dropped; a host list (spaces or commas) falls back to home behaviour with a
+    # warning. Compose cannot branch on a value, so the image's entrypoint is wrapped
+    # here ($$ is a literal $ for the shell).
+    entrypoint:
+      - sh
+      - -c
+      - |
+        host="$${SITE_DOMAIN#http://}"
+        host="$${host#https://}"
+        host="$${host%/}"
+        case "$$host" in
+          "" | :*) export AllowedHosts="*" ;;
+          *[\ ,]*)
+            echo "Attenzione: SITE_DOMAIN contiene più nomi ($$SITE_DOMAIN); il sito accetta qualunque host e prende i link dalla richiesta. Usa un solo nome host o :80." >&2
+            export AllowedHosts="*" ;;
+          *)
+            case "$${host##*:}" in
+              "" | *[!0-9]*) ;;
+              *) host="$${host%:*}" ;;
+            esac
+            export Site__BaseUrl="https://$$host" AllowedHosts="$$host;localhost" ;;
+        esac
+        exec dotnet Soulslands.Web.dll
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in .env}
+      ConnectionStrings__DefaultConnection: "Host=db;Database=soulslands;Username=soulslands;Password=${POSTGRES_PASSWORD}"
+      # Sign-in through the studio (ADR-0024): the client secret is the studio's OIDC_SOULSLANDS_SECRET.
+      Studio__AccountUrl: ${STUDIO_ACCOUNT_URL:-https://account.mahoroba.studio}
+      Studio__StudioUrl: ${STUDIO_URL:-https://mahoroba.studio}
+      Studio__ClientSecret: ${OIDC_SOULSLANDS_SECRET:-}
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in .env}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+  # pg_dump every night at 03:30 (container time, UTC) into ./backups, keeping the last 14.
+  backup:
+    image: postgres:17
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGDATABASE: soulslands
+      PGUSER: soulslands
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      BACKUP_KEEP: ${BACKUP_KEEP:-14}
+    volumes:
+      - ./backups:/backups
+      - ./deploy/backup.sh:/backup.sh:ro
+    entrypoint: ["sh", "/backup.sh"]
+
+volumes:
+  db-data:
+  caddy-data:
+  caddy-config:

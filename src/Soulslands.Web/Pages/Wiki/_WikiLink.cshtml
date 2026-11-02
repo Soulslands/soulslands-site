@@ -1,0 +1,11 @@
+@model WikiPage
+@{
+    var current = ViewData["CurrentSlug"] as string;
+}
+<li>
+    <a asp-page="/Wiki/View" asp-route-slug="@Model.Slug" class="@(Model.Slug == current ? "active" : null)">@Model.Title</a>
+    @if (Model.Visibility == WikiVisibility.Staff)
+    {
+        <span class="badge badge-staff ms-1">Staff</span>
+    }
+</li>

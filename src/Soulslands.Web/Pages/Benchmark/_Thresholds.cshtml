@@ -1,0 +1,15 @@
+@* Threshold cell of a metric row, shared by the milestone page and the history page. *@
+@model Soulslands.Web.Services.Benchmarks.BenchmarkMetric
+@using Soulslands.Web.Services.Benchmarks
+@if (Model.Thresholds is not { Count: > 0 })
+{
+    <span>—</span>
+}
+@foreach (var t in Model.Thresholds ?? [])
+{
+    var status = BenchmarkRules.Check(Model, t);
+    <div class="bench-threshold bench-threshold-@status.ToString().ToLowerInvariant()" title="@t.Source">
+        @BenchmarkFormat.Stat(t.Stat!) @(Model.Better == BenchmarkRules.BetterHigher ? "≥" : "≤") @BenchmarkFormat.Number(t.Value):
+        @(status switch { ThresholdStatus.Met => "rispettata", ThresholdStatus.Missed => "mancata", _ => "non misurato" })
+    </div>
+}

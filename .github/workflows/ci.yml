@@ -1,0 +1,47 @@
+name: CI
+
+# CI is local since 2026-10-18 (SoulslandsHQ docs/local-ci.md): nothing here runs on push, pull request or a
+# schedule. Kept for later: "Run workflow" starts it by hand on a GitHub-hosted Linux runner.
+
+# Build, tests and browser tests. The Docker image build is in docker.yml.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # A folder the runner user owns, so setup-dotnet never needs /usr/share/dotnet.
+      DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet restore
+      - run: dotnet build --no-restore
+      - run: dotnet test --no-build
+
+  # Browser tests (Playwright, headless Chromium) of the devlog and benchmark pages and of every page at phone width.
+  # Kept out of Soulslands.slnx so build-and-test needs no browser. Chromium is installed with the node bundled in
+  # the Playwright package (no pwsh, no sudo; docs/knowledge.md "Website tests").
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet build tests/Soulslands.Web.E2E
+      - name: Install Chromium
+        working-directory: tests/Soulslands.Web.E2E/bin/Debug/net10.0
+        run: .playwright/node/linux-x64/node .playwright/package/cli.js install chromium
+      - run: dotnet test tests/Soulslands.Web.E2E --no-build

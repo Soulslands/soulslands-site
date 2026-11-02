@@ -1,0 +1,30 @@
+@page
+@model Soulslands.Web.Pages.Admin.BachecaModel
+@{
+    ViewData["Title"] = "Bacheca";
+}
+
+<h1>Bacheca</h1>
+<p class="text-muted-ss">Gli avvisi compaiono nella home, dal più recente.</p>
+
+<form method="post" class="panel mt-3">
+    <label asp-for="Text" class="form-label">Nuovo avviso</label>
+    <div class="input-group">
+        <input asp-for="Text" class="form-control" maxlength="300" />
+        <button class="btn btn-primary" type="submit">Pubblica</button>
+    </div>
+    <span asp-validation-for="Text" class="text-danger"></span>
+</form>
+
+@foreach (var item in Model.Items)
+{
+    <div class="panel mt-3 d-flex justify-content-between align-items-center gap-2">
+        <div>
+            <small class="text-muted-ss">@item.CreatedAt.ToString("dd/MM/yyyy")</small>
+            <div>@item.Text</div>
+        </div>
+        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+            <button class="btn btn-sm btn-outline-secondary">Elimina</button>
+        </form>
+    </div>
+}

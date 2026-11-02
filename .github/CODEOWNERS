@@ -1,0 +1,6 @@
+# Paths that need Aruto's review (SoulslandsGame ADR-0024 section 10). Documentation only on a
+# free private repository: the PM asks for Aruto's review by hand.
+/.github/CODEOWNERS                          @Arutosio
+/src/Soulslands.Web/Services/Auth/           @Arutosio   # OIDC client of the studio, role claims, sign-in cookie
+/src/Soulslands.Web/Services/WikiAccess.cs   @Arutosio   # who reads the staff wiki
+/src/Soulslands.Web/Services/Servers/        @Arutosio   # ssk_ server keys, heartbeat

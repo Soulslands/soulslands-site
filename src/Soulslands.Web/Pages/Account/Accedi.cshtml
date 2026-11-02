@@ -1,0 +1,18 @@
+@page
+@model Soulslands.Web.Pages.Account.AccediModel
+@{
+    ViewData["Title"] = "Accedi";
+}
+
+<h1>Accedi</h1>
+<div class="panel mt-3">
+@if (Model.ReadOnly)
+{
+    <p>Questo sito è aperto in HTTP semplice (modalità di prova in casa): qui si può solo leggere, l'accesso con l'account Mahoroba funziona solo in HTTPS.</p>
+}
+else
+{
+    <p>L'accesso tramite l'account Mahoroba non è riuscito o è scaduto.</p>
+    <a class="btn btn-primary" asp-page="/Account/Accedi">Riprova</a>
+}
+</div>

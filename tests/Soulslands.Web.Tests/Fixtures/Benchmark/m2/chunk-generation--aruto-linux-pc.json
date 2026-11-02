@@ -1,0 +1,79 @@
+{
+  "format_version": 1,
+  "kind": "criterion",
+  "milestone": "m2",
+  "commit": "fedcba9876543210fedcba9876543210fedcba98",
+  "date": "2026-10-19T03:00:00Z",
+  "producer": {
+    "name": "criterion-to-benchmark-v1",
+    "version": "0.1.0"
+  },
+  "hardware": {
+    "machine": "aruto-linux-pc",
+    "model": "Custom desktop",
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "cores": 32,
+    "ram_mib": 65536,
+    "arch": "x86_64",
+    "virtualization": "physical",
+    "os": {
+      "family": "linux",
+      "name": "CachyOS",
+      "version": "rolling",
+      "kernel": "7.2.9-2-cachyos"
+    }
+  },
+  "soulslands": {
+    "game_version": "0.2.0",
+    "slworld_tag": "v0.9.0",
+    "rustc": "rustc 1.99.1 (illustrative)",
+    "profile": "bench",
+    "settings": {
+      "criterion_sample_size": 100,
+      "threads": 1
+    }
+  },
+  "scenario": {
+    "id": "criterion-chunk-generation",
+    "seed": 1997,
+    "duration_s": 5,
+    "warmup_s": 3,
+    "script": "apps/bot-swarm/benches/chunk_generation.rs",
+    "parameters": {
+      "pack": "content/soulslands",
+      "structures": true
+    }
+  },
+  "metrics": [
+    {
+      "name": "gen.chunk_us",
+      "unit": "us",
+      "better": "lower",
+      "compare": "p50",
+      "samples": 100,
+      "p50": 398.0,
+      "p99": 430.2,
+      "max": 441.0
+    },
+    {
+      "name": "gen.columns_per_s_per_core",
+      "unit": "per_s",
+      "better": "higher",
+      "compare": "value",
+      "value": 190,
+      "thresholds": [
+        {
+          "stat": "value",
+          "value": 200,
+          "source": "architettura-prestazioni.md, Obiettivi / Server (generazione)"
+        }
+      ],
+      "minecraft": {
+        "origin": "estimate",
+        "value": 170,
+        "source": "https://modrinth.com/mod/c2me-fabric"
+      }
+    }
+  ],
+  "notes": "Illustrative fixture for the website history view (W-15), derived from the ADR-0002 example; not a measurement."
+}

@@ -1,0 +1,6 @@
+# HTTPS reverse proxy for the site. Caddy obtains and renews the certificate
+# for SITE_DOMAIN automatically (Let's Encrypt).
+{$SITE_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy web:8080
+}
