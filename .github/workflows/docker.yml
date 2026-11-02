@@ -1,17 +1,21 @@
 name: Docker image
 
-# CI is local since 2026-10-18 (SoulslandsHQ docs/local-ci.md): nothing here runs on push, pull request or a
-# schedule. Kept for later: "Run workflow" starts it by hand on a GitHub-hosted Linux runner.
-
-# Checks that the production image builds.
+# Checks that the production image builds (linux/amd64) on every push to main and every pull request.
 # arm64 (the Raspberry Pi image, cross-compiled) is on demand: "Run workflow" with arm64 ticked.
+# This repository is public, so GitHub-hosted runners are free (ADR-0035 section 12).
 on:
+  push:
+    branches: [main]
+  pull_request:
   workflow_dispatch:
     inputs:
       arm64:
         description: Also build linux/arm64 (slow, cross-compiled)
         type: boolean
         default: false
+
+permissions:
+  contents: read
 
 concurrency:
   group: docker-${{ github.ref }}

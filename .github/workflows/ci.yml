@@ -1,11 +1,15 @@
 name: CI
 
-# CI is local since 2026-10-18 (SoulslandsHQ docs/local-ci.md): nothing here runs on push, pull request or a
-# schedule. Kept for later: "Run workflow" starts it by hand on a GitHub-hosted Linux runner.
-
 # Build, tests and browser tests. The Docker image build is in docker.yml.
+# This repository is public, so GitHub-hosted runners are free (ADR-0035 section 12).
 on:
+  push:
+    branches: [main]
+  pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -29,7 +33,7 @@ jobs:
 
   # Browser tests (Playwright, headless Chromium) of the devlog and benchmark pages and of every page at phone width.
   # Kept out of Soulslands.slnx so build-and-test needs no browser. Chromium is installed with the node bundled in
-  # the Playwright package (no pwsh, no sudo; docs/knowledge.md "Website tests").
+  # the Playwright package (no pwsh, no sudo).
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 20

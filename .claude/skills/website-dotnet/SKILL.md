@@ -5,7 +5,7 @@ description: Conventions of the Soulslands website codebase (ASP.NET Core .NET 1
 
 # Soulslands website conventions
 
-Repo `~/GitRepositories/soulslands-website`, solution `Soulslands.slnx`: `src/Soulslands.Web` (the site) and `tests/Soulslands.Web.Tests` (xUnit). Target `net10.0`, `Nullable` and `ImplicitUsings` on. Deployment guide in Italian: `deploy/README.md`.
+Repo `~/GitRepositories/soulslands-site`, solution `Soulslands.slnx`: `src/Soulslands.Web` (the site) and `tests/Soulslands.Web.Tests` (xUnit). Target `net10.0`, `Nullable` and `ImplicitUsings` on. Deployment guide in Italian: `deploy/README.md`.
 
 ## Shape of the code
 
