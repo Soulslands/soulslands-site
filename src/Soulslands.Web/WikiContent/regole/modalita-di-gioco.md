@@ -65,12 +65,32 @@ Raggio d'azione (5 blocchi) e linea di vista valgono in entrambe. Il blocco `wor
 
 - **Aprire lo zaino.** Il tasto `E` (inventario) lo apre in sopravvivenza; in creativa apre la tavolozza **e** lo zaino affiancati. Premuto di nuovo chiude (in creativa chiude entrambi), come `Esc`. Passando alla sopravvivenza la tavolozza si chiude e lo zaino resta aperto.
 - **Senza griglia.** Come in Ultima Online, lo zaino non ha caselle: ogni oggetto sta dove lo posi, anche sopra altri. Il gioco tiene sempre **l'intera icona dentro l'area** del contenitore (vale per ogni contenitore), così nessun oggetto sporge dal bordo dell'apertura disegnata.
-- **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
+- **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera; lasciato su una pila uguale si somma) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
 - **In sopravvivenza** apri lo zaino, lo riordini e **sposti gli oggetti tra uno zaino e un contenitore aperto, nei due versi**. Prendere oggetti dalla tavolozza resta solo della creativa.
-- **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 5 blocchi), tengono fino a 125 oggetti e un peso massimo, e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
-- **Cosa arriva dopo.** Il piazzamento dallo zaino, gli oggetti che cadono e la raccolta, la banca, le borse annidate e lo spezzare/unire pile.
+- **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 5 blocchi), tengono fino a **125 oggetti** e **400 pietre** di peso (dal pacchetto dati del gioco), e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
+- **Grandezza delle finestre.** Le finestre dei contenitori sono più grandi di prima: lo zaino occupa il **23 %** della larghezza dello schermo 16:9. Gli oggetti dentro restano della dimensione che avevano, quindi in una finestra più grande ne entrano a vista più di prima. La finestra si ingrandisce ancora con la scala dell'interfaccia (Opzioni, Video). Si apre in un posto fisso: la tavolozza a sinistra, lo zaino a destra, gli altri contenitori in fila accanto allo zaino; la seconda finestra dello stesso tipo si sposta in alto a sinistra della prima, e i posti dove trascini le finestre restano finché giochi.
+- **Cosa arriva dopo.** Il piazzamento dallo zaino, gli oggetti che cadono e la raccolta, la banca e le borse annidate.
 
-Fonte tecnica: ADR-0039, emendamento dell'08/11/2026. Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
+### Pile: dividere e unire
+
+**Deciso da Aruto (08/11/2026):** le pile funzionano come in Ultima Online.
+
+| Gesto | Cosa succede |
+|-------|--------------|
+| **Trascini una pila di 2 o più** | Si apre una piccola **finestra della quantità**, con un cursore e un numero, già impostata sull'intera pila. Conferma con `Invio` o con OK; `Esc` o il tasto destro annulla solo quella finestra. Dopo la conferma la quantità scelta resta attaccata al puntatore finché non fai clic dove vuoi lasciarla |
+| **Maiusc + trascina** | Prendi **tutta la pila**, senza finestra |
+| **Ctrl + trascina** | Prendi **metà pila**, arrotondata per eccesso (da 5 ne prendi 3) |
+| **Maiusc e Ctrl insieme** | Tutta la pila |
+| **Un oggetto solo** | Si sposta intero, senza chiedere |
+
+I tasti contano nel momento in cui inizi a trascinare. Mentre la finestra è aperta la pila non si muove.
+
+- **Unire.** Lasciando un oggetto sopra uno **uguale** (stesso tipo) i due diventano una pila sola, fino al **massimo della pila**. Quello che non ci sta resta dov'era, al suo posto. Se la pila di arrivo è già piena, o l'oggetto è diverso, il gioco rifiuta con un avviso. Vale nei contenitori e nello zaino; sulla barra rapida, che per ora tiene riferimenti a blocchi e non oggetti, vale la regola di prima.
+- **In creativa**, un blocco preso dalla tavolozza e lasciato su una pila uguale **si somma** alla pila, fino al massimo.
+- **Icona doppia.** Una pila di 2 o più si disegna con la sua icona **due volte**, la seconda poco spostata accanto alla prima, come in Ultima Online; la quantità resta scritta sull'angolo. Tavolozza e barra rapida mostrano una sola icona.
+- **Il server decide.** Come per ogni spostamento, la vista cambia solo quando il server risponde: se rifiuta, la pila resta com'era. Ogni divisione e unione è registrata nel libro mastro degli oggetti, così nessun oggetto si perde né si duplica.
+
+Fonte tecnica: ADR-0039, emendamento dell'08/11/2026; per le pile [ADR-0040](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0040-stacks-split-merge.md). Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
 
 ---
 
