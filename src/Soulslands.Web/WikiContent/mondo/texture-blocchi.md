@@ -35,7 +35,7 @@ Questa pagina è la scheda di aspetto di ogni blocco del mondo di Soulslands: og
 
 In tutto sono **276 blocchi** e **377 file**. Le sezioni sono le stesse dei [Blocchi del mondo](/wiki/blocchi), così ogni blocco si trova allo stesso posto nelle due pagine. I blocchi costruiti (assi, mattoni, mobili) hanno le loro texture con i [Blocchi da costruzione](/wiki/blocchi-costruzione).
 
-> 💡 La palette è un riferimento, non un obbligo: dà il tono del blocco (colore dominante, ombre, luci) perché blocchi vicini stiano bene insieme. Il generatore e chi disegna un pacchetto sono liberi nei dettagli.
+> 💡 La palette è un riferimento per chi disegna, non un obbligo e non un limite dei colori del gioco (nessuna texture è ridotta a una palette, 08/11/2026): dà il tono del blocco (colore dominante, ombre, luci) perché blocchi vicini stiano bene insieme. Il generatore e chi disegna un pacchetto sono liberi nei dettagli.
 
 ---
 
@@ -45,8 +45,8 @@ In tutto sono **276 blocchi** e **377 file**. Le sezioni sono le stesse dei [Blo
 
 | Regola | Valore |
 |--------|--------|
-| **Stile** | **Procedurale, per ora** (deciso da Aruto il 24/10/2026): le texture le produce `texgen`, un generatore nostro in soulslands-assets guidato da un solo file di stile, non sono dipinte a mano. Resta l'aspetto fantasy dai colori caldi, con forme grandi e leggibili e luce dall'alto già suggerita nel colore. **Dal 27/10/2026** (deciso da Aruto) ogni texture nasce dettagliata e viene poi **ridotta a pixel art** con un solo pixel e una sola palette, così tutto sembra fatto dalla stessa mano; vale anche per le immagini generate da un'IA, ammesse dal 28/10/2026. Immagini fatte da un artista o da un'IA potranno sostituire quelle generate id per id |
-| **Dimensione** | **32×32** pixel per ogni faccia, texture dall'aspetto realistico ridotte a pixel art (deciso da Aruto, 27/10/2026). Le texture animate sono strisce verticali di fotogrammi 32×32 nello stesso PNG. Il pacchetto base ha ancora texture da 64×64 e il client carica solo quelle, finché le attività M2-74 e M2-75 non cambiano formato e client |
+| **Stile** | **Procedurale, per ora** (deciso da Aruto il 24/10/2026): le texture le produce `texgen`, un generatore nostro in soulslands-assets guidato da un solo file di stile, non sono dipinte a mano. Resta l'aspetto fantasy dai colori caldi, con forme grandi e leggibili e luce dall'alto già suggerita nel colore. **Dal 27/10/2026** (deciso da Aruto) ogni texture nasce dettagliata e viene poi **ridotta alla misura del gioco** con un solo pixel e **colori liberi, senza palette** (dall'08/11/2026, deciso da Aruto; prima una sola palette), così tutto sembra fatto dalla stessa mano; vale anche per le immagini generate da un'IA, ammesse dal 28/10/2026. Immagini fatte da un artista o da un'IA potranno sostituire quelle generate id per id |
+| **Dimensione** | **32×32** pixel per ogni faccia, texture dall'aspetto realistico ridotte alla misura del gioco, a colori liberi (deciso da Aruto, 27/10/2026 e 08/11/2026). Le texture animate sono strisce verticali di fotogrammi 32×32 nello stesso PNG. |
 | **Formato** | PNG con canale alfa; il gioco le comprime in BC7 al momento della build |
 | **Luce e atmosfera** | L'aspetto luminoso alla Valheim (nebbia, luce calda, riflessi) viene dagli **shader**, non dalle texture: le texture restano pulite, senza ombre proiettate e senza sorgenti di luce disegnate da un lato solo |
 | **Ripetizione** | Ogni texture di un cubo deve **ripetersi senza giunture** su tutti e quattro i lati: nessun dettaglio grande e riconoscibile che, ripetuto, crei una griglia. I blocchi di superficie (erba, sabbia, neve) vengono anche ruotati a caso dal gioco |
