@@ -13,7 +13,7 @@ visibility: Pubblica
 
 Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così per sempre. Ogni personaggio, dentro il mondo, ha la sua modalità: creativa o sopravvivenza.
 
-> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco da solo. Il sopravvivenza completo (inventario, oggetti che cadono, salute, fame, danni) arriva più avanti: per ora un personaggio in sopravvivenza può solo esplorare e scavare.
+> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco da solo. Il sopravvivenza completo (oggetti che cadono, salute, fame, danni) arriva più avanti: per ora un personaggio in sopravvivenza può esplorare, scavare e portare oggetti nello zaino, ma non ha ancora un modo di ottenerli (niente oggetti che cadono né raccolta).
 
 **Deciso da Aruto (25/10/2026):** il volo è permesso in creativa; la tavolozza creativa contiene ogni blocco, illimitato e gratis; rompere è istantaneo in creativa; in creativa niente danni e niente fame; F5 cambia visuale come in Minecraft; il mondo si salva da solo e con un pulsante, e si salva anche quando esci. Fonte tecnica: [ADR-0025](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0025-creative-exploration-rules.md).
 
@@ -49,11 +49,28 @@ Chi non ha il permesso non vede il comando nel menu. Se prova lo stesso (client 
 | **Volo** | Sì | No |
 | **Rompere un blocco** | Istantaneo | Secondo la durezza del blocco; a mani nude si impiega il triplo dove serve un attrezzo |
 | **Oggetti che cadono** | Nessuno | Nessuno: il blocco scavato sparisce (gli oggetti arrivano più avanti) |
-| **Piazzare un blocco** | Qualsiasi blocco della tavolozza, gratis e illimitato | Rifiutato: in sopravvivenza si piazza dall'inventario, che ancora non esiste |
+| **Piazzare un blocco** | Qualsiasi blocco della tavolozza, gratis e illimitato | Rifiutato: in sopravvivenza il piazzamento dallo zaino arriva più avanti |
+| **Tasto `E`** | Apre la tavolozza e, accanto, lo zaino | Apre lo zaino |
+| **Zaino** | Sì, si riempie dalla tavolozza | Sì, ma per ora si può solo riordinare e spostare oggetti da e verso i contenitori |
 | **Danni e fame** | Mai | Non ancora presenti |
 | **Cadute** | Succedono, senza danni | Succedono; i danni arrivano con le regole complete |
 
 Raggio d'azione (5 blocchi) e linea di vista valgono in entrambe. Il blocco `world_rock`, il fondo del mondo, resta indistruttibile anche in creativa *(proposta, da confermare)*.
+
+---
+
+## 🎒 Zaino e contenitori
+
+**Deciso da Aruto (08/11/2026):** lo zaino arriva ora. Contiene **125 oggetti** e **non ha un limite di peso**. Gli oggetti restano nello zaino quando cambia la modalità di gioco, come in Minecraft.
+
+- **Aprire lo zaino.** Il tasto `E` (inventario) lo apre in sopravvivenza; in creativa apre la tavolozza **e** lo zaino affiancati. Premuto di nuovo chiude (in creativa chiude entrambi), come `Esc`. Passando alla sopravvivenza la tavolozza si chiude e lo zaino resta aperto.
+- **Senza griglia.** Come in Ultima Online, lo zaino non ha caselle: ogni oggetto sta dove lo posi, anche sopra altri. Il gioco tiene sempre **l'intera icona dentro l'area** del contenitore (vale per ogni contenitore), così nessun oggetto sporge dal bordo dell'apertura disegnata.
+- **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
+- **In sopravvivenza** apri lo zaino, lo riordini e **sposti gli oggetti tra uno zaino e un contenitore aperto, nei due versi**. Prendere oggetti dalla tavolozza resta solo della creativa.
+- **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 5 blocchi), tengono fino a 125 oggetti e un peso massimo, e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
+- **Cosa arriva dopo.** Il piazzamento dallo zaino, gli oggetti che cadono e la raccolta, la banca, le borse annidate e lo spezzare/unire pile.
+
+Fonte tecnica: ADR-0039, emendamento dell'08/11/2026. Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
 
 ---
 
@@ -120,4 +137,5 @@ R: Sì, da solo sempre; su un server solo se sei admin.
 - [Persistenza del mondo](/wiki/persistenza-del-mondo) — cosa viene salvato e quando
 - [Morte e fantasmi](/wiki/morte-e-fantasmi) — cosa succede quando muori (in sopravvivenza)
 - [Regolamento](/wiki/regolamento) — le regole del server
+- [Blocchi da costruzione](/wiki/blocchi-costruzione) — forzieri, casse e barili come contenitori
 - [Il Mondo](/wiki/mondo) — come è fatto il mondo
