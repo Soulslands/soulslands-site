@@ -20,7 +20,9 @@ I prati alpini sono le praterie d'alta quota: pendii erbosi e dolci che si stend
 | **Dove si forma** | In quota, dove il clima è fresco, e **solo sui pendii dolci**: dove il terreno è ripido resta roccia nuda (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)) |
 | **Stagioni** | In estate fiorisce; d'inverno la neve copre i prati (deciso da Aruto, 02/11/2026) e i laghetti gelano |
 
-> 📝 La pendenza che separa un prato dalla roccia nuda e la quota a cui il prato comincia non hanno ancora numeri: i limiti esatti si propongono insieme ai compiti di generazione.
+> 📝 **Dove comincia un prato (valori di partenza della squadra, non ancora confermati da Aruto; [ADR-0037](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0037-biome-placement.md), [#494](https://github.com/Soulslands/soulslands-game/pull/494)).** Il prato sta tra Y 128 e Y 168 (quota con il solito scarto casuale), dove il clima va da freddo a mite (temperatura da -0,5 a 0,2) e dove il terreno sale **al massimo 0,6 blocchi per blocco**. Il limite proposto era 1: lo abbiamo abbassato a 0,6 perché a 1 le [montagne](/wiki/bioma-montagne) perdevano più della metà della loro superficie sul seed 7 (misurato da noi). Sopra quel limite il terreno resta montagna (pietra con chiazze d'erba); da 1,5 blocchi per blocco in su la superficie è roccia nuda.
+>
+> **Stagioni.** Le stagioni non esistono ancora nel gioco: per ora il generatore crea i prati senza neve e i laghetti senza ghiaccio, come d'estate. La neve d'inverno resta la regola decisa, e arriverà con le stagioni.
 
 ---
 
@@ -33,8 +35,8 @@ I prati alpini sono le praterie d'alta quota: pendii erbosi e dolci che si stend
 | Stella alpina `edelweiss`, genziana `gentian` | Fiori d'alta quota, per l'[Alchemy](/wiki/skill-alchemy) e la tintura blu |
 | Margherita `daisy`, ranuncolo `buttercup` | Fiori dei prati |
 | Lichene `lichen` | Sui sassi e sulle rocce affioranti |
-| Pietra `stone`, granito `granite`, ghiaia `gravel` | Massi, sentieri di ghiaia e roccia che affiora; la ghiaia crolla se scavata da sotto |
-| Acqua `water`, ghiaccio `ice` | Laghetti glaciali; d'inverno gelano (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi#laghi-di-montagna)) |
+| Pietra `stone`, granito `granite`, ghiaia `gravel` | Chiazze di sassi e roccia che affiora; la ghiaia crolla se scavata da sotto |
+| Acqua `water` | Laghetti glaciali (`glacial_pond`) e, più di rado, laghi di montagna (`mountain_lake`); il ghiaccio d'inverno arriverà con le stagioni (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi#laghi-di-montagna)) |
 
 La tinta dell'erba è quella di tutti i biomi finché non arrivano le tinte per bioma (vedi [Texture dei blocchi](/wiki/texture-blocchi#tinta-di-bioma)): il colore del prato non cambia rispetto alle pianure, a cambiare sono le piante.
 
@@ -44,7 +46,7 @@ La tinta dell'erba è quella di tutti i biomi finché non arrivano le tinte per 
 
 | Albero | Legno | Frequenza |
 |--------|-------|-----------|
-| Abete rosso, abete bianco, pino | [Regular](/wiki/legno-regular) | Pochi, bassi e radi, soprattutto verso il bosco dei versanti |
+| Abete rosso, abete bianco, pino | [Regular](/wiki/legno-regular) | Pochi, bassi e radi (le chance del pacchetto sono basse, 1-1,2% per specie) |
 
 Più si sale, più gli alberi diminuiscono; oltre Y 220 non cresce nulla. Il legno qui scarseggia: si porta dal bosco più in basso. Vedi [Alberi](/wiki/alberi).
 
@@ -77,6 +79,8 @@ Le vene si piazzano per quota, non per bioma, come spiega la pagina delle [monta
 
 > 🐿️ **La creatura del bioma.** Ogni bioma nuovo ha una creatura tutta sua; per i prati alpini è la [marmotta](/wiki/animale-marmotta): ⭐, pacifica, si rizza sulle zampe vicino alla tana e fischia quando arriva un predatore, e le altre creature del prato fuggono. Bottino: pelle grezza, carne di marmotta e grasso di marmotta (balsamo per le pozioni di cura). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
 
+> 🐿️ **Le creature nuove arrivano dopo.** La marmotta qui sopra e le altre creature dei biomi nuovi non esistono ancora nel gioco: il compito che le aggiunge è ancora da fare. Per ora nel prato vivono solo le creature dei biomi vicini.
+
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 
 ---
@@ -85,7 +89,7 @@ Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di t
 
 - I prati finiscono in pareti a picco: le cadute fanno danno in base all'altezza.
 - Si è visibili da lontano e ci sono pochi ripari; le arpie attaccano dall'alto.
-- D'inverno il ghiaccio dei laghetti non regge le cavalcature.
+- Quando arriveranno le stagioni, d'inverno il ghiaccio dei laghetti non reggerà le cavalcature.
 
 > 💡 La stella alpina e la genziana si trovano proprio nei prati alti delle montagne: è il posto per rifornire l'[Alchemy](/wiki/skill-alchemy).
 

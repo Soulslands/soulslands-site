@@ -13,7 +13,9 @@ visibility: Pubblica
 
 La foresta autunnale è una variante della [foresta temperata](/wiki/bioma-foresta-temperata): gli stessi sentieri di sottobosco e le stesse radure, ma i boschi sono di **aceri e faggi** con le foglie rosse e color rame in ogni stagione. Il suolo è coperto di foglie cadute e la luce che passa tra le chiome ha il loro colore. È il bosco dove i colori d'autunno non finiscono mai.
 
-Si forma dove il clima è mite e umido come nella foresta temperata, in una fascia propria di temperatura e umidità (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)); i limiti esatti si propongono insieme ai compiti di generazione (qui non ci sono numeri).
+Si forma dove il clima è mite e umido come nella foresta temperata, in una fascia propria di temperatura e umidità (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)).
+
+**Fascia di clima (valori di partenza della squadra, non ancora confermati da Aruto; [ADR-0037](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0037-biome-placement.md), [#494](https://github.com/Soulslands/soulslands-game/pull/494)):** temperatura da -0,2 a 0 e umidità da 0,1 a 0,35, la parte fresca e moderatamente umida della foresta temperata, vicino alla taiga. La foresta profonda e la foresta incantata, più umide, hanno la precedenza. Il generatore la crea già in questa forma.
 
 | Caratteristica | Valore |
 |----------------|--------|
@@ -35,7 +37,7 @@ Si forma dove il clima è mite e umido come nella foresta temperata, in una fasc
 | Erba alta `tall_grass`, felce `fern`, cespuglio `bush`, cespuglio di bacche `berry_bush` | Sottobosco |
 | Funghi `brown_mushroom` e `red_mushroom`, zucca `pumpkin` | Raccoglibili per cucina e alchimia |
 | Giacinto dei boschi `bluebell`, rosa canina `wild_rose`, tarassaco `dandelion` | Fiori del bosco e delle radure |
-| Ghiaia `gravel`, argilla `clay` | Lungo ruscelli e laghetti |
+| Ghiaia `gravel`, argilla `clay` | Piccole chiazze sul suolo (3% e 2% dei blocchi di superficie, dal pacchetto del gioco, [#494](https://github.com/Soulslands/soulslands-game/pull/494)), oltre alle rive di ruscelli e laghetti |
 | Pietra `stone` | Da 3–5 blocchi sotto la superficie |
 | Alveare `bee_nest`, nido `bird_nest` | Sui rami dei faggi |
 
@@ -81,6 +83,8 @@ Le creature sono quelle della foresta temperata.
 | [Cervo rosso](/wiki/animale-cervo-rosso) | Giorno; in autunno i maschi caricano chi si avvicina | Solo i maschi nella stagione degli amori |
 
 > 🦌 **La creatura del bioma.** Per la foresta autunnale è il [cervo rosso](/wiki/animale-cervo-rosso): un grande cervo, ⭐⭐, che in autunno, nella stagione degli amori, carica i giocatori che si avvicinano troppo. Bottino: pelle grezza, carne di cervo, corna e ossa. Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+
+> 🦌 **Le creature nuove arrivano dopo.** Il cervo rosso qui sopra e le altre creature dei biomi nuovi non esistono ancora nel gioco: il compito che le aggiunge è ancora da fare. Per ora nel bosco vivono solo le creature dei biomi vicini.
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

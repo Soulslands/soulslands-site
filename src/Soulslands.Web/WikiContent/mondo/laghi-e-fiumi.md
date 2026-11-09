@@ -113,6 +113,8 @@ Piccoli specchi d'acqua calma nelle radure: sono il primo posto dove un principi
 
 Laghi limpidi e gelidi nelle valli tra le vette, alimentati da cascate e sorgenti. Sono profondi, e l'acqua è così chiara che si vede il fondale. D'inverno gelano; intorno a Y 180 e oltre restano ghiacciati tutto l'anno (il limite oscilla di circa 20 blocchi, come quello della neve). Nei più profondi vive a volte un [elementale dell'acqua](/wiki/mostro-elementale-dell-acqua).
 
+Nei [prati alpini](/wiki/bioma-prati-alpini) ci sono anche i **laghetti glaciali** (`glacial_pond`): piccoli, larghi 4-16 blocchi e profondi 1-3, con letto e sponde di ghiaia ([#494](https://github.com/Soulslands/soulslands-game/pull/494)). Il ghiaccio d'inverno vale per loro come per i laghi di montagna, ma arriverà con le stagioni: ora il generatore li crea sempre liquidi.
+
 ### 🌴 Oasi
 
 Nel deserto l'oasi è l'unica acqua potabile per giorni di cammino: una pozza limpida circondata da palme, canne ed erba, dove i viaggiatori riempiono le borracce e gli [ostard del deserto](/wiki/animale-ostard-del-deserto) vengono a bere. Nella savana e nei canyon rossi le oasi sono più piccole e d'estate si restringono. Le oasi abbandonate, di notte, attirano i [ghoul](/wiki/mostro-ghoul).
@@ -266,7 +268,7 @@ Fiumi e laghi attirano animali che vengono a bere e predatori che li aspettano. 
 | [Brughiera](/wiki/bioma-brughiera) | Ruscelli tra le colline | Pozze scure di torba nella nebbia | Bruna, quasi nera | D'inverno |
 | [Montagne](/wiki/bioma-montagne) | Torrenti, rapide, cascate, sorgenti | Laghi di montagna, laghi di cratere | Limpida, azzurro chiaro | D'inverno; sempre intorno a Y 180 e oltre |
 | [Prati alpini](/wiki/bioma-prati-alpini) | Ruscelli e sorgenti dei versanti | Laghetti glaciali | Limpida, azzurro chiaro | D'inverno |
-| [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Gola: il fiume sul fondo, con rapide e cascate; fiordo: la foce allagata dal mare | Nessuno proprio | Gola: limpida; fiordo: quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
+| [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Gola: il fiume sul fondo, piano e a livello del mare (rapide e cascate arriveranno con M5-12n); fiordo: la foce allagata dal mare | Nessuno proprio | Gola: limpida; fiordo: quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
 | [Tundra e nevi](/wiki/bioma-tundra) | Fiumi ghiacciati (`frozen_river`) | Laghi ghiacciati | Blu ghiaccio | Sempre |
 | [Palude](/wiki/bioma-palude) | Canali lenti tra gli isolotti | Pozze stagnanti, raramente oltre 2 blocchi | Verde bruna, torbida | No |
 | [Mangrovie](/wiki/bioma-mangrovie) | Canali di marea dove i fiumi incontrano il mare | Lagune tra le radici | Verde, salmastra e non potabile | No |
