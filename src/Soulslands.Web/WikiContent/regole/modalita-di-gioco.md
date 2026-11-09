@@ -52,6 +52,7 @@ Chi non ha il permesso non vede il comando nel menu. Se prova lo stesso (client 
 | **Piazzare un blocco** | Qualsiasi blocco della tavolozza, gratis e illimitato | Rifiutato: in sopravvivenza il piazzamento dallo zaino arriva più avanti |
 | **Tasto `E`** | Apre la tavolozza e, accanto, lo zaino | Apre lo zaino |
 | **Zaino** | Sì, si riempie dalla tavolozza | Sì, ma per ora si può solo riordinare e spostare oggetti da e verso i contenitori |
+| **Casse** | Si aprono col tasto destro; vi si prende dalla tavolozza | Si aprono col tasto destro; si riordina e si sposta da e verso lo zaino |
 | **Danni e fame** | Mai | Non ancora presenti |
 | **Cadute** | Succedono, senza danni | Succedono; i danni arrivano con le regole complete |
 
@@ -68,7 +69,11 @@ Raggio d'azione (5 blocchi) e linea di vista valgono in entrambe. Il blocco `wor
 - **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera; lasciato su una pila uguale si somma) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
 - **In sopravvivenza** apri lo zaino, lo riordini e **sposti gli oggetti tra uno zaino e un contenitore aperto, nei due versi**. Prendere oggetti dalla tavolozza resta solo della creativa.
 - **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 5 blocchi), tengono fino a **125 oggetti** e **400 pietre** di peso (dal pacchetto dati del gioco), e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
-- **Grandezza delle finestre.** Le finestre dei contenitori sono più grandi di prima: lo zaino occupa il **23 %** della larghezza dello schermo 16:9. Gli oggetti dentro restano della dimensione che avevano, quindi in una finestra più grande ne entrano a vista più di prima. La finestra si ingrandisce ancora con la scala dell'interfaccia (Opzioni, Video). Si apre in un posto fisso: la tavolozza a sinistra, lo zaino a destra, gli altri contenitori in fila accanto allo zaino; la seconda finestra dello stesso tipo si sposta in alto a sinistra della prima, e i posti dove trascini le finestre restano finché giochi.
+- **Aprire una cassa.** Il **tasto destro** su un blocco contenitore lo apre prima di usare o posare qualsiasi cosa, con la visuale in prima persona e con le altre. Per **piazzare** un blocco accanto a una cassa invece di aprirla, tieni premuto **Maiusc** mentre fai clic destro. Gli oggetti stanno dove li lasci dentro la cassa, come nello zaino. Ne puoi tenere aperti al massimo **16** e la cassa si chiude da sola se ti allontani oltre 5 blocchi (valori nostri, non misurati).
+- **Nella cassa, in creativa.** Gli oggetti arrivano dalla tavolozza: trascini un blocco dalla tavolozza dentro la cassa e lo prendi; trascini un oggetto dalla cassa sulla tavolozza e viene buttato via.
+- **Nella cassa, in sopravvivenza.** Puoi guardare, riordinare e spostare gli oggetti tra la cassa e lo zaino, nei due versi. Non puoi prenderne dalla tavolozza né buttarli via.
+- **Rompere una cassa piena.** Una cassa che contiene ancora oggetti **non si rompe**, in nessuna delle due modalità: il gioco rifiuta con un avviso, finché non esisteranno gli oggetti a terra (**deciso da Aruto, 03/11/2026**).
+- **Grandezza delle finestre.** Le finestre dei contenitori sono più grandi di prima: lo zaino occupa il **23 %** della larghezza dello schermo 16:9. Gli oggetti dentro restano della dimensione che avevano, quindi in una finestra più grande ne entrano a vista più di prima. La finestra si ingrandisce ancora con la scala dell'interfaccia (Opzioni, Video). Le finestre si aprono da sole nel **posto libero**: la tavolozza a sinistra, lo zaino a destra, gli altri contenitori in fila verso sinistra a partire dallo zaino. Se in fila non c'è spazio (finestra piccola o scala dell'interfaccia alta) la finestra prova una cascata libera in alto a sinistra e solo senza altro posto si apre sopra qualcosa. Le finestre non si sovrappongono da sole all'HUD (globo, barre, barra rapida) né alla tavolozza, e le trascini dove vuoi, anche sopra altre cose; la finestra spostata si riapre lì, per tipo di contenitore e finché giochi. Cambiando la dimensione della finestra o la scala dell'interfaccia (Opzioni, Video) il posto si ricalcola, ma una finestra che hai spostato resta dov'è (rientra solo nello schermo). Fonte: [ADR-0041](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0041-screen-layout.md), scelte dell'architetto che Aruto rivede.
 - **Cosa arriva dopo.** Il piazzamento dallo zaino, gli oggetti che cadono e la raccolta, la banca e le borse annidate.
 
 ### Pile: dividere e unire
@@ -91,6 +96,19 @@ I tasti contano nel momento in cui inizi a trascinare. Mentre la finestra è ape
 - **Il server decide.** Come per ogni spostamento, la vista cambia solo quando il server risponde: se rifiuta, la pila resta com'era. Ogni divisione e unione è registrata nel libro mastro degli oggetti, così nessun oggetto si perde né si duplica.
 
 Fonte tecnica: ADR-0039, emendamento dell'08/11/2026; per le pile [ADR-0040](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0040-stacks-split-merge.md). Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
+
+---
+
+## 💬 Parole sopra la testa
+
+**Deciso da Aruto (03/11/2026):** quello che si dice sui canali Locale, Sussurro e Urlo si vede anche **sopra la testa di chi parla**, oltre che nel registro della chat.
+
+- **Stile.** Il sussurro è in corsivo, grigio e più piccolo; la voce normale è com'è; l'urlo è in grassetto e più grande (le proporzioni sono proposte nostre, da tarare).
+- **La tua testa.** In isometrica e in terza persona la tua riga compare sopra il tuo personaggio; in prima persona la leggi solo nel registro.
+- **La testa degli altri.** La riga compare solo se il gioco riconosce chi ha parlato; se la riga arriva prima del personaggio aspetta al massimo 1 secondo, poi resta solo nel registro. Si vedono al massimo poche teste alla volta, le più vicine.
+- **Testo formattato.** In ogni canale puoi scrivere `*corsivo*`, `**grassetto**`, `~~barrato~~` e `` `codice` ``, nient'altro (niente link, titoli o colori). I segni contano nei 256 caratteri della riga e quelli non chiusi si vedono come li hai scritti.
+
+Fonte tecnica: [ADR-0039](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0039-chests-and-speech.md), sezioni 6 e 7. Le distanze a cui si sente chi parla sono nelle regole del gioco, non in questa pagina.
 
 ---
 
