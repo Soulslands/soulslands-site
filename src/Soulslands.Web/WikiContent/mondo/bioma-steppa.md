@@ -13,7 +13,9 @@ visibility: Pubblica
 
 La steppa è una prateria asciutta, quasi senza alberi, che si stende tra le [pianure](/wiki/bioma-pianure) e il [deserto](/wiki/bioma-deserto) o la [savana](/wiki/bioma-savana). L'erba è bassa e rada, il terreno poco fertile, e il paesaggio è vuoto: a perdita d'occhio c'è appena qualche ginepro isolato dietro cui ripararsi. È il bioma dei grandi spostamenti a cavallo, delle mandrie e dei viaggiatori che portano con sé tutto il legno che serve.
 
-Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e arido per diventare savana o deserto (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)); i limiti esatti si propongono insieme ai compiti di generazione (qui non ci sono numeri).
+Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e arido per diventare savana o deserto (vedi [Come si decide un bioma](/wiki/biomi#come-si-decide-un-bioma)).
+
+**Fascia di clima (valori di partenza della squadra, non ancora confermati da Aruto; [ADR-0037](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0037-biome-placement.md), [#494](https://github.com/Soulslands/soulslands-game/pull/494)):** temperatura da -0,1 a 0,25 e umidità da -1 a -0,35, cioè più secca delle pianure e più mite di savana e deserto, che hanno la precedenza dove il caldo è maggiore. Il generatore la crea già in questa forma.
 
 | Caratteristica | Valore |
 |----------------|--------|
@@ -35,7 +37,7 @@ Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e ari
 | Terra grossolana `coarse_dirt`, ghiaia `gravel` | Chiazze di terreno povero e sassoso |
 | Lavanda `lavender`, papavero `red_poppy` | Fiori selvatici, radi |
 | Calcare `limestone`, pietra `stone` | Affioramenti e sottosuolo |
-| Acqua `water` | Pochi ruscelli e pozze, che d'estate si restringono (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi)) |
+| Acqua `water` | Pochi ruscelli e, di rado, stagni di foresta; d'estate si restringono (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi)) |
 
 ---
 
@@ -75,6 +77,8 @@ Si forma dove il clima è più secco delle pianure ma non abbastanza caldo e ari
 | [Saiga](/wiki/animale-saiga) | Giorno, in branchi | No |
 
 > 🦌 **La creatura del bioma.** Per la steppa è la [saiga](/wiki/animale-saiga): ⭐, un'antilope dal muso rigonfio che vive in branchi numerosi e al primo pericolo scappa tutta insieme, sollevando polvere. Bottino: pelle grezza, carne di saiga e corno di saiga (reagente per l'[Alchemy](/wiki/skill-alchemy)). Tutte le altre creature della pagina sono quelle dei biomi vicini (**deciso da Aruto, 02/11/2026**).
+
+> 🦌 **Le creature nuove arrivano dopo.** La saiga qui sopra e le altre creature dei biomi nuovi non esistono ancora nel gioco: il compito che le aggiunge è ancora da fare. Per ora nella steppa vivono solo le creature dei biomi vicini.
 
 Dettagli in [Animali](/wiki/animali) e [Mostri](/wiki/mostri); il riepilogo di tutti i biomi è in [Creature per bioma](/wiki/creature-per-bioma).
 

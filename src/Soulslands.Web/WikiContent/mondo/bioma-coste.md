@@ -18,7 +18,7 @@ Le coste sono la fascia di transizione tra terra e [oceano](/wiki/oceani): spiag
 | **Clima** | Mite, ventoso |
 | **Pericolo** | ⭐ (⭐⭐ di notte, per gli assalti dal mare) |
 | **Strutture** | Feudi con porto e cantiere navale, fari, villaggi di pescatori, relitti spiaggiati, grotte dei contrabbandieri |
-| **Coste fredde** | Dove la valle di un fiume arriva a una costa fredda il mare la allaga: un [fiordo](/wiki/bioma-fiordi-e-gole) |
+| **Coste fredde** | Dove la valle di un fiume arriva a una costa fredda il mare la allaga: un [fiordo](/wiki/bioma-fiordi-e-gole). Le coste alte hanno fiordi lunghi; le coste basse solo brevi insenature alle foci dei fiumi, e altrove restano le loro spiagge ([#482](https://github.com/Soulslands/soulslands-game/pull/482)) |
 
 ---
 
