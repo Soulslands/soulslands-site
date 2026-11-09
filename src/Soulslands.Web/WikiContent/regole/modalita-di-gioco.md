@@ -99,6 +99,34 @@ Fonte tecnica: ADR-0039, emendamento dell'08/11/2026; per le pile [ADR-0040](htt
 
 ---
 
+## 🗂️ L'inventario creativo
+
+*Il catalogo di ogni blocco e oggetto, solo per chi gioca in creativa. Nelle altre parti di questa pagina lo trovi anche con il vecchio nome "tavolozza".*
+
+**Deciso da Aruto (03/11/2026):** il catalogo è diviso in schede e sottogruppi che seguono le sezioni delle pagine [Blocchi](/wiki/blocchi) e [Blocchi da costruzione](/wiki/blocchi-costruzione); l'icona di ogni scheda è quella di un oggetto rappresentativo; i blocchi con varianti di legno o di colore restano **una sola casella** con il selettore della variante; il catalogo esiste **solo in creativa**. Fonte tecnica: [ADR-0038](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0038-creative-inventory.md).
+
+- **Chi lo vede.** Solo un personaggio in creativa. In sopravvivenza il tasto `E` apre lo zaino e basta; se passi a sopravvivenza col catalogo aperto, il catalogo si chiude e lo zaino resta.
+- **Come si apre.** Con `E` in creativa si apre il catalogo **accanto allo zaino**. Si chiude con `E` (fuori dal campo di ricerca) o con `Esc`. Finché è aperto prende la tastiera: scrivere non muove il personaggio.
+- **Dove sta.** Contro il bordo sinistro dello schermo, **compatto**: 9 colonne per al massimo 7 righe (almeno 3), le altre voci si raggiungono con la rotella o la barra di scorrimento. Sta sopra le parti fisse dell'interfaccia (globo, barre, barra rapida) senza coprirle; solo in finestre molto strette le colonne scendono fino a 5. Fonte: [ADR-0041](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0041-screen-layout.md), scelta dell'architetto che Aruto rivede (decisione di Aruto dell'08/11/2026: più compatto, niente sovrapposizioni di serie).
+- **Schede e gruppi.** In alto una fila di schede: prima **Cerca**, poi le schede dell'albero nell'ordine qui sotto, in fondo **Altro** (le voci che nessun gruppo nomina, così nulla resta fuori). Una scheda senza voci non si vede. Se le schede sono più dello spazio, la fila scorre con la rotella e due frecce. Il nome della scheda compare al passaggio del mouse; dentro ogni scheda i gruppi hanno un'intestazione di testo.
+
+| Scheda | Gruppi (nomi inglesi del gioco, nell'ordine) |
+|--------|-----------------------------------------------|
+| **Natural blocks** (`natural`) | Soils and clays; Snow and ice; Sands and gravels; Layer rocks; Other rocks; Raw ores; Trees and wood; Plants; Herbs, mosses and roots; Wild flowers; Fruits and special plants; Corals and water plants |
+| **Building blocks** (`building`) | Worked stone; Stairs, slabs and walls; Bricks, clay and ice; Worked wood; Roofs; Glass; Doors, windows and passages; Roads and fields |
+| **Furnishing** (`furnishing`) | Lights; Beds; Seats; Tables and counters; Training and display; Workstations; Containers |
+| **Materials** (`materials`) | Ores and ingots; Gems; Wood materials; Stones and shards; Fibres; Fuel; Plant produce; Animal products |
+| **Magic** (`magic`) | Reagents |
+
+L'albero è nel file `creative/tree.toml` del pacchetto base del gioco e questa tabella lo copia. Le schede Strumenti, Combattimento, Vestiti e Cibo non ci sono ancora: le aggiungerà il primo contenuto che porta i loro oggetti. Un mod può aggiungere schede, gruppi e voci con un suo file dello stesso tipo.
+
+- **Cerca.** Il campo in alto cerca mentre scrivi (scrivere dove capita apre il campo da solo). Trova una voce se il testo è contenuto nel suo nome nella tua lingua, nel suo id (`soulslands:oak_planks`) o nel nome di una sua variante; maiuscole e accenti non contano. I risultati sono senza intestazioni, nell'ordine del catalogo.
+- **Blocchi.** Trascini una casella su una casella della barra rapida, oppure premi un numero `1`-`9` con il mouse sopra la casella: quel posto prende il blocco (la variante scelta, se c'è il selettore sotto la griglia). Poi il tasto destro lo piazza. Il tasto centrale continua a copiare il blocco che stai mirando.
+- **Oggetti.** Le voci che sono oggetti senza un blocco (gemme, minerali grezzi, semi, reagenti...) non vanno sulla barra rapida, che per ora tiene solo blocchi: la loro descrizione lo dice. Puoi però trascinare **qualsiasi voce, blocchi e oggetti**, nello zaino o in una cassa aperti, nel punto in cui la lasci (con Maiusc una pila intera, come nelle regole sopra). Un oggetto trascinato dallo zaino o da una cassa sul catalogo viene eliminato.
+- **Blocchi gratis.** Tutto è illimitato e gratuito, come per il resto della creativa.
+
+---
+
 ## 💬 Parole sopra la testa
 
 **Deciso da Aruto (03/11/2026):** quello che si dice sui canali Locale, Sussurro e Urlo si vede anche **sopra la testa di chi parla**, oltre che nel registro della chat.
@@ -127,7 +155,7 @@ Velocità di partenza, prese da Minecraft Java e *da confermare* (le misurerà c
 
 - **Rompere è istantaneo.** Tenendo premuto il tasto, il blocco successivo che stai mirando si rompe ogni quarto di secondo circa *(proposta, come Minecraft)*.
 - Rompere in creativa non lascia oggetti.
-- **La tavolozza** (tasto `E`) mostra ogni blocco che si può piazzare: niente aria, niente liquidi (arriveranno con le regole del loro scorrere), niente blocchi indistruttibili. Una barra rapida da 9 posti, scelta con i tasti 1-9 e la rotella, decide cosa piazza il tasto destro; il tasto centrale copia il blocco mirato *(proposta)*.
+- **Il catalogo** (tasto `E`, vedi la sezione "L'inventario creativo"; nel resto della pagina "tavolozza") mostra ogni blocco che si può piazzare: niente aria, niente liquidi (arriveranno con le regole del loro scorrere), niente blocchi indistruttibili. Una barra rapida da 9 posti, scelta con i tasti 1-9 e la rotella, decide cosa piazza il tasto destro; il tasto centrale copia il blocco mirato *(proposta)*.
 - Nelle prime versioni esistono solo blocchi **cubici**; le forme (scale, lastre) seguono subito dopo.
 
 ---
