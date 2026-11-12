@@ -216,38 +216,38 @@ Dettagli su fiumi, laghi e sorgenti in [Laghi e fiumi](/wiki/laghi-e-fiumi); sul
 
 ## 💎 Minerali grezzi
 
-Ogni [minerale](/wiki/minerali) di Soulslands è un blocco `<nome>_ore` incastonato nella roccia in **vene** di più blocchi. Si estrae con il **piccone** e la skill [Mining](/wiki/skill-mining) richiesta; lascia **minerale grezzo** da fondere in lingotti alla forgia. L'aspetto del blocco si adatta alla roccia dello strato in cui si trova, ma l'id resta lo stesso.
+Ogni [minerale](/wiki/minerali) di Soulslands si trova nel mondo come blocco **vena** (`<nome>_vein`, per esempio "Vena di ferro" `iron_vein`), incastonato nella roccia in gruppi di più blocchi. La vena e il minerale sono due cose diverse, come in Minecraft: scavando la vena con il **piccone** si ottiene l'oggetto **minerale** (`<nome>_ore`, "Minerale di ferro" `iron_ore`), da fondere in lingotti alla forgia. Oggi scavare dà sempre il minerale e la vena intera si prende solo in modalità creativa; più avanti un attrezzo speciale permetterà anche in sopravvivenza di raccogliere la vena intera (**Deciso da Aruto, 11/11/2026**). L'aspetto della vena si adatta alla roccia dello strato in cui si trova, ma l'id resta lo stesso; nell'interfaccia (tavolozza creativa, inventario) la vena si vede come un piccolo blocco, il minerale con la sua icona.
 
-| Id | Minerale | Mining | Profondità tipica |
+| Id della vena | Minerale | Mining | Profondità tipica |
 |----|----------|--------|-------------------|
-| `iron_ore` | [Iron](/wiki/minerale-iron) | 0 | Ovunque |
-| `rusty_ore` | [Rusty](/wiki/minerale-rusty) | 35 | Superficie – Y 20 |
-| `old_copper_ore` | [Old Copper](/wiki/minerale-old-copper) | 45 | Y 40 – 0 |
-| `steel_ore` | [Steel](/wiki/minerale-steel) | 55 | Y 40 – 0 |
-| `dull_copper_ore` | [Dull Copper](/wiki/minerale-dull-copper) | 65 | Y 10 – -16 |
-| `rose_ore` | [Rose](/wiki/minerale-rose) | 65 | Y 10 – -16 |
-| `shadow_iron_ore` | [Shadow Iron](/wiki/minerale-shadow-iron) | 70 | Y 0 – -20 |
-| `copper_ore` | [Copper](/wiki/minerale-copper) | 75 | Y 0 – -20 |
-| `silver_ore` | [Silver](/wiki/minerale-silver) | 75 | Y 0 – -20 |
-| `bronze_ore` | [Bronze](/wiki/minerale-bronze) | 80 | Y -16 – -32 |
-| `orialco_ore` | [Orialco](/wiki/minerale-orialco) | 80 | Y -16 – -32 |
-| `gold_ore` | [Gold](/wiki/minerale-gold) | 85 | Y -16 – -32 |
-| `blood_rock_ore` | [Blood Rock](/wiki/minerale-blood-rock) | 85 | Y -20 – -32, vicino alla lava |
-| `agapite_ore` | [Agapite](/wiki/minerale-agapite) | 90 | Y -24 – -40 |
-| `mytheril_ore` | [Mytheril](/wiki/minerale-mytheril) | 90 | Y -32 – -48 |
-| `verite_ore` | [Verite](/wiki/minerale-verite) | 95 | Y -32 – -48 |
-| `black_rock_ore` | [Black Rock](/wiki/minerale-black-rock) | 95 | Y -32 – -48 |
-| `titanium_ore` | [Titanio](/wiki/minerale-titanio) | 97 | Y -36 – -55 |
-| `valorite_ore` | [Valorite](/wiki/minerale-valorite) | 99 | Y -40 – -55 |
-| `cobalt_ore` | [Cobalto](/wiki/minerale-cobalto) | 99 | Y -48 – -64 |
-| `demonic_ore` | [Demonic](/wiki/minerale-demonic) | 100 | Y -50 – -64 |
+| `iron_vein` | [Iron](/wiki/minerale-iron) | 0 | Ovunque |
+| `rusty_vein` | [Rusty](/wiki/minerale-rusty) | 35 | Superficie – Y 20 |
+| `old_copper_vein` | [Old Copper](/wiki/minerale-old-copper) | 45 | Y 40 – 0 |
+| `steel_vein` | [Steel](/wiki/minerale-steel) | 55 | Y 40 – 0 |
+| `dull_copper_vein` | [Dull Copper](/wiki/minerale-dull-copper) | 65 | Y 10 – -16 |
+| `rose_vein` | [Rose](/wiki/minerale-rose) | 65 | Y 10 – -16 |
+| `shadow_iron_vein` | [Shadow Iron](/wiki/minerale-shadow-iron) | 70 | Y 0 – -20 |
+| `copper_vein` | [Copper](/wiki/minerale-copper) | 75 | Y 0 – -20 |
+| `silver_vein` | [Silver](/wiki/minerale-silver) | 75 | Y 0 – -20 |
+| `bronze_vein` | [Bronze](/wiki/minerale-bronze) | 80 | Y -16 – -32 |
+| `orialco_vein` | [Orialco](/wiki/minerale-orialco) | 80 | Y -16 – -32 |
+| `gold_vein` | [Gold](/wiki/minerale-gold) | 85 | Y -16 – -32 |
+| `blood_rock_vein` | [Blood Rock](/wiki/minerale-blood-rock) | 85 | Y -20 – -32, vicino alla lava |
+| `agapite_vein` | [Agapite](/wiki/minerale-agapite) | 90 | Y -24 – -40 |
+| `mytheril_vein` | [Mytheril](/wiki/minerale-mytheril) | 90 | Y -32 – -48 |
+| `verite_vein` | [Verite](/wiki/minerale-verite) | 95 | Y -32 – -48 |
+| `black_rock_vein` | [Black Rock](/wiki/minerale-black-rock) | 95 | Y -32 – -48 |
+| `titanium_vein` | [Titanio](/wiki/minerale-titanio) | 97 | Y -36 – -55 |
+| `valorite_vein` | [Valorite](/wiki/minerale-valorite) | 99 | Y -40 – -55 |
+| `cobalt_vein` | [Cobalto](/wiki/minerale-cobalto) | 99 | Y -48 – -64 |
+| `demonic_vein` | [Demonic](/wiki/minerale-demonic) | 100 | Y -50 – -64 |
 
 Oltre ai metalli ci sono due minerali non metallici, nuovi rispetto a Cursed Souls:
 
-| Id | Nome | Mining | Dove | Uso |
+| Id della vena | Nome | Mining | Dove | Uso |
 |----|------|--------|------|-----|
-| `coal_ore` | Carbone | 0 | Y 100 – 0, comunissimo | Combustibile per forge, forni e torce. In alternativa si usa il carbone di legna o la torba |
-| `sulfur_ore` | Zolfo | 40 | Terre vulcaniche e vicino ai laghi di lava | Cenere sulfurea per Alchemy e Magery, polvere nera |
+| `coal_vein` | Carbone | 0 | Y 100 – 0, comunissimo | Combustibile per forge, forni e torce. In alternativa si usa il carbone di legna o la torba |
+| `sulfur_vein` | Zolfo | 40 | Terre vulcaniche e vicino ai laghi di lava | Cenere sulfurea per Alchemy e Magery, polvere nera |
 
 > 💡 Con questi 23 blocchi il catalogo dei minerali è completo: ogni minerale che il gioco conosce ha il suo blocco nel mondo. Cristalli di mana, di ghiaccio e d'ombra e il salgemma non sono minerali da fondere e stanno con le rocce.
 
@@ -402,7 +402,7 @@ Gli otto reagenti classici di Ultima Online, usati da [Magery](/wiki/skill-mager
 | Belladonna (Nightshade) | Pianta | `nightshade_plant` | Paludi, foreste ombrose |
 | Muschio sanguigno (Blood Moss) | Blocco sulla roccia umida | `blood_moss` | Paludi, grotte di muschio |
 | Perla nera (Black Pearl) | Ostrica | `pearl_oyster` | Fondali marini, più grandi in acque profonde |
-| Cenere sulfurea (Sulfurous Ash) | Setaccio o piccone | `ash_soil`, `sulfur_ore` | Terre vulcaniche |
+| Cenere sulfurea (Sulfurous Ash) | Setaccio o piccone | `ash_soil`, `sulfur_vein` | Terre vulcaniche |
 | Seta di ragno (Spider's Silk) | Ragnatela o ragni uccisi | `cobweb` | Grotte, giungla, covi dei ragni |
 
 Le piante di reagenti ricrescono dopo qualche ora se si lascia la radice: chi le estirpa del tutto le fa sparire da quel punto.

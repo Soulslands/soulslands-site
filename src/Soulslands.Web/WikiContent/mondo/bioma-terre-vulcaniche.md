@@ -31,7 +31,7 @@ Le terre vulcaniche sono distese di roccia nera, fiumi di lava e camini fumanti,
 | Tufo `tuff`, pomice `pumice`, sabbia nera `black_sand` | Roccia di cenere friabile e pietre leggere |
 | Roccia magmatica `magma_block` | Crepe incandescenti: scotta chi ci cammina sopra |
 | Lava `lava` | Fonte di luce; incendia oggetti e corpi caduti |
-| Zolfo `sulfur_ore` | Raccoglibile, reagente per alchimia |
+| Vena di zolfo `sulfur_vein` | Raccoglibile, reagente per alchimia |
 | Fiore di brace `ember_bloom` | L'unico fiore delle terre vulcaniche, vicino alla lava |
 
 ---
