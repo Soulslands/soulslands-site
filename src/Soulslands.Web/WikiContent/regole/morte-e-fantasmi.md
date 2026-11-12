@@ -77,7 +77,7 @@ Quando torni in vita:
 |------|-------------------|-------------|
 | **Corpo fresco** | 0 – 20 minuti | Il corpo contiene tutto. Chiunque può aprirlo e saccheggiarlo (vedi [Full loot](/wiki/full-loot)) |
 | **Ossa** | 20 – 30 minuti | Il corpo diventa un mucchio d'ossa; gli oggetti ancora dentro restano nelle ossa |
-| **Dispersione** | Dopo 30 minuti | Le ossa scompaiono e gli oggetti rimasti cadono a terra, dove scompaiono dopo qualche ora come qualsiasi oggetto abbandonato |
+| **Dispersione** | Dopo 30 minuti | Le ossa scompaiono e gli oggetti rimasti cadono a terra, dove scompaiono dopo 1 ora di mondo aperto come qualsiasi oggetto abbandonato |
 
 - Il corpo **non si sposta** e **non si può smembrare** (vedi [Scuoiare e smembrare](/wiki/scuoiare-e-smembrare)).
 - Se muori nella **lava**, il corpo e il suo contenuto vengono distrutti.

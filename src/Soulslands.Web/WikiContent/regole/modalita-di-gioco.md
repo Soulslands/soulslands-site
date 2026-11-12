@@ -13,7 +13,7 @@ visibility: Pubblica
 
 Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così per sempre. Ogni personaggio, dentro il mondo, ha la sua modalità: creativa o sopravvivenza.
 
-> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco da solo. Il sopravvivenza completo (oggetti che cadono, salute, fame, danni) arriva più avanti: per ora un personaggio in sopravvivenza può esplorare, scavare e portare oggetti nello zaino, ma non ha ancora un modo di ottenerli (niente oggetti che cadono né raccolta).
+> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco. Il sopravvivenza completo (salute, fame, danni, attrezzi) arriva più avanti: per ora un personaggio in sopravvivenza esplora, scava raccogliendo quello che i blocchi lasciano a terra, porta gli oggetti nello zaino e nelle casse e piazza i blocchi spendendoli dallo zaino.
 
 **Deciso da Aruto (25/10/2026):** il volo è permesso in creativa; la tavolozza creativa contiene ogni blocco, illimitato e gratis; rompere è istantaneo in creativa; in creativa niente danni e niente fame; F5 cambia visuale come in Minecraft; il mondo si salva da solo e con un pulsante, e si salva anche quando esci. Fonte tecnica: [ADR-0025](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0025-creative-exploration-rules.md).
 
@@ -48,15 +48,15 @@ Chi non ha il permesso non vede il comando nel menu. Se prova lo stesso (client 
 |---|---|---|
 | **Volo** | Sì | No |
 | **Rompere un blocco** | Istantaneo | Secondo la durezza del blocco; a mani nude si impiega il triplo dove serve un attrezzo |
-| **Oggetti che cadono** | Nessuno | Nessuno: il blocco scavato sparisce (gli oggetti arrivano più avanti) |
-| **Piazzare un blocco** | Qualsiasi blocco della tavolozza, gratis e illimitato | Rifiutato: in sopravvivenza il piazzamento dallo zaino arriva più avanti |
+| **Oggetti che cadono** | Nessuno: scavare non lascia niente | Il blocco scavato lascia i suoi oggetti a terra, sempre gli stessi (vedi la sezione "Oggetti a terra") |
+| **Piazzare un blocco** | Qualsiasi blocco della tavolozza, gratis e illimitato | Prende dallo zaino un oggetto di quel blocco; se non ce l'hai, il blocco non si piazza |
 | **Tasto `E`** | Apre la tavolozza e, accanto, lo zaino | Apre lo zaino |
-| **Zaino** | Sì, si riempie dalla tavolozza | Sì, ma per ora si può solo riordinare e spostare oggetti da e verso i contenitori |
+| **Zaino** | Sì, si riempie dalla tavolozza | Sì, si riempie raccogliendo gli oggetti a terra; si riordina e si sposta da e verso i contenitori |
 | **Casse** | Si aprono col tasto destro; vi si prende dalla tavolozza | Si aprono col tasto destro; si riordina e si sposta da e verso lo zaino |
 | **Danni e fame** | Mai | Non ancora presenti |
 | **Cadute** | Succedono, senza danni | Succedono; i danni arrivano con le regole complete |
 
-Raggio d'azione (5 blocchi) e linea di vista valgono in entrambe. Il blocco `world_rock`, il fondo del mondo, resta indistruttibile anche in creativa *(proposta, da confermare)*.
+Raggio d'azione e linea di vista valgono in entrambe: **5 blocchi** per scavare e piazzare, **3 blocchi** per aprire una cassa e per lasciare o raccogliere oggetti a terra. Il blocco `world_rock`, il fondo del mondo, resta indistruttibile anche in creativa *(proposta, da confermare)*.
 
 ---
 
@@ -68,13 +68,13 @@ Raggio d'azione (5 blocchi) e linea di vista valgono in entrambe. Il blocco `wor
 - **Senza griglia.** Come in Ultima Online, lo zaino non ha caselle: ogni oggetto sta dove lo posi, anche sopra altri. Il gioco tiene sempre **l'intera icona dentro l'area** del contenitore (vale per ogni contenitore), così nessun oggetto sporge dal bordo dell'apertura disegnata.
 - **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera; lasciato su una pila uguale si somma) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
 - **In sopravvivenza** apri lo zaino, lo riordini e **sposti gli oggetti tra uno zaino e un contenitore aperto, nei due versi**. Prendere oggetti dalla tavolozza resta solo della creativa.
-- **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 5 blocchi), tengono fino a **125 oggetti** e **400 pietre** di peso (dal pacchetto dati del gioco), e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
-- **Aprire una cassa.** Il **tasto destro** su un blocco contenitore lo apre prima di usare o posare qualsiasi cosa, con la visuale in prima persona e con le altre. Per **piazzare** un blocco accanto a una cassa invece di aprirla, tieni premuto **Maiusc** mentre fai clic destro. Gli oggetti stanno dove li lasci dentro la cassa, come nello zaino. Ne puoi tenere aperti al massimo **16** e la cassa si chiude da sola se ti allontani oltre 5 blocchi (valori nostri, non misurati).
+- **Barili e casse.** Insieme ai forzieri, anche **barili** e **casse** sono contenitori che si piazzano nel mondo: si aprono col tasto destro come il forziere (stessa portata di 3 blocchi), tengono fino a **125 oggetti** e **400 pietre** di peso (dal pacchetto dati del gioco), e il contenuto si salva con il blocco. Chi li apre vede una finestra con la sua apertura disegnata, rotonda per il barile e rettangolare per la cassa.
+- **Aprire una cassa.** Il **tasto destro** su un blocco contenitore lo apre prima di usare o posare qualsiasi cosa, con la visuale in prima persona e con le altre. Per **piazzare** un blocco accanto a una cassa invece di aprirla, tieni premuto **Maiusc** mentre fai clic destro. Gli oggetti stanno dove li lasci dentro la cassa, come nello zaino. Ne puoi tenere aperti al massimo **16** (valore nostro) e la cassa si chiude da sola se ti allontani oltre 3 blocchi.
 - **Nella cassa, in creativa.** Gli oggetti arrivano dalla tavolozza: trascini un blocco dalla tavolozza dentro la cassa e lo prendi; trascini un oggetto dalla cassa sulla tavolozza e viene buttato via.
 - **Nella cassa, in sopravvivenza.** Puoi guardare, riordinare e spostare gli oggetti tra la cassa e lo zaino, nei due versi. Non puoi prenderne dalla tavolozza né buttarli via.
-- **Rompere una cassa piena.** Una cassa che contiene ancora oggetti **non si rompe**, in nessuna delle due modalità: il gioco rifiuta con un avviso, finché non esisteranno gli oggetti a terra (**deciso da Aruto, 03/11/2026**).
+- **Rompere una cassa piena.** **Deciso da Aruto (11/11/2026):** una cassa che contiene ancora oggetti **si rompe**, in entrambe le modalità, anche in creativa: il contenuto vola fuori e si sparge a terra **fino a 1 blocco intorno** alla cassa. Sostituisce la regola del 03/11/2026, per cui una cassa piena non si poteva rompere finché non esistevano gli oggetti a terra.
 - **Grandezza delle finestre.** Le finestre dei contenitori sono più grandi di prima: lo zaino occupa il **23 %** della larghezza dello schermo 16:9. Gli oggetti dentro restano della dimensione che avevano, quindi in una finestra più grande ne entrano a vista più di prima. La finestra si ingrandisce ancora con la scala dell'interfaccia (Opzioni, Video). Le finestre si aprono da sole nel **posto libero**: la tavolozza a sinistra, lo zaino a destra, gli altri contenitori in fila verso sinistra a partire dallo zaino. Se in fila non c'è spazio (finestra piccola o scala dell'interfaccia alta) la finestra prova una cascata libera in alto a sinistra e solo senza altro posto si apre sopra qualcosa. Le finestre non si sovrappongono da sole all'HUD (globo, barre, barra rapida) né alla tavolozza, e le trascini dove vuoi, anche sopra altre cose; la finestra spostata si riapre lì, per tipo di contenitore e finché giochi. Cambiando la dimensione della finestra o la scala dell'interfaccia (Opzioni, Video) il posto si ricalcola, ma una finestra che hai spostato resta dov'è (rientra solo nello schermo). Fonte: [ADR-0041](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0041-screen-layout.md), scelte dell'architetto che Aruto rivede.
-- **Cosa arriva dopo.** Il piazzamento dallo zaino, gli oggetti che cadono e la raccolta, la banca e le borse annidate.
+- **Cosa arriva dopo.** La banca e le borse annidate.
 
 ### Pile: dividere e unire
 
@@ -96,6 +96,64 @@ I tasti contano nel momento in cui inizi a trascinare. Mentre la finestra è ape
 - **Il server decide.** Come per ogni spostamento, la vista cambia solo quando il server risponde: se rifiuta, la pila resta com'era. Ogni divisione e unione è registrata nel libro mastro degli oggetti, così nessun oggetto si perde né si duplica.
 
 Fonte tecnica: ADR-0039, emendamento dell'08/11/2026; per le pile [ADR-0040](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0040-stacks-split-merge.md). Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
+
+---
+
+## 🪙 Oggetti a terra
+
+**Deciso da Aruto (10/11/2026 e 11/11/2026):** gli oggetti si lasciano e si raccolgono dal mondo, scavare in sopravvivenza lascia a terra quello che il blocco contiene, e gli oggetti si muovono con una fisica vera: vengono lanciati, cadono, rimbalzano. Le regole valgono per ogni personaggio vivo, in creativa e in sopravvivenza. Per ora un oggetto a terra non è di nessuno: chi lo raggiunge lo può raccogliere.
+
+### Come si vedono
+
+Un oggetto a terra è la sua **icona in rilievo**, larga **mezzo blocco**, distesa sul blocco su cui poggia. Più avanti un piccolo modello 3D prenderà il posto dell'icona.
+
+### Lasciare un oggetto
+
+- **Trascina** un oggetto fuori da un contenitore aperto (lo zaino o una cassa) e lascialo sul mondo: il personaggio lo **lancia** verso il punto che miri. In prima persona lo vedi partire dal lato destro, come lanciato con la mano destra.
+- L'oggetto vola in un **arco basso**, gira su sé stesso mentre vola, **rimbalza** quando tocca terra e si ferma disteso in circa **un secondo**.
+- Se miri più lontano di **3 blocchi** il lancio non viene rifiutato: l'oggetto va nella direzione mirata e atterra **al massimo a 3 blocchi** da te.
+- Un oggetto **non attraversa mai un blocco**: se miri dietro un muro, si ferma contro il muro dalla tua parte.
+- Puoi avere in volo al massimo **32 oggetti lanciati da te** nello stesso momento (scelta del team, 11/11/2026).
+
+### Raccogliere un oggetto
+
+- **Trascina** l'oggetto da terra dentro un contenitore aperto (lo zaino o una cassa), nel punto che vuoi, oppure fai **doppio clic** sull'oggetto: va nello zaino, anche se è chiuso, e prima **riempie le pile uguali** che ci sono già; quello che avanza prende un posto nuovo, e se lo zaino è pieno il resto rimane a terra.
+- La raccolta **non è mai automatica**: passarci sopra non raccoglie niente.
+- Serve che l'oggetto sia **entro 3 blocchi** e **in linea di vista**.
+- Un oggetto si può raccogliere anche **mentre vola o cade**.
+
+### Pile a terra
+
+- Oggetti **uguali** che si fermano **nella stessa cella** (lo spazio di un blocco) diventano **una pila sola**, fino al massimo della pila di quell'oggetto.
+- Un oggetto che cade o vola si unisce a una pila solo se **ci sta per intero**; altrimenti resta un oggetto a parte.
+- Oggetti in celle diverse non si uniscono mai, e trascinare una pila a terra sopra un'altra viene rifiutato.
+
+### Cadere, sotterrare, affondare
+
+- Se togli il blocco su cui poggia, l'oggetto **cade** e rimbalza dove arriva.
+- Un blocco piazzato sopra un oggetto lo **sotterra**: l'oggetto resta lì, nascosto, e non si può vedere né raccogliere finché quel blocco non viene tolto. Lo stesso vale per la sabbia che gli cade sopra.
+- In **acqua** un oggetto affonda lentamente e si ferma sul fondo.
+
+### Scavare
+
+- **In sopravvivenza** un blocco scavato lascia i suoi oggetti, **sempre gli stessi** e nella stessa quantità, senza nessun caso. Gli oggetti fanno un piccolo salto e restano nella cella scavata; in una buca scavata verso il basso ci cadono dentro. Così una colonna o un pozzo scavati lasciano una pila sola.
+- **Finché non esistono gli attrezzi**, ogni blocco lascia i suoi oggetti come se fosse scavato con l'attrezzo giusto: anche la pietra scavata a mani nude dà il suo oggetto.
+- Una **vena** di minerale dà il suo minerale (una Iron Vein dà Iron Ore).
+- Una cella con più **candele** ne dà tante quante ne teneva.
+- **In creativa** scavare non lascia niente, come in Minecraft.
+
+### Casse rotte
+
+Rompendo una cassa che contiene oggetti, **anche in creativa**, il contenuto vola fuori e si sparge a terra **fino a 1 blocco intorno** alla cassa. Lo spargimento non dipende dal caso: la stessa cassa si svuota sempre allo stesso modo.
+
+### Piazzare in sopravvivenza
+
+**Deciso da Aruto (10/11/2026):** in sopravvivenza piazzare un blocco **prende un oggetto di quel blocco dallo zaino**. Se nello zaino non c'è, il blocco non si piazza e il gioco lo dice. In creativa si piazza gratis, come sempre. Finché non arriva la barra rapida con gli oggetti veri, in sopravvivenza il tasto destro piazza **l'ultimo blocco che hai scavato** (se non ne hai scavato nessuno, una copia del blocco che miri), sempre spendendolo dallo zaino.
+
+### Quanto restano
+
+- Un oggetto a terra **scompare dopo 1 ora** di mondo aperto (**deciso da Aruto, 10/11/2026**): il tempo conta solo mentre il mondo o il server è acceso, quindi un mondo da solo chiuso per la notte ritrova i suoi oggetti. Chi ospita un server può cambiare la durata (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)).
+- Un **chunk**, cioè un cubo di mondo di 32 blocchi di lato, tiene al massimo **1.024 oggetti** sciolti a terra (**deciso da Aruto, 10/11/2026**): oltre, i più vecchi scompaiono prima del tempo per fare posto. Gli oggetti dentro i contenitori non contano.
 
 ---
 

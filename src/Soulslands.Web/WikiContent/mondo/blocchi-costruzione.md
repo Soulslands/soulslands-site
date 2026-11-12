@@ -374,7 +374,7 @@ Il **contenuto si salva nel mondo** insieme al blocco: una cassa lasciata in una
 
 ### Zaini, borse e sacchetti non sono blocchi
 
-> 🎒 **Zaino, borse e sacchetti sono oggetti, non blocchi.** Sono contenitori che il personaggio porta con sé: lo zaino è il suo inventario, e borse e sacchetti stanno dentro lo zaino (per esempio il sacchetto per reagenti `reagent_pouch`, vedi [Attrezzi](/wiki/attrezzi)). Si possono lasciare cadere a terra, dove restano **oggetti** con il loro contenuto e, come ogni oggetto a terra all'aperto, spariscono dopo qualche ora (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)). Non si piazzano mai come blocchi e non occupano una cella del mondo.
+> 🎒 **Zaino, borse e sacchetti sono oggetti, non blocchi.** Sono contenitori che il personaggio porta con sé: lo zaino è il suo inventario, e borse e sacchetti stanno dentro lo zaino (per esempio il sacchetto per reagenti `reagent_pouch`, vedi [Attrezzi](/wiki/attrezzi)). Si possono lasciare cadere a terra, dove restano **oggetti** con il loro contenuto e, come ogni oggetto a terra all'aperto, spariscono dopo 1 ora di mondo aperto (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)). Non si piazzano mai come blocchi e non occupano una cella del mondo.
 >
 > I contenitori di questa pagina invece sono **blocchi**: si piazzano in una cella, si urtano, si girano, e non scadono.
 

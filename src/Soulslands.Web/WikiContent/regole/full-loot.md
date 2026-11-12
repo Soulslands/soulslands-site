@@ -50,7 +50,7 @@ Soulslands è un gioco **full loot**, come il vecchio Ultima Online: quando un p
 |------|-------------------|
 | Corpo intero | 0 – 20 minuti |
 | Mucchio d'ossa (contenuto ancora presente) | 20 – 30 minuti |
-| Oggetti rimasti a terra | Dopo 30 minuti, scompaiono dopo qualche ora |
+| Oggetti rimasti a terra | Dopo 30 minuti, scompaiono dopo 1 ora di mondo aperto |
 
 Vedi [Morte e fantasmi](/wiki/morte-e-fantasmi) per i dettagli.
 
