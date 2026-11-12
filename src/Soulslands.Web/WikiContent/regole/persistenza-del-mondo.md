@@ -29,7 +29,7 @@ In Soulslands **tutto vive sul server**. Il personaggio, il suo inventario, la b
 | **Contenitori** (casse, forzieri) | Nel mondo | Chiusi a chiave sono sicuri, ma un [Ladro](/wiki/classe-ladro) esperto può scassinarli fuori dalle case protette |
 | **Navi e pet** | Nel mondo, dove li hai lasciati | Una nave abbandonata può essere abbordata |
 | **Blocchi modificati** | Nel mondo | Chi scava una montagna la scava per tutti |
-| **Oggetti a terra** | Nel mondo | Scompaiono dopo qualche ora se non sono dentro una casa |
+| **Oggetti a terra** | Nel mondo | Scompaiono dopo **1 ora** di mondo aperto se non sono dentro una casa; la durata è l'impostazione `ground_decay_seconds` del server ([Modalità di gioco](/wiki/modalita-di-gioco), sezione "Oggetti a terra") |
 
 ---
 
@@ -60,7 +60,7 @@ La **classe** non si sceglie né si salva: i livelli di classe si calcolano dall
 | Banca | 125 oggetti, nessun limite di peso |
 | Borse e casse | 125 oggetti e 400 stone |
 
-I contenitori si annidano fino a 8 livelli. La distanza per aprire un contenitore è di 5 blocchi.
+I contenitori si annidano fino a 8 livelli. La distanza per aprire un contenitore è di 3 blocchi.
 
 ---
 
@@ -85,7 +85,7 @@ Un mondo può essere condiviso da moltissimi giocatori, ma i blocchi e le costru
 
 | Cosa | Quando decade |
 |------|---------------|
-| Oggetti lasciati a terra all'aperto | Dopo alcune ore |
+| Oggetti lasciati a terra all'aperto | Dopo **1 ora** di mondo aperto (**deciso da Aruto, 10/11/2026**): il tempo passa solo mentre il server è acceso. Si cambia con l'impostazione `ground_decay_seconds` nella sezione `[items]` di `server.toml` (3600 secondi; da 60 secondi a 7 giorni, oppure 0 per non farli mai scomparire). Un chunk (32 blocchi di lato) tiene al massimo 1.024 oggetti sciolti a terra (impostazione `ground_per_chunk`, da 64 a 4.096): oltre, i più vecchi scompaiono prima del tempo |
 | Corpi | Ossa dopo 20 minuti, spariscono dopo 30 |
 | Case e costruzioni | **Mai**, per impostazione predefinita, anche se il proprietario non torna. Decadono solo se una regola del server lo attiva, con la durata che quella regola stabilisce |
 | Costruzioni nel territorio di una gilda | Restano al loro posto; la [Pietra del Territorio](/wiki/pietra-territorio-gilda) ne decide la protezione, non la durata |
@@ -110,7 +110,7 @@ Un mondo può essere condiviso da moltissimi giocatori, ma i blocchi e le costru
 ## ❓ FAQ
 
 **D: Posso avere più personaggi?**
-R: Sì, sullo stesso account, nello stesso mondo: fino a 5 per account, o il numero scelto da chi ospita il server (da 1 a 7). Ogni personaggio ha la **sua banca**: la banca non è condivisa tra i personaggi dello stesso account. Gli oggetti si passano tra personaggi solo dentro il mondo, di persona o con uno scambio.
+R: No: un account ha **un solo personaggio in ogni mondo**, come in Minecraft (**deciso da Aruto, 26/10/2026**, vedi la tabella sopra). Un altro mondo o un altro server ti dà un personaggio nuovo, con la sua banca; gli oggetti non passano da un mondo all'altro.
 
 **D: Se il server si riavvia perdo qualcosa?**
 R: No: il salvataggio è continuo. Al massimo si perdono gli ultimi 10 secondi prima di un guasto improvviso.
