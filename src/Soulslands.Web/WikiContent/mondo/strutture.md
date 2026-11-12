@@ -244,7 +244,7 @@ Prima le strutture che compaiono in molti biomi, poi quelle tipiche di ciascun b
 
 | Struttura e id | Dove | Rarità, dimensione | Abitanti e boss | Bottino | Blocchi |
 |----------------|------|--------------------|-----------------|---------|---------|
-| **Miniera abbandonata** (d'oro) `soulslands:abandoned_mine` | Pareti dei canyon: è la miniera abbandonata che affiora, con gallerie e puntelli di legno in vista | Comune; enorme | [Elementali della terra](/wiki/mostro-elementale-della-terra), scorpioni, ragni giganti nelle gallerie buie; scavando una vena d'oro può svegliarsi un elementale d'oro (Golden Elemental) | Picconi, lanterne, vene di `gold_ore` già esposte | ⛏️ |
+| **Miniera abbandonata** (d'oro) `soulslands:abandoned_mine` | Pareti dei canyon: è la miniera abbandonata che affiora, con gallerie e puntelli di legno in vista | Comune; enorme | [Elementali della terra](/wiki/mostro-elementale-della-terra), scorpioni, ragni giganti nelle gallerie buie; scavando una vena d'oro può svegliarsi un elementale d'oro (Golden Elemental) | Picconi, lanterne, vene d'oro (`gold_vein`) già esposte | ⛏️ |
 | **Abitazioni nella roccia** `soulslands:cliff_dwelling` | Scavate nelle pareti di `red_sandstone` | Non comune; media | [Arpie](/wiki/mostro-arpia), scorpioni; sulle mesa più alte [arpie di pietra](/wiki/mostro-arpia-di-pietra) (Stone Harpy); a volte un covo di briganti | Vasi con oro e gemme, frecce | ⛏️ |
 
 ### ⛰️ Montagne

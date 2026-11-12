@@ -84,7 +84,7 @@ Un piccolo vulcano attivo che esce dal mare, con colate di lava che scendono fin
 | **Alberi** | Alberi carbonizzati (`charred_tree`) sulle pendici, che danno carbone; sulle isole spente qualche palma (`palm`) lungo la costa |
 | **Di giorno** | [Lucertole di lava](/wiki/animale-lucertola-di-lava), coleotteri di fuoco (Fire Beetle), [elementali del fuoco](/wiki/mostro-elementale-del-fuoco) vicino alla lava, [drake](/wiki/mostro-drake) intorno al cratere |
 | **Di notte** | Elementali del fuoco e lucertole di lava, più [segugi infernali](/wiki/mostro-segugio-infernale) e [gatti infernali](/wiki/mostro-gatto-infernale) |
-| **Risorse** | [Blood Rock](/wiki/minerale-blood-rock) vicino alla lava, zolfo (`sulfur_ore`), ossidiana, pomice, carbone |
+| **Risorse** | [Blood Rock](/wiki/minerale-blood-rock) vicino alla lava, vene di zolfo (`sulfur_vein`), ossidiana, pomice, carbone |
 | **Strutture tipiche** | Nidi di draghi nel cratere (drake e, raramente, un drago), forge abbandonate |
 
 ### ❄️ Isola ghiacciata
@@ -219,7 +219,7 @@ Le isole dei funghi non hanno alberi: i funghi giganti non danno legno. Tutte le
 | Sottosuolo delle isole lontane | [Orialco](/wiki/minerale-orialco) (la lega "atlantidea" si trova quasi solo qui) |
 | Isole remote, profondità | [Valorite](/wiki/minerale-valorite), [Verite](/wiki/minerale-verite) |
 | Grotte marine delle isole rocciose | [Silver](/wiki/minerale-silver) leggermente più frequente |
-| Isole vulcaniche, vicino alla lava | [Blood Rock](/wiki/minerale-blood-rock), zolfo (`sulfur_ore`) |
+| Isole vulcaniche, vicino alla lava | [Blood Rock](/wiki/minerale-blood-rock), zolfo (`sulfur_vein`) |
 | Sottosuolo delle isole ghiacciate | [Bronze](/wiki/minerale-bronze), [Silver](/wiki/minerale-silver) più frequenti |
 
 ---

@@ -35,7 +35,7 @@ Più un minerale è raro, più bisogna **scavare in profondità**. Nessun minera
 ## 🔨 Dal minerale all'arma
 
 1. **Trova una vena**: i minerali compaiono come gruppi di blocchi incastonati nella roccia, nelle pareti delle grotte o nei tunnel che scavi tu stesso
-2. **Scava** i blocchi della vena con un piccone: il blocco rilascia sempre il suo minerale, a qualsiasi skill; contano solo i colpi necessari (vedi la tabella sotto e [Attrezzi](/wiki/attrezzi))
+2. **Scava** i blocchi con un piccone: ogni blocco è una **vena** ("Vena di ferro") e rilascia sempre il suo **minerale** ("Minerale di ferro"), a qualsiasi skill. La vena intera, come blocco, oggi si prende solo in modalità creativa; più avanti un attrezzo speciale permetterà di raccoglierla anche in sopravvivenza (**Deciso da Aruto, 11/11/2026**); contano solo i colpi necessari (vedi la tabella sotto e [Attrezzi](/wiki/attrezzi))
 3. **Fondi** il minerale in una forgia per ottenere i **lingotti**: la fusione riesce sempre
 4. **Forgia** al banco del fabbro con un martello, scegliendo il materiale dal menu di crafting: il lavoro riesce sempre e dura (1 − skill/200) del tempo base
 
