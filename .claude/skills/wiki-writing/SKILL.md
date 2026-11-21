@@ -20,7 +20,7 @@ visibility: Pubblica
 
 - `slug` must match `^[a-z0-9]+(-[a-z0-9]+)*$`, be unique, and not be `modifica`. Use a category prefix as the existing pages do (`razza-`, `mostro-`, `bioma-`, `architettura-`). A duplicate or invalid slug makes the page silently skipped.
 - `category` may have a subcategory: `Classi / Magia`, `Sviluppo / Architettura`.
-- `visibility`: `Pubblica` (default) or `Staff`. Development pages (`sviluppo/`, in `soulslands-hq/wiki/`) are `Staff` and start with "Pagina riservata ad Admin, Moderatori e Agenti."
+- `visibility`: `Pubblica` (default) or `Staff`. Development pages (`sviluppo/`, in `soulslands-hq/wiki/`) are `Staff` and start with "Pagina riservata allo staff di Soulslands (ruolo `dev` del gioco sullo studio) e all'Owner e agli Admin dello studio." (the studio removed `Moderatore` and `Agente` on 2026-10-26; staff wikis live on its dev host with per-game roles)
 
 ## Page shape
 
