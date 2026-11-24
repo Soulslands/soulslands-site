@@ -49,9 +49,9 @@ jobs:
         run: .playwright/node/linux-x64/node .playwright/package/cli.js install chromium
       - run: dotnet test tests/Soulslands.Web.E2E --no-build
 
-  # The static site for Cloudflare Pages (W-21): scripts/build-static.sh writes dist/ (it fails on a staff
+  # The static site for Cloudflare (W-21, Workers static assets): scripts/build-static.sh writes dist/ (it fails on a staff
   # page, a link without a file, a staff name or a server-only part in dist/), then the browser smoke test
-  # runs over that dist/ served like Cloudflare Pages (tests/Soulslands.Web.E2E/serve-static.py).
+  # runs over that dist/ served like Cloudflare (tests/Soulslands.Web.E2E/serve-static.py).
   static-site:
     runs-on: ubuntu-latest
     timeout-minutes: 20

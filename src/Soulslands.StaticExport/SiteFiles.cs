@@ -3,7 +3,8 @@ using Soulslands.Web.Services.Auth;
 
 namespace Soulslands.StaticExport;
 
-// The two Cloudflare Pages control files of dist/ (developers.cloudflare.com/pages/configuration/).
+// The two Cloudflare control files of dist/, read by Workers static assets and by Pages
+// (developers.cloudflare.com/workers/static-assets/headers/ and .../redirects/).
 public static class SiteFiles
 {
     // Old paths of the pages that moved to the studio (the dynamic site's MovedPages), and the font
@@ -17,8 +18,8 @@ public static class SiteFiles
     public static IReadOnlyList<string> RedirectSources =>
         [.. Redirects(new StudioOptions { AccountUrl = "https://account.invalid", StudioUrl = "https://studio.invalid" }).Select(r => r.Path)];
 
-    // Cloudflare Pages matches paths and _redirects sources case-sensitively (wrangler 4.167
-    // pages dev: /media is 404 next to /Media/), while the dynamic site's routes ignored case. So
+    // Cloudflare matches paths and _redirects sources case-sensitively (wrangler 4.167 `pages dev`:
+    // /media is 404 next to /Media/), while the dynamic site's routes ignored case. So
     // the lowercase spelling of every redirect source and of every top-level page with capitals
     // (/Media, /Regole, /Stato) redirects to the real one.
     public static IReadOnlyList<(string Path, string Target)> LowercaseRedirects(

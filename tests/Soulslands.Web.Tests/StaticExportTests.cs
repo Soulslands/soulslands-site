@@ -152,6 +152,35 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     }
 
     [Fact]
+    public void WranglerConfigServesDistAsStaticAssets()
+    {
+        var dir = new DirectoryInfo(AppContext.BaseDirectory);
+        while (dir is not null && !File.Exists(Path.Combine(dir.FullName, "Soulslands.slnx")))
+        {
+            dir = dir.Parent;
+        }
+        Assert.NotNull(dir);
+        using var config = JsonDocument.Parse(File.ReadAllText(Path.Combine(dir.FullName, "wrangler.jsonc")),
+            new JsonDocumentOptions { CommentHandling = JsonCommentHandling.Skip, AllowTrailingCommas = true });
+        var root = config.RootElement;
+        // The Workers Builds project in Cloudflare's dashboard has this name; a different one fails the build.
+        Assert.Equal("soulslands-site", root.GetProperty("name").GetString());
+        Assert.False(root.TryGetProperty("main", out _), "assets only: no Worker script, so _headers and _redirects apply");
+        var assets = root.GetProperty("assets");
+        Assert.Equal("./dist", assets.GetProperty("directory").GetString());
+        Assert.Equal("404-page", assets.GetProperty("not_found_handling").GetString());
+        Assert.Equal("auto-trailing-slash", assets.GetProperty("html_handling").GetString());
+        Assert.Matches(@"^\d{4}-\d{2}-\d{2}$", root.GetProperty("compatibility_date").GetString());
+    }
+
+    [Fact]
+    public void ExportRefusesCultureWithoutIcuData()
+    {
+        Assert.Null(ExportCulture.Check(System.Globalization.CultureInfo.GetCultureInfo(ExportCulture.Name)));
+        Assert.NotNull(ExportCulture.Check(System.Globalization.CultureInfo.InvariantCulture));
+    }
+
+    [Fact]
     public void HeadersFileSetsAPolicyWithoutInlineScripts()
     {
         var headers = Read("_headers");

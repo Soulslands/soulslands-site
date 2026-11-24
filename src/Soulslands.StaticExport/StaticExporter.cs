@@ -15,7 +15,7 @@ using Soulslands.Web.Services.Devlog;
 
 namespace Soulslands.StaticExport;
 
-// Renders every public page of the site into a folder Cloudflare Pages (or python3 -m http.server)
+// Renders every public page of the site into a folder Cloudflare (or python3 -m http.server)
 // serves as is: pages as <path>/index.html, the home page as index.html, the not-found page as
 // 404.html, every other response (feed, raw benchmark files, wwwroot files) at its own path.
 // Starts from the known routes, then follows every same-origin href, src and CSS url() it finds.
@@ -179,7 +179,7 @@ public static class StaticExporter
         return errors;
     }
 
-    // Whether Cloudflare Pages and http.server answer this path from dist/: a file, a folder with
+    // Whether Cloudflare and http.server answer this path from dist/: a file, a folder with
     // index.html (both redirect <path> to <path>/), or a _redirects rule.
     public static bool Resolves(string outputDirectory, string path, IReadOnlySet<string> redirects)
     {

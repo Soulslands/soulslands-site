@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Renders the public pages of Soulslands.Web into a static folder (scripts/build-static.sh, Cloudflare Pages).
+  <!-- Renders the public pages of Soulslands.Web into a static folder (scripts/build-static.sh, Cloudflare Workers static assets).
        It hosts the real site in memory (WebApplicationFactory, no socket) and crawls every page it links. -->
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -13,6 +13,17 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.13" />
+  </ItemGroup>
+
+  <!-- App-local ICU on Linux x64 (Cloudflare's build image lists no libicu): the export never depends on
+       the machine's ICU, and the culture data are the same on every build machine. Elsewhere the
+       system ICU is used. ExportCulture stops the export if ICU data are missing all the same. -->
+  <PropertyGroup>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime.linux-x64" Version="72.1.0.3" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

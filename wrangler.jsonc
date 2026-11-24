@@ -1,0 +1,14 @@
+// Cloudflare Workers Builds project "soulslands-site" (W-21): the site is only static assets, no Worker
+// script (no "main"). scripts/build-static.sh writes ./dist, including _headers and _redirects, which
+// Workers static assets apply. Dashboard settings: README, "Sito statico su Cloudflare".
+{
+  "name": "soulslands-site",
+  "compatibility_date": "2026-11-20",
+  "assets": {
+    "directory": "./dist",
+    // dist/404.html with status 404 for every path without a file.
+    "not_found_handling": "404-page",
+    // Pages are dist/<path>/index.html: /Media answers 307 to /Media/.
+    "html_handling": "auto-trailing-slash"
+  }
+}
