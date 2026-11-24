@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
 using Soulslands.Web.Services;
 
@@ -141,14 +142,25 @@ public class WikiStoreTests : IDisposable
         Assert.DoesNotContain("Aggiornata il", html);
     }
 
-    // The real WikiContent is a Git checkout: every page carries its last commit's date.
+    // The real WikiContent is a Git checkout: every page carries its last commit's date. A shallow
+    // clone (the build-and-test CI job) has no dates, and the line is left out.
     [Fact]
     public async Task PagesOfTheRepositoryShowTheirLastCommitDate()
     {
         using var site = new SiteFactory();
         var html = await site.CreateClient().GetStringAsync("/wiki/razze");
+        var store = site.Services.GetRequiredService<WikiStore>();
 
-        Assert.Matches(@"Aggiornata il \d\d/\d\d/\d{4} \d\d:\d\d UTC\s*</small>", html);
+        if (GitDates.LastCommits(store.Directory).Count == 0)
+        {
+            Assert.Equal(default, store.Find("razze")!.UpdatedAt);
+            Assert.DoesNotContain("Aggiornata il", html);
+        }
+        else
+        {
+            Assert.NotEqual(default, store.Find("razze")!.UpdatedAt);
+            Assert.Matches(@"Aggiornata il \d\d/\d\d/\d{4} \d\d:\d\d UTC\s*</small>", html);
+        }
         Assert.DoesNotContain("da sistema", html);
     }
 
