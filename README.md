@@ -133,6 +133,44 @@ I ruoli arrivano dallo studio (claim `role`) e valgono per tutto lo studio; si a
 
 Le pagine Staff rispondono 404 a chi non è staff e non compaiono negli elenchi né nella ricerca.
 
+## Sito statico su Cloudflare Pages
+
+`soulslands.mahoroba.studio` è un sito statico: `scripts/build-static.sh` avvia il sito in memoria (`src/Soulslands.StaticExport`, nessuna porta aperta), visita ogni pagina pubblica come un visitatore anonimo e scrive tutto in `dist/`:
+
+- ogni pagina come `<percorso>/index.html` (la home `index.html`, la pagina 404 `404.html`), il feed `devlog/feed.xml`, i file grezzi dei benchmark e i file di `wwwroot` che le pagine usano;
+- `_redirects`: le vecchie pagine passate allo studio (`/Acquista`, `/Riscatta`, `/Download` sull'host degli account, `/Privacy`, `/Termini`, `/Contatti` sul sito dello studio), `/Preferenze` verso la home e le grafie minuscole (`/media`, `/download`...), perché Pages distingue maiuscole e minuscole;
+- `_headers`: Content-Security-Policy senza script inline (gli stili inline restano permessi: li usano i diagrammi mermaid e le barre di avanzamento), `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`;
+- `wiki/indice-ricerca.json`: l'indice della ricerca nella wiki, filtrato nel browser.
+
+Nel sito statico non ci sono accesso, menu Admin, elenco dei server, editor della wiki né cookie. La bacheca della home arriva dallo studio nel browser (`https://account.mahoroba.studio/api/games/soulslands/announcements`) e resta nascosta se è vuota o lo studio non risponde; la scelta dei caratteri è un pulsante nel piè di pagina, salvato in `localStorage`.
+
+Lo script si ferma con un errore, nominando il file, se `WikiContent/` contiene una pagina `visibility: staff`, se in `dist/` c'è il nome di una pagina staff, un pezzo del sito dinamico (accesso, Admin, server) o `document.cookie`, o se un link interno di una pagina non ha un file in `dist/`. Se .NET manca (l'immagine di build di Cloudflare non lo ha) installa l'SDK indicato in `global.json` con la copia di `scripts/dotnet-install.sh` (Microsoft, licenza MIT) in `~/.dotnet`; serve ICU (`libicu`) per le date in italiano.
+
+In locale:
+
+```bash
+scripts/build-static.sh                      # scrive dist/
+python3 -m http.server -d dist 8000          # http://localhost:8000
+npx wrangler pages dev dist                  # come Cloudflare, con _headers e _redirects
+```
+
+**Impostazioni nella dashboard di Cloudflare** (Workers & Pages, progetto collegato al repository GitHub `Soulslands/soulslands-site`, non al vecchio `soulslands-website`):
+
+| Impostazione | Valore |
+|---|---|
+| Framework preset | None |
+| Build command | `scripts/build-static.sh` |
+| Build output directory | `dist` |
+| Root directory | vuota (radice del repository) |
+| Production branch | `main` |
+| Variabile d'ambiente | `SITE_BASE_URL` = `https://soulslands.mahoroba.studio` (è anche il valore usato se manca; serve ai link assoluti del feed) |
+
+La build non usa segreti, quindi funzionano anche le anteprime dei branch e delle pull request (la bacheca lì resta nascosta: lo studio risponde solo a `soulslands.mahoroba.studio`). Il dominio personalizzato `soulslands.mahoroba.studio` si aggiunge nella scheda "Custom domains" del progetto.
+
+**Alternativa solo di riserva**: caricare `dist/` da un job di GitHub Actions con `npx wrangler pages deploy dist --project-name <nome>`. Serve un token API di Cloudflare salvato come segreto del repository (`CLOUDFLARE_API_TOKEN`, più `CLOUDFLARE_ACCOUNT_ID`), che solo Aruto può creare: non è in questo repository.
+
+La CI controlla tutto nel job `static-site`: esegue `scripts/build-static.sh` e i test nel browser (`StaticSiteE2ETests`) sulla `dist/` servita come da Pages (`tests/Soulslands.Web.E2E/serve-static.py`).
+
 ## Deploy con Docker e PostgreSQL
 
 In produzione il sito usa PostgreSQL (`Database:Provider` = `Postgres`), in sviluppo e nei test SQLite. Le due basi dati hanno migrazioni separate: `Data/Migrations` per SQLite e `Data/Migrations/Postgres` per PostgreSQL. Dopo una modifica al modello vanno create entrambe:

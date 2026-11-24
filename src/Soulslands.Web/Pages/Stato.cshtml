@@ -8,6 +8,9 @@
 <h1>Stato</h1>
 
 <div class="row g-3 mt-1">
+    @* The static site has no server list (it moves to the studio): only progress and roadmap. *@
+    @if (!Model.Static)
+    {
     <div class="col-12 col-md-4">
         <div class="panel h-100 text-center">
             <h2 class="h6 text-muted-ss">Server</h2>
@@ -29,7 +32,8 @@
             <small class="text-muted-ss">giocatori online</small>
         </div>
     </div>
-    <div class="col-12 col-md-4">
+    }
+    <div class="col-12 @(Model.Static ? "col-lg-6" : "col-md-4")">
         <div class="panel h-100">
             <h2 class="h6 text-muted-ss text-center">Avanzamento</h2>
             @foreach (var (name, percent) in StatoModel.Progress)

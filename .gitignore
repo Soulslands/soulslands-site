@@ -488,3 +488,7 @@ $RECYCLE.BIN/
 
 # Database dumps from the backup service
 backups/
+
+# Static site written by scripts/build-static.sh (W-21); the .NET SDK it may install
+/dist/
+/.dotnet/

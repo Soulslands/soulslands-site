@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
 using Soulslands.Web.Data;
+using Soulslands.Web.Services;
 using Soulslands.Web.Services.Servers;
 
 namespace Soulslands.Web.Pages;
 
-public class StatoModel(ApplicationDbContext db) : PageModel
+public class StatoModel(ApplicationDbContext db, IOptions<SiteOptions> site) : PageModel
 {
     public enum Phase
     {
@@ -48,8 +50,14 @@ public class StatoModel(ApplicationDbContext db) : PageModel
 
     public bool AnyOnline => Servers.Any(s => s.Online);
 
+    public bool Static => site.Value.Static;
+
     public async Task OnGetAsync()
     {
+        if (Static)
+        {
+            return;
+        }
         Servers = await ServerStatus.ListAsync(db);
     }
 }

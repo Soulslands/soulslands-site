@@ -159,8 +159,9 @@ public static class StudioSignIn
             });
     }
 
-    // Pages that moved to the studio: old links (wiki pages, bookmarks) keep working.
-    private static readonly (string Path, bool OnAccountHost, string Target)[] MovedPages =
+    // Pages that moved to the studio: old links (wiki pages, bookmarks) keep working. The static
+    // site writes the same list into its _redirects file (Soulslands.StaticExport).
+    public static readonly IReadOnlyList<(string Path, bool OnAccountHost, string Target)> MovedPages =
     [
         ("/Acquista", true, "/store"),
         ("/Riscatta", true, "/redeem"),
