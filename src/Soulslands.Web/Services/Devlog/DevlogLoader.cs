@@ -9,7 +9,9 @@ public static class DevlogLoader
     public static readonly string[] RequiredFields = ["title", "slug", "date", "summary", "author"];
 
     // Returns the valid posts newest first. Invalid files and duplicate slugs are
-    // logged and skipped; a missing folder gives an empty list.
+    // logged and skipped; a missing folder gives an empty list. A post whose front matter is not
+    // public (PublicPages: a visibility other than Pubblica, a "visibility: staff" line, no front
+    // matter) throws, like the static export refuses to build with it (ADR-0035).
     public static IReadOnlyList<DevlogPost> Load(string directory, ILogger logger)
     {
         if (!Directory.Exists(directory))
@@ -43,6 +45,11 @@ public static class DevlogLoader
             {
                 logger.LogWarning("Post devlog non leggibile, ignorato: {File} ({Error})", file, e.Message);
                 continue;
+            }
+
+            if (PublicPages.Refusal(text, isDevlog: true) is { } reason)
+            {
+                throw new InvalidOperationException($"Post non pubblicabile nel devlog: {file}: {reason} (il sito è pubblico, ADR-0035)");
             }
 
             var post = Parse(text, out var error);

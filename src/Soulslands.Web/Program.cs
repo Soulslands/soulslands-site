@@ -28,8 +28,10 @@ builder.Services.AddSingleton<BenchmarkStore>();
 
 var app = builder.Build();
 
-// The wiki is read now, so a page that is not public stops the start (and the export) at once.
+// The wiki and the devlog are read now, so a page or post that is not public stops the start (and
+// the export) at once.
 app.Services.GetRequiredService<WikiStore>();
+_ = app.Services.GetRequiredService<DevlogStore>().Posts;
 
 if (!app.Environment.IsDevelopment())
 {

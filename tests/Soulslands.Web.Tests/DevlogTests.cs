@@ -77,6 +77,44 @@ public sealed class DevlogLoaderTests : IDisposable
         Assert.NotNull(error);
     }
 
+    // The rule of the static export (PublicPages, ADR-0035): a post may say nothing about visibility
+    // or say Pubblica; anything else stops the load, naming the file.
+    [Theory]
+    [InlineData("visibility: Staff\n")]
+    [InlineData("visibility: staff\n")]
+    [InlineData("visibility: Interna\n")]
+    [InlineData("visibilità: Pubblica\n")]
+    public void LoadRefusesAPostThatIsNotPublic(string line)
+    {
+        Write("a.md", DevlogFixtures.Post("primo-post", "2026-10-01"));
+        Write("b.md", DevlogFixtures.Post("riservato", "2026-10-02").Replace("author: Aruto\n", "author: Aruto\n" + line));
+
+        var error = Assert.Throws<InvalidOperationException>(() => DevlogLoader.Load(_dir, NullLogger.Instance));
+
+        Assert.Contains(Path.Combine(_dir, "b.md"), error.Message);
+    }
+
+    [Fact]
+    public void LoadAcceptsAPostThatSaysPubblica()
+    {
+        Write("a.md", DevlogFixtures.Post("primo-post", "2026-10-01").Replace("author: Aruto\n", "author: Aruto\nvisibility: Pubblica\n"));
+
+        Assert.Equal("primo-post", Assert.Single(DevlogLoader.Load(_dir, NullLogger.Instance)).Slug);
+    }
+
+    // dotnet run reads the devlog at startup, so it never serves a post the export would refuse.
+    [Fact]
+    public void TheSiteDoesNotStartWithAStaffPost()
+    {
+        Write("riservato.md", DevlogFixtures.Post("riservato", "2026-10-02").Replace("author: Aruto\n", "author: Aruto\nvisibility: Staff\n"));
+        using var factory = new SiteFactory();
+        var site = factory.WithWebHostBuilder(b => b.UseSetting("Devlog:Directory", _dir));
+
+        var error = Assert.ThrowsAny<Exception>(() => site.CreateClient());
+
+        Assert.Contains("riservato.md", error.GetBaseException().Message);
+    }
+
     [Fact]
     public void LoadLogsAndSkipsInvalidPostsAndDuplicates()
     {
