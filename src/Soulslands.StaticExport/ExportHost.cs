@@ -6,7 +6,8 @@ namespace Soulslands.StaticExport;
 
 // The real Soulslands.Web app in memory, as an anonymous visitor, in static mode (Site:Static): its
 // own throwaway SQLite file holds the wiki pages imported from WikiContent/ at startup.
-internal sealed class ExportHost(string databasePath, string wikiDirectory, string baseUrl) : WebApplicationFactory<Program>
+internal sealed class ExportHost(string databasePath, string wikiDirectory, string baseUrl, Action<IWebHostBuilder>? configure = null)
+    : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -29,5 +30,6 @@ internal sealed class ExportHost(string databasePath, string wikiDirectory, stri
         builder.UseSetting("Logging:LogLevel:Microsoft.Hosting.Lifetime", "Warning");
         // The key ring of the throwaway database: nothing is protected during an export.
         builder.UseSetting("Logging:LogLevel:Microsoft.AspNetCore.DataProtection", "Error");
+        configure?.Invoke(builder);
     }
 }

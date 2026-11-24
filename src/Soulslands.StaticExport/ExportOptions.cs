@@ -13,4 +13,7 @@ public sealed record ExportOptions
 
     // Public address of the site: the feed's absolute links (Site:BaseUrl).
     public string BaseUrl { get; init; } = DefaultBaseUrl;
+
+    // Tests only: changes the hosted app, e.g. to make it misbehave and see the export refuse it.
+    public Action<Microsoft.AspNetCore.Hosting.IWebHostBuilder>? ConfigureWebHost { get; init; }
 }

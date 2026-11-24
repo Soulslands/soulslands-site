@@ -13,7 +13,9 @@ public class IndexModel(ApplicationDbContext db, DevlogStore devlog, IOptions<Si
     public const int LatestPostCount = 3;
 
     // The studio's public list of this game's announcements (ADR-0024 section 11.5), read in the browser.
-    public const string AnnouncementsPath = "/api/games/soulslands/announcements";
+    // The studio writes them in English or Japanese (or for every language) and knows no Italian:
+    // ?lang=en gives the English ones and those for every language, never the Japanese-only ones.
+    public const string AnnouncementsPath = "/api/games/soulslands/announcements?lang=en";
 
     public bool Static => site.Value.Static;
 

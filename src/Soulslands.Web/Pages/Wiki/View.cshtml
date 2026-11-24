@@ -19,13 +19,17 @@
             {
                 <h1 class="mb-1">@Model.WikiPage.Title</h1>
             }
-            <small class="text-muted-ss">
-                Aggiornata il @Model.WikiPage.UpdatedAt.ToString("dd/MM/yyyy HH:mm") UTC
-                @if ((Model.WikiPage.UpdatedByName ?? Model.WikiPage.UpdatedBy) is { } by)
-                {
-                    <text>da @by</text>
-                }
-            </small>
+            @* The static export sets the file's last Git commit time, or no time at all when Git cannot tell. *@
+            @if (!(SiteOptions.Value.Static && Model.WikiPage.UpdatedAt == default))
+            {
+                <small class="text-muted-ss">
+                    Aggiornata il @Model.WikiPage.UpdatedAt.ToString("dd/MM/yyyy HH:mm") UTC
+                    @if ((Model.WikiPage.UpdatedByName ?? Model.WikiPage.UpdatedBy) is { } by)
+                    {
+                        <text>da @by</text>
+                    }
+                </small>
+            }
             @if (Model.WikiPage.Visibility == WikiVisibility.Staff)
             {
                 <span class="badge badge-staff ms-1">Staff</span>

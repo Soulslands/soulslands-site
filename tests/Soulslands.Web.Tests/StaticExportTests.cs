@@ -1,5 +1,8 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Soulslands.StaticExport;
 using Soulslands.Web.Services.Auth;
 
@@ -128,7 +131,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     public void AnnouncementsAreReadInTheBrowser()
     {
         var home = Read("index.html");
-        Assert.Matches(@"<section[^>]*id=""bacheca""[^>]*data-src=""https://account\.mahoroba\.studio/api/games/soulslands/announcements""[^>]*hidden", home);
+        Assert.Matches(@"<section[^>]*id=""bacheca""[^>]*data-src=""https://account\.mahoroba\.studio/api/games/soulslands/announcements\?lang=en""[^>]*hidden", home);
         Assert.Matches(@"<script src=""/js/announcements[^""]*\.js""", home);
     }
 
@@ -246,7 +249,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
         var wiki = FixtureWiki(("rotta.md", "---\nvisibility: staff\n---\nSenza titolo né slug."));
         try
         {
-            Assert.Equal([Path.Combine(wiki, "rotta.md")], StaffGuard.FindStaffPages(wiki).Select(p => p.File));
+            Assert.Equal([Path.Combine(wiki, "rotta.md")], StaffGuard.FindRefusedPages(wiki).Select(p => p.File));
         }
         finally
         {
@@ -259,7 +262,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     [Fact]
     public void ScanOfDistFindsStaffNames()
     {
-        var needles = StaffGuard.Needles([new StaffGuard.StaffPage("segreta.md", SiteFactory.StaffSlug, "Pagina riservata")]);
+        var needles = StaffGuard.Needles([new StaffGuard.RefusedPage("segreta.md", "prova", SiteFactory.StaffSlug, "Pagina riservata")]);
         var dist = Directory.CreateTempSubdirectory("static-dist-").FullName;
         try
         {
@@ -320,13 +323,21 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
         var dist = Directory.CreateTempSubdirectory("static-dist-").FullName;
         try
         {
-            File.WriteAllText(Path.Combine(dist, "index.html"), "<a href=\"#\">Accedi</a>");
+            File.WriteAllText(Path.Combine(dist, "index.html"), "<header><a href=\"#\">Accedi</a></header><main>Testo</main>");
+            Directory.CreateDirectory(Path.Combine(dist, "link"));
+            Directory.CreateDirectory(Path.Combine(dist, "testo"));
+            File.WriteAllText(Path.Combine(dist, "link", "index.html"), "<main><p>Vedi la <a href=\"/Admin/\">pagina</a></p></main>");
+            File.WriteAllText(Path.Combine(dist, "testo", "index.html"),
+                "<header><a href=\"/\">Home</a></header><main class=\"py-4\"><p>Esci dal gioco dalle Preferenze grafiche, lato client/Server.</p></main>");
             File.WriteAllText(Path.Combine(dist, "x.js"), "document.cookie = 'a=b';");
 
             var errors = StaticExporter.Verify(dist, [], []);
 
             Assert.Contains("index.html: contiene \"Accedi\", che il sito statico non può avere", errors);
+            Assert.Contains("link/index.html: contiene \"/Admin/\", che il sito statico non può avere", errors);
             Assert.Contains("x.js: contiene document.cookie", errors);
+            // The words in the text of a page are not the dynamic site's menu.
+            Assert.DoesNotContain(errors, e => e.StartsWith("testo/"));
         }
         finally
         {
@@ -338,7 +349,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     [Fact]
     public async Task BrokenLinkFailsTheExport()
     {
-        var wiki = FixtureWiki(("rotta.md", "---\ntitle: Link rotti\nslug: link-rotti\n---\n[manca](/wiki/pagina-mancante) e ![x](/img/mancante.png)"));
+        var wiki = FixtureWiki(("rotta.md", "---\ntitle: Link rotti\nslug: link-rotti\nvisibility: Pubblica\n---\n[manca](/wiki/pagina-mancante) e ![x](/img/mancante.png)"));
         var dist = Path.Combine(Path.GetTempPath(), $"soulslands-dist-{Guid.NewGuid():N}");
         try
         {
@@ -346,6 +357,8 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
             Assert.NotEqual(0, code);
             Assert.Contains("/wiki/pagina-mancante (nella pagina /wiki/link-rotti/index.html)", errors);
             Assert.Contains("/img/mancante.png (nella pagina /wiki/link-rotti/index.html)", errors);
+            // Nothing a manual "wrangler deploy" could upload after a failed export.
+            Assert.False(Directory.Exists(dist));
         }
         finally
         {
@@ -355,5 +368,244 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
                 Directory.Delete(dist, recursive: true);
             }
         }
+    }
+    // The allow-list of the first guard: only "visibility: Pubblica" is published; the spellings the
+    // importer would read as public get refused too, naming the file.
+    [Theory]
+    [InlineData("visibility: \" Staff\"")]
+    [InlineData("visibilità: Staff")]
+    [InlineData("Visibilita: Staff\nvisibility: Pubblica")]
+    [InlineData("visibility: Riservata")]
+    [InlineData("visibility: Pubblica\nvisibility: Bozza")]
+    [InlineData("visibility:\n  Staff")]
+    [InlineData("category: Prova")]
+    public void OnlyPublicPagesPassTheSourceCheck(string frontMatterLines)
+    {
+        var wiki = FixtureWiki(("dubbia.md", $"---\ntitle: Pagina dubbia\nslug: pagina-dubbia\n{frontMatterLines}\n---\nTesto."));
+        try
+        {
+            var refused = Assert.Single(StaffGuard.FindRefusedPages(wiki));
+            Assert.Equal(Path.Combine(wiki, "dubbia.md"), refused.File);
+            Assert.Equal("pagina-dubbia", refused.Slug);
+        }
+        finally
+        {
+            Directory.Delete(wiki, recursive: true);
+        }
+    }
+
+    [Theory]
+    [InlineData("", true)]
+    [InlineData("visibility: Pubblica\n", true)]
+    [InlineData("visibility: Staff\n", false)]
+    [InlineData("visibilità: Pubblica\n", false)]
+    public void DevlogPostsMaySayNothingOrPubblica(string visibility, bool published)
+    {
+        var text = $"---\ntitle: Post\nslug: post\ndate: 2026-11-20\n{visibility}---\nTesto.";
+        Assert.Equal(published, StaffGuard.Refusal(text, isDevlog: true) is null);
+    }
+
+    // Every page of the real WikiContent says "visibility: Pubblica": the allow-list refuses none.
+    [Fact]
+    public void RealWikiContentPassesTheSourceCheck()
+    {
+        Assert.Empty(StaffGuard.FindRefusedPages(Path.Combine(RepositoryRoot(), "src", "Soulslands.Web", "WikiContent")));
+    }
+
+    [Fact]
+    public async Task SourceRefusalFailsTheBuildForEachSpelling()
+    {
+        var wiki = FixtureWiki(("spazio.md", "---\ntitle: A\nslug: a-spazio\nvisibility: \" Staff\"\n---\nx"),
+            ("accento.md", "---\ntitle: B\nslug: b-accento\nvisibilità: Staff\n---\nx"),
+            ("riservata.md", "---\ntitle: C\nslug: c-riservata\nvisibility: Riservata\n---\nx"));
+        var dist = Path.Combine(Path.GetTempPath(), $"soulslands-dist-{Guid.NewGuid():N}");
+        try
+        {
+            var (code, _, errors) = await ExportAsync(wiki, dist);
+            Assert.Equal(1, code);
+            foreach (var name in new[] { "spazio.md", "accento.md", "riservata.md" })
+            {
+                Assert.Contains($"Pagina non pubblicabile nella wiki: {Path.Combine(wiki, name)}:", errors);
+            }
+            Assert.False(Directory.Exists(dist));
+        }
+        finally
+        {
+            Directory.Delete(wiki, recursive: true);
+        }
+    }
+
+    // A page of the app that sets a cookie fails the export, naming the address.
+    [Fact]
+    public async Task ResponseWithACookieFailsTheExport()
+    {
+        var wiki = FixtureWiki();
+        var dist = Path.Combine(Path.GetTempPath(), $"soulslands-dist-{Guid.NewGuid():N}");
+        try
+        {
+            using var output = new StringWriter();
+            using var errors = new StringWriter();
+            var code = await StaticExporter.RunAsync(new ExportOptions
+            {
+                OutputDirectory = dist,
+                WikiDirectory = wiki,
+                ConfigureWebHost = builder => builder.ConfigureServices(services =>
+                    services.AddSingleton<IStartupFilter, CookieOnMedia>()),
+            }, output, errors);
+            Assert.Equal(1, code);
+            Assert.Contains("/Media imposta un cookie (Set-Cookie)", errors.ToString());
+        }
+        finally
+        {
+            Directory.Delete(wiki, recursive: true);
+        }
+    }
+
+    private sealed class CookieOnMedia : IStartupFilter
+    {
+        public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next) => app =>
+        {
+            app.Use(async (context, call) =>
+            {
+                if (context.Request.Path == "/Media")
+                {
+                    context.Response.Headers.SetCookie = "traccia=1; Path=/";
+                }
+                await call(context);
+            });
+            next(app);
+        };
+    }
+
+    // A source page the importer drops (here an invalid slug) is missing from dist/: the counts differ.
+    [Fact]
+    public async Task PageMissingFromDistFailsTheExport()
+    {
+        var wiki = FixtureWiki(("persa.md", "---\ntitle: Pagina persa\nslug: Slug_Non_Valido\nvisibility: Pubblica\n---\nTesto."));
+        var dist = Path.Combine(Path.GetTempPath(), $"soulslands-dist-{Guid.NewGuid():N}");
+        try
+        {
+            var (code, _, errors) = await ExportAsync(wiki, dist);
+            Assert.Equal(1, code);
+            Assert.Contains("Pagine wiki esportate 2, ma i file pubblici in WikiContent (fuori da devlog/) sono 3", errors);
+        }
+        finally
+        {
+            Directory.Delete(wiki, recursive: true);
+        }
+    }
+
+    // STATIC_OUT pointing at a folder of the user's: refused, and nothing in it is touched.
+    [Fact]
+    public async Task FolderThatIsNotAnExportIsLeftAlone()
+    {
+        var wiki = FixtureWiki();
+        var folder = Directory.CreateTempSubdirectory("static-user-").FullName;
+        try
+        {
+            File.WriteAllText(Path.Combine(folder, "tesi.txt"), "da non perdere");
+            var (code, _, errors) = await ExportAsync(wiki, folder);
+            Assert.Equal(2, code);
+            Assert.Contains("non vengono da un'esportazione", errors);
+            Assert.Equal("da non perdere", File.ReadAllText(Path.Combine(folder, "tesi.txt")));
+            Assert.Equal([Path.Combine(folder, "tesi.txt")], Directory.EnumerateFileSystemEntries(folder));
+        }
+        finally
+        {
+            Directory.Delete(wiki, recursive: true);
+            Directory.Delete(folder, recursive: true);
+        }
+    }
+
+    // Two exports of the same source are byte-identical (the fixture is not in Git: no update times).
+    [Fact]
+    public async Task TwoExportsOfTheSameSourceAreIdentical()
+    {
+        var again = Path.Combine(Path.GetTempPath(), $"soulslands-dist-{Guid.NewGuid():N}");
+        try
+        {
+            var (code, _, errors) = await ExportAsync(export.Wiki, again);
+            Assert.True(code == 0, errors);
+            var first = Directory.EnumerateFiles(export.Dist, "*", SearchOption.AllDirectories).Select(f => Path.GetRelativePath(export.Dist, f)).Order(StringComparer.Ordinal).ToList();
+            var second = Directory.EnumerateFiles(again, "*", SearchOption.AllDirectories).Select(f => Path.GetRelativePath(again, f)).Order(StringComparer.Ordinal).ToList();
+            Assert.Equal(first, second);
+            foreach (var file in first)
+            {
+                Assert.True(File.ReadAllBytes(Path.Combine(export.Dist, file)).SequenceEqual(File.ReadAllBytes(Path.Combine(again, file))), file);
+            }
+            Assert.DoesNotContain("Aggiornata il", Read("wiki/lanterna-di-prova/index.html"));
+        }
+        finally
+        {
+            if (Directory.Exists(again))
+            {
+                Directory.Delete(again, recursive: true);
+            }
+        }
+    }
+
+    // "Aggiornata il" is the file's last commit; nothing in a shallow clone or outside Git.
+    [Fact]
+    public void UpdateTimesComeFromTheLastCommitOfEachFile()
+    {
+        var repo = Directory.CreateTempSubdirectory("static-git-").FullName;
+        var shallow = Path.Combine(Path.GetTempPath(), $"static-git-shallow-{Guid.NewGuid():N}");
+        try
+        {
+            Git(repo, null, "init", "-q");
+            File.WriteAllText(Path.Combine(repo, "a.md"), "uno");
+            File.WriteAllText(Path.Combine(repo, "b.md"), "uno");
+            Git(repo, "2026-10-18T21:04:00+02:00", "add", ".");
+            Git(repo, "2026-10-18T21:04:00+02:00", "commit", "-q", "-m", "uno");
+            File.WriteAllText(Path.Combine(repo, "b.md"), "due");
+            Git(repo, "2026-11-20T08:30:00Z", "commit", "-q", "-am", "due");
+            File.WriteAllText(Path.Combine(repo, "c.md"), "mai committato");
+
+            var dates = GitDates.LastCommits(repo);
+            Assert.Equal(new DateTime(2026, 10, 18, 19, 4, 0, DateTimeKind.Utc), dates[Path.Combine(Path.GetFullPath(repo), "a.md")]);
+            Assert.Equal(new DateTime(2026, 11, 20, 8, 30, 0, DateTimeKind.Utc), dates[Path.Combine(Path.GetFullPath(repo), "b.md")]);
+            Assert.False(dates.ContainsKey(Path.Combine(Path.GetFullPath(repo), "c.md")));
+
+            Git(Path.GetTempPath(), null, "clone", "-q", "--depth", "1", "file://" + repo, shallow);
+            Assert.Empty(GitDates.LastCommits(shallow));
+            Assert.Empty(GitDates.LastCommits(export.Wiki));
+        }
+        finally
+        {
+            Directory.Delete(repo, recursive: true);
+            if (Directory.Exists(shallow))
+            {
+                Directory.Delete(shallow, recursive: true);
+            }
+        }
+    }
+
+    private static void Git(string directory, string? date, params string[] args)
+    {
+        var start = new System.Diagnostics.ProcessStartInfo("git") { UseShellExecute = false, RedirectStandardError = true, RedirectStandardOutput = true };
+        foreach (var arg in new[] { "-C", directory, "-c", "user.name=Prova", "-c", "user.email=prova@example.invalid", "-c", "commit.gpgsign=false" }.Concat(args))
+        {
+            start.ArgumentList.Add(arg);
+        }
+        if (date is not null)
+        {
+            start.Environment["GIT_COMMITTER_DATE"] = date;
+            start.Environment["GIT_AUTHOR_DATE"] = date;
+        }
+        using var process = System.Diagnostics.Process.Start(start)!;
+        var err = process.StandardError.ReadToEnd();
+        process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+        Assert.True(process.ExitCode == 0, $"git {string.Join(' ', args)}: {err}");
+    }
+
+    private static string RepositoryRoot()
+    {
+        var dir = new DirectoryInfo(AppContext.BaseDirectory);
+        while (dir is not null && !File.Exists(Path.Combine(dir.FullName, "Soulslands.slnx")))
+        {
+            dir = dir.Parent;
+        }
+        return dir?.FullName ?? throw new InvalidOperationException("Soulslands.slnx non trovato");
     }
 }

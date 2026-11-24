@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Data.Sqlite;
@@ -19,7 +20,7 @@ namespace Soulslands.StaticExport;
 // serves as is: pages as <path>/index.html, the home page as index.html, the not-found page as
 // 404.html, every other response (feed, raw benchmark files, wwwroot files) at its own path.
 // Starts from the known routes, then follows every same-origin href, src and CSS url() it finds.
-public static class StaticExporter
+public static partial class StaticExporter
 {
     public const string NotFoundProbe = "/pagina-che-non-esiste-404";
 
@@ -46,13 +47,19 @@ public static class StaticExporter
             return 2;
         }
 
-        // First guard: the source holds no staff page, before anything is rendered or written.
-        var staff = StaffGuard.FindStaffPages(wiki);
+        // First guard: every source page says "visibility: Pubblica", before anything is rendered or written.
+        var staff = StaffGuard.FindRefusedPages(wiki);
         if (staff.Count > 0)
         {
             foreach (var page in staff)
             {
-                error.WriteLine($"Pagina staff nella wiki da pubblicare: {page.File} (il sito statico è pubblico, ADR-0035)");
+                error.WriteLine($"Pagina non pubblicabile nella wiki: {page.File}: {page.Reason} (il sito statico è pubblico, ADR-0035)");
+            }
+            // An earlier export may hold the page while it was public: no deploy of it either.
+            var earlier = Path.GetFullPath(options.OutputDirectory);
+            if (File.Exists(Path.Combine(earlier, "_headers")))
+            {
+                Directory.Delete(earlier, recursive: true);
             }
             return 1;
         }
@@ -64,6 +71,7 @@ public static class StaticExporter
         }
 
         var temp = Directory.CreateTempSubdirectory("soulslands-static-");
+        var complete = false;
         try
         {
             var errors = new List<string>();
@@ -71,13 +79,14 @@ public static class StaticExporter
             int wikiPages;
             int wikiSources;
             List<string> topLevelPages;
-            await using (var host = new ExportHost(Path.Combine(temp.FullName, "wiki.db"), wiki, options.BaseUrl.TrimEnd('/')))
+            await using (var host = new ExportHost(Path.Combine(temp.FullName, "wiki.db"), wiki, options.BaseUrl.TrimEnd('/'), options.ConfigureWebHost))
             {
                 var studio = host.Services.GetRequiredService<IOptions<StudioOptions>>().Value;
                 List<WikiPage> pages;
                 using (var scope = host.Services.CreateScope())
                 {
                     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    await SetUpdateTimesAsync(db, wiki);
                     pages = await db.WikiPages.AsNoTracking()
                         .Where(p => p.Visibility == WikiVisibility.Pubblica)
                         .OrderBy(p => p.Slug)
@@ -135,12 +144,18 @@ public static class StaticExporter
             output.WriteLine($"Pagine HTML: {pageCount}; file in {outputDirectory}: {files.Count}, {files.Sum(f => f.Length) / 1024.0 / 1024.0:0.0} MB");
             output.WriteLine($"Indice di ricerca: {new FileInfo(Path.Combine(outputDirectory, SearchIndexFile)).Length / 1024.0:0} KB");
             output.WriteLine($"Esportazione completata in {clock.Elapsed.TotalSeconds:0.0} s");
+            complete = true;
             return 0;
         }
         finally
         {
             SqliteConnection.ClearAllPools();
             temp.Delete(recursive: true);
+            // A refused or broken export leaves no dist/ that a manual "wrangler deploy" could upload.
+            if (!complete && Directory.Exists(outputDirectory))
+            {
+                Directory.Delete(outputDirectory, recursive: true);
+            }
         }
     }
 
@@ -162,7 +177,8 @@ public static class StaticExporter
             {
                 continue;
             }
-            foreach (var marker in RuntimeMarkers.Where(m => text.Contains(m, StringComparison.Ordinal)))
+            var layout = LayoutAndAttributes(text);
+            foreach (var marker in RuntimeMarkers.Where(m => layout.Contains(m, StringComparison.Ordinal)))
             {
                 errors.Add($"{relative}: contiene \"{marker}\", che il sito statico non può avere");
             }
@@ -178,6 +194,22 @@ public static class StaticExporter
         errors.AddRange(StaffGuard.ScanOutput(outputDirectory, staffNeedles).Select(hit => "Nome di una pagina staff in dist: " + hit));
         return errors;
     }
+
+    // Where a runtime part of the dynamic site would show: the page without the text of its <main>
+    // (header, menu, footer, scripts), plus every attribute value of the whole page (links, forms).
+    // The text of a wiki page or post may say "Esci dal gioco" or "Preferenze grafiche".
+    public static string LayoutAndAttributes(string html)
+    {
+        var withoutMain = MainElement().Replace(html, "<main></main>");
+        var attributes = string.Join('\n', AttributeValue().Matches(html).Select(m => m.Groups[1].Value));
+        return withoutMain + "\n" + attributes;
+    }
+
+    [GeneratedRegex(@"<main\b[^>]*>.*?</main>", RegexOptions.Singleline | RegexOptions.IgnoreCase)]
+    private static partial Regex MainElement();
+
+    [GeneratedRegex(@"\s[\w:.-]+\s*=\s*(""[^""]*""|'[^']*')")]
+    private static partial Regex AttributeValue();
 
     // Whether Cloudflare and http.server answer this path from dist/: a file, a folder with
     // index.html (both redirect <path> to <path>/), or a _redirects rule.
@@ -262,9 +294,36 @@ public static class StaticExporter
         }
     }
 
+    // The importer stamps the import time; the static site shows the file's last Git commit instead,
+    // or nothing (default) when Git cannot tell, so the same commit always gives the same dist/.
+    private static async Task SetUpdateTimesAsync(ApplicationDbContext db, string wiki)
+    {
+        var dates = GitDates.LastCommits(wiki);
+        var files = new Dictionary<string, string>(StringComparer.Ordinal);
+        foreach (var file in Directory.EnumerateFiles(wiki, "*.md", SearchOption.AllDirectories).Order(StringComparer.Ordinal))
+        {
+            if (!IsDevlog(wiki, file) && WikiContentImporter.Parse(File.ReadAllText(file)) is { } page)
+            {
+                files.TryAdd(page.Slug, Path.GetFullPath(file));
+            }
+        }
+        foreach (var page in await db.WikiPages.ToListAsync())
+        {
+            page.UpdatedAt = files.TryGetValue(page.Slug, out var file) && dates.TryGetValue(file, out var date) ? date : default;
+        }
+        await db.SaveChangesAsync();
+    }
+
     private static int PublicSourcePages(string wiki) =>
-        Directory.EnumerateFiles(wiki, "*.md", SearchOption.AllDirectories)
-            .Count(f => Path.GetRelativePath(wiki, f).Split(Path.DirectorySeparatorChar)[0] != WikiContentImporter.DevlogFolder);
+        Directory.EnumerateFiles(wiki, "*.md", SearchOption.AllDirectories).Count(f => !IsDevlog(wiki, f));
+
+    // The importer's rule (WikiContentImporter.IsDevlogFile): under the top-level devlog/ folder.
+    private static bool IsDevlog(string wiki, string file)
+    {
+        var relative = Path.GetRelativePath(wiki, file);
+        var first = relative.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)[0];
+        return relative != first && first == WikiContentImporter.DevlogFolder;
+    }
 
     private static string? FindWikiContent()
     {

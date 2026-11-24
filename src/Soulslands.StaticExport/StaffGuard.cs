@@ -1,50 +1,103 @@
+using System.Globalization;
 using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
-using Soulslands.Web.Data;
 using Soulslands.Web.Services;
 
 namespace Soulslands.StaticExport;
 
-// Fail closed on staff pages (ADR-0035): the public site must never hold one. First guard: the
-// WikiContent/ the export builds from holds no staff page at all. Second guard: no file of dist/
-// names a staff page of that source (slug or title) or carries "visibility: staff". The pages are
-// also rendered as an anonymous visitor, so WikiAccess already hides staff pages.
+// Fail closed on staff pages (ADR-0035): the public site must never hold one. First guard, an
+// allow-list over every .md file of the WikiContent/ the export builds from: a wiki page is
+// published only if its front matter says exactly "visibility: Pubblica" (a devlog post may also
+// say nothing); any other value, a missing one, a key spelled like it ("visibilità", "Visibilita")
+// or a "visibility: staff" line anywhere refuses the build. Second guard: no file of dist/ names a
+// refused page (slug or title) or carries "visibility: staff". The pages are also rendered as an
+// anonymous visitor, so WikiAccess already hides staff pages.
 public static partial class StaffGuard
 {
     public const string StaffMarker = "visibility: staff";
 
-    public sealed record StaffPage(string File, string? Slug, string? Title);
+    public const string VisibilityKey = "visibility";
 
-    // Every .md file (devlog included) whose front matter says staff, read the way the importer reads
-    // it or, for a file the importer would refuse, by the raw line.
-    public static IReadOnlyList<StaffPage> FindStaffPages(string wikiDirectory)
+    public const string Public = "Pubblica";
+
+    public sealed record RefusedPage(string File, string Reason, string? Slug, string? Title);
+
+    public static IReadOnlyList<RefusedPage> FindRefusedPages(string wikiDirectory)
     {
-        var found = new List<StaffPage>();
+        var refused = new List<RefusedPage>();
         foreach (var file in Directory.EnumerateFiles(wikiDirectory, "*.md", SearchOption.AllDirectories).Order(StringComparer.Ordinal))
         {
             var text = File.ReadAllText(file);
-            var parsed = WikiContentImporter.Parse(text);
-            if (parsed?.Visibility == WikiVisibility.Staff)
-            {
-                found.Add(new StaffPage(file, parsed.Slug, parsed.Title));
-            }
-            else if (StaffLine().IsMatch(text))
+            // The importer's rule (WikiContentImporter.IsDevlogFile): under the top-level devlog/ folder.
+            var relative = Path.GetRelativePath(wikiDirectory, file);
+            var first = relative.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)[0];
+            var isDevlog = relative != first && first == WikiContentImporter.DevlogFolder;
+            if (Refusal(text, isDevlog) is { } reason)
             {
                 var fields = FrontMatter.Parse(text)?.Fields;
-                found.Add(new StaffPage(file, fields?.GetValueOrDefault("slug"), fields?.GetValueOrDefault("title")));
+                refused.Add(new RefusedPage(file, reason, fields?.GetValueOrDefault("slug"), fields?.GetValueOrDefault("title")));
             }
         }
-        return found;
+        return refused;
     }
+
+    // Why a file may not be published, or null. Reads the front matter block line by line the way
+    // FrontMatter.Parse does (CRLF, BOM, "key: value", trimmed value without quotes).
+    public static string? Refusal(string text, bool isDevlog)
+    {
+        if (StaffLine().IsMatch(text))
+        {
+            return $"contiene una riga \"{StaffMarker}\"";
+        }
+        var lines = text.Replace("\r\n", "\n").TrimStart('\uFEFF').Split('\n');
+        if (lines[0].Trim() != "---")
+        {
+            return "non inizia con un front matter (---)";
+        }
+        var visibilities = new List<string>();
+        for (var i = 1; i < lines.Length; i++)
+        {
+            if (lines[i].Trim() == "---")
+            {
+                if (visibilities.Count == 0)
+                {
+                    return isDevlog ? null : $"manca \"{VisibilityKey}: {Public}\"";
+                }
+                var other = visibilities.FirstOrDefault(v => v != Public);
+                return other is null ? null : $"{VisibilityKey} vale \"{other}\", non {Public}";
+            }
+            var colon = lines[i].IndexOf(':');
+            if (colon <= 0)
+            {
+                continue;
+            }
+            var key = lines[i][..colon].Trim();
+            var folded = Fold(key);
+            if (folded == VisibilityKey)
+            {
+                visibilities.Add(lines[i][(colon + 1)..].Trim().Trim('"', '\''));
+            }
+            else if (folded.StartsWith("visib", StringComparison.Ordinal))
+            {
+                return $"chiave sconosciuta \"{key}\" (si scrive {VisibilityKey}: {Public})";
+            }
+        }
+        return "front matter senza la riga --- di chiusura";
+    }
+
+    // Lower case without accents: "Visibilità" -> "visibilita".
+    private static string Fold(string key) =>
+        new string([.. key.Normalize(NormalizationForm.FormD).Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)])
+            .ToLowerInvariant();
 
     // The strings no file of dist/ may contain: the marker, and each staff page's slug and title as
     // written, HTML-encoded and JSON-encoded.
-    public static IReadOnlyList<string> Needles(IEnumerable<StaffPage> staffPages)
+    public static IReadOnlyList<string> Needles(IEnumerable<RefusedPage> refusedPages)
     {
         var needles = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { StaffMarker };
-        foreach (var page in staffPages)
+        foreach (var page in refusedPages)
         {
             foreach (var value in new[] { page.Slug, page.Title })
             {
