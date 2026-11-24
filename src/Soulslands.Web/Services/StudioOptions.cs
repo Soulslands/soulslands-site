@@ -1,28 +1,23 @@
-namespace Soulslands.Web.Services.Auth;
+namespace Soulslands.Web.Services;
 
-// Section "Studio": the Mahoroba studio app, which holds accounts, store, gift keys, downloads
-// and the legal pages (SoulslandsGame ADR-0024). This site signs in through its OIDC provider.
+// Section "Studio": where the links to the Mahoroba studio app point. The studio holds accounts,
+// store, gift keys, downloads and the legal pages (SoulslandsGame ADR-0024); this site only links
+// to it and reads the studio's public announcements in the browser.
 public class StudioOptions
 {
     public const string Section = "Studio";
 
-    // The account host and OIDC issuer, e.g. https://account.mahoroba.studio. Always https, also
-    // on localhost: discovery, keys and the token endpoint (whose id token the handler trusts
-    // because it came over TLS) are fetched from here.
+    // The account host (store, download, redeem, announcements), e.g. https://account.mahoroba.studio.
     public string AccountUrl { get; set; } = "";
 
     // The studio pages (privacy, terms, contact), e.g. https://mahoroba.studio.
     public string StudioUrl { get; set; } = "";
 
-    public string ClientId { get; set; } = "soulslands-website";
-
-    // From .env or user secrets, never from a file in the repository.
-    public string? ClientSecret { get; set; }
-
     public string Account(string path) => AccountUrl.TrimEnd('/') + path;
 
     public string Studio(string path) => StudioUrl.TrimEnd('/') + path;
 
+    // The announcements are fetched from the account host by the visitor's browser: https only.
     public static bool IsValidAccountUrl(string? value) =>
         IsValidUrl(value) && new Uri(value!).Scheme == Uri.UriSchemeHttps;
 

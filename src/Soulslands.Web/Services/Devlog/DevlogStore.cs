@@ -2,8 +2,8 @@ using Microsoft.Extensions.Options;
 
 namespace Soulslands.Web.Services.Devlog;
 
-// Posts are files shipped with the site, so they are read once, on first use,
-// and kept in memory until the next restart (deploy).
+// Posts are files shipped with the site, so they are read once and kept in memory until the
+// next restart. Program.cs reads them at startup, so a post that is not public stops the site.
 public class DevlogStore
 {
     private readonly Lazy<IReadOnlyList<DevlogPost>> _posts;
@@ -11,7 +11,7 @@ public class DevlogStore
     public DevlogStore(IOptions<DevlogOptions> options, IWebHostEnvironment environment, ILogger<DevlogStore> logger)
     {
         var directory = string.IsNullOrWhiteSpace(options.Value.Directory)
-            ? Path.Combine(environment.ContentRootPath, "WikiContent", WikiContentImporter.DevlogFolder)
+            ? Path.Combine(environment.ContentRootPath, "WikiContent", WikiStore.DevlogFolder)
             : Path.Combine(environment.ContentRootPath, options.Value.Directory);
         _posts = new Lazy<IReadOnlyList<DevlogPost>>(() => DevlogLoader.Load(directory, logger));
     }

@@ -25,8 +25,8 @@ public sealed class BrowserFixture : IAsyncLifetime
         Site.Dispose();
     }
 
-    // A fresh browser context (own cookies) at the given size and colour scheme. With browserFonts the
-    // visitor has chosen the browser's fonts on /Preferenze (a cookie of this site).
+    // A fresh browser context (own storage) at the given size and colour scheme. With browserFonts the
+    // visitor has chosen the browser's fonts with the footer switch (localStorage, js/fonts.js).
     public async Task<IPage> NewPageAsync(
         (string Name, int Width, int Height)? size = null,
         ColorScheme scheme = ColorScheme.Dark,
@@ -40,7 +40,7 @@ public sealed class BrowserFixture : IAsyncLifetime
         });
         if (browserFonts)
         {
-            await context.AddCookiesAsync([new Cookie { Name = "ss-fonts", Value = "browser", Url = Site.BaseUrl }]);
+            await context.AddInitScriptAsync("localStorage.setItem('ss-fonts', 'browser');");
         }
         context.SetDefaultTimeout(10_000);
         return await context.NewPageAsync();

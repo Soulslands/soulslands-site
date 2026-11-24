@@ -61,7 +61,6 @@ public sealed class DevlogLoaderTests : IDisposable
 
     [Theory]
     [InlineData("Primo Post", "2026-10-18")]
-    [InlineData("modifica", "2026-10-18")]
     [InlineData("primo-post", "18/10/2026")]
     [InlineData("primo-post", "2026-13-01")]
     [InlineData("primo-post", "2026-10-18T10:00")]
@@ -76,6 +75,44 @@ public sealed class DevlogLoaderTests : IDisposable
     {
         Assert.Null(DevlogLoader.Parse("# Solo testo", out var error));
         Assert.NotNull(error);
+    }
+
+    // The rule of the static export (PublicPages, ADR-0035): a post may say nothing about visibility
+    // or say Pubblica; anything else stops the load, naming the file.
+    [Theory]
+    [InlineData("visibility: Staff\n")]
+    [InlineData("visibility: staff\n")]
+    [InlineData("visibility: Interna\n")]
+    [InlineData("visibilità: Pubblica\n")]
+    public void LoadRefusesAPostThatIsNotPublic(string line)
+    {
+        Write("a.md", DevlogFixtures.Post("primo-post", "2026-10-01"));
+        Write("b.md", DevlogFixtures.Post("riservato", "2026-10-02").Replace("author: Aruto\n", "author: Aruto\n" + line));
+
+        var error = Assert.Throws<InvalidOperationException>(() => DevlogLoader.Load(_dir, NullLogger.Instance));
+
+        Assert.Contains(Path.Combine(_dir, "b.md"), error.Message);
+    }
+
+    [Fact]
+    public void LoadAcceptsAPostThatSaysPubblica()
+    {
+        Write("a.md", DevlogFixtures.Post("primo-post", "2026-10-01").Replace("author: Aruto\n", "author: Aruto\nvisibility: Pubblica\n"));
+
+        Assert.Equal("primo-post", Assert.Single(DevlogLoader.Load(_dir, NullLogger.Instance)).Slug);
+    }
+
+    // dotnet run reads the devlog at startup, so it never serves a post the export would refuse.
+    [Fact]
+    public void TheSiteDoesNotStartWithAStaffPost()
+    {
+        Write("riservato.md", DevlogFixtures.Post("riservato", "2026-10-02").Replace("author: Aruto\n", "author: Aruto\nvisibility: Staff\n"));
+        using var factory = new SiteFactory();
+        var site = factory.WithWebHostBuilder(b => b.UseSetting("Devlog:Directory", _dir));
+
+        var error = Assert.ThrowsAny<Exception>(() => site.CreateClient());
+
+        Assert.Contains("riservato.md", error.GetBaseException().Message);
     }
 
     [Fact]
@@ -379,20 +416,6 @@ public class DevlogFeedTests(DevlogSiteFactory factory) : IClassFixture<DevlogSi
         Assert.Equal("http://localhost/devlog/nuovo", entry.Element(Atom + "id")?.Value);
         Assert.Equal("http://localhost/devlog/nuovo", Link(entry, "alternate"));
         Assert.All(feed.Descendants(Atom + "link"), l => Assert.True(Uri.IsWellFormedUriString(l.Attribute("href")!.Value, UriKind.Absolute)));
-    }
-
-    [Fact]
-    public async Task FeedFollowsTheHostAndSchemeBehindTheProxy()
-    {
-        var (_, feed) = await GetFeed(r =>
-        {
-            r.Headers.Host = "soulslands.example";
-            r.Headers.Add("X-Forwarded-Proto", "https");
-            r.Headers.Add("X-Forwarded-For", "203.0.113.7");
-        });
-
-        Assert.Equal("https://soulslands.example/devlog/feed.xml", Link(feed, "self"));
-        Assert.Equal("https://soulslands.example/devlog/nuovo", Link(feed.Elements(Atom + "entry").First(), "alternate"));
     }
 
     [Fact]

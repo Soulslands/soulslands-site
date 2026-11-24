@@ -6,31 +6,15 @@
 
 <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
     <h1 class="mb-0">Wiki</h1>
-    @if (Model.CanEdit)
-    {
-        <a class="btn btn-primary" asp-page="/Wiki/Edit">Nuova pagina</a>
-    }
 </div>
 
-@if (Model.Static)
-{
-    @* No server behind the static site: js/wiki-search.js filters the index the export writes
-       (Soulslands.StaticExport). Without JavaScript the box stays hidden and the tree is the index. *@
-    <div class="my-4" role="search" id="wiki-search" data-index="@Soulslands.Web.Pages.Wiki.IndexModel.SearchIndexUrl" hidden>
+@* No server behind the site: js/wiki-search.js filters the search index (SearchIndex, written into
+   dist/ by the static export). Without JavaScript the box stays hidden and the tree is the index. *@
+    <div class="my-4" role="search" id="wiki-search" data-index="@SearchIndex.Url" hidden>
         <input type="search" id="wiki-search-input" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" autocomplete="off" />
         <p class="text-muted-ss mt-3 mb-0" id="wiki-search-empty" hidden>Nessuna pagina trovata.</p>
         <ul class="list-unstyled mt-3 mb-0 wiki-search-results" id="wiki-search-results"></ul>
     </div>
-}
-else
-{
-    <form method="get" class="my-4" role="search">
-        <div class="input-group">
-            <input type="search" name="q" value="@Model.Query" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" />
-            <button class="btn btn-outline-primary" type="submit">Cerca</button>
-        </div>
-    </form>
-}
 
 @if (Model.Pages.Count == 0)
 {
@@ -42,8 +26,5 @@ else
 </div>
 
 @section Scripts {
-    @if (Model.Static)
-    {
         <script src="~/js/wiki-search.js" asp-append-version="true"></script>
-    }
 }

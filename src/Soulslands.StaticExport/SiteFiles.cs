@@ -1,5 +1,5 @@
 using System.Text;
-using Soulslands.Web.Services.Auth;
+using Soulslands.Web.Services;
 
 namespace Soulslands.StaticExport;
 
@@ -7,11 +7,22 @@ namespace Soulslands.StaticExport;
 // (developers.cloudflare.com/workers/static-assets/headers/ and .../redirects/).
 public static class SiteFiles
 {
-    // Old paths of the pages that moved to the studio (the dynamic site's MovedPages), and the font
-    // preferences page that the footer switch replaced. 302 like the dynamic site.
+    // Pages that moved to the studio (ADR-0024): old links (wiki pages, bookmarks) keep working.
+    public static readonly IReadOnlyList<(string Path, bool OnAccountHost, string Target)> MovedPages =
+    [
+        ("/Acquista", true, "/store"),
+        ("/Riscatta", true, "/redeem"),
+        ("/Download", true, "/download"),
+        ("/Privacy", false, "/privacy"),
+        ("/Termini", false, "/terms"),
+        ("/Contatti", false, "/contact"),
+    ];
+
+    // The moved pages, and the font preferences page of the old dynamic site that the footer
+    // switch replaced. 302 like the dynamic site answered.
     public static IReadOnlyList<(string Path, string Target)> Redirects(StudioOptions studio) =>
     [
-        .. StudioSignIn.MovedPages.Select(p => (p.Path, p.OnAccountHost ? studio.Account(p.Target) : studio.Studio(p.Target))),
+        .. MovedPages.Select(p => (p.Path, p.OnAccountHost ? studio.Account(p.Target) : studio.Studio(p.Target))),
         ("/Preferenze", "/"),
     ];
 

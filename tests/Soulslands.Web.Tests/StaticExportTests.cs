@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Soulslands.StaticExport;
-using Soulslands.Web.Services.Auth;
+using Soulslands.Web.Services;
 
 namespace Soulslands.Web.Tests;
 
@@ -139,7 +139,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     public void RedirectsFileMatchesMovedPages()
     {
         var studio = new StudioOptions { AccountUrl = "https://account.mahoroba.studio", StudioUrl = "https://mahoroba.studio" };
-        var expected = StudioSignIn.MovedPages
+        var expected = SiteFiles.MovedPages
             .Select(p => $"{p.Path} {(p.OnAccountHost ? studio.Account(p.Target) : studio.Studio(p.Target))} 302")
             .Append("/Preferenze / 302");
         var lines = Read("_redirects").Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(l => !l.StartsWith('#')).ToList();
@@ -402,7 +402,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     public void DevlogPostsMaySayNothingOrPubblica(string visibility, bool published)
     {
         var text = $"---\ntitle: Post\nslug: post\ndate: 2026-11-20\n{visibility}---\nTesto.";
-        Assert.Equal(published, StaffGuard.Refusal(text, isDevlog: true) is null);
+        Assert.Equal(published, PublicPages.Refusal(text, isDevlog: true) is null);
     }
 
     // Every page of the real WikiContent says "visibility: Pubblica": the allow-list refuses none.
@@ -552,13 +552,13 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
         var shallow = Path.Combine(Path.GetTempPath(), $"static-git-shallow-{Guid.NewGuid():N}");
         try
         {
-            Git(repo, null, "init", "-q");
+            TestGit.Run(repo, null, "init", "-q");
             File.WriteAllText(Path.Combine(repo, "a.md"), "uno");
             File.WriteAllText(Path.Combine(repo, "b.md"), "uno");
-            Git(repo, "2026-10-18T21:04:00+02:00", "add", ".");
-            Git(repo, "2026-10-18T21:04:00+02:00", "commit", "-q", "-m", "uno");
+            TestGit.Run(repo, "2026-10-18T21:04:00+02:00", "add", ".");
+            TestGit.Run(repo, "2026-10-18T21:04:00+02:00", "commit", "-q", "-m", "uno");
             File.WriteAllText(Path.Combine(repo, "b.md"), "due");
-            Git(repo, "2026-11-20T08:30:00Z", "commit", "-q", "-am", "due");
+            TestGit.Run(repo, "2026-11-20T08:30:00Z", "commit", "-q", "-am", "due");
             File.WriteAllText(Path.Combine(repo, "c.md"), "mai committato");
 
             var dates = GitDates.LastCommits(repo);
@@ -566,7 +566,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
             Assert.Equal(new DateTime(2026, 11, 20, 8, 30, 0, DateTimeKind.Utc), dates[Path.Combine(Path.GetFullPath(repo), "b.md")]);
             Assert.False(dates.ContainsKey(Path.Combine(Path.GetFullPath(repo), "c.md")));
 
-            Git(Path.GetTempPath(), null, "clone", "-q", "--depth", "1", "file://" + repo, shallow);
+            TestGit.Run(Path.GetTempPath(), null, "clone", "-q", "--depth", "1", "file://" + repo, shallow);
             Assert.Empty(GitDates.LastCommits(shallow));
             Assert.Empty(GitDates.LastCommits(export.Wiki));
         }
@@ -578,25 +578,6 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
                 Directory.Delete(shallow, recursive: true);
             }
         }
-    }
-
-    private static void Git(string directory, string? date, params string[] args)
-    {
-        var start = new System.Diagnostics.ProcessStartInfo("git") { UseShellExecute = false, RedirectStandardError = true, RedirectStandardOutput = true };
-        foreach (var arg in new[] { "-C", directory, "-c", "user.name=Prova", "-c", "user.email=prova@example.invalid", "-c", "commit.gpgsign=false" }.Concat(args))
-        {
-            start.ArgumentList.Add(arg);
-        }
-        if (date is not null)
-        {
-            start.Environment["GIT_COMMITTER_DATE"] = date;
-            start.Environment["GIT_AUTHOR_DATE"] = date;
-        }
-        using var process = System.Diagnostics.Process.Start(start)!;
-        var err = process.StandardError.ReadToEnd();
-        process.StandardOutput.ReadToEnd();
-        process.WaitForExit();
-        Assert.True(process.ExitCode == 0, $"git {string.Join(' ', args)}: {err}");
     }
 
     private static string RepositoryRoot()

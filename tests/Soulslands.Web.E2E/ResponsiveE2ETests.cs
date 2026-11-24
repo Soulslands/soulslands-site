@@ -5,14 +5,14 @@ namespace Soulslands.Web.E2E;
 
 // Reviewers asked for phone width and "both themes". The site has a single colour theme (dark, set in the
 // layout, no switch); what a visitor can change is the colour scheme of the browser, which the page must
-// ignore, and the font (Cursed Souls or the browser's, chosen on /Preferenze). So both are covered here.
+// ignore, and the font (Cursed Souls or the browser's, chosen with the footer switch). So both are covered here.
 [Collection(BrowserCollection.Name)]
 public class ResponsiveE2ETests(BrowserFixture browser)
 {
     public static TheoryData<string> Pages => new()
     {
         "/", "/devlog", "/devlog/primo-post", "/benchmark", "/benchmark/m2", "/benchmark/m0",
-        "/benchmark/storia/gen.chunk_us", "/Preferenze",
+        "/benchmark/storia/gen.chunk_us", "/Stato",
     };
 
     [Theory]
@@ -56,22 +56,6 @@ public class ResponsiveE2ETests(BrowserFixture browser)
 
         await Expect(page.Locator("html")).ToHaveClassAsync(new System.Text.RegularExpressions.Regex("ss-browser-fonts"));
         await AssertNoHorizontalScrollAsync(page, $"{path} (browser fonts)");
-    }
-
-    [Fact]
-    public async Task PreferencesPageSwitchesToBrowserFonts()
-    {
-        var page = await browser.NewPageAsync(BrowserFixture.Phone);
-        await page.GotoAsync(browser.Site.BaseUrl + "/Preferenze");
-        await Expect(page.Locator("html")).Not.ToHaveClassAsync(new System.Text.RegularExpressions.Regex("ss-browser-fonts"));
-
-        await page.GetByLabel("Usa i caratteri predefiniti del browser").CheckAsync();
-        await page.GetByRole(AriaRole.Button, new() { Name = "Salva" }).ClickAsync();
-
-        await Expect(page.Locator("html")).ToHaveClassAsync(new System.Text.RegularExpressions.Regex("ss-browser-fonts"));
-        await page.GotoAsync(browser.Site.BaseUrl + "/devlog");
-        await Expect(page.Locator("html")).ToHaveClassAsync(new System.Text.RegularExpressions.Regex("ss-browser-fonts"));
-        await page.Context.CloseAsync();
     }
 
     [Fact]

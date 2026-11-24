@@ -10,6 +10,10 @@
 # (app-local ICU, Soulslands.StaticExport.csproj); without a system libicu the SDK itself runs in
 # invariant mode, and the export stops with "ICU non disponibile" if Italian culture data are missing.
 #
+# "Aggiornata il" on a wiki page is the last Git commit of its file. Cloudflare clones with depth 1,
+# so a shallow clone with a remote fetches the rest of the history first (the repository is public:
+# no credentials); if that fails the pages go out without the date, with one warning line.
+#
 # Environment: SITE_BASE_URL (default https://soulslands.mahoroba.studio), STATIC_OUT (default
 # dist/ in the repository), Studio__AccountUrl / Studio__StudioUrl (default the studio's hosts).
 set -euo pipefail
@@ -21,6 +25,19 @@ started=$(date +%s)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1 DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 export SITE_BASE_URL="${SITE_BASE_URL:-https://soulslands.mahoroba.studio}"
 out="${STATIC_OUT:-$root/dist}"
+
+if command -v git >/dev/null 2>&1 && [[ "$(git -C "$root" rev-parse --is-shallow-repository 2>/dev/null)" == true ]]; then
+    if [[ -n "$(git -C "$root" remote 2>/dev/null)" ]]; then
+        fetch_started=$(date +%s)
+        if GIT_TERMINAL_PROMPT=0 timeout 300 git -C "$root" fetch --unshallow --quiet </dev/null >/dev/null 2>&1; then
+            echo "build-static: storia Git completata per le date della wiki (fetch --unshallow, $(( $(date +%s) - fetch_started )) s)"
+        else
+            echo "build-static: ATTENZIONE: git fetch --unshallow non riuscito, le pagine della wiki escono senza \"Aggiornata il\""
+        fi
+    else
+        echo "build-static: ATTENZIONE: clone parziale senza remote, le pagine della wiki escono senza \"Aggiornata il\""
+    fi
+fi
 
 # The SDK and MSBuild abort at start without a system libicu; they need no culture data, so they then
 # run in invariant mode. The exporter's runtimeconfig sets Invariant=false and loads its own ICU.

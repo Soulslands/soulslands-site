@@ -481,13 +481,10 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
-# Local SQLite databases
+# SQLite files the old dynamic site (before W-22) left in a checkout
 *.db
 *.db-shm
 *.db-wal
-
-# Database dumps from the backup service
-backups/
 
 # Static site written by scripts/build-static.sh (W-21); the .NET SDK it may install
 /dist/

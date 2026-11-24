@@ -1,6 +1,6 @@
 name: CI
 
-# Build, tests and browser tests. The Docker image build is in docker.yml.
+# Build, tests, browser tests and the static site (dist/) that Cloudflare deploys (README, "Sito statico su Cloudflare").
 # This repository is public, so GitHub-hosted runners are free (ADR-0035 section 12).
 on:
   push:
@@ -57,7 +57,10 @@ jobs:
     timeout-minutes: 20
     steps:
       - run: echo "DOTNET_INSTALL_DIR=$RUNNER_TEMP/dotnet" >> "$GITHUB_ENV"
+      # Full history, so the wiki pages carry their "Aggiornata il" date as on Cloudflare (build-static.sh unshallows there).
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x

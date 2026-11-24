@@ -1,6 +1,4 @@
 # Paths that need Aruto's review (ADR-0024 section 10, in the studio repository). GitHub requests
 # his review automatically on a pull request that touches them.
 /.github/CODEOWNERS                          @Arutosio
-/src/Soulslands.Web/Services/Auth/           @Arutosio   # OIDC client of the studio, role claims, sign-in cookie
-/src/Soulslands.Web/Services/WikiAccess.cs   @Arutosio   # who reads the staff wiki
-/src/Soulslands.Web/Services/Servers/        @Arutosio   # ssk_ server keys, heartbeat
+/src/Soulslands.Web/Services/PublicPages.cs  @Arutosio   # no staff page on the public site (ADR-0035), was WikiAccess.cs
