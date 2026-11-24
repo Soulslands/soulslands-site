@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/Soulslands.StaticExport/Soulslands.StaticExport.csproj" />
     <Project Path="src/Soulslands.Web/Soulslands.Web.csproj" />
   </Folder>
   <Folder Name="/tests/">

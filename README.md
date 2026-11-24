@@ -133,6 +133,48 @@ I ruoli arrivano dallo studio (claim `role`) e valgono per tutto lo studio; si a
 
 Le pagine Staff rispondono 404 a chi non è staff e non compaiono negli elenchi né nella ricerca.
 
+## Sito statico su Cloudflare
+
+`soulslands.mahoroba.studio` è un sito statico servito da Cloudflare Workers come *static assets* (progetto Workers Builds `soulslands-site`, configurazione in `wrangler.jsonc`: solo file, nessuno script Worker). `scripts/build-static.sh` avvia il sito in memoria (`src/Soulslands.StaticExport`, nessuna porta aperta), visita ogni pagina pubblica come un visitatore anonimo e scrive tutto in `dist/`:
+
+- ogni pagina come `<percorso>/index.html` (la home `index.html`, la pagina 404 `404.html`), il feed `devlog/feed.xml`, i file grezzi dei benchmark e i file di `wwwroot` che le pagine usano;
+- `_redirects`: le vecchie pagine passate allo studio (`/Acquista`, `/Riscatta`, `/Download` sull'host degli account, `/Privacy`, `/Termini`, `/Contatti` sul sito dello studio), `/Preferenze` verso la home e le grafie minuscole (`/media`, `/download`...), perché Cloudflare distingue maiuscole e minuscole;
+- `_headers`: Content-Security-Policy senza script inline (gli stili inline restano permessi: li usano i diagrammi mermaid e le barre di avanzamento), `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`;
+- `wiki/indice-ricerca.json`: l'indice della ricerca nella wiki, filtrato nel browser.
+
+"Aggiornata il" su una pagina della wiki è la data dell'ultimo commit Git del suo file, così due build dello stesso commit danno la stessa `dist/`; senza Git o in un clone parziale (`--depth`) la riga non compare. Se la build fallisce, `dist/` viene cancellata.
+
+Workers applica `_headers` e `_redirects` della cartella `dist/` come Pages; `/Media` risponde 307 verso `/Media/` (`html_handling: auto-trailing-slash`) e ogni percorso senza file riceve `404.html` con stato 404 (`not_found_handling: 404-page`).
+
+Nel sito statico non ci sono accesso, menu Admin, elenco dei server, editor della wiki né cookie. La bacheca della home arriva dallo studio nel browser (`https://account.mahoroba.studio/api/games/soulslands/announcements`) e resta nascosta se è vuota o lo studio non risponde; la scelta dei caratteri è un pulsante nel piè di pagina, salvato in `localStorage`.
+
+Lo script si ferma con un errore, nominando il file, se una pagina di `WikiContent/` non dice esattamente `visibility: Pubblica` (un post del devlog può anche non dirlo; ogni altro valore, una chiave scritta in altro modo come `visibilità` o una riga `visibility: staff` bloccano la build), se in `dist/` c'è il nome di una pagina staff, un pezzo del sito dinamico (accesso, Admin, server) o `document.cookie`, o se un link interno di una pagina non ha un file in `dist/`. Se .NET manca (l'immagine di build di Cloudflare non lo ha) installa l'SDK indicato in `global.json` con la copia di `scripts/dotnet-install.sh` (Microsoft, licenza MIT) in `~/.dotnet`. L'export porta con sé l'ICU (i dati della lingua italiana: ordine della wiki, numeri) su Linux x64, quindi non dipende dalla `libicu` della macchina; se mancasse comunque si ferma con "ICU non disponibile" invece di scrivere pagine sbagliate.
+
+In locale:
+
+```bash
+scripts/build-static.sh                      # scrive dist/
+python3 -m http.server -d dist 8000          # http://localhost:8000
+npx wrangler dev                             # come Cloudflare (wrangler.jsonc): esegue la build, poi serve dist/ con _headers e _redirects
+```
+
+**Impostazioni nella dashboard di Cloudflare** (Workers & Pages → `soulslands-site` → Settings → Build; repository GitHub `Soulslands/soulslands-site`, non il vecchio `soulslands-website`). La build è in `wrangler.jsonc` (`build.command`): wrangler esegue `scripts/build-static.sh` prima di `deploy`, `versions upload` e `dev`, quindi nella dashboard bastano i comandi di deploy:
+
+| Impostazione | Valore |
+|---|---|
+| Deploy command | `npx wrangler deploy` |
+| Non-production branch deploy command | `npx wrangler versions upload` (il valore predefinito) |
+| Build command | facoltativo, di solito vuoto; se vale `scripts/build-static.sh` la build gira due volte, senza danni (ogni volta riscrive `dist/` da zero) |
+| Root directory | vuota (radice del repository) |
+| Production branch | `main` |
+| Build variable | facoltativa: `SITE_BASE_URL` vale già `https://soulslands.mahoroba.studio` (serve ai link assoluti del feed) |
+
+Il nome del Worker nella dashboard deve restare `soulslands-site`, come `name` in `wrangler.jsonc`, altrimenti la build fallisce. Il Worker nasce con il primo deploy da `main`: prima di allora le build delle pull request (`versions upload`) falliscono con "This Worker does not exist on your account". La build non usa segreti; sulle URL di anteprima la bacheca resta nascosta (lo studio risponde solo a `soulslands.mahoroba.studio`). Il dominio `soulslands.mahoroba.studio` si collega a mano in Settings → Domains & Routes → Custom domain: `wrangler.jsonc` non ha `routes` né `custom_domain`, perché il dominio ha già un record DNS e un conflitto farebbe fallire tutto il deploy.
+
+**Alternativa**: lo stesso `dist/` funziona su Cloudflare Pages (preset None, build command `scripts/build-static.sh`, output `dist`), oppure si carica da GitHub Actions con `npx wrangler deploy` e un token API di Cloudflare come segreto del repository (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`), che solo Aruto può creare: non è in questo repository.
+
+La CI controlla tutto nel job `static-site`: esegue `scripts/build-static.sh` e i test nel browser (`StaticSiteE2ETests`) sulla `dist/` servita come da Cloudflare (`tests/Soulslands.Web.E2E/serve-static.py`).
+
 ## Deploy con Docker e PostgreSQL
 
 In produzione il sito usa PostgreSQL (`Database:Provider` = `Postgres`), in sviluppo e nei test SQLite. Le due basi dati hanno migrazioni separate: `Data/Migrations` per SQLite e `Data/Migrations/Postgres` per PostgreSQL. Dopo una modifica al modello vanno create entrambe:

@@ -19,7 +19,16 @@
     </div>
 </section>
 
-@if (Model.Announcements.Count > 0)
+@if (Model.Static)
+{
+    @* The static site reads the announcements from the studio in the browser (js/announcements.js);
+       the section stays hidden when there are none or the studio does not answer. *@
+    <section class="panel board mb-4" aria-label="Bacheca" id="bacheca" data-src="@Model.AnnouncementsUrl" hidden>
+        <h2 class="h5 text-gold mb-3">📜 Bacheca</h2>
+        <ul class="list-unstyled mb-0"></ul>
+    </section>
+}
+else if (Model.Announcements.Count > 0)
 {
     <section class="panel board mb-4" aria-label="Bacheca">
         <h2 class="h5 text-gold mb-3">📜 Bacheca</h2>
@@ -65,3 +74,10 @@
         </div>
     }
 </section>
+
+@section Scripts {
+    @if (Model.Static)
+    {
+        <script src="~/js/announcements.js" asp-append-version="true"></script>
+    }
+}

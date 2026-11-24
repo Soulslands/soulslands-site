@@ -12,8 +12,17 @@ public static class DataSeeder
         var db = services.GetRequiredService<ApplicationDbContext>();
         await db.Database.MigrateAsync();
 
-        var environment = services.GetRequiredService<IWebHostEnvironment>();
         var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger(nameof(WikiContentImporter));
-        await WikiContentImporter.ImportAsync(db, Path.Combine(environment.ContentRootPath, "WikiContent"), logger);
+        await WikiContentImporter.ImportAsync(db, WikiDirectory(services), logger);
+    }
+
+    // WikiContent/ next to the app, or Wiki:Directory (the static export builds from a fixture
+    // folder in its tests).
+    public static string WikiDirectory(IServiceProvider services)
+    {
+        var configured = services.GetRequiredService<IConfiguration>()["Wiki:Directory"];
+        return string.IsNullOrWhiteSpace(configured)
+            ? Path.Combine(services.GetRequiredService<IWebHostEnvironment>().ContentRootPath, "WikiContent")
+            : configured;
     }
 }

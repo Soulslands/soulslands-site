@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Soulslands.Web\Soulslands.Web.csproj" />
+    <ProjectReference Include="..\..\src\Soulslands.StaticExport\Soulslands.StaticExport.csproj" />
   </ItemGroup>
 
 </Project>

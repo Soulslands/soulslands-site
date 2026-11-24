@@ -11,6 +11,11 @@ public class SiteOptions
     // Absolute http or https URL without query or fragment, e.g. https://soulslands.arutosio.com.
     public string? BaseUrl { get; set; }
 
+    // True while scripts/build-static.sh renders the static site (Soulslands.StaticExport): pages
+    // leave out everything that needs a server (sign-in, admin menu, server list, editor links,
+    // cookies) and use the browser-side announcements, wiki search and font choice instead.
+    public bool Static { get; set; }
+
     public static bool IsValidBaseUrl(string? value) =>
         string.IsNullOrWhiteSpace(value)
         || (Uri.TryCreate(value, UriKind.Absolute, out var uri)

@@ -12,18 +12,38 @@
     }
 </div>
 
-<form method="get" class="my-4" role="search">
-    <div class="input-group">
-        <input type="search" name="q" value="@Model.Query" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" />
-        <button class="btn btn-outline-primary" type="submit">Cerca</button>
+@if (Model.Static)
+{
+    @* No server behind the static site: js/wiki-search.js filters the index the export writes
+       (Soulslands.StaticExport). Without JavaScript the box stays hidden and the tree is the index. *@
+    <div class="my-4" role="search" id="wiki-search" data-index="@Soulslands.Web.Pages.Wiki.IndexModel.SearchIndexUrl" hidden>
+        <input type="search" id="wiki-search-input" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" autocomplete="off" />
+        <p class="text-muted-ss mt-3 mb-0" id="wiki-search-empty" hidden>Nessuna pagina trovata.</p>
+        <ul class="list-unstyled mt-3 mb-0 wiki-search-results" id="wiki-search-results"></ul>
     </div>
-</form>
+}
+else
+{
+    <form method="get" class="my-4" role="search">
+        <div class="input-group">
+            <input type="search" name="q" value="@Model.Query" class="form-control" placeholder="Cerca nella wiki" aria-label="Cerca nella wiki" />
+            <button class="btn btn-outline-primary" type="submit">Cerca</button>
+        </div>
+    </form>
+}
 
 @if (Model.Pages.Count == 0)
 {
     <p class="text-muted-ss">Nessuna pagina trovata.</p>
 }
 
-<div class="wiki-index">
+<div class="wiki-index" id="wiki-index">
     <partial name="_WikiTree" model="Model.Sections" />
 </div>
+
+@section Scripts {
+    @if (Model.Static)
+    {
+        <script src="~/js/wiki-search.js" asp-append-version="true"></script>
+    }
+}

@@ -48,3 +48,30 @@ jobs:
         working-directory: tests/Soulslands.Web.E2E/bin/Debug/net10.0
         run: .playwright/node/linux-x64/node .playwright/package/cli.js install chromium
       - run: dotnet test tests/Soulslands.Web.E2E --no-build
+
+  # The static site for Cloudflare (W-21, Workers static assets): scripts/build-static.sh writes dist/ (it fails on a staff
+  # page, a link without a file, a staff name or a server-only part in dist/), then the browser smoke test
+  # runs over that dist/ served like Cloudflare (tests/Soulslands.Web.E2E/serve-static.py).
+  static-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - run: echo "DOTNET_INSTALL_DIR=$RUNNER_TEMP/dotnet" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: scripts/build-static.sh
+      - name: No server parts, no cookies in dist
+        run: |
+          # "! grep" would not stop a step under bash -e, hence the if.
+          if grep -rl "Accedi\|Esci\|/Account/\|/Admin/\|/Server\|/wiki/modifica\|/cronologia\|Preferenze\|__Host-Soulslands" dist --include=*.html; then exit 1; fi
+          if grep -rl "document.cookie" dist; then exit 1; fi
+          test -f dist/index.html && test -f dist/404.html && test -f dist/_redirects && test -f dist/_headers
+      - run: dotnet build tests/Soulslands.Web.E2E
+      - name: Install Chromium
+        working-directory: tests/Soulslands.Web.E2E/bin/Debug/net10.0
+        run: .playwright/node/linux-x64/node .playwright/package/cli.js install chromium
+      - run: dotnet test tests/Soulslands.Web.E2E --no-build --filter "FullyQualifiedName~StaticSiteE2ETests"
+        env:
+          STATIC_DIST: ${{ github.workspace }}/dist

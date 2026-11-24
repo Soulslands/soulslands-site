@@ -23,10 +23,14 @@
     <!-- Own devlog posts, plus the benchmark results the unit tests already use (not copied: linked). -->
     <None Include="Fixtures\Devlog\**" CopyToOutputDirectory="PreserveNewest" />
     <None Include="..\Soulslands.Web.Tests\Fixtures\Benchmark\**" Link="Fixtures\Benchmark\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <!-- The static site (W-21): the fixture wiki with a diagram, and the server that serves dist/ like Cloudflare Pages. -->
+    <None Include="..\Soulslands.Web.Tests\Fixtures\StaticWiki\**" Link="Fixtures\StaticWiki\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="serve-static.py" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Soulslands.Web\Soulslands.Web.csproj" />
+    <ProjectReference Include="..\..\src\Soulslands.StaticExport\Soulslands.StaticExport.csproj" />
   </ItemGroup>
 
 </Project>

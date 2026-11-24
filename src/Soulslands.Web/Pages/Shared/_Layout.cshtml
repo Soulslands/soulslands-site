@@ -1,14 +1,25 @@
 @inject IOptions<StudioOptions> StudioOptions
+@inject IOptions<Soulslands.Web.Services.SiteOptions> SiteOptions
 @{
     var studio = StudioOptions.Value;
+    // The static site (scripts/build-static.sh) has no server: no sign-in, no admin menu, no cookies.
+    var isStatic = SiteOptions.Value.Static;
 }
 <!DOCTYPE html>
-<html lang="it" data-bs-theme="dark" class="@(PreferenzeModel.WantsBrowserFonts(Context.Request) ? "ss-browser-fonts" : null)">
+<html lang="it" data-bs-theme="dark" class="@(!isStatic && PreferenzeModel.WantsBrowserFonts(Context.Request) ? "ss-browser-fonts" : null)">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Soulslands</title>
-    <script type="importmap"></script>
+    @if (isStatic)
+    {
+        @* Sets the font class from localStorage before the page paints (no inline script: CSP). *@
+        <script src="~/js/fonts.js" asp-append-version="true"></script>
+    }
+    else
+    {
+        <script type="importmap"></script>
+    }
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -37,7 +48,7 @@
                         <li class="nav-item"><a class="nav-link" href="@studio.Studio("/contact")">Contatti</a></li>
                         <li class="nav-item"><a class="nav-link" href="@studio.Account("/redeem")">Riscatta</a></li>
                         <li class="nav-item"><a class="nav-link nav-link-buy" href="@studio.Account("/store")">Acquista</a></li>
-                        @if (User.IsInRole(Roles.Admin))
+                        @if (!isStatic && User.IsInRole(Roles.Admin))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
@@ -49,7 +60,10 @@
                             </li>
                         }
                     </ul>
-                    <partial name="_LoginPartial" />
+                    @if (!isStatic)
+                    {
+                        <partial name="_LoginPartial" />
+                    }
                 </div>
             </div>
         </nav>
@@ -62,7 +76,15 @@
 
     <footer class="site-footer">
         <div class="container">
-            &copy; 2026 Soulslands &middot; <a asp-area="" asp-page="/Regole">Regole</a> &middot; <a href="@studio.Studio("/terms")">Termini di vendita</a> &middot; <a href="@studio.Studio("/privacy")">Privacy</a> &middot; <a asp-area="" asp-page="/Preferenze">Preferenze</a>
+            &copy; 2026 Soulslands &middot; <a asp-area="" asp-page="/Regole">Regole</a> &middot; <a href="@studio.Studio("/terms")">Termini di vendita</a> &middot; <a href="@studio.Studio("/privacy")">Privacy</a> &middot;
+            @if (isStatic)
+            {
+                <button type="button" class="btn btn-link footer-fonts p-0 align-baseline" id="font-toggle" aria-pressed="false">Caratteri del browser</button>
+            }
+            else
+            {
+                <a asp-area="" asp-page="/Preferenze">Preferenze</a>
+            }
         </div>
     </footer>
 

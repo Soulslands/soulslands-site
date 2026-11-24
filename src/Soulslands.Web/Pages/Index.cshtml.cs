@@ -1,13 +1,25 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Soulslands.Web.Data;
+using Soulslands.Web.Services;
+using Soulslands.Web.Services.Auth;
 using Soulslands.Web.Services.Devlog;
 
 namespace Soulslands.Web.Pages;
 
-public class IndexModel(ApplicationDbContext db, DevlogStore devlog) : PageModel
+public class IndexModel(ApplicationDbContext db, DevlogStore devlog, IOptions<SiteOptions> site, IOptions<StudioOptions> studio) : PageModel
 {
     public const int LatestPostCount = 3;
+
+    // The studio's public list of this game's announcements (ADR-0024 section 11.5), read in the browser.
+    // The studio writes them in English or Japanese (or for every language) and knows no Italian:
+    // ?lang=en gives the English ones and those for every language, never the Japanese-only ones.
+    public const string AnnouncementsPath = "/api/games/soulslands/announcements?lang=en";
+
+    public bool Static => site.Value.Static;
+
+    public string AnnouncementsUrl => studio.Value.Account(AnnouncementsPath);
 
     public List<Announcement> Announcements { get; private set; } = [];
 
@@ -27,6 +39,10 @@ public class IndexModel(ApplicationDbContext db, DevlogStore devlog) : PageModel
     public async Task OnGetAsync()
     {
         LatestPosts = [.. devlog.Posts.Take(LatestPostCount)];
+        if (Static)
+        {
+            return;
+        }
         Announcements = await db.Announcements.AsNoTracking()
             .OrderByDescending(a => a.CreatedAt)
             .Take(5)

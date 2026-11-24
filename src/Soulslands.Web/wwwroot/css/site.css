@@ -270,6 +270,13 @@ main h1 {
   white-space: nowrap;
 }
 
+/* The static site's font switch (js/fonts.js): a button that reads like the footer links. */
+.site-footer .footer-fonts {
+  font: inherit;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
 /* The footer takes two lines on a phone: keep the page content clear of it. */
 @media (max-width: 575.98px) {
   body {
