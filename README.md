@@ -142,11 +142,13 @@ Le pagine Staff rispondono 404 a chi non è staff e non compaiono negli elenchi 
 - `_headers`: Content-Security-Policy senza script inline (gli stili inline restano permessi: li usano i diagrammi mermaid e le barre di avanzamento), `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`;
 - `wiki/indice-ricerca.json`: l'indice della ricerca nella wiki, filtrato nel browser.
 
+"Aggiornata il" su una pagina della wiki è la data dell'ultimo commit Git del suo file, così due build dello stesso commit danno la stessa `dist/`; senza Git o in un clone parziale (`--depth`) la riga non compare. Se la build fallisce, `dist/` viene cancellata.
+
 Workers applica `_headers` e `_redirects` della cartella `dist/` come Pages; `/Media` risponde 307 verso `/Media/` (`html_handling: auto-trailing-slash`) e ogni percorso senza file riceve `404.html` con stato 404 (`not_found_handling: 404-page`).
 
 Nel sito statico non ci sono accesso, menu Admin, elenco dei server, editor della wiki né cookie. La bacheca della home arriva dallo studio nel browser (`https://account.mahoroba.studio/api/games/soulslands/announcements`) e resta nascosta se è vuota o lo studio non risponde; la scelta dei caratteri è un pulsante nel piè di pagina, salvato in `localStorage`.
 
-Lo script si ferma con un errore, nominando il file, se `WikiContent/` contiene una pagina `visibility: staff`, se in `dist/` c'è il nome di una pagina staff, un pezzo del sito dinamico (accesso, Admin, server) o `document.cookie`, o se un link interno di una pagina non ha un file in `dist/`. Se .NET manca (l'immagine di build di Cloudflare non lo ha) installa l'SDK indicato in `global.json` con la copia di `scripts/dotnet-install.sh` (Microsoft, licenza MIT) in `~/.dotnet`. L'export porta con sé l'ICU (i dati della lingua italiana: ordine della wiki, numeri) su Linux x64, quindi non dipende dalla `libicu` della macchina; se mancasse comunque si ferma con "ICU non disponibile" invece di scrivere pagine sbagliate.
+Lo script si ferma con un errore, nominando il file, se una pagina di `WikiContent/` non dice esattamente `visibility: Pubblica` (un post del devlog può anche non dirlo; ogni altro valore, una chiave scritta in altro modo come `visibilità` o una riga `visibility: staff` bloccano la build), se in `dist/` c'è il nome di una pagina staff, un pezzo del sito dinamico (accesso, Admin, server) o `document.cookie`, o se un link interno di una pagina non ha un file in `dist/`. Se .NET manca (l'immagine di build di Cloudflare non lo ha) installa l'SDK indicato in `global.json` con la copia di `scripts/dotnet-install.sh` (Microsoft, licenza MIT) in `~/.dotnet`. L'export porta con sé l'ICU (i dati della lingua italiana: ordine della wiki, numeri) su Linux x64, quindi non dipende dalla `libicu` della macchina; se mancasse comunque si ferma con "ICU non disponibile" invece di scrivere pagine sbagliate.
 
 In locale:
 
