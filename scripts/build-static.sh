@@ -42,7 +42,8 @@ if ! command -v dotnet >/dev/null 2>&1 || ! dotnet --version >/dev/null 2>&1; th
 fi
 echo "build-static: .NET SDK $(dotnet --version), sito $SITE_BASE_URL"
 
-dotnet build "$root/src/Soulslands.StaticExport" -c Release --nologo -v quiet
+# NETSDK1188 (a package resource in a locale invariant mode does not know) only clutters the log.
+dotnet build "$root/src/Soulslands.StaticExport" -c Release --nologo -v quiet -warnAsMessage:NETSDK1188
 # The exporter runs without the SDK, and without the invariant switch the SDK may have needed: the
 # environment variable would override its runtimeconfig and hide its own ICU.
 env -u DOTNET_SYSTEM_GLOBALIZATION_INVARIANT \
