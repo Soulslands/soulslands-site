@@ -2,7 +2,7 @@
 
 Sito ufficiale di Soulslands: pagine del gioco, devlog, pagine dei benchmark e wiki pubblica. È un **sito statico**: `scripts/build-static.sh` produce la cartella `dist/` e Cloudflare la serve su `soulslands.mahoroba.studio`.
 
-Tutto quello che ha bisogno di un server sta nel sito dello studio Mahoroba (`Arutosio/mahoroba-website`, SoulslandsGame ADR-0024): account, accesso, acquisto, key regalo, download, pagine legali, API del launcher e del session server (`/games/soulslands/`) e la bacheca degli annunci. Questo sito non ha account, database, cookie né segreti: rimanda allo studio con dei link.
+Tutto quello che ha bisogno di un server sta nel sito dello studio Mahoroba (`Arutosio/mahoroba-website`, SoulslandsGame ADR-0024): account, accesso, acquisto, key regalo, download, pagine legali, API del launcher e del session server (`/api/games/soulslands/`) e la bacheca degli annunci. Questo sito non ha account, database, cookie né segreti: rimanda allo studio con dei link.
 
 Stack: ASP.NET Core su .NET 10 e Razor Pages, usati solo per generare le pagine; Markdig per il Markdown.
 
@@ -36,7 +36,7 @@ I test nel browser (Playwright, Chromium headless) stanno in `tests/Soulslands.W
 
 ```bash
 dotnet build tests/Soulslands.Web.E2E
-pwsh tests/Soulslands.Web.E2E/bin/Debug/net10.0/playwright.ps1 install chromium   # una volta, scarica il browser
+(cd tests/Soulslands.Web.E2E/bin/Debug/net10.0 && .playwright/node/linux-x64/node .playwright/package/cli.js install chromium)   # una volta, scarica il browser (senza pwsh, come la CI)
 dotnet test tests/Soulslands.Web.E2E
 ```
 
@@ -61,7 +61,7 @@ Questo repository è pubblico e contiene solo pagine pubbliche (ADR-0035): le pa
 
 ## Devlog
 
-I post del devlog stanno in `src/Soulslands.Web/WikiContent/devlog/`, un file Markdown per post. Non sono pagine wiki: la wiki salta la cartella `devlog/`. Il sito li legge al primo accesso e li tiene in memoria, quindi un post nuovo arriva con la build successiva. `/devlog` elenca i post dal più recente, `/devlog/{slug}` mostra un post (Markdown come la wiki, diagrammi ```mermaid compresi). I post sono pubblici.
+I post del devlog stanno in `src/Soulslands.Web/WikiContent/devlog/`, un file Markdown per post. Non sono pagine wiki: la wiki salta la cartella `devlog/`. Il sito li legge al primo accesso e li tiene in memoria, quindi un post nuovo arriva con la build successiva. `/devlog` elenca i post dal più recente, `/devlog/{slug}` mostra un post (Markdown come la wiki, diagrammi ```mermaid compresi). I post sono pubblici: un post può non dire nulla sulla visibilità o dire `visibility: Pubblica`; ogni altro valore (o una riga `visibility: staff`) ferma l'avvio del sito e la build statica, nominando il file, come per la wiki.
 
 Il front matter ha cinque campi, tutti obbligatori:
 
@@ -103,7 +103,7 @@ La cartella si può cambiare con `Benchmark:Directory` (percorso assoluto o rela
 - `_headers`: Content-Security-Policy senza script inline (gli stili inline restano permessi: li usano i diagrammi mermaid e le barre di avanzamento), `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`;
 - `wiki/indice-ricerca.json`: l'indice della ricerca nella wiki, filtrato nel browser.
 
-"Aggiornata il" su una pagina della wiki è la data dell'ultimo commit Git del suo file, così due build dello stesso commit danno la stessa `dist/`; senza Git o in un clone parziale (`--depth`) la riga non compare. Se la build fallisce, `dist/` viene cancellata.
+"Aggiornata il" su una pagina della wiki è la data dell'ultimo commit Git del suo file, così due build dello stesso commit danno la stessa `dist/`. Cloudflare clona il repository con `--depth 1`: in un clone parziale con un remote lo script prima scarica il resto della storia (`git fetch --unshallow`, il repository è pubblico); se non ci riesce, o senza Git, stampa un avviso e la riga non compare. Se la build fallisce, `dist/` viene cancellata.
 
 Workers applica `_headers` e `_redirects` della cartella `dist/` come Pages; `/Media` risponde 307 verso `/Media/` (`html_handling: auto-trailing-slash`) e ogni percorso senza file riceve `404.html` con stato 404 (`not_found_handling: 404-page`).
 
