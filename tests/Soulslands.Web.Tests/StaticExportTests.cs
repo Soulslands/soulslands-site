@@ -166,6 +166,10 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
         // The Workers Builds project in Cloudflare's dashboard has this name; a different one fails the build.
         Assert.Equal("soulslands-site", root.GetProperty("name").GetString());
         Assert.False(root.TryGetProperty("main", out _), "assets only: no Worker script, so _headers and _redirects apply");
+        // The dashboard runs only "npx wrangler deploy": wrangler itself must build dist/ first.
+        Assert.Equal("bash scripts/build-static.sh", root.GetProperty("build").GetProperty("command").GetString());
+        // The domain is attached in the dashboard; a clash with its DNS record would fail the deploy.
+        Assert.False(root.TryGetProperty("routes", out _) || root.TryGetProperty("route", out _));
         var assets = root.GetProperty("assets");
         Assert.Equal("./dist", assets.GetProperty("directory").GetString());
         Assert.Equal("404-page", assets.GetProperty("not_found_handling").GetString());

@@ -153,21 +153,21 @@ In locale:
 ```bash
 scripts/build-static.sh                      # scrive dist/
 python3 -m http.server -d dist 8000          # http://localhost:8000
-npx wrangler dev                             # come Cloudflare (wrangler.jsonc), con _headers e _redirects
+npx wrangler dev                             # come Cloudflare (wrangler.jsonc): esegue la build, poi serve dist/ con _headers e _redirects
 ```
 
-**Impostazioni nella dashboard di Cloudflare** (Workers & Pages → `soulslands-site` → Settings → Build; repository GitHub `Soulslands/soulslands-site`, non il vecchio `soulslands-website`):
+**Impostazioni nella dashboard di Cloudflare** (Workers & Pages → `soulslands-site` → Settings → Build; repository GitHub `Soulslands/soulslands-site`, non il vecchio `soulslands-website`). La build è in `wrangler.jsonc` (`build.command`): wrangler esegue `scripts/build-static.sh` prima di `deploy`, `versions upload` e `dev`, quindi nella dashboard bastano i comandi di deploy:
 
 | Impostazione | Valore |
 |---|---|
-| Build command | `scripts/build-static.sh` |
 | Deploy command | `npx wrangler deploy` |
-| Non-production branch deploy command | `npx wrangler versions upload` |
+| Non-production branch deploy command | `npx wrangler versions upload` (il valore predefinito) |
+| Build command | facoltativo, di solito vuoto; se vale `scripts/build-static.sh` la build gira due volte, senza danni (ogni volta riscrive `dist/` da zero) |
 | Root directory | vuota (radice del repository) |
 | Production branch | `main` |
-| Build variable | `SITE_BASE_URL` = `https://soulslands.mahoroba.studio` (è anche il valore usato se manca; serve ai link assoluti del feed) |
+| Build variable | facoltativa: `SITE_BASE_URL` vale già `https://soulslands.mahoroba.studio` (serve ai link assoluti del feed) |
 
-Il nome del Worker nella dashboard deve restare `soulslands-site`, come `name` in `wrangler.jsonc`, altrimenti la build fallisce. Il Worker nasce con il primo deploy da `main`: prima di allora le build delle pull request (`versions upload`) falliscono con "This Worker does not exist on your account". La build non usa segreti; sulle URL di anteprima la bacheca resta nascosta (lo studio risponde solo a `soulslands.mahoroba.studio`). Il dominio `soulslands.mahoroba.studio` si collega in Settings → Domains & Routes → Custom domain.
+Il nome del Worker nella dashboard deve restare `soulslands-site`, come `name` in `wrangler.jsonc`, altrimenti la build fallisce. Il Worker nasce con il primo deploy da `main`: prima di allora le build delle pull request (`versions upload`) falliscono con "This Worker does not exist on your account". La build non usa segreti; sulle URL di anteprima la bacheca resta nascosta (lo studio risponde solo a `soulslands.mahoroba.studio`). Il dominio `soulslands.mahoroba.studio` si collega a mano in Settings → Domains & Routes → Custom domain: `wrangler.jsonc` non ha `routes` né `custom_domain`, perché il dominio ha già un record DNS e un conflitto farebbe fallire tutto il deploy.
 
 **Alternativa**: lo stesso `dist/` funziona su Cloudflare Pages (preset None, build command `scripts/build-static.sh`, output `dist`), oppure si carica da GitHub Actions con `npx wrangler deploy` e un token API di Cloudflare come segreto del repository (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`), che solo Aruto può creare: non è in questo repository.
 
