@@ -11,7 +11,7 @@ public class DevlogStore
     public DevlogStore(IOptions<DevlogOptions> options, IWebHostEnvironment environment, ILogger<DevlogStore> logger)
     {
         var directory = string.IsNullOrWhiteSpace(options.Value.Directory)
-            ? Path.Combine(environment.ContentRootPath, "WikiContent", WikiContentImporter.DevlogFolder)
+            ? Path.Combine(environment.ContentRootPath, "WikiContent", WikiStore.DevlogFolder)
             : Path.Combine(environment.ContentRootPath, options.Value.Directory);
         _posts = new Lazy<IReadOnlyList<DevlogPost>>(() => DevlogLoader.Load(directory, logger));
     }

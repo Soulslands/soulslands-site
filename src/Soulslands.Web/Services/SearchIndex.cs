@@ -1,13 +1,18 @@
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Markdig;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Soulslands.StaticExport;
+namespace Soulslands.Web.Services;
 
-// The wiki search of the static site (wwwroot/js/wiki-search.js): one entry per public page.
+// The wiki search (wwwroot/js/wiki-search.js, no server behind it): one entry per wiki page,
+// sorted by slug, served next to the wiki and written into dist/ by the static export.
 public static partial class SearchIndex
 {
+    public const string Url = "/wiki/indice-ricerca.json";
+
     public const int TextLength = 400;
 
     public sealed record Entry(string Slug, string Title, string? Category, string Text);
@@ -22,6 +27,12 @@ public static partial class SearchIndex
         new(slug, title, category, Cut(PlainText(markdown)));
 
     public static string Serialize(IEnumerable<Entry> entries) => JsonSerializer.Serialize(entries, Json);
+
+    public static string For(IEnumerable<WikiPage> pages) =>
+        Serialize(pages.OrderBy(p => p.Slug, StringComparer.Ordinal).Select(p => Build(p.Slug, p.Title, p.Category, p.Content)));
+
+    public static void Map(IEndpointRouteBuilder app) =>
+        app.MapGet(Url, ([FromServices] WikiStore store) => Results.Text(For(store.Pages), "application/json; charset=utf-8", Encoding.UTF8));
 
     // Markdown as plain text on one line: no markup, no diagram source.
     public static string PlainText(string markdown)

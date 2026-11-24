@@ -1,6 +1,5 @@
 @page "/wiki/{slug}"
 @model Soulslands.Web.Pages.Wiki.ViewModel
-@inject IOptions<Soulslands.Web.Services.SiteOptions> SiteOptions
 @{
     ViewData["Title"] = Model.WikiPage.Title;
 }
@@ -19,31 +18,15 @@
             {
                 <h1 class="mb-1">@Model.WikiPage.Title</h1>
             }
-            @* The static export sets the file's last Git commit time, or no time at all when Git cannot tell. *@
-            @if (!(SiteOptions.Value.Static && Model.WikiPage.UpdatedAt == default))
+            @* The file's last Git commit time, or no line at all when Git cannot tell (WikiStore). *@
+            @if (Model.WikiPage.UpdatedAt != default)
             {
                 <small class="text-muted-ss">
                     Aggiornata il @Model.WikiPage.UpdatedAt.ToString("dd/MM/yyyy HH:mm") UTC
-                    @if ((Model.WikiPage.UpdatedByName ?? Model.WikiPage.UpdatedBy) is { } by)
-                    {
-                        <text>da @by</text>
-                    }
                 </small>
-            }
-            @if (Model.WikiPage.Visibility == WikiVisibility.Staff)
-            {
-                <span class="badge badge-staff ms-1">Staff</span>
             }
         </div>
         <div class="d-flex gap-2">
-            @if (!SiteOptions.Value.Static)
-            {
-                <a class="btn btn-outline-secondary btn-sm" asp-page="/Wiki/History" asp-route-slug="@Model.WikiPage.Slug">Cronologia</a>
-            }
-            @if (Model.CanEdit)
-            {
-                <a class="btn btn-primary btn-sm" asp-page="/Wiki/Edit" asp-route-slug="@Model.WikiPage.Slug">Modifica</a>
-            }
         </div>
     </header>
     <div class="wiki-content">

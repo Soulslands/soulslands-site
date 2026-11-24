@@ -21,12 +21,12 @@ internal static partial class PublicWiki
     {
         var files = Directory.EnumerateFiles(folder, "*.md", SearchOption.AllDirectories).Order().ToList();
         var slugs = new HashSet<string>();
-        // Devlog posts are not wiki pages (WikiContentImporter skips their folder): their
+        // Devlog posts are not wiki pages (WikiStore skips their folder): their
         // links are checked, their slugs are not wiki slugs.
-        var devlog = Path.Combine(folder, WikiContentImporter.DevlogFolder) + Path.DirectorySeparatorChar;
+        var devlog = Path.Combine(folder, WikiStore.DevlogFolder) + Path.DirectorySeparatorChar;
         foreach (var file in files.Where(f => !f.StartsWith(devlog, StringComparison.Ordinal)))
         {
-            if (WikiContentImporter.Parse(File.ReadAllText(file)) is { } page)
+            if (WikiStore.Parse(File.ReadAllText(file)) is { } page)
             {
                 slugs.Add(page.Slug);
             }

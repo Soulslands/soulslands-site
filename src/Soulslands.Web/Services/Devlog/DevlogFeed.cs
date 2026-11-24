@@ -27,9 +27,9 @@ public static class DevlogFeed
         return Results.Text(xml, $"{ContentType}; charset=utf-8", Encoding.UTF8);
     }
 
-    // With a real domain (Site:BaseUrl) ids and links depend only on it and the slug, so
-    // they stay stable whatever Host a request carries. Without it (home mode, development)
-    // they follow the request: scheme from X-Forwarded-Proto behind the proxy, see Program.cs.
+    // With a real domain (Site:BaseUrl, set by scripts/build-static.sh) ids and links depend
+    // only on it and the slug, so they stay stable whatever Host a request carries. Without it
+    // (dotnet run) they follow the request.
     public static string BaseUrl(HttpRequest request, SiteOptions site) =>
         string.IsNullOrWhiteSpace(site.BaseUrl)
             ? $"{request.Scheme}://{request.Host}{request.PathBase}"

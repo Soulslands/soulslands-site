@@ -1,6 +1,6 @@
 name: CI
 
-# Build, tests and browser tests. The Docker image build is in docker.yml.
+# Build, tests, browser tests and the static site (dist/) that Cloudflare deploys (README, "Sito statico su Cloudflare").
 # This repository is public, so GitHub-hosted runners are free (ADR-0035 section 12).
 on:
   push:

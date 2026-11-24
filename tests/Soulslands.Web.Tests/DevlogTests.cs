@@ -61,7 +61,6 @@ public sealed class DevlogLoaderTests : IDisposable
 
     [Theory]
     [InlineData("Primo Post", "2026-10-18")]
-    [InlineData("modifica", "2026-10-18")]
     [InlineData("primo-post", "18/10/2026")]
     [InlineData("primo-post", "2026-13-01")]
     [InlineData("primo-post", "2026-10-18T10:00")]
@@ -379,20 +378,6 @@ public class DevlogFeedTests(DevlogSiteFactory factory) : IClassFixture<DevlogSi
         Assert.Equal("http://localhost/devlog/nuovo", entry.Element(Atom + "id")?.Value);
         Assert.Equal("http://localhost/devlog/nuovo", Link(entry, "alternate"));
         Assert.All(feed.Descendants(Atom + "link"), l => Assert.True(Uri.IsWellFormedUriString(l.Attribute("href")!.Value, UriKind.Absolute)));
-    }
-
-    [Fact]
-    public async Task FeedFollowsTheHostAndSchemeBehindTheProxy()
-    {
-        var (_, feed) = await GetFeed(r =>
-        {
-            r.Headers.Host = "soulslands.example";
-            r.Headers.Add("X-Forwarded-Proto", "https");
-            r.Headers.Add("X-Forwarded-For", "203.0.113.7");
-        });
-
-        Assert.Equal("https://soulslands.example/devlog/feed.xml", Link(feed, "self"));
-        Assert.Equal("https://soulslands.example/devlog/nuovo", Link(feed.Elements(Atom + "entry").First(), "alternate"));
     }
 
     [Fact]

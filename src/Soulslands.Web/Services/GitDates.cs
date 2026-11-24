@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Globalization;
 
-namespace Soulslands.StaticExport;
+namespace Soulslands.Web.Services;
 
 // The time each wiki page last changed, from Git: the committer date of the last commit that
 // touched its file. The static site shows it as "Aggiornata il", so two exports of the same commit

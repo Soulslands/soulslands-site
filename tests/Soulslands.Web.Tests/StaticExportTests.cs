@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Soulslands.StaticExport;
-using Soulslands.Web.Services.Auth;
+using Soulslands.Web.Services;
 
 namespace Soulslands.Web.Tests;
 
@@ -139,7 +139,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     public void RedirectsFileMatchesMovedPages()
     {
         var studio = new StudioOptions { AccountUrl = "https://account.mahoroba.studio", StudioUrl = "https://mahoroba.studio" };
-        var expected = StudioSignIn.MovedPages
+        var expected = SiteFiles.MovedPages
             .Select(p => $"{p.Path} {(p.OnAccountHost ? studio.Account(p.Target) : studio.Studio(p.Target))} 302")
             .Append("/Preferenze / 302");
         var lines = Read("_redirects").Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(l => !l.StartsWith('#')).ToList();
@@ -402,7 +402,7 @@ public class StaticExportTests(StaticExportFixture export) : IClassFixture<Stati
     public void DevlogPostsMaySayNothingOrPubblica(string visibility, bool published)
     {
         var text = $"---\ntitle: Post\nslug: post\ndate: 2026-11-20\n{visibility}---\nTesto.";
-        Assert.Equal(published, StaffGuard.Refusal(text, isDevlog: true) is null);
+        Assert.Equal(published, PublicPages.Refusal(text, isDevlog: true) is null);
     }
 
     // Every page of the real WikiContent says "visibility: Pubblica": the allow-list refuses none.

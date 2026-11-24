@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Soulslands.Web.Data;
 using Soulslands.Web.Services;
-using Soulslands.Web.Services.Auth;
 using Soulslands.Web.Services.Devlog;
 
 namespace Soulslands.Web.Pages;
 
-public class IndexModel(ApplicationDbContext db, DevlogStore devlog, IOptions<SiteOptions> site, IOptions<StudioOptions> studio) : PageModel
+public class IndexModel(DevlogStore devlog, IOptions<StudioOptions> studio) : PageModel
 {
     public const int LatestPostCount = 3;
 
@@ -17,11 +14,7 @@ public class IndexModel(ApplicationDbContext db, DevlogStore devlog, IOptions<Si
     // ?lang=en gives the English ones and those for every language, never the Japanese-only ones.
     public const string AnnouncementsPath = "/api/games/soulslands/announcements?lang=en";
 
-    public bool Static => site.Value.Static;
-
     public string AnnouncementsUrl => studio.Value.Account(AnnouncementsPath);
-
-    public List<Announcement> Announcements { get; private set; } = [];
 
     // Newest devlog posts; the block is hidden when there are none.
     public IReadOnlyList<DevlogPost> LatestPosts { get; private set; } = [];
@@ -36,16 +29,8 @@ public class IndexModel(ApplicationDbContext db, DevlogStore devlog, IOptions<Si
         ("Completamente moddabile", "Server dedicati e un sistema di mod allo stesso livello di Minecraft."),
     ];
 
-    public async Task OnGetAsync()
+    public void OnGet()
     {
         LatestPosts = [.. devlog.Posts.Take(LatestPostCount)];
-        if (Static)
-        {
-            return;
-        }
-        Announcements = await db.Announcements.AsNoTracking()
-            .OrderByDescending(a => a.CreatedAt)
-            .Take(5)
-            .ToListAsync();
     }
 }

@@ -82,7 +82,7 @@ public static class DevlogLoader
         }
 
         var slug = document.Fields["slug"];
-        if (!WikiAccess.IsValidSlug(slug))
+        if (!WikiStore.IsValidSlug(slug))
         {
             error = $"slug non valido: {slug}";
             return null;

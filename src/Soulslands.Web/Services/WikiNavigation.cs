@@ -1,5 +1,3 @@
-using Soulslands.Web.Data;
-
 namespace Soulslands.Web.Services;
 
 // Groups wiki pages by category. "Classi / Magia" is the subcategory Magia of Classi.
