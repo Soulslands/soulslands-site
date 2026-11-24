@@ -142,6 +142,30 @@ public class WikiStoreTests : IDisposable
         Assert.DoesNotContain("Aggiornata il", html);
     }
 
+    // In a Git repository every page takes the date of the last commit that changed its file, and
+    // the page shows it. A temp repository, so this runs in a shallow CI checkout too.
+    [Fact]
+    public async Task PagesShowTheDateOfTheLastCommitOfTheirFile()
+    {
+        var trees = Elf.Replace("slug: razza-elfo", "slug: alberi").Replace("title: Elfo", "title: Alberi");
+        WriteFile("razza-elfo.md", Elf);
+        WriteFile(Path.Combine("mondo", "alberi.md"), trees);
+        TestGit.Run(_dir, null, "init", "-q");
+        TestGit.Run(_dir, "2026-10-18T21:04:00+02:00", "add", ".");
+        TestGit.Run(_dir, "2026-10-18T21:04:00+02:00", "commit", "-q", "-m", "uno");
+        WriteFile(Path.Combine("mondo", "alberi.md"), trees + "\nQuerce e betulle.");
+        TestGit.Run(_dir, "2026-11-20T08:30:00Z", "commit", "-q", "-am", "due");
+
+        var pages = Load().ToDictionary(p => p.Slug);
+        Assert.Equal(new DateTime(2026, 10, 18, 19, 4, 0, DateTimeKind.Utc), pages["razza-elfo"].UpdatedAt);
+        Assert.Equal(new DateTime(2026, 11, 20, 8, 30, 0, DateTimeKind.Utc), pages["alberi"].UpdatedAt);
+
+        using var factory = new SiteFactory();
+        var site = factory.WithWebHostBuilder(b => b.UseSetting("Wiki:Directory", _dir));
+        Assert.Matches(@"Aggiornata il 20/11/2026 08:30 UTC\s*</small>", await site.CreateClient().GetStringAsync("/wiki/alberi"));
+        Assert.Matches(@"Aggiornata il 18/10/2026 19:04 UTC\s*</small>", await site.CreateClient().GetStringAsync("/wiki/razza-elfo"));
+    }
+
     // The real WikiContent is a Git checkout: every page carries its last commit's date. A shallow
     // clone (the build-and-test CI job) has no dates, and the line is left out.
     [Fact]
