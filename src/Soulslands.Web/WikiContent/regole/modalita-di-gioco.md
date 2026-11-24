@@ -13,7 +13,7 @@ visibility: Pubblica
 
 Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così per sempre. Ogni personaggio, dentro il mondo, ha la sua modalità: creativa o sopravvivenza.
 
-> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco. Il sopravvivenza completo (salute, fame, danni, attrezzi) arriva più avanti: per ora un personaggio in sopravvivenza esplora, scava raccogliendo quello che i blocchi lasciano a terra, porta gli oggetti nello zaino e nelle casse e piazza i blocchi spendendoli dallo zaino.
+> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco. In sopravvivenza ci sono già vita, fame, sete e stamina, il fiato sott'acqua, i danni (cadute, lava, annegamento, gas ed esplosioni), la morte con il cadavere e il fantasma, la difficoltà e i mondi hardcore; si mangia, si beve e si riempie la borraccia. Alcune schermate arrivano con un aggiornamento successivo: la scelta di difficoltà e hardcore quando crei un mondo da solo, la vista del fantasma e la schermata di morte hardcore. Attrezzi, abilità e combattimento arrivano più avanti.
 
 **Deciso da Aruto (25/10/2026):** il volo è permesso in creativa; la tavolozza creativa contiene ogni blocco, illimitato e gratis; rompere è istantaneo in creativa; in creativa niente danni e niente fame; F5 cambia visuale come in Minecraft; il mondo si salva da solo e con un pulsante, e si salva anche quando esci. Fonte tecnica: [ADR-0025](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0025-creative-exploration-rules.md).
 
@@ -27,18 +27,26 @@ Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così pe
 | **Modalità del personaggio** | Parte uguale a quella del mondo e viene salvata con il personaggio |
 | **Mondo creativo** | I giocatori autorizzati possono passare da creativa a sopravvivenza e ritorno, come in Minecraft |
 | **Mondo sopravvivenza** | Nessuno può passare alla creativa, mai |
+| **Mondi nuovi** | Un server dedicato crea mondi sopravvivenza, a meno che chi lo ospita scelga la creativa nelle impostazioni (`[world] new_world_mode`) |
+| **Mondo hardcore** | È sempre un mondo sopravvivenza e si gioca sempre in difficoltà difficile, qualunque difficoltà sia impostata |
 | **Mondi creati prima di questa regola** | Si aprono come creativi |
 
-Per ora la schermata di creazione del mondo **non offre la sopravvivenza**: la mostra spenta, con la scritta "I mondi sopravvivenza arriveranno con un aggiornamento successivo". Un mondo sopravvivenza non potrebbe mai passare alla creativa e, prima delle regole complete di sopravvivenza, sarebbe quasi vuoto. Si può comunque provare la sopravvivenza passandoci da un mondo creativo.
+Da solo, per ora, la schermata di creazione del mondo **non offre ancora la sopravvivenza**: la mostra spenta, con la scritta "I mondi sopravvivenza arriveranno con un aggiornamento successivo", e i mondi nascono creativi. Quando la schermata offrirà la scelta, la sopravvivenza sarà quella già selezionata. Un mondo sopravvivenza non potrebbe mai passare alla creativa. Si può comunque provare la sopravvivenza passandoci da un mondo creativo.
 
 ### Chi può cambiare modalità
 
-| Dove giochi | Chi cambia modalità e salva con il pulsante |
+Si cambia modalità **solo in un mondo creativo**. In un mondo sopravvivenza nessuno passa alla creativa, nemmeno da solo nel tuo mondo.
+
+| Dove giochi | Chi cambia modalità (mondo creativo) e salva con il pulsante |
 |-------------|---------------------------------------------|
-| **Da solo** (mondo locale) | Tu, sempre |
+| **Da solo** (mondo locale) | Tu, sempre. In un mondo sopravvivenza resta solo il pulsante Salva |
 | **Server dedicato** | **Solo gli admin** del server, indicati dall'host nelle impostazioni (`[admin] accounts`). Non esiste un'impostazione per lasciar cambiare a tutti |
 
 Chi non ha il permesso non vede il comando nel menu. Se prova lo stesso (client modificato), il server rifiuta con un avviso. Passando da creativa a sopravvivenza il volo finisce e il personaggio cade; nel verso opposto il volo diventa possibile.
+
+Da solo **non sei un admin**: il proprietario del mondo non ha comandi da amministratore (teletrasporto e simili). Rinominare i personaggi è una regola del mondo, spenta se non la accendi quando crei il mondo (vedi [Persistenza del mondo](/wiki/persistenza-del-mondo)).
+
+**Deciso da Aruto (24/11/2026):** un mondo sopravvivenza aperto in LAN dà a chi lo ospita solo tre comandi sugli ospiti: espellerli (`kick`), bandirli (`ban`) e togliere il bando (`unban`). Niente creativa e niente comandi che aiutino a giocare. Aprire un mondo in LAN arriverà con un aggiornamento successivo.
 
 ---
 
@@ -53,8 +61,8 @@ Chi non ha il permesso non vede il comando nel menu. Se prova lo stesso (client 
 | **Tasto `E`** | Apre la tavolozza e, accanto, lo zaino | Apre lo zaino |
 | **Zaino** | Sì, si riempie dalla tavolozza | Sì, si riempie raccogliendo gli oggetti a terra; si riordina e si sposta da e verso i contenitori |
 | **Casse** | Si aprono col tasto destro; vi si prende dalla tavolozza | Si aprono col tasto destro; si riordina e si sposta da e verso lo zaino |
-| **Danni e fame** | Mai | Non ancora presenti |
-| **Cadute** | Succedono, senza danni | Succedono; i danni arrivano con le regole complete |
+| **Danni, fame e sete** | Mai | Sì: fame e sete scendono, i danni tolgono vita e a zero vita si muore (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)) |
+| **Cadute** | Succedono, senza danni | Succedono; da una certa altezza in su fanno danno |
 
 Raggio d'azione e linea di vista valgono in entrambe: **5 blocchi** per scavare e piazzare, **3 blocchi** per aprire una cassa e per lasciare o raccogliere oggetti a terra. Il blocco `world_rock`, il fondo del mondo, resta indistruttibile anche in creativa *(proposta, da confermare)*.
 
@@ -226,7 +234,7 @@ Il mondo si salva in tre modi (dettagli in [Persistenza del mondo](/wiki/persist
 2. **Con il pulsante Salva** del menu di pausa (`Esc`): sotto il pulsante compare "Ultimo salvataggio alle 14:32:05", oppure "Non ancora salvato" se non è successo niente, e "Salvataggio..." mentre aspetti.
 3. **Quando esci**: "Salva ed esci al titolo" e la chiusura della finestra salvano prima di chiudere, con una schermata "Salvataggio del mondo". Su un server remoto escono semplicemente dal server.
 
-Il personaggio salva posizione, sguardo, modalità e se sta volando; al rientro ritrovi tutto com'era. Il menu di pausa **non ferma** il mondo *(proposta: per ora nulla può farti male)*.
+Il personaggio salva posizione, sguardo, modalità e se sta volando; al rientro ritrovi tutto com'era. Per ora il menu di pausa **non ferma** il mondo: in sopravvivenza fame, sete e pericoli continuano anche col menu aperto. Con un aggiornamento successivo, da solo, il menu di pausa fermerà il mondo; su un server non lo ferma mai.
 
 ---
 
@@ -252,7 +260,7 @@ La quarta visuale di Minecraft (di fronte) non c'è. Finché non esistono i pers
 R: No. I personaggi vivono nel loro mondo ([Persistenza del mondo](/wiki/persistenza-del-mondo)).
 
 **D: Nel mio mondo creativo passo a sopravvivenza e poi torno creativo?**
-R: Sì, da solo sempre; su un server solo se sei admin.
+R: Sì, ma solo in un mondo creativo: da solo sempre, su un server solo se sei admin. In un mondo sopravvivenza nessuno può passare alla creativa.
 
 ---
 
