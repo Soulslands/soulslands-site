@@ -33,7 +33,7 @@ Le coste sono la fascia di transizione tra terra e [oceano](/wiki/oceani): spiag
 | Alghe `kelp`, posidonia `seagrass` | Nelle acque basse; usate in cucina e alchimia |
 | Salgemma `rock_salt`, folgorite `fulgurite` | Sacche di sale sotto la sabbia; vetro naturale dove cade un fulmine |
 | Nido `bird_nest` | Sulle sporgenze delle scogliere |
-| Acqua `water` salata | Non potabile |
+| Acqua di mare `sea_water` | Salata, non si beve né riempie la borraccia; i fiumi che sfociano qui restano acqua dolce (vedi [Oceani](/wiki/oceani#nuotare-e-respirare)) |
 
 ---
 

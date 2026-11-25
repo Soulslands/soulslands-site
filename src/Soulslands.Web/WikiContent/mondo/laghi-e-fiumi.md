@@ -25,7 +25,9 @@ visibility: Pubblica
 
 ## 📜 Panoramica
 
-Lontano dal mare, l'acqua di Soulslands scorre nei **fiumi**, riposa nei **laghi**, salta dalle **cascate** e sgorga dalle **sorgenti**. È acqua dolce: si beve, riempie borracce e bottiglie, serve a cucinare e a irrigare i campi, mentre l'acqua del mare è salata e non è potabile (vedi [Coste](/wiki/bioma-coste)). Fiumi e laghi sono anche le prime acque in cui si impara a nuotare, a pescare e a guidare una barca.
+Lontano dal mare, l'acqua di Soulslands scorre nei **fiumi**, riposa nei **laghi**, salta dalle **cascate** e sgorga dalle **sorgenti**. È acqua dolce (`water`): si beve, riempie borracce e bottiglie, serve a cucinare e a irrigare i campi. Il mare, le spiagge e le mangrovie hanno invece **acqua di mare** (`sea_water`), un blocco diverso, salato e non potabile (vedi [Nuotare e respirare](/wiki/oceani#nuotare-e-respirare)). Fiumi, laghi, l'acqua delle grotte e le sorgenti restano sempre dolci, anche dove arrivano al mare.
+
+**Bere oggi.** Nei mondi sopravvivenza, mirando l'acqua dolce con la mano libera e premendo il tasto d'uso, bevi un sorso che ridà 4 punti di sete; la borraccia si riempie allo stesso modo e tiene 4 sorsi (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria#bere-e-la-borraccia)). Fiumi e laghi sono anche le prime acque in cui si impara a nuotare, a pescare e a guidare una barca.
 
 | Acqua | Che cos'è | Dove |
 |-------|-----------|------|
@@ -55,7 +57,7 @@ L'acqua dei fiumi è fatta di **blocchi sorgente**, come quella dei laghi, quind
 
 - **Nuotatori**: nuotare controcorrente consuma molta stamina, e nelle rapide è impossibile.
 - **Barche**: scendere un fiume è il modo più veloce per viaggiare nell'entroterra; risalirlo con la barca a remi è lento ma possibile.
-- **Oggetti e corpi**: ciò che cade in un fiume viene trascinato a valle e si ferma in un'ansa, contro la riva o alla foce.
+- **Oggetti**: ciò che cade in un fiume viene trascinato a valle e si ferma in un'ansa, contro la riva o alla foce. I corpi dei morti no: si posano sul fondo e restano lì (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)).
 
 | Tratto | Dove | Corrente | Note |
 |--------|------|----------|------|
@@ -184,12 +186,13 @@ Ogni liquido esiste in due forme: il **blocco sorgente**, che resta dov'è, e il
 | **Cadute** | Scende in verticale fino al primo blocco solido, poi si allarga | Lo stesso, più lentamente |
 | **Nuove sorgenti** | Un flusso tra due sorgenti diventa a sua volta sorgente: una pozza 2×2 non si esaurisce mai | Mai |
 | **Luce** | Cala man mano che si scende sott'acqua | Livello 15: illumina tutto intorno |
-| **Effetti** | Spegne il fuoco e chi brucia, trascina oggetti e corpi, spegne le torce e sradica le piante che travolge | Incendia legno, foglie ed erba vicini; distrugge gli oggetti e i corpi che ci cadono dentro |
+| **Effetti** | Spegne il fuoco e chi brucia, trascina gli oggetti (non i corpi dei morti), spegne le torce e sradica le piante che travolge | Toglie 10 punti vita al secondo a chi la tocca; incendia legno, foglie ed erba vicini; distrugge gli oggetti che ci cadono dentro, e chi ci muore perde tutto senza lasciare un corpo |
 
 ### Acqua e lava che si incontrano
 
 | Incontro | Risultato |
 |----------|-----------|
+| Lava e acqua (dolce o di mare) si toccano | Nasce **vapore**, un [gas](/wiki/gas) che sale e ferisce |
 | L'acqua raggiunge una **sorgente** di lava | Ossidiana (`obsidian`) |
 | L'acqua raggiunge un **flusso** di lava | Ciottoli (`cobblestone`) |
 | La lava cade dall'alto sull'acqua | Pietra (`stone`) |
@@ -271,7 +274,7 @@ Fiumi e laghi attirano animali che vengono a bere e predatori che li aspettano. 
 | [Fiordi e gole](/wiki/bioma-fiordi-e-gole) | Gola: il fiume sul fondo, piano e a livello del mare (rapide e cascate arriveranno con M5-12n); fiordo: la foce allagata dal mare | Nessuno proprio | Gola: limpida; fiordo: quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
 | [Tundra e nevi](/wiki/bioma-tundra) | Fiumi ghiacciati (`frozen_river`) | Laghi ghiacciati | Blu ghiaccio | Sempre |
 | [Palude](/wiki/bioma-palude) | Canali lenti tra gli isolotti | Pozze stagnanti, raramente oltre 2 blocchi | Verde bruna, torbida | No |
-| [Mangrovie](/wiki/bioma-mangrovie) | Canali di marea dove i fiumi incontrano il mare | Lagune tra le radici | Verde, salmastra e non potabile | No |
+| [Mangrovie](/wiki/bioma-mangrovie) | Canali di marea dove i fiumi incontrano il mare | Lagune tra le radici | Verde; è acqua di mare (`sea_water`), non potabile | No |
 | [Giungla](/wiki/bioma-giungla) | Fiumi lenti e larghi, rive di fango e palme | Pozze tra le radici giganti | Verde | No |
 | [Steppa](/wiki/bioma-steppa) | Pochi ruscelli lenti | Pozze che d'estate si restringono | Azzurra | No |
 | [Savana](/wiki/bioma-savana) | Pochi fiumi lenti | Pozze che d'estate si restringono; acqua nel tronco cavo dei baobab | Torbida, color sabbia | No |
@@ -280,19 +283,19 @@ Fiumi e laghi attirano animali che vengono a bere e predatori che li aspettano. 
 | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche) | Fiumi di lava | Laghi di lava; sorgenti calde ai margini | Lava | No |
 | [Terre dei Morti](/wiki/bioma-terre-dei-morti) | Ruscelli lenti e grigi | Pozze stagnanti nella nebbia | Grigia | D'inverno |
 | [Lande d'Ombra](/wiki/bioma-lande-d-ombra) | Quasi assenti | Rare pozze scure in fondo alle crepe | Nera, con riflessi viola | No |
-| [Coste](/wiki/bioma-coste) | Foci dei fiumi | Lagune salate | Quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
+| [Coste](/wiki/bioma-coste) | Foci dei fiumi | Lagune di acqua di mare (`sea_water`) | Quella del mare vicino (vedi [Oceani](/wiki/oceani#biomi-oceanici)) | Solo davanti alla tundra |
 | [Isole](/wiki/bioma-isole) | Ruscelli sulle isole grandi | Pozze; laghi di cratere sulle isole vulcaniche spente | Come il bioma dell'isola | Solo sulle isole ghiacciate |
 
 ---
 
 ## ⚠️ Pericoli e consigli
 
-- **Annegare**: sott'acqua l'aria dura circa 30 secondi, e con un'armatura di piastre si affonda (vedi [Nuotare e respirare](/wiki/oceani#nuotare-e-respirare)). Nei fiumi la corrente rende tutto più difficile.
+- **Annegare**: con la testa sott'acqua l'aria dura 30 secondi, poi si perdono 10 punti vita al secondo; più avanti con un'armatura di piastre si affonderà (vedi [Nuotare e respirare](/wiki/oceani#nuotare-e-respirare)). Nei fiumi la corrente rende tutto più difficile.
 - **Ghiaccio sottile**: non attraversate laghi e fiumi ghiacciati a cavallo. Sotto la crosta di un fiume ghiacciato la corrente trascina via.
 - **Rapide e cascate**: una barca nelle rapide si danneggia, e una cascata si scende ma non si risale.
 - **Falde d'acqua**: scavando nel sottosuolo superficiale si può aprire una falda che allaga la galleria; più in basso, la stessa sorpresa può essere di lava. Tenete un blocco a portata di mano per tappare il buco.
-- **Lava**: tutto ciò che il corpo porta con sé brucia (vedi [Terre vulcaniche](/wiki/bioma-terre-vulcaniche)). Un secchio d'acqua trasforma la lava in ossidiana e può salvare la vita.
-- **Corpi alla deriva**: chi muore in un fiume lascia il corpo alla corrente. Cercatelo a valle, nelle anse o alla foce, prima che lo trovi qualcun altro (vedi [Full loot](/wiki/full-loot)).
+- **Lava**: chi ci muore perde tutto ciò che porta, senza lasciare un corpo (vedi [Full loot](/wiki/full-loot) e [Terre vulcaniche](/wiki/bioma-terre-vulcaniche)). Un secchio d'acqua trasforma la lava in ossidiana e può salvare la vita; dove lava e acqua si toccano, però, nasce vapore che ferisce.
+- **Corpi sul fondo**: chi muore in un fiume o in un lago lascia il corpo sul fondo, proprio sotto il punto in cui è morto: la corrente non lo sposta. Recuperatelo prima che lo trovi qualcun altro (vedi [Full loot](/wiki/full-loot)).
 
 > 💡 Una casa sulla riva di un fiume ha acqua potabile, argilla, pesce e una strada già pronta verso il mare: è il posto ideale per un villaggio di gilda (vedi [Città di gilda](/wiki/citta-di-gilda)).
 

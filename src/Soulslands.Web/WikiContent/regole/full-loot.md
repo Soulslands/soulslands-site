@@ -15,6 +15,8 @@ Soulslands è un gioco **full loot**, come il vecchio Ultima Online: quando un p
 
 > ⚠️ Non portare mai con te ciò che non puoi permetterti di perdere. La [banca](/wiki/persistenza-del-mondo) e la tua casa sono i soli posti sicuri.
 
+> ⚠️ **Stato del lavoro.** Nei mondi sopravvivenza il full loot c'è già: alla morte quello che porti nello zaino va nel corpo, che chiunque può aprire e svuotare (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi#il-corpo-e-il-bottino)); valgono già la regola del mondo "tieni l'inventario" e la morte nella lava (vedi sotto). Oggetti indossati, borse, banca, case, cavalcature, oggetti benedetti e le conseguenze del saccheggio per la notorietà arrivano più avanti: per ora aprire un corpo non rende criminale nessuno.
+
 ---
 
 ## 📦 Cosa si perde e cosa no
@@ -28,6 +30,18 @@ Soulslands è un gioco **full loot**, come il vecchio Ultima Online: quando un p
 | Contenuto della **banca** | ❌ No, mai |
 | Contenuto della **casa** | ❌ No (ma la casa può essere scassinata o assediata secondo le sue protezioni) |
 | Cavalcatura | ❌ Non è nel corpo: resta dove sei caduto, vulnerabile |
+
+---
+
+## 🔥 Quando non resta nessun corpo
+
+| Caso | Cosa succede a ciò che portavi |
+|------|-------------------------------|
+| Il mondo ha la regola **tieni l'inventario** (`keep_inventory`) | Resta con te: torni in vita con tutto, e non resta nessun corpo. La regola è spenta di partenza; chi crea il mondo la accende tra le altre opzioni, e vale anche nei mondi hardcore (vedi [Modalità di gioco](/wiki/modalita-di-gioco)) |
+| Muori **nella lava**, o il corpo cadendo attraverserebbe la lava | **Distrutto**, tutto, qualunque sia la causa della morte, e non resta nessun corpo (**deciso da Aruto, 17/11/2026**) |
+| In ogni altro caso | Va nel corpo, che chiunque può saccheggiare |
+
+La regola del mondo viene prima: con "tieni l'inventario" accesa nemmeno la lava distrugge quello che porti.
 
 ---
 

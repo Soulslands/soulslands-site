@@ -16,6 +16,7 @@ visibility: Pubblica
 - [Minerali per profondità](#minerali-per-profondita)
 - [Grotte naturali](#grotte-naturali)
 - [Biomi sotterranei](#biomi-sotterranei)
+- [Gas di miniera](#gas-di-miniera)
 - [Dungeon generati](#dungeon-generati)
 - [Creature del buio](#creature-del-buio)
 - [Consigli per i minatori](#consigli-per-i-minatori)
@@ -240,8 +241,21 @@ Gallerie e caverne in cui l'acqua ha preso il posto dell'aria: fiumi sotterranei
 | **Luce** | Buio, e sott'acqua ancora di più |
 | **Risorse e reagenti** | Argilla per mattoni e vasi; ostriche che danno la perla nera (reagente); pesci ciechi per [Fishing](/wiki/skill-fishing); [Silver](/wiki/minerale-silver) leggermente più frequente nelle grotte marine |
 | **Creature** | Pesci ciechi, [tentacoli di palude](/wiki/mostro-tentacolo-di-palude), [melme](/wiki/mostro-slime), [lizardman](/wiki/mostro-lizardman) e [troll](/wiki/mostro-troll) nelle grotte umide; sotto le paludi [alligatori](/wiki/animale-alligatore); raro l'[elementale dell'acqua](/wiki/mostro-elementale-dell-acqua) nei laghi sotterranei più profondi |
-| **Pericoli** | Sott'acqua l'aria dura circa 30 secondi (vedi [Oceani](/wiki/oceani)); le correnti trascinano; con un'armatura di piastre si va a fondo; chi muore in una galleria allagata lascia il corpo sul fondo |
+| **Pericoli** | Sott'acqua l'aria dura 30 secondi, poi si perdono 10 punti vita al secondo (vedi [Oceani](/wiki/oceani#nuotare-e-respirare)); le correnti trascinano; più avanti con un'armatura di piastre si andrà a fondo; chi muore in una galleria allagata lascia il corpo sul fondo |
 | **Dungeon e strutture** | Grotte dei contrabbandieri, con l'ingresso che emerge con la bassa marea (vedi [Strutture](/wiki/strutture)) |
+
+---
+
+## 💨 Gas di miniera
+
+**Deciso da Aruto (17/11/2026):** nel sottosuolo ci sono sacche di gas di miniera che esplodono con una fiamma.
+
+- **Dove.** Sotto i soffitti delle grotte della fascia media e del fondo della fascia alta, tra Y -32 e Y -1, sotto qualsiasi bioma: un velo spesso un paio di blocchi, attaccato alla roccia del soffitto. Le sacche stanno lontane dalla lava e mai dentro un dungeon o un'altra struttura.
+- **Cosa fa.** Il gas di miniera non ferisce, ma toglie l'aria a chi ci mette la testa dentro, come l'acqua. È più leggero dell'aria: se scavi il soffitto sopra una sacca, il gas sale nel buco.
+- **Cosa lo accende.** Una fiamma libera accanto al gas: lava, torce, candele, candelabri, lampadari, fuochi da campo, bracieri e camini accesi. Un istante dopo la sacca esplode, a catena in tutta la sua estensione.
+- **L'esplosione.** Rompe la roccia intorno, più quella tenera che quella dura, e i blocchi rotti non lasciano niente; l'ossidiana non si rompe. Ferisce chi è vicino, meno quanto più è lontano. Le casse rotte spargono a terra quello che contengono, e una cassa piena che a terra non troverebbe posto resta in piedi: un'esplosione non distrugge mai gli oggetti custoditi.
+
+I danni e la forza delle esplosioni arriveranno sulla wiki dopo la prova di Aruto. Tutto sui gas in [Gas](/wiki/gas).
 
 ---
 
@@ -290,6 +304,7 @@ Ogni [bioma sotterraneo](#biomi-sotterranei) aggiunge le sue creature a quelle d
 ## 💡 Consigli per i minatori
 
 - Porta **sempre torce** in abbondanza e piazzale lungo il percorso: segnano la via del ritorno e impediscono gli spawn.
+- Tra Y -1 e Y -32 guarda il soffitto prima di piazzare una torcia: sotto un velo di [gas di miniera](#gas-di-miniera) una fiamma fa esplodere tutta la sacca. Piazzala in basso, lontano dal soffitto.
 - Scava a **scalinata** e mai in verticale sotto i tuoi piedi: potresti cadere in una caverna o in un lago di lava.
 - Lascia il carico pesante in una **cassa** a metà strada o porta una bestia da soma.
 - Per i minerali dell'Abisso vai in gruppo: un minatore solo e carico di Valorite è il bersaglio preferito dei [player killer](/wiki/player-killer-e-redenzione).
@@ -298,4 +313,4 @@ Ogni [bioma sotterraneo](#biomi-sotterranei) aggiunge le sue creature a quelle d
 
 ---
 
-*Vedi anche: [Minerali](/wiki/minerali) | [Il Mondo](/wiki/mondo) | [Classe Minatore Combattente](/wiki/classe-minatore-combattente) | [Blocchi](/wiki/blocchi) | [Biomi](/wiki/biomi) | [Laghi e fiumi](/wiki/laghi-e-fiumi) | [Giorno e notte](/wiki/giorno-e-notte)*
+*Vedi anche: [Minerali](/wiki/minerali) | [Il Mondo](/wiki/mondo) | [Classe Minatore Combattente](/wiki/classe-minatore-combattente) | [Blocchi](/wiki/blocchi) | [Biomi](/wiki/biomi) | [Laghi e fiumi](/wiki/laghi-e-fiumi) | [Gas](/wiki/gas) | [Giorno e notte](/wiki/giorno-e-notte)*

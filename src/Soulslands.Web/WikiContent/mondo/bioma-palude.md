@@ -33,6 +33,7 @@ Le paludi sono distese di acqua bassa e fangosa, ispirate alle Fens e alle palud
 | Calta palustre `marsh_marigold`, pianta carnivora `pitcher_plant` | Fiori e piante delle rive fangose |
 | Mandragora `mandrake_plant`, belladonna `nightshade_plant` | Reagenti |
 | Argilla `clay` | Sotto il fango |
+| Gas velenoso `poison_gas` | Ristagna nelle conche, sopra il terreno basso e le pozze: vedi [Gas](/wiki/gas) |
 
 ---
 
@@ -79,9 +80,10 @@ Le mangrovie crescono nel bioma delle [Mangrovie](/wiki/bioma-mangrovie), sulle 
 
 - Il fango rallenta: è difficile fuggire.
 - La nebbia riduce il campo visivo: i lizardman attaccano senza preavviso.
+- **Gas velenoso** (`poison_gas`): nelle conche, sopra il terreno basso e l'acqua, ristagna uno strato di gas velenoso alto qualche blocco. Ferisce chi ci tiene la testa dentro e gli toglie l'aria; non svanisce mai. Basta salire su un rialzo con la testa fuori (vedi [Gas](/wiki/gas)).
 
 > 💡 Ottimo terreno di caccia per il [cuoio Lizard](/wiki/cuoio-lizard) (lizardman, alligatori), il [cuoio Troll](/wiki/cuoio-troll) e il [cuoio Serpent](/wiki/cuoio-serpent). Gli Swamp Dragon danno il raro [cuoio Barbed](/wiki/cuoio-barbed).
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Draghi e rettili](/wiki/mostri-draghi-e-rettili) | [Giungla](/wiki/bioma-giungla)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Draghi e rettili](/wiki/mostri-draghi-e-rettili) | [Giungla](/wiki/bioma-giungla) | [Gas](/wiki/gas)*

@@ -28,7 +28,8 @@ Le mangrovie sono paludi costiere tropicali: crescono sulle coste calde, dove la
 | Blocco | Note |
 |--------|------|
 | Fango `mud` | Fondo dei canali e isolotti; rallenta chi ci cammina |
-| Acqua `water` salmastra | Bassa, da 1 a 3 blocchi; non potabile |
+| Acqua di mare `sea_water` | Bassa, da 1 a 3 blocchi; salata, non si beve (vedi [Oceani](/wiki/oceani#nuotare-e-respirare)) |
+| Gas velenoso `poison_gas` | Ristagna nelle conche tra le radici: vedi [Gas](/wiki/gas) |
 | Argilla `clay` | Sotto il fango |
 | Sabbia `sand` | Banchi di sabbia verso il mare |
 | Canna `reed`, posidonia `seagrass` | Canne lungo le rive, posidonia nei canali verso il mare |
@@ -88,9 +89,11 @@ Dettagli in [Animali](/wiki/animali), [Creature marine](/wiki/mostri-marini) e [
 - Sotto la superficie dei canali non si vede nulla: alligatori e tentacoli di palude aspettano immobili tra le radici.
 - Fango e radici rallentano: fuggire a piedi è quasi impossibile, meglio muoversi in barca.
 - Veleno ovunque, da serpenti e rospi giganti: portate pozioni di cura e tenete d'occhio la [tossicità delle pozioni](/wiki/tossicita-pozioni).
+- **Gas velenoso** (`poison_gas`): nelle conche, sopra il terreno basso e l'acqua, ristagna uno strato di gas velenoso alto qualche blocco. Ferisce chi ci tiene la testa dentro e gli toglie l'aria; non svanisce mai. Basta salire su un rialzo con la testa fuori (vedi [Gas](/wiki/gas)).
+- L'acqua dei canali è acqua di mare: per bere serve una borraccia riempita a un fiume o a un lago.
 
 > 💡 Alligatori e lizardman danno il [cuoio Lizard](/wiki/cuoio-lizard), i serpenti giganti il [cuoio Serpent](/wiki/cuoio-serpent) e il raro drago di palude il [cuoio Barbed](/wiki/cuoio-barbed): per chi lavora il cuoio le mangrovie sono un ottimo terreno di caccia, purché si muova in barca.
 
 ---
 
-*Vedi anche: [Biomi](/wiki/biomi) | [Palude](/wiki/bioma-palude) | [Giungla](/wiki/bioma-giungla) | [Coste](/wiki/bioma-coste)*
+*Vedi anche: [Biomi](/wiki/biomi) | [Palude](/wiki/bioma-palude) | [Giungla](/wiki/bioma-giungla) | [Coste](/wiki/bioma-coste) | [Gas](/wiki/gas)*
