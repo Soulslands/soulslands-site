@@ -135,7 +135,7 @@ Si scavano con la **pala**. Sabbia e ghiaia **cadono** se manca il blocco sotto.
 | `sandstone` | Arenaria | Sotto la sabbia del deserto | Arenaria | Si scava con il piccone (1 secondo); senza piccone non lascia nulla |
 | `red_sandstone` | Arenaria rossa | Pareti dei canyon rossi | Arenaria rossa | Si scava con il piccone (1 secondo); senza piccone non lascia nulla |
 | `volcanic_ash` | Cenere vulcanica | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche), isole vulcaniche, bordi delle caverne di lava | Cenere vulcanica | Grigio scuro, cade come la sabbia. Con la calce fa una malta che indurisce anche sott'acqua |
-| `quicksand` | Sabbie mobili | Conche del [deserto](/wiki/bioma-deserto), fondo delle gole dei canyon rossi | Sabbia | Sembra sabbia: chi ci entra affonda piano e soffoca se non ne esce. Le cavalcature ci restano bloccate |
+| `quicksand` | Sabbie mobili | Conche del [deserto](/wiki/bioma-deserto), fondo delle gole dei canyon rossi | Sabbia | Sembra sabbia: chi ci entra affonda piano e ne esce a fatica, ma non soffoca (**deciso da Aruto, 17/11/2026**: si soffoca solo nei liquidi e nei gas). Le cavalcature ci restano bloccate |
 | `seashells` | Conchiglie | Spiagge delle [coste](/wiki/bioma-coste), isole tropicali e isolotti | Conchiglie | Non è un blocco pieno: sta sopra la sabbia. Per decorare e per fare calce |
 
 ---
@@ -189,7 +189,7 @@ Tra uno strato e l'altro c'è una **fascia di passaggio** di qualche blocco dove
 | `tuff` | Tufo | [Terre vulcaniche](/wiki/bioma-terre-vulcaniche), isole vulcaniche, sacche nella pietra scura (Y 0 – -16) | 1 s | Cenere vulcanica pressata: leggero e facile da tagliare, per case e acquedotti |
 | `calcite` | Calcite | Vene nelle [grotte di stalattiti](/wiki/grotte-e-sottosuolo), scogliere di calcare e faraglioni | 1 s | Bianca e cristallina; macinata dà calce come il calcare |
 | `mossy_stone` | Pietra muschiosa | Sottosuolo della [foresta profonda](/wiki/bioma-foresta-profonda) e della [giungla](/wiki/bioma-giungla), grotte di muschio | 1,5 s | Lascia pietrisco muschioso (`mossy_cobblestone`) |
-| `magma_block` | Roccia magmatica | Terre vulcaniche, caverne di lava, Abisso e Cuore del mondo, bocche sul fondo delle fosse oceaniche e dei mari vicini alle terre vulcaniche | 1,5 s | Luce 3; scotta chi ci cammina sopra senza protezione dal fuoco; sott'acqua fa salire colonne di bolle |
+| `magma_block` | Roccia magmatica | Terre vulcaniche, caverne di lava, Abisso e Cuore del mondo, bocche sul fondo delle fosse oceaniche e dei mari vicini alle terre vulcaniche | 1,5 s | Luce 3; scotta chi ci cammina sopra senza protezione dal fuoco (in sopravvivenza 1 punto vita al secondo); sott'acqua fa salire colonne di bolle |
 | `rock_salt` | Salgemma | Distese di sale del [deserto](/wiki/bioma-deserto), sacche sotto deserto e coste | 1 s | Sale per conservare e cucinare ([Cooking](/wiki/skill-cooking)) |
 | `fulgurite` | Folgorite | Deserto e spiagge, dove è caduto un fulmine | 0,5 s | Vetro naturale: lascia frammenti di vetro |
 | `bone_block` | Blocco d'ossa | Ossa sepolte nelle [Terre dei Morti](/wiki/bioma-terre-dei-morti), fossili nel deserto e nei canyon rossi | 1 s | Lascia ossa e farina d'ossa (fertilizzante) |
@@ -201,16 +201,24 @@ Tra uno strato e l'altro c'è una **fascia di passaggio** di qualche blocco dove
 
 | Id | Nome | Luce | Comportamento |
 |----|------|------|---------------|
-| `water` | Acqua | 0 | Come in Minecraft c'è l'acqua **sorgente** e l'acqua che **scorre** (fino a 7 blocchi in piano). Due sorgenti vicine ne creano una terza. Si raccoglie con il secchio. Nei biomi freddi la superficie gela d'inverno. Spegne il fuoco e trasporta oggetti e creature |
-| `lava` | Lava | 15 | Scorre più lenta dell'acqua: 3 blocchi in piano, 7 nelle [terre vulcaniche](/wiki/bioma-terre-vulcaniche) e nel Cuore del mondo. Brucia ciò che tocca e distrugge gli oggetti caduti dentro, **anche il bottino di un corpo**. Incendia il legno vicino |
+| `water` | Acqua | 0 | Acqua dolce di fiumi, laghi, grotte e sorgenti: si beve e riempie la borraccia. Come in Minecraft c'è l'acqua **sorgente** e l'acqua che **scorre** (fino a 7 blocchi in piano). Due sorgenti vicine ne creano una terza. Si raccoglie con il secchio. Nei biomi freddi la superficie gela d'inverno. Spegne il fuoco e trasporta oggetti e creature (non i corpi dei morti) |
+| `sea_water` | Acqua di mare | 0 | L'acqua di oceani, spiagge e mangrovie: si nuota come nell'acqua dolce, ma è salata e **non si beve** né riempie la borraccia (vedi [Oceani](/wiki/oceani#nuotare-e-respirare)) |
+| `lava` | Lava | 15 | Scorre più lenta dell'acqua: 3 blocchi in piano, 7 nelle [terre vulcaniche](/wiki/bioma-terre-vulcaniche) e nel Cuore del mondo. In sopravvivenza toglie 10 punti vita al secondo. Brucia ciò che tocca e distrugge gli oggetti caduti dentro; chi ci muore perde tutto ciò che porta e non lascia un corpo. Incendia il legno vicino e accende il [gas di miniera](/wiki/gas) |
+
+Con la testa dentro un liquido l'aria scende: dura 30 secondi, poi si perdono 10 punti vita al secondo (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria#laria)).
 
 | Incontro | Risultato |
 |----------|-----------|
 | L'acqua raggiunge una sorgente di lava | `obsidian` |
 | L'acqua raggiunge un flusso di lava | `cobblestone` |
 | La lava cade dall'alto sull'acqua | `stone` |
+| Lava e acqua (dolce o di mare) si toccano | Nasce vapore (`steam`) |
 
 Dettagli su fiumi, laghi e sorgenti in [Laghi e fiumi](/wiki/laghi-e-fiumi); sul mare in [Oceani](/wiki/oceani).
+
+### Gas
+
+Quattro gas sono blocchi che si attraversano come l'aria, ma tolgono il respiro: fumo (`smoke`), vapore (`steam`), gas velenoso (`poison_gas`) e gas di miniera (`mine_gas`), che esplode con una fiamma. Non si scavano e non sono nel catalogo creativo. Tutto in [Gas](/wiki/gas).
 
 ---
 
@@ -448,4 +456,4 @@ R: Sì. Le mod aggiungono blocchi con il proprio prefisso, per esempio `miamod:p
 
 ---
 
-*Vedi anche: [Il Mondo](/wiki/mondo) | [Blocchi da costruzione](/wiki/blocchi-costruzione) | [Texture dei blocchi](/wiki/texture-blocchi) | [Biomi](/wiki/biomi) | [Alberi](/wiki/alberi) | [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo) | [Minerali](/wiki/minerali) | [Attrezzi](/wiki/attrezzi)*
+*Vedi anche: [Il Mondo](/wiki/mondo) | [Blocchi da costruzione](/wiki/blocchi-costruzione) | [Gas](/wiki/gas) | [Texture dei blocchi](/wiki/texture-blocchi) | [Biomi](/wiki/biomi) | [Alberi](/wiki/alberi) | [Grotte e sottosuolo](/wiki/grotte-e-sottosuolo) | [Minerali](/wiki/minerali) | [Attrezzi](/wiki/attrezzi)*

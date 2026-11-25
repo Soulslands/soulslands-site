@@ -35,6 +35,8 @@ Le stat **crescono con l'uso delle skill**, fino ai cap della tua [razza](/wiki/
 
 I bonus da equipaggiamento, incantesimi e pozioni si **sommano** oltre il cap della razza e aumentano anche i valori derivati: un Orco con STR 160 e +15 STR da equipaggiamento arriva a 175 STR, cioè 157 HP.
 
+> ⚠️ **Stato del lavoro.** Le statistiche e le formule qui sopra arrivano più avanti. Nei mondi sopravvivenza di oggi ogni personaggio ha **100 punti vita e 100 di stamina**, uguali per tutti (**deciso da Aruto, 17/11/2026**); quando arriveranno le statistiche, vita e stamina massime seguiranno queste formule. Fame, sete, aria e come si rigenerano vita e stamina oggi sono in [Fame, sete e aria](/wiki/fame-sete-e-aria).
+
 ---
 
 ## 💪 STR — Forza
@@ -47,7 +49,7 @@ I bonus da equipaggiamento, incantesimi e pozioni si **sommano** oltre il cap de
 
 ## ⚡ DEX — Destrezza
 
-- **Stamina**: uguale alla DEX. Nel mondo a voxel la stamina si consuma **combattendo, correndo, saltando, nuotando e arrampicandosi**. Senza stamina non attacchi e ti muovi a fatica.
+- **Stamina**: uguale alla DEX. Nel mondo a voxel la stamina si consuma **combattendo, correndo, saltando, nuotando e arrampicandosi**. Senza stamina non attacchi e ti muovi a fatica. Oggi la spendono la corsa, il salto e il nuoto: puoi andare sotto zero, e finché sei in debito cammini piano e non puoi correre (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria#cosa-costa-stamina)).
 - **Colpi**: ogni colpo, parata e attacco speciale costa stamina, quindi più DEX vuol dire più colpi prima di dover riposare.
 - **Velocità delle bende**: con DEX alta una benda si applica più in fretta.
 - **Malus delle armature**: le armature pesanti riducono la DEX (fino a -33 con le piastre complete, vedi [Sistema armature](/wiki/sistema-armature)).
@@ -71,6 +73,8 @@ I bonus da equipaggiamento, incantesimi e pozioni si **sommano** oltre il cap de
 | 🔷 **Mana** | Nel tempo, meglio da fermi | [Meditation](/wiki/skill-meditation), [Focus](/wiki/skill-focus), INT alta, passiva *Elven Meditation* dell'[Elfo](/wiki/razza-elfo), set con rigenerazione mana | Armature pesanti (bloccano la meditazione), combattere |
 
 > 💡 Un personaggio affamato o assetato rigenera male: porta sempre del cibo (vedi [Cooking](/wiki/skill-cooking)). Le pozioni sono istantanee ma accumulano [tossicità](/wiki/tossicita-pozioni).
+
+Oggi, prima delle skill e delle pozioni, vita e stamina tornano in base a fame e sete: sazio e dissetato rigeneri in fretta, a metà più piano, quasi vuoto la vita non torna più e la stamina a stento. La tabella con i tempi è in [Fame, sete e aria](/wiki/fame-sete-e-aria#la-vita-torna-se-sei-sazio). Mentre corri la stamina non torna.
 
 ---
 

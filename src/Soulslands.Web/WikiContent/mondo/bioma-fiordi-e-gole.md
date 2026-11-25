@@ -38,7 +38,7 @@ Fiordi e gole sono due **forme del terreno** che diventano biomi: in tutti e due
 | Ghiaia `gravel`, sabbia `sand` | Ai piedi delle pareti e sul fondo (nel fiordo la ghiaia è la superficie); la ghiaia crolla se scavata da sotto |
 | Erba `grass`, terra `dirt` | Sui ripiani e sul bordo delle pareti, dove il pendio si addolcisce |
 | Felce `fern`, lichene `lichen` | Sulle pareti umide e sulle rocce |
-| Acqua `water` | Fiordo: acqua di mare, salata e non potabile; gola: acqua dolce di fiume, a livello del mare e senza rapide, perché i fiumi generati sono piani (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi#la-corrente)) |
+| Acqua di mare `sea_water`, acqua `water` | Fiordo: acqua di mare (`sea_water`), salata e non potabile; gola: acqua dolce di fiume, a livello del mare e senza rapide, perché i fiumi generati sono piani (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi#la-corrente)) |
 | Argilla `clay` | Sul fondo poco profondo e sulle rive di una gola |
 
 ---

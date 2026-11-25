@@ -13,7 +13,7 @@ visibility: Pubblica
 
 Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così per sempre. Ogni personaggio, dentro il mondo, ha la sua modalità: creativa o sopravvivenza.
 
-> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco. In sopravvivenza ci sono già vita, fame, sete e stamina, il fiato sott'acqua, i danni (cadute, lava, annegamento, gas ed esplosioni), la morte con il cadavere e il fantasma, la difficoltà e i mondi hardcore; si mangia, si beve e si riempie la borraccia. Alcune schermate arrivano con un aggiornamento successivo: la scelta di difficoltà e hardcore quando crei un mondo da solo, la vista del fantasma e la schermata di morte hardcore. Attrezzi, abilità e combattimento arrivano più avanti.
+> ⚠️ **Stato del lavoro.** Questa pagina descrive le regole decise per le prime versioni giocabili del gioco. In sopravvivenza ci sono già vita, fame, sete e stamina, il fiato sott'acqua, i danni (cadute, lava, magma, annegamento, gas ed esplosioni), la morte con il corpo e il fantasma, la difficoltà e i mondi hardcore; si mangia, si beve e si riempie la borraccia (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria), [Morte e fantasmi](/wiki/morte-e-fantasmi) e [Gas](/wiki/gas)). Da solo la schermata "Create world" offre la sopravvivenza con difficoltà, hardcore e regole del mondo, e il menu di pausa ferma il mondo. Attrezzi, abilità e combattimento arrivano più avanti.
 
 **Deciso da Aruto (25/10/2026):** il volo è permesso in creativa; la tavolozza creativa contiene ogni blocco, illimitato e gratis; rompere è istantaneo in creativa; in creativa niente danni e niente fame; F5 cambia visuale come in Minecraft; il mondo si salva da solo e con un pulsante, e si salva anche quando esci. Fonte tecnica: [ADR-0025](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0025-creative-exploration-rules.md).
 
@@ -27,11 +27,24 @@ Ogni mondo di Soulslands nasce **creativo** o **sopravvivenza** e resta così pe
 | **Modalità del personaggio** | Parte uguale a quella del mondo e viene salvata con il personaggio |
 | **Mondo creativo** | I giocatori autorizzati possono passare da creativa a sopravvivenza e ritorno, come in Minecraft |
 | **Mondo sopravvivenza** | Nessuno può passare alla creativa, mai |
-| **Mondi nuovi** | Un server dedicato crea mondi sopravvivenza, a meno che chi lo ospita scelga la creativa nelle impostazioni (`[world] new_world_mode`) |
+| **Mondi nuovi** | Nascono sopravvivenza: da solo la schermata di creazione la propone già selezionata, e un server dedicato crea mondi sopravvivenza a meno che chi lo ospita scelga la creativa nelle impostazioni (`[world] new_world_mode`) |
 | **Mondo hardcore** | È sempre un mondo sopravvivenza e si gioca sempre in difficoltà difficile, qualunque difficoltà sia impostata |
 | **Mondi creati prima di questa regola** | Si aprono come creativi |
 
-Da solo, per ora, la schermata di creazione del mondo **non offre ancora la sopravvivenza**: la mostra spenta, con la scritta "I mondi sopravvivenza arriveranno con un aggiornamento successivo", e i mondi nascono creativi. Quando la schermata offrirà la scelta, la sopravvivenza sarà quella già selezionata. Un mondo sopravvivenza non potrebbe mai passare alla creativa. Si può comunque provare la sopravvivenza passandoci da un mondo creativo.
+**Deciso da Aruto (17/11/2026):** i mondi sopravvivenza ci sono da subito e sono la scelta di partenza, da solo come su un server dedicato; un mondo non cambia mai modalità; ci sono quattro difficoltà e i mondi hardcore; tre regole del mondo (tenere l'inventario, fame e sete, rigenerazione naturale); il menu di pausa ferma il mondo solo quando giochi da solo.
+
+### Creare un mondo da solo
+
+La schermata **Create world** offre, oltre a nome, personaggio e seme:
+
+| Scelta | Di partenza | Note |
+|--------|-------------|------|
+| **Modalità** (`Mode`) | **Sopravvivenza**, già selezionata | Oppure creativa |
+| **Difficoltà** (`Difficulty`) | Normale | Pacifica, facile, normale o difficile: cosa cambia è in [Fame, sete e aria](/wiki/fame-sete-e-aria#difficolta-e-regole-del-mondo) |
+| **Hardcore** | Spento | Una vita sola, sempre in difficile: alla morte si resta spettatori per sempre (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)). Solo per i mondi sopravvivenza |
+| **Altre opzioni** (`More world options...`) | | Le regole del mondo: **tieni l'inventario alla morte** (spenta), **fame e sete** (accesa), **rigenerazione naturale** (accesa) e **il proprietario può rinominare i personaggi** (spenta) |
+
+Le scelte finiscono nel file `server.toml` del mondo, che il gioco rilegge a ogni avvio: la difficoltà e le regole si possono cambiare più tardi in quel file, la modalità e l'hardcore no. Se il file ha un valore che il gioco non conosce, o non si legge, il mondo resta chiuso e il gioco dice quale file correggere (e, per un errore di scrittura, la riga): non lo riapre mai da solo con valori diversi da quelli che hai scelto. Se invece cancelli il file di un mondo già giocato, il mondo si riapre con la difficoltà e le regole di partenza. Su un server dedicato le stesse scelte sono nelle impostazioni del server, e un server senza mondo ne crea uno sopravvivenza in difficoltà normale.
 
 ### Chi può cambiare modalità
 
@@ -61,8 +74,9 @@ Da solo **non sei un admin**: il proprietario del mondo non ha comandi da ammini
 | **Tasto `E`** | Apre la tavolozza e, accanto, lo zaino | Apre lo zaino |
 | **Zaino** | Sì, si riempie dalla tavolozza | Sì, si riempie raccogliendo gli oggetti a terra; si riordina e si sposta da e verso i contenitori |
 | **Casse** | Si aprono col tasto destro; vi si prende dalla tavolozza | Si aprono col tasto destro; si riordina e si sposta da e verso lo zaino |
-| **Danni, fame e sete** | Mai | Sì: fame e sete scendono, i danni tolgono vita e a zero vita si muore (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)) |
-| **Cadute** | Succedono, senza danni | Succedono; da una certa altezza in su fanno danno |
+| **Danni, fame e sete** | Mai | Sì: fame e sete scendono, i danni tolgono vita e a zero vita si muore (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria) e [Morte e fantasmi](/wiki/morte-e-fantasmi)) |
+| **Cadute** | Succedono, senza danni | I primi 3 blocchi di caduta non fanno niente, ogni blocco in più toglie 6 punti vita (4 blocchi: 6; 10 blocchi: 42; 20 blocchi: 102). L'acqua profonda almeno 2 blocchi ferma la caduta |
+| **Lava e magma** | Niente | La lava toglie 10 punti vita al secondo, il blocco di magma 1 al secondo a chi ci sta sopra (**deciso da Aruto, 17/11/2026**) |
 
 Raggio d'azione e linea di vista valgono in entrambe: **5 blocchi** per scavare e piazzare, **3 blocchi** per aprire una cassa e per lasciare o raccogliere oggetti a terra. Il blocco `world_rock`, il fondo del mondo, resta indistruttibile anche in creativa *(proposta, da confermare)*.
 
@@ -72,7 +86,7 @@ Raggio d'azione e linea di vista valgono in entrambe: **5 blocchi** per scavare 
 
 **Deciso da Aruto (08/11/2026):** lo zaino arriva ora. Contiene **125 oggetti** e **non ha un limite di peso**. Gli oggetti restano nello zaino quando cambia la modalità di gioco, come in Minecraft.
 
-- **Aprire lo zaino.** Il tasto `E` (inventario) lo apre in sopravvivenza; in creativa apre la tavolozza **e** lo zaino affiancati. Premuto di nuovo chiude (in creativa chiude entrambi), come `Esc`. Passando alla sopravvivenza la tavolozza si chiude e lo zaino resta aperto.
+- **Aprire lo zaino.** Il tasto `E` (inventario) lo apre in sopravvivenza; in creativa apre la tavolozza **e** lo zaino affiancati. Premuto di nuovo chiude (in creativa chiude entrambi), come `Esc`. Passando alla sopravvivenza la tavolozza si chiude e lo zaino resta aperto. In sopravvivenza il gioco tiene lo zaino sempre aperto dietro le quinte, perché la barra rapida conta quello che c'è dentro: `E`, `Esc` e il tasto destro sulla finestra lo mostrano e lo nascondono soltanto.
 - **Senza griglia.** Come in Ultima Online, lo zaino non ha caselle: ogni oggetto sta dove lo posi, anche sopra altri. Il gioco tiene sempre **l'intera icona dentro l'area** del contenitore (vale per ogni contenitore), così nessun oggetto sporge dal bordo dell'apertura disegnata.
 - **In creativa** trascini un blocco dalla tavolozza nello zaino nel punto che vuoi (con Maiusc prendi una pila intera; lasciato su una pila uguale si somma) o nella barra rapida; trascini un oggetto dallo zaino alla tavolozza per eliminarlo.
 - **In sopravvivenza** apri lo zaino, lo riordini e **sposti gli oggetti tra uno zaino e un contenitore aperto, nei due versi**. Prendere oggetti dalla tavolozza resta solo della creativa.
@@ -98,12 +112,23 @@ Raggio d'azione e linea di vista valgono in entrambe: **5 blocchi** per scavare 
 
 I tasti contano nel momento in cui inizi a trascinare. Mentre la finestra è aperta la pila non si muove.
 
-- **Unire.** Lasciando un oggetto sopra uno **uguale** (stesso tipo) i due diventano una pila sola, fino al **massimo della pila**. Quello che non ci sta resta dov'era, al suo posto. Se la pila di arrivo è già piena, o l'oggetto è diverso, il gioco rifiuta con un avviso. Vale nei contenitori e nello zaino; sulla barra rapida, che per ora tiene riferimenti a blocchi e non oggetti, vale la regola di prima.
+- **Unire.** Lasciando un oggetto sopra uno **uguale** (stesso tipo) i due diventano una pila sola, fino al **massimo della pila**. Quello che non ci sta resta dov'era, al suo posto. Se la pila di arrivo è già piena, o l'oggetto è diverso, il gioco rifiuta con un avviso. Vale nei contenitori e nello zaino. Sulla barra rapida non si unisce niente: tiene scorciatoie, non oggetti (vedi sotto).
 - **In creativa**, un blocco preso dalla tavolozza e lasciato su una pila uguale **si somma** alla pila, fino al massimo.
-- **Icona doppia.** Una pila di 2 o più si disegna con la sua icona **due volte**, la seconda poco spostata accanto alla prima, come in Ultima Online; la quantità resta scritta sull'angolo. Tavolozza e barra rapida mostrano una sola icona.
+- **Icona doppia.** Una pila di 2 o più si disegna con la sua icona **due volte**, la seconda poco spostata accanto alla prima, come in Ultima Online; la quantità resta scritta sull'angolo. Tavolozza e barra rapida mostrano una sola icona; in sopravvivenza una casella della barra rapida mostra l'icona e, sopra, quanti oggetti di quel tipo hai nello zaino.
 - **Il server decide.** Come per ogni spostamento, la vista cambia solo quando il server risponde: se rifiuta, la pila resta com'era. Ogni divisione e unione è registrata nel libro mastro degli oggetti, così nessun oggetto si perde né si duplica.
 
 Fonte tecnica: ADR-0039, emendamento dell'08/11/2026; per le pile [ADR-0040](https://github.com/Soulslands/soulslands-game/blob/main/docs/adr/0040-stacks-split-merge.md). Per i contenitori come blocchi vedi [Blocchi da costruzione](/wiki/blocchi-costruzione).
+
+### Barra rapida e slot rapidi in sopravvivenza
+
+**Deciso da Aruto (17/11/2026):** in sopravvivenza la barra rapida ha nove scorciatoie verso gli oggetti dello zaino, con il numero che ne hai; l'oggetto resta nello zaino. I quattro slot rapidi, accanto alla barra rapida, funzionano allo stesso modo.
+
+- **Cosa tiene una casella.** Un **tipo** di oggetto (per esempio le assi di quercia), mai un oggetto preciso né una quantità. Lo stesso tipo può stare in più caselle. Le scorciatoie si salvano sul tuo computer per ogni mondo e ogni server; il server non le conosce.
+- **Assegnare.** Trascina un oggetto dallo zaino, da una cassa o da terra sopra una casella: la casella prende quel tipo e l'oggetto non si sposta. Oppure tieni il puntatore sopra un oggetto e premi un numero `1`-`9` o il tasto di uno slot rapido (`Z`, `X`, `C`, `V` di partenza). Trascinando una casella su un'altra le scambi; lasciandola altrove la svuoti.
+- **Il numero.** Ogni casella mostra quanti oggetti di quel tipo ci sono nello zaino, anche 1 e 0 (oltre 999 scrive `999+`). A 0 la casella diventa grigia.
+- **Il tasto d'uso** (tasto destro), nell'ordine: usa il blocco mirato se si apre o si accende (una cassa, una porta, una lampada), a meno che tu non tenga premuto Maiusc; altrimenti, con la casella scelta, **piazza** il blocco di quel tipo spendendone uno dallo zaino, **mangia** un cibo, **riempie** la borraccia mirando l'acqua dolce o **beve** un sorso. Con una casella vuota, o che non ha niente da fare, mirando l'acqua dolce bevi dalle mani (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria)).
+- **Gli slot rapidi** usano il loro tipo con il loro tasto, senza cambiare la casella scelta della barra rapida.
+- **In creativa** la barra rapida tiene i blocchi del catalogo, senza numero, e gli slot rapidi restano vuoti.
 
 ---
 
@@ -156,7 +181,7 @@ Rompendo una cassa che contiene oggetti, **anche in creativa**, il contenuto vol
 
 ### Piazzare in sopravvivenza
 
-**Deciso da Aruto (10/11/2026):** in sopravvivenza piazzare un blocco **prende un oggetto di quel blocco dallo zaino**. Se nello zaino non c'è, il blocco non si piazza e il gioco lo dice. In creativa si piazza gratis, come sempre. Finché non arriva la barra rapida con gli oggetti veri, in sopravvivenza il tasto destro piazza **l'ultimo blocco che hai scavato** (se non ne hai scavato nessuno, una copia del blocco che miri), sempre spendendolo dallo zaino.
+**Deciso da Aruto (10/11/2026):** in sopravvivenza piazzare un blocco **prende un oggetto di quel blocco dallo zaino**. Se nello zaino non c'è, il blocco non si piazza e il gioco lo dice. In creativa si piazza gratis, come sempre. Il tasto destro piazza il blocco della **casella scelta della barra rapida** (vedi "Barra rapida e slot rapidi in sopravvivenza"); l'ultimo blocco scavato non si piazza più da solo.
 
 ### Quanto restano
 
@@ -188,7 +213,7 @@ L'albero è nel file `creative/tree.toml` del pacchetto base del gioco e questa 
 
 - **Cerca.** Il campo in alto cerca mentre scrivi (scrivere dove capita apre il campo da solo). Trova una voce se il testo è contenuto nel suo nome nella tua lingua, nel suo id (`soulslands:oak_planks`) o nel nome di una sua variante; maiuscole e accenti non contano. I risultati sono senza intestazioni, nell'ordine del catalogo.
 - **Blocchi.** Trascini una casella su una casella della barra rapida, oppure premi un numero `1`-`9` con il mouse sopra la casella: quel posto prende il blocco (la variante scelta, se c'è il selettore sotto la griglia). Poi il tasto destro lo piazza. Il tasto centrale continua a copiare il blocco che stai mirando.
-- **Oggetti.** Le voci che sono oggetti senza un blocco (gemme, minerali grezzi, semi, reagenti...) non vanno sulla barra rapida, che per ora tiene solo blocchi: la loro descrizione lo dice. Puoi però trascinare **qualsiasi voce, blocchi e oggetti**, nello zaino o in una cassa aperti, nel punto in cui la lasci (con Maiusc una pila intera, come nelle regole sopra). Un oggetto trascinato dallo zaino o da una cassa sul catalogo viene eliminato.
+- **Oggetti.** Le voci che sono oggetti senza un blocco (gemme, minerali grezzi, semi, reagenti...) non vanno sulla barra rapida, che in creativa tiene solo blocchi: la loro descrizione lo dice. Puoi però trascinare **qualsiasi voce, blocchi e oggetti**, nello zaino o in una cassa aperti, nel punto in cui la lasci (con Maiusc una pila intera, come nelle regole sopra). Un oggetto trascinato dallo zaino o da una cassa sul catalogo viene eliminato.
 - **Blocchi gratis.** Tutto è illimitato e gratuito, come per il resto della creativa.
 
 ---
@@ -234,7 +259,9 @@ Il mondo si salva in tre modi (dettagli in [Persistenza del mondo](/wiki/persist
 2. **Con il pulsante Salva** del menu di pausa (`Esc`): sotto il pulsante compare "Ultimo salvataggio alle 14:32:05", oppure "Non ancora salvato" se non è successo niente, e "Salvataggio..." mentre aspetti.
 3. **Quando esci**: "Salva ed esci al titolo" e la chiusura della finestra salvano prima di chiudere, con una schermata "Salvataggio del mondo". Su un server remoto escono semplicemente dal server.
 
-Il personaggio salva posizione, sguardo, modalità e se sta volando; al rientro ritrovi tutto com'era. Per ora il menu di pausa **non ferma** il mondo: in sopravvivenza fame, sete e pericoli continuano anche col menu aperto. Con un aggiornamento successivo, da solo, il menu di pausa fermerà il mondo; su un server non lo ferma mai.
+Il personaggio salva posizione, sguardo, modalità e se sta volando, e in sopravvivenza anche vita, stamina, fame, sete e se stava cadendo; al rientro ritrovi tutto com'era.
+
+**La pausa.** Da solo il menu di pausa **ferma il mondo** e mostra "Game paused": fame, sete, aria, danni, il minuto del fantasma, il tempo dei corpi e degli oggetti a terra si fermano tutti. Il salvataggio funziona anche in pausa. Su un server il menu di pausa non ferma niente, nemmeno per gli admin.
 
 ---
 

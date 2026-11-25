@@ -113,11 +113,15 @@ Nelle acque profonde il buio è totale, ed è lì che l'oceano custodisce le sue
 
 ## 🏊 Nuotare e respirare
 
-- Ogni personaggio può **nuotare** in superficie senza limiti, ma con stamina che cala più in fretta se porta armature pesanti.
-- Sott'acqua il personaggio ha una **riserva d'aria** di circa 30 secondi; finita l'aria perde vita ogni secondo.
-- Pozioni di respirazione, elmi con bolla d'aria e incantesimi allungano l'apnea.
-- Con un'armatura di piastre non si galleggia: si affonda lentamente.
-- Gli oggetti caduti in acqua affondano fino al fondale, dove si possono recuperare.
+**Deciso da Aruto (17/11/2026):** si nuota, l'aria dura 30 secondi e l'acqua di mare è un blocco a sé, salato, che non si beve.
+
+- **Nuotare.** In acqua ti muovi a circa 2 blocchi al secondo. Se resti fermo affondi piano; il tasto di salto ti fa salire, Maiusc ti fa scendere. Per uscire basta nuotare contro una riva alta al massimo 1 blocco sopra l'acqua: il personaggio ci sale da solo; da 1 blocco e mezzo in su la riva ti trattiene.
+- **Stamina e fatica.** Nuotare costa 1 di stamina al secondo e un po' di fatica per ogni blocco, ma non rallenta mai, nemmeno con la stamina in debito (vedi [Fame, sete e aria](/wiki/fame-sete-e-aria#cosa-costa-stamina)).
+- **L'aria.** Conta solo dove sono gli occhi: con la testa sott'acqua l'aria scende e la vista si tinge del colore dell'acqua. La riserva dura **30 secondi**; finita, perdi **10 punti vita al secondo** finché non riemergi. Fuori dall'acqua torna piena in 2 secondi. Lo stesso vale con la testa dentro un [gas](/wiki/gas). Annegare uccide in ogni difficoltà.
+- **L'acqua di mare non si beve.** Il mare è fatto di **acqua di mare** (`sea_water`), un blocco diverso dall'acqua dolce dei fiumi e dei laghi: è salata, e mirandola il gioco risponde "You cannot drink that.". Non riempie nemmeno la borraccia: per bere cerca un fiume, un lago o una sorgente (vedi [Laghi e fiumi](/wiki/laghi-e-fiumi)). Dove la lava tocca l'acqua di mare nasce vapore, come con l'acqua dolce.
+- **Dove c'è.** Tutti i biomi oceanici, le [spiagge](/wiki/bioma-coste) e le [mangrovie](/wiki/bioma-mangrovie) hanno acqua di mare; fiumi, laghi, l'acqua nelle grotte e le sorgenti restano dolci. L'acqua di mare prende il colore dell'acqua del bioma; dove un fiume sfocia in mare si può vedere una linea tra le due acque.
+- **Chi muore in mare** lascia il corpo sul fondale, dove resta (vedi [Morte e fantasmi](/wiki/morte-e-fantasmi)). Gli oggetti caduti in acqua affondano fino al fondale, dove si possono recuperare.
+- **Più avanti:** armature pesanti che fanno calare la stamina più in fretta e con le piastre fanno affondare, pozioni di respirazione, elmi con bolla d'aria e incantesimi che allungano l'apnea.
 
 ---
 
